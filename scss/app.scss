@@ -1,5 +1,6 @@
 @import "settings";
 @import "foundation";
+@import "foundation/components/tables";
 
 // Or selectively include components
 // @import
@@ -38,3 +39,19 @@
 //   "foundation/components/type",
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
+
+body,html{
+    height:100%;
+    width:100%;
+    background-color: #f2f2f2
+}
+.off-canvas-wrap,.inner-wrap{
+    height:100%;   
+}
+.page{
+    height:100%;   
+}
+
+table tr:nth-of-type(even) {
+background: #f9f9f9;
+}
