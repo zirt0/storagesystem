@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
      $array_result = array();
     while($row = $result->fetch_assoc()) {
     	$array_result[] = $row;
-        echo "id: " . $row["id"]. " - Name: " . $row["name"]. " " . $row["password"]. "<br>";
+        //echo "id: " . $row["id"]. " - Name: " . $row["name"]. " " . $row["password"]. "<br>";
     }
 } else {
     echo "0 results";

@@ -55,3 +55,17 @@ body,html{
 table tr:nth-of-type(even) {
 background: #f9f9f9;
 }
+
+.kenteken{
+	background-color: #FFD400;
+    display: inline;
+    border-radius: 6px;
+    border: 1px solid darkblue;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 8px 20px;
+}
+
+select  { 
+	text-transform: capitalize;
+}

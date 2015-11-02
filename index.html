@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Foundation</title>
+  <title>StorageSystem</title>
   <link rel="stylesheet" href="stylesheets/app.css" />
   <script src="bower_components/modernizr/modernizr.js"></script>
 </head>
@@ -26,17 +26,23 @@
           <ul class="off-canvas-list">
             <li><label>Foundation</label></li>
             <li><a href="#/dashboard">Dashboard</a></li>
-            <li><a href="#">Klanten</a></li>
-            <li><a href="#">Opslag</a></li>
+            <li><a href="#/customers">Klanten</a></li>
+            <li><a href="#/storage">Opslag</a></li>
+            <li><a href="#/contracts">Contracten</a></li>
+            <li><a class="button" href="#/new-product">Nieuw product</a></li>
             <li><label>Instellingen</label></li>
             <li><a href="#/users">Users</a></li>
             <li><a href="#/storage-management">Opslag management</a></li>
+            <li><a href="#/Instellingen">Instellingen</a></li>
           </ul>
         </aside>
-        <section class="main-section">
+        <section class="main-section" ng-controller="overall">
+        
           <div ng-view>
                 
           </div>
+
+          <button class="nav-header" ng-click="doTheBack()">terug</button>
         </section>
         <a class="exit-off-canvas"></a>
       </div>

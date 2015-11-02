@@ -1,0 +1,27 @@
+<div class="small-12 columns">
+	<h1>Storage</h1>
+	<div class="panel">
+		<table>
+		<tr>
+			<th>id</th>
+			<th>Klant</th>
+			<th>Cointainer</th>
+			<th>Positie</th>
+			<th>Start Datum</th>
+			<th>Eind Datum</th>
+			<th>Medewerker</th>
+			<th>Actie</th>
+		</tr>
+		<tr ng-repeat="x in container">
+		    <td>{{ x.id }}</td>
+		    <td>{{ x.company }}</td>
+		    <td>{{ x.name }}</td>
+		    <td>{{ x.place_name }}</td>
+		    <td>{{ x.start_date }}</td>
+		    <td>{{ x.end_date }}</td>
+		    <td>Adem</td>
+		    <td><button class="round tiny button succes">Bekijk</button></td>
+		</tr>
+		</table>
+	</div>
+</div>
