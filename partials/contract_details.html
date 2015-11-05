@@ -1,0 +1,50 @@
+<div class="small-12 columns">
+
+{{$adem}}
+<table ng-repeat="x in contractDetail" width="100%">
+	<tr>
+		<th>
+			<h1><a href="#/customers/{{x.customer_id }}">{{x.company}}</a></h1> 
+		</th>
+	</tr>
+	<tr>
+		<td>ID</td>
+		<td>{{x.id}}</td>
+	</tr>
+	<tr>
+		<td>Brand Profiel</td>
+		<td>{{x.tire_profile}}</td>
+	</tr>
+	<tr>
+		<td>Sezoen</td>
+		<td>{{x.sezon}}  {{sezon(x.sezon)}} <img src='/partials/snowflake1.png'> </td>
+	</tr>
+	<tr>
+		<td>Start Datum</td>
+		<td>{{x.start_date}}</td>
+	</tr>
+	<tr>
+		<td>Eind Datum</td>
+		<td>{{x.end_date}}</td>
+	</tr>
+	<tr>
+		<td>Comment</td>
+		<td>{{x.comment}}</td>
+	</tr>
+
+	<tr>
+		<th><h3>Positie</h3></td>
+	</tr>
+	<tr>
+		<td>Container</td>
+		<td>Aangeven welke container</td>
+	</tr>
+	<tr>
+		<td>Positie</td>
+		<td>Aangeven welke positie in container</td>
+	</tr>
+
+</table>
+<a class="button" href="javascript:window.print()"> <i class="fa fa-print"></i> Print This Page</a>
+
+</div>

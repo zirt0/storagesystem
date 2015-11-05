@@ -1,10 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="en" ng-app="APP">
 <head>
+  <base href="/">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StorageSystem</title>
   <link rel="stylesheet" href="stylesheets/app.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.map.css" />
   <script src="bower_components/modernizr/modernizr.js"></script>
 </head>
 <body>
@@ -33,7 +36,7 @@
             <li><label>Instellingen</label></li>
             <li><a href="#/users">Users</a></li>
             <li><a href="#/storage-management">Opslag management</a></li>
-            <li><a href="#/Instellingen">Instellingen</a></li>
+            <li><a href="/">Instellingen</a></li>
           </ul>
         </aside>
         <section class="main-section" ng-controller="overall">
@@ -44,7 +47,7 @@
 
           <button class="nav-header" ng-click="doTheBack()">terug</button>
         </section>
-        <a class="exit-off-canvas"></a>
+        <!-- <a class="exit-off-canvas"></a> -->
       </div>
     </div>
   </row>

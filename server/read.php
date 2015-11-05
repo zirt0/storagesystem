@@ -7,6 +7,7 @@ $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
 $subject = $request->subject;
 $customerId = $request->customerId;
+$contractId = $request->contractId;
 
 //print $subject;
 
@@ -24,9 +25,6 @@ if($subject == "customers"){
 	    $outp .= '"lname":"'. $rs["lname"]     . '"}'; 
 	}
 	$outp ='{"records":['.$outp.']}';
-	
-	
-
 }
 
 if($subject == "customerInfo"){
@@ -69,10 +67,11 @@ if($subject == "users"){
 
 if($subject == "container"){
 
-	$sql = "SELECT container_content.id, container_content.place_name, container_content.container_id, container_content.status, container.name, contracts.customer_id, contracts.start_date, contracts.end_date, customers.company
+	$sql = "SELECT users.name as employer, container_content.id, container_content.place_name, container_content.container_id, container_content.status, container.name, contracts.id as contract_id, contracts.customer_id, contracts.start_date, contracts.end_date, customers.company
 			FROM container_content
-			JOIN contracts ON container_content.contracts_id=contracts.id
-			JOIN customers ON contracts.customer_id=customers.id
+			LEFT JOIN contracts ON container_content.contracts_id=contracts.id
+			LEFT JOIN customers ON contracts.customer_id=customers.id
+			LEFT JOIN users ON contracts.id = users.name
 			JOIN container ON container_content.container_id=container.id" ;
 	$result = $conn->query($sql);
 
@@ -83,9 +82,12 @@ if($subject == "container"){
 	    $outp .= '{"id":"' . $rs["id"] . '",';
 	    $outp .= '"company":"' . $rs["company"] . '",';
 	    $outp .= '"place_name":"' . $rs["place_name"] . '",';
-	    $outp .= '"name":"' . $rs["name"] . '",';//name of the container
+	    $outp .= '"name":"' . $rs["name"] . '",';//name of the container contract_id
 	    $outp .= '"start_date":"' . $rs["start_date"] . '",';
 	    $outp .= '"end_date":"' . $rs["end_date"] . '",';
+	    $outp .= '"customer_id":"' . $rs["customer_id"] . '",';
+	    $outp .= '"contract_id":"' . $rs["contract_id"] . '",';
+	    $outp .= '"employer":"' . $rs["employer"] . '",';
 	    $outp .= '"status":"'. $rs["status"]     . '"}'; 
 	}
 	$outp = $$outp ='{"records":['.$outp.']}'; ;
@@ -93,11 +95,13 @@ if($subject == "container"){
 
 if($subject == "contracts"){
 
-	$sql = "SELECT container_content.id, container_content.place_name, container_content.container_id, container_content.status, container.name, contracts.customer_id, contracts.start_date, contracts.end_date, customers.company
+	//sort contracts on end date
+	$sql = "SELECT container_content.id, container_content.place_name, container_content.container_id, container_content.status, container.name, contracts.id as contract_id,  contracts.customer_id, contracts.start_date, contracts.end_date, customers.company, users.name
 			FROM container_content
 			JOIN contracts ON container_content.contracts_id=contracts.id
 			JOIN customers ON contracts.customer_id=customers.id
 			JOIN container ON container_content.container_id=container.id
+			JOIN users ON contracts.employer = users.id
 			ORDER BY end_date ASC" ;
 	$result = $conn->query($sql);
 
@@ -108,12 +112,45 @@ if($subject == "contracts"){
 	    $outp .= '{"id":"' . $rs["id"] . '",';
 	    $outp .= '"company":"' . $rs["company"] . '",';
 	    $outp .= '"place_name":"' . $rs["place_name"] . '",';
-	    $outp .= '"name":"' . $rs["name"] . '",';//name of the container
+	    $outp .= '"name":"' . $rs["name"] . '",';//name of the container contract_id
 	    $outp .= '"start_date":"' . $rs["start_date"] . '",';
 	    $outp .= '"end_date":"' . $rs["end_date"] . '",';
+	    $outp .= '"contract_id":"' . $rs["contract_id"] . '",';
+	    $outp .= '"user_name":"' . $rs["name"] . '",';
 	    $outp .= '"status":"'. $rs["status"]     . '"}'; 
 	}
 	$outp = $$outp ='{"records":['.$outp.']}'; ;
+}
+
+if($subject == "contractdetail"){
+
+	//sort contracts on end date
+	$sql = 'SELECT tires.id, tires.sezon, tires.tire_profile, tires.type, tires.comment, contracts.start_date, contracts.end_date, customers.company, customers.id as customer_id FROM tires
+JOIN contracts ON tires.contract_id = contracts.id
+JOIN customers ON contracts.customer_id = customers.id
+WHERE contract_id =' . $contractId;
+	$result = $conn->query($sql);
+
+	$outp = "";
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    
+	    $outp .= '{"id":"' . $rs["id"] . '",';
+	    $outp .= '"tire_profile":"' . $rs["tire_profile"] . '",';
+	    $outp .= '"sezon":"' . $rs["sezon"] . '",';
+	    $outp .= '"type":"' . $rs["type"] . '",';
+	   	$outp .= '"start_date":"' . $rs["start_date"] . '",';
+	    $outp .= '"end_date":"' . $rs["end_date"] . '",';
+	    $outp .= '"company":"' . $rs["company"] . '",';
+	    $outp .= '"customer_id":"' . $rs["customer_id"] . '",';
+	    $outp .= '"comment":"'. $rs["comment"]     . '"}'; 
+	    //$outp = "adeemm";
+	    
+	}
+	 $outp ='{"records":['.$outp.']}'; ;
+	//$outp = $adem ;
+
+	//$outp = $sql;
 }
 
 $conn->close();

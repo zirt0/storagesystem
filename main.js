@@ -37,6 +37,11 @@
 				controller:'contractsCtrl'
 
 			})
+			.when('/contracts/:id',{
+				templateUrl:'partials/contract_details.html',
+				controller:'contractsDetailsCtrl'
+
+			})
 			.when('/users',{
 				templateUrl:'partials/users.html',
 				controller:'usersCtrl'
@@ -51,6 +56,8 @@
 				redirectTo:'/'
 			});
 	});
+
+	
 
 	app.controller('overall', function($scope){
 		//console.log("hoerraa!");
@@ -73,16 +80,23 @@
     		//today = today.toString();
     		///return today;
     	}
+    	$rootScope.mySplit = function(string, nb) {
+		    $scope.array = string.split(',');
+		    return $scope.result = $scope.array[nb];
+		}
+
+		$rootScope.sezon = function(sezon){
+			if(sezon == "zomer"){
+				return "<img src='/lib/img/snowflake'>";
+			}else{
+				return "Yeaah it is Winter, WinterPicture";
+			}
+
+		}
 
     });
 
-
 	app.controller('customerInfo', ['$scope', '$http' , '$routeParams', function ($scope, $http,  $routeParams) {
-
-		$scope.doTheBack1 = function() { 
-			window.history.back();
-			console.log("go back");
-		};
 
 		$scope.idCustomers = $routeParams.id;
 
@@ -96,6 +110,7 @@
 
 	   	});
 	}]);
+
 	app.controller('checkCustomer', ['$scope', '$http', '$routeParams', function ($scope, $http ) {
 		
 		//$http.get("server/read.php")
@@ -129,7 +144,6 @@
 	   		$scope.adem = response;
 	   	
 	   	});
-	
 	});
 
 	app.controller('containerCtrl', function($scope, $http) {
@@ -143,8 +157,8 @@
 	   		$scope.container = response.records;
 	   	
 	   	});
-	
 	});
+	
 	app.controller('contractsCtrl', function($scope, $http) {
 	   
 	   $scope.today = new Date();
@@ -156,8 +170,56 @@
 	   		$scope.container = response.records;
 	   	
 	   	});
-	
 	});
+
+
+	app.controller('contractsDetailsCtrl', ['$scope', '$http' , '$routeParams', function ($scope, $http,  $routeParams) {
+
+		
+		$scope.idContract = "" + $routeParams.id + "";
+		console.log($scope.idContract);
+		$tire_profile = "asdasd";
+
+		$http.post("server/read.php",{'subject': "contractdetail", 'contractId': $scope.idContract})
+	   .success(function (response) {
+	   		console.debug(response);
+
+	   		$scope.contractDetail = response.records;
+
+	   		for (var key in $scope.contractDetail) {
+			   if ($scope.contractDetail.hasOwnProperty(key)) {
+			       var obj = $scope.contractDetail[key];
+			        for (var prop in obj) {
+			          // important check that this is objects own property 
+			          // not from prototype prop inherited
+			          if(obj.hasOwnProperty(prop)){
+			            console.debug(prop + " = " + obj[prop]);
+			            if(prop == "tire_profile"){
+
+
+			            	$tire_profile = obj[prop];
+			            	//$scope.$apply();
+			            	//console.log($tire_profile);
+			            }
+
+
+			          }
+			       }
+			    }
+			}
+
+		// $scope.$apply(function() {
+   		//	$tire_profile = $tire_profile;
+		//    });
+			//$tire_profile = $tire_profile;
+			console.log($tire_profile);
+	   		//$scope.tires = $scope.container['tire_profile'];
+	   		//console.debug($scope.tires);
+	   	
+	   	});
+	   $adem = "sdfsd";
+
+	}]);
 
 	app.controller('usersCtrl', function($scope, $http) {
 	   

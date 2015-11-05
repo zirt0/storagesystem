@@ -1,6 +1,5 @@
 <div class="small-12 columns">
-	<h1>Contracts</h1>
-	{{dateDiff(as)}}
+	<h1>Contracten</h1>
 	<div class="panel">
 		<table>
 		<tr>
@@ -20,9 +19,9 @@
 		    <td>{{ x.place_name }}</td>
 		    <td>{{ x.start_date }}</td>
 		    <td>{{ x.end_date }}</td>
-		    <td>Adem</td>
+		    <td>{{ x.name }}</td>
 
-		    <td><button class="round tiny button succes">Bekijk</button></td>
+		    <td><a href="#/contracts/{{x.contract_id}}" class="round tiny button succes"> Bekijk </a></td>
 		</tr>
 		</table>
 	</div>
