@@ -40,17 +40,16 @@
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
 
-body,html{
+body{
     height:100%;
     width:100%;
     background-color: #f2f2f2;
-    //background-image: url('../lib/img/tiretrack.png');
+    background-image: url('http://www.adsnelkoeriers.nl/wp-content/uploads/2015/03/adsnel_koerier_haarlem_fast_track.png');
+    background-repeat: no-repeat;
+    background-position: 100%;
 }
-.off-canvas-wrap,.inner-wrap{
-    height:100%;   
-}
-.page{
-    height:100%;   
+table{
+    width: 100%;
 }
 
 table tr:nth-of-type(even) {

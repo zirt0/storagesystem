@@ -1,6 +1,6 @@
 <div class="small-12 columns">
 
-{{$adem}}
+
 <table ng-repeat="x in contractDetail" width="100%">
 	<tr>
 		<th>
@@ -13,11 +13,11 @@
 	</tr>
 	<tr>
 		<td>Brand Profiel</td>
-		<td>{{x.tire_profile}}</td>
+		<td>{{x.tire_profile}} {{splitTireProfile(1)}}</td>
 	</tr>
 	<tr>
 		<td>Sezoen</td>
-		<td>{{x.sezon}}  {{sezon(x.sezon)}} <img src='/partials/snowflake1.png'> </td>
+		<td>{{x.sezon}}  {{sezon(x.sezon)}} <img src='../#/partials/snowflake1.png'> </td>
 	</tr>
 	<tr>
 		<td>Start Datum</td>
@@ -45,6 +45,7 @@
 	</tr>
 
 </table>
+
 <a class="button" href="javascript:window.print()"> <i class="fa fa-print"></i> Print This Page</a>
 
 </div>

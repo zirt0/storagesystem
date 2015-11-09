@@ -10,9 +10,9 @@ $tirebrand = $request->tirebrand;
 
 //print $subject;
 
-if($subject == "insert_tire"){
+if($subject == "remove_tire"){
 
-	$sql = "INSERT INTO tire_brand (brand) VALUES ('".$tirebrand."')";
+	$sql = "DELETE FROM tire_brand WHERE brand=" . "'".$tirebrand . "'";
 	$result = $conn->query($sql);
 	$outp = $sql;
 }

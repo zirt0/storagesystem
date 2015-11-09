@@ -1,31 +1,161 @@
 <div class="panel">
+	<h1>Contract Maken</h1>
 		<table width="100%">
 			<tr>
 				<td>Bedrijf</td>
-				<td><input type="text" name="company"></td>
-			</tr>
-			<tr>
-				<td>Bandenmerk</td>
 				<td>
-					<select name="bandenmerk" id="bandenmerk">
-						<option value="continental">continental</option>
-						<option value="michelin">michelin</option>
-						<option value="lassa">lassa</option>
-					</select>
-				</td>
+					<div class="small-10 columns">
+					<!-- <input type="text" name="company"> -->
+						<input id="ex1"
+	              placeholder="Search Company"
+	              pause="100"
+	              selectedobject="customers"
+	              searchfields="company, fname"
+	              titlefield="company"
+	              minlength="1"
+	              inputclass="form-control form-control-small"/>
+         			</div>
+         			<div class="small-2 columns">
+         				<button class="button tiny"> voeg toe</button>
+         			</div>
+          		</td>
 			</tr>
 			<tr>
 				<td>Sezoen</td>
 				<td>
+					<div class="small-12 columns">
 					<select name="sezoen" id="bandenmerk">
 						<option value="zomer">zomer</option>
 						<option value="winter">winter</option>
 					</select>
+				</div>
+				</td>
+			</tr>
+			<!-- <tr>
+				<td>Bandenmerk</td>
+				<td>
+					<div class="small-12 columns">
+						<input type="checkbox" name="bandenmaat" ng-checked="viermerk"> 4 Banden hetzelfde merk <br>
+					</div>
+					<div class="small-3 columns">
+						<select name="bandenmerk" id="bandenmerk">
+							<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
+						</select>
+					</div>
+					<div class="small-3 columns">
+						<select name="bandenmerk" id="bandenmerk">
+							<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
+						</select>
+					</div>
+					<div class="small-3 columns">
+						<select name="bandenmerk" id="bandenmerk">
+							<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
+						</select>
+					</div>
+					<div class="small-3 columns">
+						<select name="bandenmerk" id="bandenmerk">
+							<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
+						</select>
+					</div>
+				</td>
+			</tr> -->
+			<!-- <tr>
+				<td>Bandenmaat</td>
+				<td>
+					<div class="small-12 columns">
+						<input type="checkbox" name="bandenmaat" ng-checked="vierprofiel"> 4 Banden hetzelfde profiel<br>
+					</div>
+					<div class="small-3 columns">
+						<label for="voorlinks">Voor Links</label>
+						<input type="text" name="bandenmaat1" ng-model="bandenmaat">
+					</div>
+					<div class="small-3 columns">
+						<label for="voorlinks">Voor Rechts</label>
+						<input type="text" name="bandenmaat2" ng-model="bandenmaat">
+					</div>
+					<div class="small-3 columns">
+						<label for="voorlinks">Achter Links</label>
+						<input type="text" name="bandenmaat3" ng-model="bandenmaat">
+					</div>
+					<div class="small-3 columns">
+						<label for="voorlinks">Achter Rechts</label>
+						<input type="text" name="bandenmaat4" ng-model="bandenmaat">
+					</div>
+				</td>
+			</tr> -->
+			<tr>
+				<td>
+					Banden Eigenschappen
+				</td>
+				<td>
+					<div class="small-3 columns">
+						<input type="checkbox" name="bandenmaat" ng-checked="vierprofiel"> 4 Banden hetzelfde profiel
+					</div>
+					<div class="small-3 columns">
+						<input type="checkbox" name="bandenmaat" ng-checked="viermerk"> 4 Banden hetzelfde merk <br>
+					</div>
+					<div class="small-12 columns">
+						<div class="small-4 columns">
+							<h3>Rechts Voor</h3>
+							<input type="text" name="bandenmaat4" ng-model="bandenmaat">
+							<select name="bandenmerk" id="bandenmerk">
+								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
+							</select>
+						</div>
+						<div class="small-4 columns">
+							
+						</div>
+						<div class="small-4 columns">
+							<h3>Rechts Achter</h3>
+							<input type="text" name="bandenmaat4" ng-model="bandenmaat">
+							<select name="bandenmerk" id="bandenmerk">
+							<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
+						</select>
+						</div>
+					</div>
+					<div class="small-12 columns" style="text-align: center;">
+						
+						
+							<img src="http://www.cliparthut.com/clip-arts/1161/car-top-view-1161320.jpg" alt="">
+					
+					</div>
+					<div class="small-12 columns">
+						<div class="small-4 columns">
+							<h3>Links Voor</h3>
+							<input type="text" name="bandenmaat4" ng-model="bandenmaat">
+							<select name="bandenmerk" id="bandenmerk">
+								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
+							</select>
+						</div>
+						<div class="small-4 columns">
+							
+						</div>
+						<div class="small-4 columns">
+							<h3>Links Achter</h3>
+							<input type="text" name="bandenmaat4" ng-model="bandenmaat">
+							<select name="bandenmerk" id="bandenmerk">
+								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
+							</select>
+						</div>
+					</div>
 				</td>
 			</tr>
 			<tr>
-				<td>Bandenmaat</td>
-				<td><input type="text" name="bandenmaat"></td>
+				<td>Contractduur</td>
+				<td>
+					<div class="small-4 columns">
+						<select name="sezoen" id="bandenmerk">
+							<option value="zesmaanden">6 maanden</option>
+							<option value="twaalfmaanden">12 maanden</option>
+						</select>
+					</div>
+					<div class="small-4 columns">
+						<input type="date" name="startdate" id="startdate" ng-model="startdate">
+					</div>
+					<div class="small-4 columns">
+						<input type="date" name="enddate" id="enddate" ng-model="enddate">
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Foto</td>

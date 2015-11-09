@@ -1,4 +1,4 @@
-	var app = angular.module('APP',['ngRoute']);
+	var app = angular.module('APP',['ngRoute', 'ngTagsInput']);
 	
 	app.config(function($routeProvider){
 
@@ -24,7 +24,12 @@
 			})
 			.when('/new-product',{
 				templateUrl:'partials/new-product.html',
-				controller:'newProduct'
+				controller:'newProductCtrl'
+
+			})
+			.when('/new-customer',{
+				templateUrl:'partials/new-customer.html',
+				controller:'newCustomerCtrl'
 
 			})
 			.when('/storage',{
@@ -52,8 +57,14 @@
 				controller:'testdb'
 
 			})
+
+			.when('/settings',{
+				templateUrl:'partials/settings.html',
+				controller:'settingsCtrl'
+
+			})
 			.otherwise({
-				redirectTo:'/'
+				//redirectTo:'/'
 			});
 	});
 
@@ -80,10 +91,6 @@
     		//today = today.toString();
     		///return today;
     	}
-    	$rootScope.mySplit = function(string, nb) {
-		    $scope.array = string.split(',');
-		    return $scope.result = $scope.array[nb];
-		}
 
 		$rootScope.sezon = function(sezon){
 			if(sezon == "zomer"){
@@ -124,6 +131,56 @@
 	   	});
 	}]);
 
+
+	app.controller('newProductCtrl', function($scope, $http){
+		var today = new Date();
+	    var dd = today.getDate();
+	    var mm = today.getMonth()+1; //January is 0!
+
+	    var yyyy = today.getFullYear();
+	    if(dd<10){
+	        dd='0'+dd
+	    } 
+	    if(mm<10){
+	        mm='0'+mm
+	    } 
+	    var today = dd+'-'+mm+'-'+yyyy;
+
+		$scope.startdate = new Date(today);
+		$scope.enddate = Date.today().add(6).months();;
+
+		console.debug("Helloooo");
+		$scope.viermerk = true;
+		$scope.vierprofiel = true;
+
+		
+		console.log($scope.stardate);
+
+		$scope.bandenmaat = "";
+
+		$http.post("server/read.php",{'subject': "customers"})
+        	.success(function (response){
+        		$scope.customers = response.records;
+           		 console.log($scope.customers);
+        });
+
+		$http.post("server/read.php",{'subject': "tire_brands"})
+        	.success(function (response){
+        		$scope.allbrands = response.records;
+           		 console.log(" Successfully" + $scope.allbrands);
+        });
+	});
+
+	app.controller('newCustomerCtrl', function($scope, $http){
+		
+		// console.debug("Helloooo");
+		// $http.post("server/read.php",{'subject': "tire_brands"})
+  //       	.success(function (response){
+  //       		$scope.allbrands = response.records;
+  //          		 //console.log(" Successfully" + $scope.allbrands);
+  //       });
+	});
+
 	app.controller('AboutController', function($scope, $http){
 		
 		console.debug("Helloooo");
@@ -160,11 +217,16 @@
 	});
 	
 	app.controller('contractsCtrl', function($scope, $http) {
-	   
-	   $scope.today = new Date();
-	   //$http.get("http://storagesystem.nl:8888/test.php")
-	   $http.post("server/read.php",{'subject': "contracts"})
-	   .success(function (response) {
+	   	$scope.adem1 = "naberrr";
+	   	$scope.today = new Date();
+
+	   	$scope.sortType     = 'klant'; // set the default sort type
+		$scope.sortReverse  = true;  // set the default sort order
+		$scope.searchCustomer   = '';     // set the default search/filter term
+  
+	   	//$http.get("http://storagesystem.nl:8888/test.php")
+	   	$http.post("server/read.php",{'subject': "contracts"})
+	   	.success(function (response) {
 	   		console.debug(response);
 
 	   		$scope.container = response.records;
@@ -172,17 +234,28 @@
 	   	});
 	});
 
-
 	app.controller('contractsDetailsCtrl', ['$scope', '$http' , '$routeParams', function ($scope, $http,  $routeParams) {
 
+		$scope.splitTireProfile = function(num){
+			var num = "0.8,0.5,0.6,0.4"
+			//$scope.array = num.split(',');
+			console.log("split " + "$scope.array");
+			
+			// for (i = 0; i < $scope.array.length; i++){
+			// 	//return $scope.array[i];
+			// 	$scope.tires += "Band " + i + " " + $scope.array[i] + " ";
+			// 	console.debug("array " + $scope.array[i]);
+			// }
+			// return $scope.tires + "<br> "
+		};
 		
+		$scope.adem = "hoii"
 		$scope.idContract = "" + $routeParams.id + "";
+		$scope.tires = "";
 		console.log($scope.idContract);
-		$tire_profile = "asdasd";
 
 		$http.post("server/read.php",{'subject': "contractdetail", 'contractId': $scope.idContract})
-	   .success(function (response) {
-	   		console.debug(response);
+	   	.success(function (response) {
 
 	   		$scope.contractDetail = response.records;
 
@@ -193,32 +266,19 @@
 			          // important check that this is objects own property 
 			          // not from prototype prop inherited
 			          if(obj.hasOwnProperty(prop)){
-			            console.debug(prop + " = " + obj[prop]);
+			            console.debug(prop + " = " + obj[prop] +  " ");
 			            if(prop == "tire_profile"){
 
-
-			            	$tire_profile = obj[prop];
-			            	//$scope.$apply();
-			            	//console.log($tire_profile);
+			            	$scope.tire_profile = obj[prop];
+			            	 console.log($scope.tire_profile);
 			            }
-
-
 			          }
 			       }
 			    }
 			}
-
-		// $scope.$apply(function() {
-   		//	$tire_profile = $tire_profile;
-		//    });
-			//$tire_profile = $tire_profile;
-			console.log($tire_profile);
-	   		//$scope.tires = $scope.container['tire_profile'];
-	   		//console.debug($scope.tires);
-	   	
 	   	});
-	   $adem = "sdfsd";
 
+   		console.log($scope.tire_profile);
 	}]);
 
 	app.controller('usersCtrl', function($scope, $http) {
@@ -233,6 +293,53 @@
 	   		$scope.adem;
 	   		$scope.gebruikers = response.records;
 	   		console.log($scope.gebruikers);
+	   	
+	   	});
+	
+	});
+	app.controller('settingsCtrl', function($scope, $http) {
+	   
+		  $scope.log = [];
+		   
+		  $scope.loadSuperheroes = function(query) {
+		    // An arrays of strings here will also be converted into an
+		    // array of objects
+		    return $http.get('superheroes.json');
+		  };
+		  
+		  $scope.tagAdded = function(tag) {
+		    $scope.log.push('Added: ' + tag.text);
+
+		    $http.post("server/insert.php",{'subject': "insert_tire", 'tirebrand': tag.text})
+		   	.success(function (response) {
+		   		console.log(response);
+		   	
+		   	});
+		  };
+		  
+		  $scope.tagRemoved = function(tag) {
+		    $scope.log.push('Removed: ' + tag.text);
+
+		    $http.post("server/remove.php",{'subject': "remove_tire", 'tirebrand': tag.text})
+		   	.success(function (response) {
+		   		console.log(response);
+		   	});
+		  };
+	   //$scope.copies = ContentPage.copies();
+	   $http.post("server/read.php",{'subject': "tire_brands"})
+	   .success(function (response) {
+	   		$scope.log = [];
+
+	   		$scope.tags = response.records;
+	   		$scope.tags1 = [
+				            { text: 'just' },
+				            { text: 'some' },
+				            { text: 'cool' },
+				            { text: 'tags' }
+				          ];
+	   		console.log($scope.tags);
+	   		
+
 	   	
 	   	});
 	

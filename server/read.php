@@ -96,7 +96,7 @@ if($subject == "container"){
 if($subject == "contracts"){
 
 	//sort contracts on end date
-	$sql = "SELECT container_content.id, container_content.place_name, container_content.container_id, container_content.status, container.name, contracts.id as contract_id,  contracts.customer_id, contracts.start_date, contracts.end_date, customers.company, users.name
+	$sql = "SELECT container_content.id, container_content.place_name, container_content.container_id, container_content.status, container.name as container_name, contracts.id as contract_id,  contracts.customer_id, contracts.start_date, contracts.end_date, customers.company, users.name
 			FROM container_content
 			JOIN contracts ON container_content.contracts_id=contracts.id
 			JOIN customers ON contracts.customer_id=customers.id
@@ -110,6 +110,7 @@ if($subject == "contracts"){
 	    if ($outp != "") {$outp .= ",";}
 	    
 	    $outp .= '{"id":"' . $rs["id"] . '",';
+	    $outp .= '"container_name":"' . $rs["container_name"] . '",';
 	    $outp .= '"company":"' . $rs["company"] . '",';
 	    $outp .= '"place_name":"' . $rs["place_name"] . '",';
 	    $outp .= '"name":"' . $rs["name"] . '",';//name of the container contract_id
@@ -144,6 +145,27 @@ WHERE contract_id =' . $contractId;
 	    $outp .= '"company":"' . $rs["company"] . '",';
 	    $outp .= '"customer_id":"' . $rs["customer_id"] . '",';
 	    $outp .= '"comment":"'. $rs["comment"]     . '"}'; 
+	    //$outp = "adeemm";
+	    
+	}
+	 $outp ='{"records":['.$outp.']}'; ;
+	//$outp = $adem ;
+
+	//$outp = $sql;
+}
+
+if($subject == "tire_brands"){
+
+	//sort contracts on end date
+	$sql = 'SELECT brand FROM tire_brand';
+
+	$result = $conn->query($sql);
+
+	$outp = "";
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    
+	    $outp .= '{"text":"'. $rs["brand"]     . '"}'; 
 	    //$outp = "adeemm";
 	    
 	}

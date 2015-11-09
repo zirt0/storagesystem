@@ -1,24 +1,63 @@
 <div class="small-12 columns">
+	{{today}}
 	<h1>Contracten</h1>
+<!-- 	<label for="from">Van</label>
+	<input type="text" name="from" id="fromdate" class="datePricker">
+	<label for="to">Tot</label>
+	<input type="text" name="to" id="todate" class="datepicker"> -->
+
+	<input type="text" class="form-control" placeholder="Klant zoeken" ng-model="searchCustomer">
 	<div class="panel">
-		<table>
+		<table class="table table-bordered table-striped">
 		<tr>
 			<th>id</th>
-			<th>Klant</th>
-			<th>Cointainer</th>
-			<th>Positie</th>
-			<th>Start Datum</th>
-			<th>Eind Datum</th>
+			<th>
+				<a ng-click="sortType = 'klant'; sortReverse = !sortReverse">
+		            Klant
+		            <span ng-show="sortType == 'klant' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'klant' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+			<th>
+				<a ng-click="sortType = 'container_name'; sortReverse = !sortReverse">
+		            Container
+		            <span ng-show="sortType == 'container_name' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'container_name' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+			<th>
+				<a ng-click="sortType = 'place_name'; sortReverse = !sortReverse">
+		            Positie
+		            <span ng-show="sortType == 'place_name' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'place_name' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+			<th>
+				<a ng-click="sortType = 'start_date'; sortReverse = !sortReverse">
+		            Start Datum
+		            <span ng-show="sortType == 'start_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'start_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+			<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            Eind Datum
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>Dagen verlopen</th>
 			<th>Medewerker</th>
 			<th>Actie</th>
 		</tr>
-		<tr ng-repeat="x in container">
+		<tr ng-repeat="x in container | orderBy:sortType:sortReverse | filter:searchCustomer">
 		    <td>{{ x.id }}</td>
 		    <td>{{ x.company }}</td>
-		    <td>{{ x.name }}</td>
+		    <td>{{ x.container_name }}</td>
 		    <td>{{ x.place_name }}</td>
 		    <td>{{ x.start_date }}</td>
 		    <td>{{ x.end_date }}</td>
+		    <td>Bereken rest. dagen</td>
 		    <td>{{ x.name }}</td>
 
 		    <td><a href="#/contracts/{{x.contract_id}}" class="round tiny button succes"> Bekijk </a></td>

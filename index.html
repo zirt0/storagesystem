@@ -5,10 +5,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StorageSystem</title>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
   <link rel="stylesheet" href="stylesheets/app.css" />
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.map.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css.map" />
   <script src="bower_components/modernizr/modernizr.js"></script>
+   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css.map" />
+   <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+   <script>
+  $(function() {
+    $( "input#startdate" ).datepicker({
+          });
+
+  });
+  </script>
+
+
+
 </head>
 <body>
   <row>
@@ -36,7 +51,7 @@
             <li><label>Instellingen</label></li>
             <li><a href="#/users">Users</a></li>
             <li><a href="#/storage-management">Opslag management</a></li>
-            <li><a href="/">Instellingen</a></li>
+            <li><a href="#/settings">Instellingen</a></li>
           </ul>
         </aside>
         <section class="main-section" ng-controller="overall">
@@ -53,8 +68,12 @@
   </row>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
   <script src="bower_components/foundation/js/foundation.min.js"></script>
+  <script src="bower_components/foundation/js/foundation/foundation.reveal.js"></script>
+  <script src="bower_components/foundation-datepicker/js/foundation-datepicker.js"></script>
+  <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
+  <script src="bower_components/DateJS/build/production/date.min.js"></script>
   <script src="main.js"></script>
   <script src="js/app.js"></script>
 </body>
