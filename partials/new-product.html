@@ -89,18 +89,19 @@
 				</td>
 				<td>
 					<div class="small-3 columns">
-						<input type="checkbox" name="bandenmaat" ng-checked="vierprofiel"> 4 Banden hetzelfde profiel
+						<input type="checkbox" name="profiel" ng-model="vierprofiel"> 4 Banden hetzelfde profiel
 					</div>
 					<div class="small-3 columns">
-						<input type="checkbox" name="bandenmaat" ng-checked="viermerk"> 4 Banden hetzelfde merk <br>
+						<input type="checkbox" name="bandenmerk" ng-model="viermerk" ng-change="changeCheckbox()"> 4 Banden hetzelfde merk <br>
 					</div>
 					<div class="small-12 columns">
 						<div class="small-4 columns">
 							<h3>Rechts Voor</h3>
 							<input type="text" name="bandenmaat4" ng-model="bandenmaat">
-							<select name="bandenmerk" id="bandenmerk">
+							<select name="bandenmerk" id="bandenmerk1" ng-model="bandenmerk1" ng-change="allebanden()">
 								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 							</select>
+							<input type="text" ng-model="bandenmerk">
 						</div>
 						<div class="small-4 columns">
 							
@@ -108,9 +109,10 @@
 						<div class="small-4 columns">
 							<h3>Rechts Achter</h3>
 							<input type="text" name="bandenmaat4" ng-model="bandenmaat">
-							<select name="bandenmerk" id="bandenmerk">
-							<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
-						</select>
+							<select name="bandenmerk" id="bandenmerk2" ng-model="bandenmerk2">
+								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
+							</select>
+						<input type="text" ng-model="bandenmerk">
 						</div>
 					</div>
 					<div class="small-12 columns" style="text-align: center;">
@@ -123,9 +125,10 @@
 						<div class="small-4 columns">
 							<h3>Links Voor</h3>
 							<input type="text" name="bandenmaat4" ng-model="bandenmaat">
-							<select name="bandenmerk" id="bandenmerk">
+							<select name="bandenmerk" id="bandenmerk3" ng-model="bandenmerk3">
 								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 							</select>
+							<input type="text" ng-model="bandenmerk">
 						</div>
 						<div class="small-4 columns">
 							
@@ -133,21 +136,23 @@
 						<div class="small-4 columns">
 							<h3>Links Achter</h3>
 							<input type="text" name="bandenmaat4" ng-model="bandenmaat">
-							<select name="bandenmerk" id="bandenmerk">
+							<select name="bandenmerk" id="bandenmerk4" ng-model="bandenmerk4">
 								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 							</select>
+							<input type="text" ng-model="bandenmerk">
 						</div>
 					</div>
 				</td>
 			</tr>
 			<tr>
-				<td>Contractduur</td>
+				<td>Contractduur <button ng-click="buttonClicked()" value="yes">Yes</button></td>
 				<td>
 					<div class="small-4 columns">
-						<select name="sezoen" id="bandenmerk">
-							<option value="zesmaanden">6 maanden</option>
-							<option value="twaalfmaanden">12 maanden</option>
+						<select name="sezoen" id="bandenmerk" ng-model="sezoen">
+							<option value="6">6 maanden</option>
+							<option value="12">12 maanden</option>
 						</select>
+						{{sezoen}}
 					</div>
 					<div class="small-4 columns">
 						<input type="date" name="startdate" id="startdate" ng-model="startdate">

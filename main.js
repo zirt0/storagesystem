@@ -101,6 +101,24 @@
 
 		}
 
+		$rootScope.dateformat = function(){
+		var today = new Date();
+	    var dd = today.getDate();
+	    var mm = today.getMonth()+1; //January is 0!
+	    var yyyy = today.getFullYear();
+
+	    if(dd<10){
+	        dd='0'+dd
+	    } 
+	    if(mm<10){
+	        mm='0'+mm
+	    } 
+	    var today = dd+'-'+mm+'-'+yyyy;
+
+	    return today;
+
+		}
+
     });
 
 	app.controller('customerInfo', ['$scope', '$http' , '$routeParams', function ($scope, $http,  $routeParams) {
@@ -132,27 +150,50 @@
 	}]);
 
 
-	app.controller('newProductCtrl', function($scope, $http){
-		var today = new Date();
-	    var dd = today.getDate();
-	    var mm = today.getMonth()+1; //January is 0!
+	app.controller('newProductCtrl', function($scope, $http, $rootScope){
+			
+		$("button").hover(function(){
+			console.log("ademmm " + $scope.viermerk);
+		})
 
-	    var yyyy = today.getFullYear();
-	    if(dd<10){
-	        dd='0'+dd
-	    } 
-	    if(mm<10){
-	        mm='0'+mm
-	    } 
-	    var today = dd+'-'+mm+'-'+yyyy;
+	
+		$scope.changeCheckbox = function(){
+			console.log("checkbox check " + $scope.viermerk);
+			if (!$scope.viermerk){
+				console.debug("it is true");
+				$("#bandenmerk2").attr("ng-model='adasdsa'");
+			}else{}
+		}
+
+		
+		$scope.$watch('bandenmerk1', function(v){
+
+			if ($scope.viermerk){
+				
+				console.debug("waarde band1 " + v);
+				$scope.bandenmerk2 = v;
+				$scope.bandenmerk3 = v;
+				$scope.bandenmerk4 = v;
+			
+			}else{}
+
+			
+			
+		});
+
+		$scope.buttonClicked = function() {
+		      $scope.myVar = 2; // This will trigger $watch expression to kick in
+		   };
+
+		var today = $rootScope.dateformat();
+	    var sezoen = parseInt($scope.sezoen, 0);
 
 		$scope.startdate = new Date(today);
-		$scope.enddate = Date.today().add(6).months();;
+		$scope.enddate = Date.today().add(6).months();
 
 		console.debug("Helloooo");
 		$scope.viermerk = true;
 		$scope.vierprofiel = true;
-
 		
 		console.log($scope.stardate);
 
