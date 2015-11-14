@@ -27,6 +27,7 @@ if ($result->num_rows > 0) {
 
 echo json_encode($array_result);
 $conn->close();
+//adem is the king man 
 
 // $data = file_get_contents("php://input");
 
