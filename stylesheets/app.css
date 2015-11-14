@@ -9735,7 +9735,7 @@ th.hide-for-touch {
     display: table-cell !important;
   }
 }
-/* line 43, ../scss/app.scss */
+/* line 44, ../scss/app.scss */
 body {
   height: 100%;
   width: 100%;
@@ -9745,17 +9745,17 @@ body {
   background-position: 100%;
 }
 
-/* line 51, ../scss/app.scss */
+/* line 52, ../scss/app.scss */
 table {
   width: 100%;
 }
 
-/* line 55, ../scss/app.scss */
+/* line 56, ../scss/app.scss */
 table tr:nth-of-type(even) {
   background: #f9f9f9;
 }
 
-/* line 59, ../scss/app.scss */
+/* line 60, ../scss/app.scss */
 .kenteken {
   background-color: #FFD400;
   display: inline;
@@ -9766,7 +9766,7 @@ table tr:nth-of-type(even) {
   padding: 8px 20px;
 }
 
-/* line 69, ../scss/app.scss */
+/* line 70, ../scss/app.scss */
 select {
   text-transform: capitalize;
 }

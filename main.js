@@ -1,4 +1,4 @@
-	var app = angular.module('APP',['ngRoute', 'ngTagsInput']);
+	var app = angular.module('APP',['ngRoute', 'ngTagsInput', 'uiSwitch']);
 	
 	app.config(function($routeProvider){
 
@@ -151,6 +151,8 @@
 
 
 	app.controller('newProductCtrl', function($scope, $http, $rootScope){
+
+		$scope.selectedCountry4 = '{"records":["adem","adem1","adem2","adem3",]}'
 			
 		$("button").hover(function(){
 			console.log("ademmm " + $scope.viermerk);
@@ -210,16 +212,36 @@
         		$scope.allbrands = response.records;
            		 console.log(" Successfully" + $scope.allbrands);
         });
-	});
 
-	app.controller('newCustomerCtrl', function($scope, $http){
-		
-		// console.debug("Helloooo");
-		// $http.post("server/read.php",{'subject': "tire_brands"})
-  //       	.success(function (response){
-  //       		$scope.allbrands = response.records;
-  //          		 //console.log(" Successfully" + $scope.allbrands);
-  //       });
+  
+
+		var availableTags = [
+		      "ActionScript",
+		      "AppleScript",
+		      "Asp",
+		      "BASIC",
+		      "C",
+		      "C++",
+		      "Clojure",
+		      "COBOL",
+		      "ColdFusion",
+		      "Erlang",
+		      "Fortran",
+		      "Groovy",
+		      "Haskell",
+		      "Java",
+		      "JavaScript",
+		      "Lisp",
+		      "Perl",
+		      "PHP",
+		      "Python",
+		      "Ruby",
+		      "Scala",
+		      "Scheme"
+	    ];
+	    $( "#tags" ).autocomplete({
+	      source: availableTags
+	    });
 	});
 
 	app.controller('AboutController', function($scope, $http){

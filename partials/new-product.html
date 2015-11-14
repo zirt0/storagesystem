@@ -6,14 +6,7 @@
 				<td>
 					<div class="small-10 columns">
 					<!-- <input type="text" name="company"> -->
-						<input id="ex1"
-	              placeholder="Search Company"
-	              pause="100"
-	              selectedobject="customers"
-	              searchfields="company, fname"
-	              titlefield="company"
-	              minlength="1"
-	              inputclass="form-control form-control-small"/>
+					<input id="tags">
          			</div>
          			<div class="small-2 columns">
          				<button class="button tiny"> voeg toe</button>
@@ -24,11 +17,27 @@
 				<td>Sezoen</td>
 				<td>
 					<div class="small-12 columns">
-					<select name="sezoen" id="bandenmerk">
-						<option value="zomer">zomer</option>
-						<option value="winter">winter</option>
-					</select>
-				</div>
+						<select name="sezoen" id="bandenmerk">
+							<option value="zomer">zomer</option>
+							<option value="winter">winter</option>
+						</select>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>FlatRun banden</td>
+				<td> 
+					<div class="small-12 columns">
+						<switch id="enabled" name="enabled" ng-model="flatrun" class="green"></switch>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Velg</td>
+				<td> 
+					<div class="small-12 columns">
+						<switch id="enabled" name="enabled" ng-model="asds" class="green"></switch>
+					</div>
 				</td>
 			</tr>
 			<!-- <tr>

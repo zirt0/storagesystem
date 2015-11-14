@@ -5,19 +5,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StorageSystem</title>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/jquery-ui/jquery-ui.js"></script>
   <link rel="stylesheet" href="stylesheets/app.css" />
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css.map" />
   <script src="bower_components/modernizr/modernizr.js"></script>
-   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css.map" />
-   <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
-   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-   <script>
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css.map" />
+  <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="bower_components/angular-ui-switch/angular-ui-switch.css">
+  <link rel="stylesheet" href="bower_components/angucomplete-alt/angucomplete-alt.css">
+
+  <script>
   $(function() {
     $( "input#startdate" ).datepicker({
-          });
+    });
 
   });
   </script>
@@ -55,9 +58,9 @@
           </ul>
         </aside>
         <section class="main-section" ng-controller="overall">
-        
+
           <div ng-view>
-                
+
           </div>
 
           <button class="nav-header" ng-click="doTheBack()">terug</button>
@@ -74,6 +77,10 @@
   <script src="bower_components/foundation-datepicker/js/foundation-datepicker.js"></script>
   <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
   <script src="bower_components/DateJS/build/production/date.min.js"></script>
+  <script src="bower_components/angular-ui-switch/angular-ui-switch.js"></script>
+  
+  <script src="bower_components/angucomplete-alt/angucomplete-alt.js"></script>
+  
   <script src="main.js"></script>
   <script src="js/app.js"></script>
 </body>
