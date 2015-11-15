@@ -16,11 +16,16 @@
 			<tr>
 				<td>Sezoen</td>
 				<td>
-					<div class="small-12 columns">
-						<select name="sezoen" id="bandenmerk">
-							<option value="zomer">zomer</option>
-							<option value="winter">winter</option>
-						</select>
+					<div class="small-12 columns sezoen">
+						<label>
+						    <input type="radio" name="sezoen" value="zomer" />
+						    <img src="http://placehold.it/20x20/35d/fff&text=f">
+						</label>
+						<label>
+						    <input type="radio" name="sezoen" value="winter" />
+						    <img src="http://placehold.it/20x20/35d/fff&text=f">
+						</label>
+
 					</div>
 				</td>
 			</tr>
@@ -122,12 +127,9 @@
 			<tr>
 				<td>Contractduur <button ng-click="buttonClicked()" value="yes">Yes</button></td>
 				<td>
-					<div class="small-4 columns">
-						<select name="sezoen" id="bandenmerk" ng-model="sezoen">
-							<option value="6">6 maanden</option>
-							<option value="12">12 maanden</option>
-						</select>
-						{{sezoen}}
+					<div class="small-4 columns sezoen">
+						<button ng-click="contract(6)" >6 Maaden</button>
+						<button ng-click="contract(12)">12 Maaden</button>
 					</div>
 					<div class="small-4 columns">
 						<input type="date" name="startdate" id="startdate" ng-model="startdate">

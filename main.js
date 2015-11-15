@@ -157,17 +157,51 @@
 		$scope.bandmerk = true;
 		$scope.bandtype = true;
 		$scope.velg = true;
+		//$scope.contract(6);
 
+		var today = $rootScope.dateformat();
+	    var sezoen = parseInt($scope.sezoen, 0);
 
-		$("button").hover(function(){
-			console.log("ademmm " + $scope.viermerk);
-		})
-
+		$scope.startdate = Date.today();
 	
 		$scope.changeCheckbox = function(){
 			console.log("checkbox check " + $scope.viermerk);
 		}
 
+		$scope.contractChange = function(){
+			
+			console.log($scope.contract + "contract date is changed");
+
+			if($scope.contract == "12"){
+
+				$scope.enddate = Date.today().add(12).months();
+				console.log($scope.contract + " contract date is changed " + $scope.enddate);
+			}
+
+		}
+		$scope.contract = function(v){
+			
+			if(v == "12"){
+				console.log("this is the value " + v);
+				$scope.enddate = Date.today().add(12).months();	
+			}else if(v == "6"){
+				$scope.enddate = Date.today().add(6).months();	
+			}
+		}
+
+		$scope.contract(6);
+
+		// $scope.$watch('contract', function(v){
+		// 	console.log(v);
+		// 	var v = parseInt(v)
+
+		// 	$scope.enddate = Date.today().add(6).months();
+
+		// 	// $scope.$apply(function () {
+  //  //          	$scope.enddate = Date.today().add(v).months();
+  //  //     		});
+		// })
+		
 		$scope.$watch('bandprofiel1', function(v){
 
 			if ($scope.bandprofiel){
@@ -210,13 +244,9 @@
 
 		$scope.buttonClicked = function() {
 		      $scope.myVar = 2; // This will trigger $watch expression to kick in
+		      $scope.enddate = Date.today().add(12).months();
 		   };
-
-		var today = $rootScope.dateformat();
-	    var sezoen = parseInt($scope.sezoen, 0);
-
-		$scope.startdate = new Date(today);
-		$scope.enddate = Date.today().add(6).months();
+		
 
 		console.debug("Helloooo");
 		$scope.viermerk = true;
@@ -366,8 +396,8 @@
 	   		console.log($scope.gebruikers);
 	   	
 	   	});
-	
 	});
+
 	app.controller('settingsCtrl', function($scope, $http) {
 	   
 		  $scope.log = [];
@@ -409,9 +439,6 @@
 				            { text: 'tags' }
 				          ];
 	   		console.log($scope.tags);
-	   		
-
-	   	
 	   	});
 	
 	});

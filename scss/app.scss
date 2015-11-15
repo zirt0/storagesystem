@@ -70,3 +70,18 @@ background: #f9f9f9;
 select  { 
 	text-transform: capitalize;
 }
+
+.sezoen label {
+    display: inline-block;
+}
+
+.sezoen label > input{ /* HIDE RADIO */
+  display:none;
+}
+.sezoen label > input + img, .sezoen label > input + button{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+.sezoen label > input:checked + img, .sezoen label > input:checked + button{ /* (CHECKED) IMAGE STYLES */
+  border:2px solid #f00;
+}

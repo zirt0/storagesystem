@@ -9770,3 +9770,27 @@ table tr:nth-of-type(even) {
 select {
   text-transform: capitalize;
 }
+
+/* line 74, ../scss/app.scss */
+.sezoen label {
+  display: inline-block;
+}
+
+/* line 78, ../scss/app.scss */
+.sezoen label > input {
+  /* HIDE RADIO */
+  display: none;
+}
+
+/* line 81, ../scss/app.scss */
+.sezoen label > input + img, .sezoen label > input + button {
+  /* IMAGE STYLES */
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+/* line 85, ../scss/app.scss */
+.sezoen label > input:checked + img, .sezoen label > input:checked + button {
+  /* (CHECKED) IMAGE STYLES */
+  border: 2px solid #f00;
+}
