@@ -151,9 +151,14 @@
 
 
 	app.controller('newProductCtrl', function($scope, $http, $rootScope){
+		
+		$scope.bandprofiel = true;
+		$scope.bandmaat = true;
+		$scope.bandmerk = true;
+		$scope.bandtype = true;
+		$scope.velg = true;
 
-		$scope.selectedCountry4 = '{"records":["adem","adem1","adem2","adem3",]}'
-			
+
 		$("button").hover(function(){
 			console.log("ademmm " + $scope.viermerk);
 		})
@@ -161,26 +166,46 @@
 	
 		$scope.changeCheckbox = function(){
 			console.log("checkbox check " + $scope.viermerk);
-			if (!$scope.viermerk){
-				console.debug("it is true");
-				$("#bandenmerk2").attr("ng-model='adasdsa'");
-			}else{}
 		}
 
+		$scope.$watch('bandprofiel1', function(v){
+
+			if ($scope.bandprofiel){
+				//console.debug("waarde band1 " + v);
+				$scope.bandprofiel2 = v;
+				$scope.bandprofiel3 = v;
+				$scope.bandprofiel4 = v;
+			}
+		});
+
+		$scope.$watch('bandenmaat1', function(v){
+
+			if ($scope.bandenmaat){
+				//console.debug("waarde band1 " + v);
+				$scope.bandenmaat2 = v;
+				$scope.bandenmaat3 = v;
+				$scope.bandenmaat4 = v;
+			}
+		});
 		
 		$scope.$watch('bandenmerk1', function(v){
 
-			if ($scope.viermerk){
-				
-				console.debug("waarde band1 " + v);
+			if ($scope.bandmerk){
+				//console.debug("waarde band1 " + v);
 				$scope.bandenmerk2 = v;
 				$scope.bandenmerk3 = v;
 				$scope.bandenmerk4 = v;
-			
-			}else{}
+			}
+		});
 
-			
-			
+		$scope.$watch('bandtype1', function(v){
+
+			if ($scope.bandtype){
+				//console.debug("waarde band1 " + v);
+				$scope.bandtype2 = v;
+				$scope.bandtype3 = v;
+				$scope.bandtype4 = v;
+			}
 		});
 
 		$scope.buttonClicked = function() {
@@ -207,6 +232,12 @@
            		 console.log($scope.customers);
         });
 
+       	$http.post("server/read.php",{'subject': "onlycustomers"})
+        	.success(function (response){
+        		$scope.onlycustomers = response.records;
+           		 console.log($scope.onlycustomers);
+        });
+
 		$http.post("server/read.php",{'subject': "tire_brands"})
         	.success(function (response){
         		$scope.allbrands = response.records;
@@ -215,30 +246,7 @@
 
   
 
-		var availableTags = [
-		      "ActionScript",
-		      "AppleScript",
-		      "Asp",
-		      "BASIC",
-		      "C",
-		      "C++",
-		      "Clojure",
-		      "COBOL",
-		      "ColdFusion",
-		      "Erlang",
-		      "Fortran",
-		      "Groovy",
-		      "Haskell",
-		      "Java",
-		      "JavaScript",
-		      "Lisp",
-		      "Perl",
-		      "PHP",
-		      "Python",
-		      "Ruby",
-		      "Scala",
-		      "Scheme"
-	    ];
+		var availableTags = $scope.onlycustomers;
 	    $( "#tags" ).autocomplete({
 	      source: availableTags
 	    });

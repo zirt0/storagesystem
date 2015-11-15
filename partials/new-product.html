@@ -36,92 +36,56 @@
 				<td>Velg</td>
 				<td> 
 					<div class="small-12 columns">
-						<switch id="enabled" name="enabled" ng-model="asds" class="green"></switch>
+						<switch id="enabled" name="enabled" ng-model="velg" class="green"></switch>
 					</div>
 				</td>
 			</tr>
-			<!-- <tr>
-				<td>Bandenmerk</td>
-				<td>
-					<div class="small-12 columns">
-						<input type="checkbox" name="bandenmaat" ng-checked="viermerk"> 4 Banden hetzelfde merk <br>
-					</div>
-					<div class="small-3 columns">
-						<select name="bandenmerk" id="bandenmerk">
-							<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
-						</select>
-					</div>
-					<div class="small-3 columns">
-						<select name="bandenmerk" id="bandenmerk">
-							<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
-						</select>
-					</div>
-					<div class="small-3 columns">
-						<select name="bandenmerk" id="bandenmerk">
-							<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
-						</select>
-					</div>
-					<div class="small-3 columns">
-						<select name="bandenmerk" id="bandenmerk">
-							<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
-						</select>
-					</div>
-				</td>
-			</tr> -->
-			<!-- <tr>
-				<td>Bandenmaat</td>
-				<td>
-					<div class="small-12 columns">
-						<input type="checkbox" name="bandenmaat" ng-checked="vierprofiel"> 4 Banden hetzelfde profiel<br>
-					</div>
-					<div class="small-3 columns">
-						<label for="voorlinks">Voor Links</label>
-						<input type="text" name="bandenmaat1" ng-model="bandenmaat">
-					</div>
-					<div class="small-3 columns">
-						<label for="voorlinks">Voor Rechts</label>
-						<input type="text" name="bandenmaat2" ng-model="bandenmaat">
-					</div>
-					<div class="small-3 columns">
-						<label for="voorlinks">Achter Links</label>
-						<input type="text" name="bandenmaat3" ng-model="bandenmaat">
-					</div>
-					<div class="small-3 columns">
-						<label for="voorlinks">Achter Rechts</label>
-						<input type="text" name="bandenmaat4" ng-model="bandenmaat">
-					</div>
-				</td>
-			</tr> -->
 			<tr>
 				<td>
 					Banden Eigenschappen
 				</td>
 				<td>
 					<div class="small-3 columns">
-						<input type="checkbox" name="profiel" ng-model="vierprofiel"> 4 Banden hetzelfde profiel
+						<!-- <input type="checkbox" name="profiel" ng-model="vierprofiel"> -->
+						Bandprofiel<br>
+						<switch ng-model="bandprofiel" class="green"></switch>
+						 
 					</div>
 					<div class="small-3 columns">
-						<input type="checkbox" name="bandenmerk" ng-model="viermerk" ng-change="changeCheckbox()"> 4 Banden hetzelfde merk <br>
+						<!-- <input type="checkbox" name="profiel" ng-model="vierprofiel"> -->
+						Bandenmaat<br>
+						<switch ng-model="bandmaat" class="green"></switch>
+						
+					</div>
+					<div class="small-3 columns">
+						Merk <br>
+						<switch id="enabled" name="enabled" ng-change="changeCheckbox()" ng-model="bandmerk" class="green"></switch>
+					</div>
+					<div class="small-3 columns">
+						Merk Type <br>
+						<switch id="enabled" name="enabled" ng-change="changeCheckbox()" ng-model="bandtype" class="green"></switch>
 					</div>
 					<div class="small-12 columns">
 						<div class="small-4 columns">
 							<h3>Rechts Voor</h3>
-							<input type="text" name="bandenmaat4" ng-model="bandenmaat">
+							<input type="number" name="bandprofiel1" ng-model="bandprofiel1" placeholder="Profiel v.b. 1.5">
+							<input type="text" name="bandenmaat1" ng-model="bandenmaat1" placeholder="Bandenmaat">
 							<select name="bandenmerk" id="bandenmerk1" ng-model="bandenmerk1" ng-change="allebanden()">
 								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 							</select>
-							<input type="text" ng-model="bandenmerk">
+							<input type="text" ng-model="bandtype1" placeholder="Type Band">
 						</div>
 						<div class="small-4 columns">
 							
 						</div>
 						<div class="small-4 columns">
 							<h3>Rechts Achter</h3>
-							<input type="text" name="bandenmaat4" ng-model="bandenmaat">
+							<input type="number" name="bandprofiel2" ng-model="bandprofiel2" placeholder="Profiel v.b. 1.5">
+							<input type="text" name="bandenmaat2" ng-model="bandenmaat2" placeholder="Bandenmaat">
 							<select name="bandenmerk" id="bandenmerk2" ng-model="bandenmerk2">
 								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 							</select>
-						<input type="text" ng-model="bandenmerk">
+						<input type="text" ng-model="bandtype2" placeholder="Type Band">
 						</div>
 					</div>
 					<div class="small-12 columns" style="text-align: center;">
@@ -133,22 +97,24 @@
 					<div class="small-12 columns">
 						<div class="small-4 columns">
 							<h3>Links Voor</h3>
-							<input type="text" name="bandenmaat4" ng-model="bandenmaat">
+							<input type="number" name="bandprofiel3" ng-model="bandprofiel3" placeholder="Profiel v.b. 1.5">
+							<input type="text" name="bandenmaat3" ng-model="bandenmaat3" placeholder="Bandenmaat">
 							<select name="bandenmerk" id="bandenmerk3" ng-model="bandenmerk3">
 								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 							</select>
-							<input type="text" ng-model="bandenmerk">
+							<input type="text" ng-model="bandtype3" placeholder="Type Band">
 						</div>
 						<div class="small-4 columns">
 							
 						</div>
 						<div class="small-4 columns">
 							<h3>Links Achter</h3>
-							<input type="text" name="bandenmaat4" ng-model="bandenmaat">
+							<input type="number" name="bandprofiel4" ng-model="bandprofiel4" placeholder="Profiel v.b. 1.5">
+							<input type="text" name="bandenmaat4" ng-model="bandenmaat4" placeholder="Bandenmaat">
 							<select name="bandenmerk" id="bandenmerk4" ng-model="bandenmerk4">
 								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 							</select>
-							<input type="text" ng-model="bandenmerk">
+							<input type="text" ng-model="bandtype4" placeholder="Type Band">
 						</div>
 					</div>
 				</td>

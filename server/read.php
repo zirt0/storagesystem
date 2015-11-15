@@ -22,7 +22,23 @@ if($subject == "customers"){
 	    $outp .= '{"id":"'  . $rs["id"] . '",';
 	    $outp .= '"company":"'  . $rs["company"] . '",';
 	    $outp .= '"fname":"'   . $rs["fname"]        . '",';
-	    $outp .= '"lname":"'. $rs["lname"]     . '"}'; 
+	    $outp .= '"lname":"'. ≈     . '"}'; 
+	}
+	$outp ='{"records":['.$outp.']}';
+}
+
+if($subject == "customers"){
+
+	$sql = "SELECT * FROM customers";
+	$result = $conn->query($sql);
+
+	$outp = "";
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    $outp .= '{"value":"'  . $rs["id"] . '",';
+	    $outp .= '"desc":"'   . $rs["fname"] . ' ' . $rs["lname"] . '",';
+	    $outp .= '"label":"'  . $rs["company"] . '"}';
+
 	}
 	$outp ='{"records":['.$outp.']}';
 }
