@@ -1,4 +1,4 @@
-	var app = angular.module('APP',['ngRoute', 'ngTagsInput', 'uiSwitch']);
+	var app = angular.module('APP',['ngRoute', 'ngTagsInput', 'uiSwitch', 'ngFabForm','ngMessages', 'ngAnimate']);
 	
 	app.config(function($routeProvider){
 
