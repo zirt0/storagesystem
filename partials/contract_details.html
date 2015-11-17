@@ -13,7 +13,11 @@
 	</tr>
 	<tr>
 		<td>Brand Profiel</td>
-		<td>{{x.tire_profile}} {{splitTireProfile(1)}}</td>
+		<td>{{x.tire_profile}}</td>
+	</tr>
+	<tr>
+		<td>Brand Profiel</td>
+		<td><span ng-repeat="i in tires track by $index" ng-bind-html="bandDiepte(i)">{{bandDiepte(i)}}<br></span></td>
 	</tr>
 	<tr>
 		<td>Sezoen</td>

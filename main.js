@@ -1,5 +1,11 @@
-	var app = angular.module('APP',['ngRoute', 'ngTagsInput', 'uiSwitch', 'ngFabForm','ngMessages', 'ngAnimate']);
+	var app = angular.module('APP',['ngRoute', 'ngSanitize', 'ngTagsInput', 'uiSwitch', 'ngFabForm','ngMessages', 'ngAnimate']);
 	
+	app.filter("sanitize", ['$sce', function($sce) {
+	  return function(htmlCode){
+	    return $sce.trustAsHtml(htmlCode);
+	  }
+	}]);
+
 	app.config(function($routeProvider){
 
 		$routeProvider
@@ -149,139 +155,6 @@
 	   	});
 	}]);
 
-
-	app.controller('newProductCtrl', function($scope, $http, $rootScope){
-		
-		$scope.bandprofiel = true;
-		$scope.bandmaat = true;
-		$scope.bandmerk = true;
-		$scope.bandtype = true;
-		$scope.velg = true;
-		//$scope.contract(6);
-
-		var today = $rootScope.dateformat();
-	    var sezoen = parseInt($scope.sezoen, 0);
-
-		$scope.startdate = Date.today();
-	
-		$scope.changeCheckbox = function(){
-			console.log("checkbox check " + $scope.viermerk);
-		}
-
-		$scope.contractChange = function(){
-			
-			console.log($scope.contract + "contract date is changed");
-
-			if($scope.contract == "12"){
-
-				$scope.enddate = Date.today().add(12).months();
-				console.log($scope.contract + " contract date is changed " + $scope.enddate);
-			}
-
-		}
-		$scope.contract = function(v){
-			
-			if(v == "12"){
-				console.log("this is the value " + v);
-				$scope.enddate = Date.today().add(12).months();	
-			}else if(v == "6"){
-				$scope.enddate = Date.today().add(6).months();	
-			}
-		}
-
-		$scope.contract(6);
-
-		// $scope.$watch('contract', function(v){
-		// 	console.log(v);
-		// 	var v = parseInt(v)
-
-		// 	$scope.enddate = Date.today().add(6).months();
-
-		// 	// $scope.$apply(function () {
-  //  //          	$scope.enddate = Date.today().add(v).months();
-  //  //     		});
-		// })
-		
-		$scope.$watch('bandprofiel1', function(v){
-
-			if ($scope.bandprofiel){
-				//console.debug("waarde band1 " + v);
-				$scope.bandprofiel2 = v;
-				$scope.bandprofiel3 = v;
-				$scope.bandprofiel4 = v;
-			}
-		});
-
-		$scope.$watch('bandenmaat1', function(v){
-
-			if ($scope.bandenmaat){
-				//console.debug("waarde band1 " + v);
-				$scope.bandenmaat2 = v;
-				$scope.bandenmaat3 = v;
-				$scope.bandenmaat4 = v;
-			}
-		});
-		
-		$scope.$watch('bandenmerk1', function(v){
-
-			if ($scope.bandmerk){
-				//console.debug("waarde band1 " + v);
-				$scope.bandenmerk2 = v;
-				$scope.bandenmerk3 = v;
-				$scope.bandenmerk4 = v;
-			}
-		});
-
-		$scope.$watch('bandtype1', function(v){
-
-			if ($scope.bandtype){
-				//console.debug("waarde band1 " + v);
-				$scope.bandtype2 = v;
-				$scope.bandtype3 = v;
-				$scope.bandtype4 = v;
-			}
-		});
-
-		$scope.buttonClicked = function() {
-		      $scope.myVar = 2; // This will trigger $watch expression to kick in
-		      $scope.enddate = Date.today().add(12).months();
-		   };
-		
-
-		console.debug("Helloooo");
-		$scope.viermerk = true;
-		$scope.vierprofiel = true;
-		
-		console.log($scope.stardate);
-
-		$scope.bandenmaat = "";
-
-		$http.post("server/read.php",{'subject': "customers"})
-        	.success(function (response){
-        		$scope.customers = response.records;
-           		 console.log($scope.customers);
-        });
-
-       	$http.post("server/read.php",{'subject': "onlycustomers"})
-        	.success(function (response){
-        		$scope.onlycustomers = response.records;
-           		 console.log($scope.onlycustomers);
-        });
-
-		$http.post("server/read.php",{'subject': "tire_brands"})
-        	.success(function (response){
-        		$scope.allbrands = response.records;
-           		 console.log(" Successfully" + $scope.allbrands);
-        });
-
-  
-
-		var availableTags = $scope.onlycustomers;
-	    $( "#tags" ).autocomplete({
-	      source: availableTags
-	    });
-	});
-
 	app.controller('AboutController', function($scope, $http){
 		
 		console.debug("Helloooo");
@@ -335,51 +208,44 @@
 	   	});
 	});
 
-	app.controller('contractsDetailsCtrl', ['$scope', '$http' , '$routeParams', function ($scope, $http,  $routeParams) {
+	app.controller('contractsDetailsCtrl', ['$scope', '$http' , '$routeParams', function ($scope, $http, $routeParams) {
 
-		$scope.splitTireProfile = function(num){
-			var num = "0.8,0.5,0.6,0.4"
-			//$scope.array = num.split(',');
-			console.log("split " + "$scope.array");
-			
-			// for (i = 0; i < $scope.array.length; i++){
-			// 	//return $scope.array[i];
-			// 	$scope.tires += "Band " + i + " " + $scope.array[i] + " ";
-			// 	console.debug("array " + $scope.array[i]);
-			// }
-			// return $scope.tires + "<br> "
-		};
-		
-		$scope.adem = "hoii"
 		$scope.idContract = "" + $routeParams.id + "";
-		$scope.tires = "";
-		console.log($scope.idContract);
 
 		$http.post("server/read.php",{'subject': "contractdetail", 'contractId': $scope.idContract})
 	   	.success(function (response) {
 
 	   		$scope.contractDetail = response.records;
 
-	   		for (var key in $scope.contractDetail) {
-			   if ($scope.contractDetail.hasOwnProperty(key)) {
-			       var obj = $scope.contractDetail[key];
-			        for (var prop in obj) {
-			          // important check that this is objects own property 
-			          // not from prototype prop inherited
-			          if(obj.hasOwnProperty(prop)){
-			            console.debug(prop + " = " + obj[prop] +  " ");
-			            if(prop == "tire_profile"){
+		   	console.log($scope.contractDetail);
 
-			            	$scope.tire_profile = obj[prop];
-			            	 console.log($scope.tire_profile);
-			            }
-			          }
-			       }
-			    }
+		   		angular.forEach($scope.contractDetail[0], function(value, key) {
+			  		console.log(key + ': ' + value);
+			  		$scope.key = "value"
+					  
+					  if(key == "tire_profile"){
+					  	$scope.tires = value.split(',');
+					  }
+				});
+			console.log("TIRESSSSS " + $scope.tires);
+		});
+
+		$scope.bandDiepte = function(band){
+			//band = band.toFixed(1);
+			if(band < 1){
+				perBand = "<div class='profiel red'>" + band + "</div>";
+			}else if(band < 2){
+
+				perBand = "<div class='profiel orange'>" + band + "</div>";
+
+			}else{
+				perBand = "<div class='profiel green'>" + band + "</div>";
 			}
-	   	});
 
-   		console.log($scope.tire_profile);
+			return "<div class='bandrow'>" + perBand  + "</div>";
+
+		};
+
 	}]);
 
 	app.controller('usersCtrl', function($scope, $http) {
