@@ -60,7 +60,7 @@
 			})
 			.when('/storage-management',{
 				templateUrl:'partials/storage-management.html',
-				controller:'testdb'
+				controller:'storagemanagementCtrl'
 
 			})
 
@@ -69,9 +69,9 @@
 				controller:'settingsCtrl'
 
 			})
-			.otherwise({
-				//redirectTo:'/'
-			});
+			// .otherwise({
+			// 	//redirectTo:'/'
+			// });
 	});
 
 	

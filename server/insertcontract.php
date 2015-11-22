@@ -12,9 +12,9 @@ $tirebrand = $request->tirebrand;
 
 if($subject == "insert_contract"){
 
-	$sql = "INSERT INTO tire_brand (brand) VALUES ('".$tirebrand."')";
-	$result = $conn->query($sql);
-	$outp = $sql;
+	// $sql = "INSERT INTO tire_brand (brand) VALUES ('".$tirebrand."')";
+	// $result = $conn->query($sql);
+	// $outp = $sql;
 	$outp = "helloo ";
 }
 

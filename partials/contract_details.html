@@ -16,7 +16,12 @@
 		<td>{{x.tire_profile}}</td>
 	</tr>
 	<tr>
-		<td>Brand Profiel</td>
+		<td>
+			<div class="bandrow">Links voor</div>
+			<div class="bandrow">Rechts Voor</div>
+			<div class="bandrow">Rechts Achter</div>
+			<div class="bandrow">Links Achter</div>
+		</td>
 		<td><span ng-repeat="i in tires track by $index" ng-bind-html="bandDiepte(i)">{{bandDiepte(i)}}<br></span></td>
 	</tr>
 	<tr>

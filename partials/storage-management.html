@@ -1,13 +1,24 @@
 <div class="small-12 columns">
 	<h1>Storage Management</h1>
 	<div class="panel">
-		<table>
-		  <tr ng-repeat="x in dba">
-		    <td>{{ x.id }}</td>
-		    <td>{{ x.name }}</td>
-		    <td>{{ x.password }}</td>
-		    <td>{{ x.name }}</td>
-		  </tr>
-		</table>
+	<ul class="inline-list">
+		<li class="container" ng-repeat="container in containers">
+			{{container.name}} <br>
+			<b>Plaatsen: {{container.places}}</b><br>
+			<b>Vrij: 10</b><br>
+			<button class="button succes radius" style="display: inline;">Edit</button>
+			<div class="containerColor"></div>
+		</li>
+		<li >{{container.name}} <br><button>Container toevoegen</button></li>
+	</ul>
+	<a href="#/storage" data-reveal-id="myModal">Click Me For A Modal</a>
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Awesome. I have it.</h2>
+  <p class="lead">Your couch.  It is mine.</p>
+  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
 	</div>
 </div>

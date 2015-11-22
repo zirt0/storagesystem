@@ -82,14 +82,6 @@
 				$scope.bandtype4 = v;
 			}
 		});
-
-		$scope.buttonClicked = function() {
-		      $scope.myVar = 2; // This will trigger $watch expression to kick in
-		      $scope.enddate = Date.today().add(12).months();
-		   };
-		
-
-		
 		
 		console.log($scope.stardate);
 
@@ -101,10 +93,27 @@
 			'sezoen': '' + $scope.sezoen + '' ,
 			'velg': '' + $scope.velg + '' ,
 			'flatrun': '' + $scope.flatrun + '' ,
-			'profile': '' + $scope.velg + '' ,
-			'bandenmaat': '' + $scope.velg + '' ,
-			'merk': '' + $scope.velg + '' ,
-			'bandtype': '' + $scope.band + '',
+			//profiel
+			'lv_profile': '' + $scope.velg + '' ,
+			'rv_profile': '' + $scope.velg + '' ,
+			'la_profile': '' + $scope.velg + '' ,
+			'ra_profile': '' + $scope.velg + '' ,
+			//bandenmaat
+			'lv_bandenmaat': '' + $scope.velg + '' ,
+			'rv_bandenmaat': '' + $scope.velg + '' ,
+			'la_bandenmaat': '' + $scope.velg + '' ,
+			'ra_bandenmaat': '' + $scope.velg + '' ,
+			//merk
+			'lv_merk': '' + $scope.velg + '' ,
+			'rv_merk': '' + $scope.velg + '' ,
+			'la_merk': '' + $scope.velg + '' ,
+			'ra_merk': '' + $scope.velg + '' ,
+			//bandentype
+			'lv_bandtype': '' + $scope.band + '',
+			'rv_bandtype': '' + $scope.band + '',
+			'la_bandtype': '' + $scope.band + '',
+			'ra_bandtype': '' + $scope.band + '',
+
 			'startdate': '' + $scope.startdate + '',
 			'enddate': '' + $scope.enddate + '',
 			'duration': '' + $scope.duration + '',

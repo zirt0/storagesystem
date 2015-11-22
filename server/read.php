@@ -22,7 +22,23 @@ if($subject == "customers"){
 	    $outp .= '{"id":"'  . $rs["id"] . '",';
 	    $outp .= '"company":"'  . $rs["company"] . '",';
 	    $outp .= '"fname":"'   . $rs["fname"]        . '",';
-	    $outp .= '"lname":"'. ≈     . '"}'; 
+	    $outp .= '"lname":"'. $rs["lname"]    . '"}'; 
+	}
+	$outp ='{"records":['.$outp.']}';
+}
+
+if($subject == "containers"){
+
+	$sql = "SELECT * FROM container";
+	$result = $conn->query($sql);
+
+	$outp = "";
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    $outp .= '{"id":"'  . $rs["id"] . '",';
+	    $outp .= '"name":"'  . $rs["name"] . '",';
+	    $outp .= '"places":"'   . $rs["places"]        . '",';
+	    $outp .= '"color":"'. $rs["color"] . '"}'; 
 	}
 	$outp ='{"records":['.$outp.']}';
 }

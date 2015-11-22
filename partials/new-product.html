@@ -18,14 +18,20 @@
 				<td>Sezoen</td>
 				<td>
 					<div class="small-12 columns sezoen">
-						<label>
-						    <input type="radio" name="sezoen" value="zomer" />
-						    <img src="http://placehold.it/20x20/35d/fff&text=f">
-						</label>
-						<label>
-						    <input type="radio" name="sezoen" value="winter" />
-						    <img src="http://placehold.it/20x20/35d/fff&text=f">
-						</label>
+						<ul class="button-group round toggle" data-toggle="buttons-radio">
+						      <li>
+						        <input type="radio" id="r1" name="sezoen" data-toggle="button" value="zomer">
+						        <label class="button" for="r1">Zomer</label>
+						      </li>
+						      <li>
+						        <input type="radio" id="r2" name="sezoen" data-toggle="button" value="winter">
+						        <label class="button" for="r2">Winter</label>
+						      </li>
+						      <li>
+						        <input type="radio" id="r3" name="sezoen" data-toggle="button" value="allsezoen">
+						        <label class="button" for="r3">All Sezoen</label>
+						      </li>
+						    </ul>
 
 					</div>
 				</td>
@@ -126,7 +132,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Contractduur <button ng-click="buttonClicked()" value="yes">Yes</button></td>
+				<td>Contractduur <!-- <button ng-click="buttonClicked()" value="yes">Yes</button> --></td>
 				<td>
 					<div class="small-4 columns sezoen">
 						<button ng-click="contract(6)" >6 Maaden</button>
