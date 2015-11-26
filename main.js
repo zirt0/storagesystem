@@ -64,6 +64,12 @@
 
 			})
 
+			.when('/storage-management/:id',{
+				templateUrl:'partials/container_content.html',
+				controller:'containerContentCtrl'
+
+			})
+
 			.when('/settings',{
 				templateUrl:'partials/settings.html',
 				controller:'settingsCtrl'
@@ -148,7 +154,7 @@
 		$http.post("server/read.php",{'subject': "customers"})	
 			
 	   		.success(function (response) {
-	   			//console.debug(response);
+	   			console.debug(response);
 
 	   			$scope.customers = response.records;
 

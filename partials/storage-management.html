@@ -5,8 +5,8 @@
 		<li class="container" ng-repeat="container in containers">
 			{{container.name}} <br>
 			<b>Plaatsen: {{container.places}}</b><br>
-			<b>Vrij: 10</b><br>
-			<button class="button succes radius" style="display: inline;">Edit</button>
+			<b>Vrij: {{container.free}}</b><br>
+			<a href="#/storage-management/{{ container.id }}" class="button succes radius" style="display: inline;">Edit</a>
 			<div class="containerColor"></div>
 		</li>
 		<li >{{container.name}} <br><button>Container toevoegen</button></li>

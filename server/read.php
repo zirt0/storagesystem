@@ -8,8 +8,10 @@ $request = json_decode($postdata);
 $subject = $request->subject;
 $customerId = $request->customerId;
 $contractId = $request->contractId;
+$containerId = $request->containerId;
 
 //print $subject;
+
 
 if($subject == "customers"){
 
@@ -27,9 +29,29 @@ if($subject == "customers"){
 	$outp ='{"records":['.$outp.']}';
 }
 
+if($subject == "containerContent"){
+
+	$sql = "SELECT * FROM container_content WHERE container_id = " . $containerId;
+	$result = $conn->query($sql);
+
+	$outp = "";
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    $outp .= '{"id":"'  . $rs["id"] . '",';
+	    $outp .= '"place_name":"'  . $rs["place_name"] . '",';
+	    $outp .= '"container_id":"'   . $rs["container_id"]        . '",';
+	    $outp .= '"contracts_id":"'   . $rs["contracts_id"]        . '",';
+	    $outp .= '"status":"'. $rs["status"]    . '"}'; 
+	}
+	$outp ='{"records":['.$outp.']}';
+}
+
 if($subject == "containers"){
 
-	$sql = "SELECT * FROM container";
+	$sql = "SELECT container.id, name, color, COUNT(container_content.container_id) as places, (SELECT count(container_content.status) FROM container_content WHERE container_content.container_id = container.id AND container_content.status = 0 ) as free FROM container
+INNER JOIN container_content
+WHERE container_content.container_id = container.id
+GROUP BY container.id";
 	$result = $conn->query($sql);
 
 	$outp = "";
@@ -37,10 +59,12 @@ if($subject == "containers"){
 	    if ($outp != "") {$outp .= ",";}
 	    $outp .= '{"id":"'  . $rs["id"] . '",';
 	    $outp .= '"name":"'  . $rs["name"] . '",';
-	    $outp .= '"places":"'   . $rs["places"]        . '",';
+	    $outp .= '"places":"'   . $rs["places"] . '",';
+	    $outp .= '"free":"'   . $rs["free"] . '",';
 	    $outp .= '"color":"'. $rs["color"] . '"}'; 
 	}
 	$outp ='{"records":['.$outp.']}';
+	//$outp = $sql;
 }
 
 if($subject == "customers"){

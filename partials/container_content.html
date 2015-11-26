@@ -1,0 +1,18 @@
+{{idContainer}}
+<div style="width: 500px;">
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Plaats</th>
+		<th>Contract_ID</th>
+		<th>Status</th>
+		<th>action</th>
+	</tr>
+	<tr class="zebra" ng-repeat="place in places" >
+		<td >{{place.id}}</td>
+		<td>{{place.place_name}}</td>
+		<td>{{place.contracts_id}}</td>
+		<td>{{ occupy(place.status)}}</td>
+		<td><a href="#" class="button button-3d-primary button-rounded">press me</a></td>
+	</tr>
+</table>
