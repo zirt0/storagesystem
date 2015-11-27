@@ -10,7 +10,8 @@
     "ng-fab-form": "~1.2.12",
     "angular-animate": "~1.4.7",
     "angular-sanitize": "~1.4.7",
-    "Buttons": "https://github.com/alexwolfe/Buttons.git#~2.0.0"
+    "Buttons": "https://github.com/alexwolfe/Buttons.git#~2.0.0",
+    "angular-filter": "~0.5.8"
   },
   "homepage": "https://github.com/zirt0/storagesystem",
   "description": "",

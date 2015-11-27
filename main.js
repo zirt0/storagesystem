@@ -1,4 +1,4 @@
-	var app = angular.module('APP',['ngRoute', 'ngSanitize', 'ngTagsInput', 'uiSwitch', 'ngFabForm','ngMessages', 'ngAnimate']);
+	var app = angular.module('APP',['ngRoute', 'ngSanitize', 'ngTagsInput', 'uiSwitch', 'ngFabForm','ngMessages', 'ngAnimate', 'angular.filter']);
 	
 	app.filter("sanitize", ['$sce', function($sce) {
 	  return function(htmlCode){

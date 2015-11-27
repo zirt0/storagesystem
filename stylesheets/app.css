@@ -9888,3 +9888,15 @@ input[data-toggle]:checked + label:active {
 .button-group.toggle li:not(first-child) {
   margin: 0 -0.9rem;
 }
+
+/* line 180, ../scss/app.scss */
+.Vrij {
+  background-color: #8bc220 !important;
+}
+
+/* line 183, ../scss/app.scss */
+.depTitle {
+  background-color: #0880d7 !important;
+  color: white !important;
+  text-transform: capitalize;
+}

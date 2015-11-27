@@ -8,7 +8,7 @@ $request = json_decode($postdata);
 $subject = $request->subject;
 $customerId = $request->customerId;
 $contractId = $request->contractId;
-$containerId = $request->containerId;
+$id = $request->id;
 
 //print $subject;
 
@@ -29,9 +29,22 @@ if($subject == "customers"){
 	$outp ='{"records":['.$outp.']}';
 }
 
+if($subject == "containerDepartment"){
+
+	$sql = "SELECT container_department FROM container_content WHERE container_content.container_id = " . $id . " GROUP BY container_department";
+	$result = $conn->query($sql);
+
+	$outp = "";
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    $outp .= '{"container_department":"'  . $rs["container_department"] . '"}';
+	}
+	$outp ='{"records":['.$outp.']}';
+}
+
 if($subject == "containerContent"){
 
-	$sql = "SELECT * FROM container_content WHERE container_id = " . $containerId;
+	$sql = "SELECT * FROM container_content WHERE container_id = " . $id;
 	$result = $conn->query($sql);
 
 	$outp = "";
@@ -41,6 +54,7 @@ if($subject == "containerContent"){
 	    $outp .= '"place_name":"'  . $rs["place_name"] . '",';
 	    $outp .= '"container_id":"'   . $rs["container_id"]        . '",';
 	    $outp .= '"contracts_id":"'   . $rs["contracts_id"]        . '",';
+	    $outp .= '"container_department":"'   . $rs["container_department"]        . '",';
 	    $outp .= '"status":"'. $rs["status"]    . '"}'; 
 	}
 	$outp ='{"records":['.$outp.']}';

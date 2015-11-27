@@ -14,24 +14,26 @@ app.controller('containerContentCtrl', ['$scope', '$http' , '$routeParams', func
 
 	$scope.idContainer = $routeParams.id;
 	console.log($scope.idContainer);
-	$http.post("server/read.php",{'subject': "containerContent", 'containerId': $scope.idContainer})
-	
-   		.success(function (response) {
 
-   			console.log(response);
-   			$scope.places = response.records;
-   			// $scope.company = $scope.customerInfo['company']
 
-   	});
+  $http.post("server/read.php",{'subject': "containerContent", 'id': $scope.idContainer })
+
+    .success(function (response) {
+
+      //console.log(response);
+      $scope.places = response.records;
+      // $scope.company = $scope.customerInfo['company']
+
+     });
 
    $scope.occupy  = function(status){
 
-   		if(status == 1){
+   		if(status == "0"){
 
-   			return "Bezet"
+   			return "Vrij";
 
    		}else{
-   			return "Vrij";   		
+   			return "Bezet";   		
    		}
    }
 }]);
