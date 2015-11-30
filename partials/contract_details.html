@@ -1,19 +1,13 @@
 <div class="small-12 columns">
-
-
 <table ng-repeat="x in contractDetail" width="100%">
 	<tr>
 		<th>
-			<h1><a href="#/customers/{{x.customer_id }}">{{x.company}}</a></h1> 
+			<h1><a href="#/customers/{{x.customer_id }}">{{x.company}} <small>{{x.fname}} {{x.lname}}</small> </a></h1> 
 		</th>
 	</tr>
 	<tr>
 		<td>ID</td>
 		<td>{{x.id}}</td>
-	</tr>
-	<tr>
-		<td>Brand Profiel</td>
-		<td>{{x.tire_profile}}</td>
 	</tr>
 	<tr>
 		<td>
@@ -22,11 +16,16 @@
 			<div class="bandrow">Rechts Achter</div>
 			<div class="bandrow">Links Achter</div>
 		</td>
-		<td><span ng-repeat="i in tires track by $index" ng-bind-html="bandDiepte(i)">{{bandDiepte(i)}}<br></span></td>
+		<td>
+			<div class="eachTire">LV {{x.LV_brand}} {{x.LV_type}} {{x.LV_profile}} {{x.LV_tiresize}}</div>
+			<div class="eachTire">RV {{x.RV_brand}} {{x.RV_type}} {{x.RV_profile}} {{x.RV_tiresize}}</div>
+			<div class="eachTire">LA {{x.LA_brand}} {{x.LA_type}} {{x.LA_profile}} {{x.LA_tiresize}}</div>
+			<div class="eachTire">RA {{x.RA_brand}} {{x.RA_type}} {{x.RA_profile}} {{x.RA_tiresize}}</div>
+		</td>
 	</tr>
 	<tr>
 		<td>Sezoen</td>
-		<td>{{x.sezon}}  {{sezon(x.sezon)}} <img src='../#/partials/snowflake1.png'> </td>
+		<td>{{x.sezon}}  {{sezon(x.sezon)}} </td>
 	</tr>
 	<tr>
 		<td>Start Datum</td>
@@ -36,21 +35,18 @@
 		<td>Eind Datum</td>
 		<td>{{x.end_date}}</td>
 	</tr>
-	<tr>
-		<td>Comment</td>
-		<td>{{x.comment}}</td>
-	</tr>
 
 	<tr>
 		<th><h3>Positie</h3></td>
 	</tr>
 	<tr>
 		<td>Container</td>
-		<td>Aangeven welke container</td>
+		<td>{{x.name}} > {{x.container_department}} > {{x.container_contents_id}}</td>
 	</tr>
+	<tr><th><h3>Comentaar</h3></td></tr>
 	<tr>
-		<td>Positie</td>
-		<td>Aangeven welke positie in container</td>
+		<td>Opmerking</td>
+		<td>{{x.comment}}</td>
 	</tr>
 
 </table>

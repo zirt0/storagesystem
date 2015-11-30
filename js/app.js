@@ -1,7 +1,5 @@
 // Foundation JavaScript
 // Documentation can be found at: http://foundation.zurb.com/docs
-$(document).foundation();
-
  function updateSidebar() {
     var $width = document.documentElement.clientWidth,
         $height = document.documentElement.clientHeight,

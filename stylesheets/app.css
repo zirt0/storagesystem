@@ -9735,24 +9735,24 @@ th.hide-for-touch {
     display: table-cell !important;
   }
 }
-/* line 17, ../scss/app.scss */
+/* line 18, ../scss/app.scss */
 input[data-toggle] {
   display: none;
 }
 
-/* line 21, ../scss/app.scss */
+/* line 22, ../scss/app.scss */
 input[data-toggle]:checked + label,
 input[data-toggle]:checked + label:active {
   background-color: salmon;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-/* line 29, ../scss/app.scss */
+/* line 30, ../scss/app.scss */
 .button-group.toggle li:not(first-child) {
   margin: 0 -0.9rem;
 }
 
-/* line 74, ../scss/app.scss */
+/* line 75, ../scss/app.scss */
 body {
   height: 100%;
   width: 100%;
@@ -9762,17 +9762,17 @@ body {
   background-position: 100%;
 }
 
-/* line 82, ../scss/app.scss */
+/* line 83, ../scss/app.scss */
 table {
   width: 100%;
 }
 
-/* line 86, ../scss/app.scss */
+/* line 87, ../scss/app.scss */
 table tr:nth-of-type(even) {
   background: #f9f9f9;
 }
 
-/* line 90, ../scss/app.scss */
+/* line 91, ../scss/app.scss */
 .kenteken {
   background-color: #FFD400;
   display: inline;
@@ -9783,46 +9783,46 @@ table tr:nth-of-type(even) {
   padding: 8px 20px;
 }
 
-/* line 100, ../scss/app.scss */
+/* line 101, ../scss/app.scss */
 select {
   text-transform: capitalize;
 }
 
-/* line 104, ../scss/app.scss */
+/* line 105, ../scss/app.scss */
 .sezoen label {
   display: inline-block;
 }
 
-/* line 108, ../scss/app.scss */
+/* line 109, ../scss/app.scss */
 .sezoen label > input {
   /* HIDE RADIO */
   display: none;
 }
 
-/* line 111, ../scss/app.scss */
+/* line 112, ../scss/app.scss */
 .sezoen label > input + img, .sezoen label > input + button {
   /* IMAGE STYLES */
   cursor: pointer;
   border: 2px solid transparent;
 }
 
-/* line 115, ../scss/app.scss */
+/* line 116, ../scss/app.scss */
 .sezoen label > input:checked + img, .sezoen label > input:checked + button {
   /* (CHECKED) IMAGE STYLES */
   border: 2px solid #f00;
 }
 
-/* line 120, ../scss/app.scss */
+/* line 121, ../scss/app.scss */
 .view-animate.ng-enter {
   animation: fadeIn 0.5s;
 }
 
-/* line 124, ../scss/app.scss */
+/* line 125, ../scss/app.scss */
 .view-animate.ng-leave {
   display: none;
 }
 
-/* line 128, ../scss/app.scss */
+/* line 129, ../scss/app.scss */
 .profiel {
   background-color: red;
   display: inline-block;
@@ -9835,35 +9835,40 @@ select {
   margin-right: 4px;
 }
 
-/* line 140, ../scss/app.scss */
+/* line 141, ../scss/app.scss */
 .profiel.red {
   background-color: red;
 }
 
-/* line 144, ../scss/app.scss */
+/* line 145, ../scss/app.scss */
 .profiel.orange {
   background-color: orange;
 }
 
-/* line 147, ../scss/app.scss */
+/* line 148, ../scss/app.scss */
 .bandrow {
   margin-bottom: 5px;
 }
 
-/* line 151, ../scss/app.scss */
+/* line 152, ../scss/app.scss */
 .profiel.green {
   background-color: green;
 }
 
-/* line 155, ../scss/app.scss */
-.container {
+/* line 156, ../scss/app.scss */
+.container, .addcontainerButton {
   width: 200px;
   height: 180px;
+  margin-bottom: 20px;
+}
+
+/* line 162, ../scss/app.scss */
+.container {
   text-align: center;
   background-color: lightblue;
 }
 
-/* line 161, ../scss/app.scss */
+/* line 168, ../scss/app.scss */
 .containerColor {
   width: 90%;
   height: 20px;
@@ -9872,31 +9877,98 @@ select {
   margin: 0 auto;
 }
 
-/* line 169, ../scss/app.scss */
+/* line 176, ../scss/app.scss */
 input[data-toggle] {
   display: none;
 }
 
-/* line 172, ../scss/app.scss */
+/* line 179, ../scss/app.scss */
 input[data-toggle]:checked + label,
 input[data-toggle]:checked + label:active {
   background-color: salmon;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-/* line 177, ../scss/app.scss */
+/* line 184, ../scss/app.scss */
 .button-group.toggle li:not(first-child) {
   margin: 0 -0.9rem;
 }
 
-/* line 180, ../scss/app.scss */
+/* line 187, ../scss/app.scss */
 .Vrij {
   background-color: #8bc220 !important;
 }
 
-/* line 183, ../scss/app.scss */
+/* line 190, ../scss/app.scss */
 .depTitle {
   background-color: #0880d7 !important;
   color: white !important;
   text-transform: capitalize;
+}
+
+/* line 196, ../scss/app.scss */
+.highlight {
+  border-color: red !important;
+  background-color: rgba(255, 0, 0, 0.1) !important;
+}
+
+/* line 200, ../scss/app.scss */
+.segmentTitle {
+  display: block;
+  font-weight: bold;
+}
+
+/* line 204, ../scss/app.scss */
+label {
+  display: inline-block;
+}
+
+/* line 208, ../scss/app.scss */
+label > input {
+  /* HIDE RADIO */
+  visibility: hidden;
+  /* Makes input not-clickable */
+  position: absolute;
+  /* Remove input from document flow */
+}
+
+/* line 212, ../scss/app.scss */
+label > input + img {
+  /* IMAGE STYLES */
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+/* line 216, ../scss/app.scss */
+label > input:checked + img {
+  /* (RADIO CHECKED) IMAGE STYLES */
+  border: 2px solid #f00;
+}
+
+/* line 220, ../scss/app.scss */
+.thumb {
+  width: 24px;
+  height: 24px;
+  float: none;
+  position: relative;
+  top: 7px;
+}
+
+/* line 228, ../scss/app.scss */
+form .progress {
+  line-height: 15px;
+}
+
+/* line 232, ../scss/app.scss */
+.progress {
+  display: inline-block;
+  width: 100px;
+  border: 3px groove #CCC;
+}
+
+/* line 238, ../scss/app.scss */
+.progress div {
+  font-size: smaller;
+  background: orange;
+  width: 0;
 }

@@ -5,12 +5,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StorageSystem</title>
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/jquery-ui/jquery-ui.js"></script>
   <link rel="stylesheet" href="stylesheets/app.css" />
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css.map" />
-  <script src="bower_components/modernizr/modernizr.js"></script>
+  
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css.map" />
   <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -18,21 +16,95 @@
   <link rel="stylesheet" href="bower_components/angucomplete-alt/angucomplete-alt.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
   <link rel="stylesheet" href="bower_components/Buttons/css/buttons.css">
-
-  <script>
-  $(function() {
-    $( "input#startdate" ).datepicker({
-    });
-
-  });
-  </script>
-
-
-
 </head>
 <body>
-  <row>
+  <div ng-controller="addContainer" id="firstModal" class="reveal-modal large" data-animation-in='spin-in' data-animation-out='spin-out' data-reveal>
 
+    <div class="screen1">
+      <h2>Container toevoegen</h2>
+
+      <div class="small-12 columns">
+
+      <div class="small-3 columns">
+        Naam Container:
+      </div>
+      <div class="small-9 columns">
+        <input type="text" name="containerName" ng-model="containerName" placeholder="vb: Container C3 ">
+      </div>
+
+      <div class="small-3 columns">
+        Kleur:
+      </div>
+      <div class="small-9 columns">
+        <label>
+          <input type="radio" name="containerColor" ng-model="containerColor" value="red"/>
+          <img src="/lib/img/buttonRed.png" alt="">
+        </label>
+
+        <label>
+          <input type="radio" name="containerColor" ng-model="containerColor" value="green"/>
+          <img src="/lib/img/buttonGreen.png" alt="">
+        </label>
+
+        <label>
+          <input type="radio" name="containerColor" ng-model="containerColor" value="blue"/>
+          <img src="/lib/img/buttonBlue.png" alt="">
+        </label>
+
+        <label>
+          <input type="radio" name="containerColor" ng-model="containerColor" value="pink"/>
+          <img src="/lib/img/buttonPink.png" alt="">
+        </label>
+
+        <label>
+          <input type="radio" name="containerColor" ng-model="containerColor" value="brown"/>
+          <img src="/lib/img/buttonBrown.png" alt="">
+        </label>
+      </div>
+      </div>
+    </div>
+    <div class="small-12 columns panel screen2" style="display: none;">
+      <h2>Maak Segmenten in Container</h2>
+      
+      <div class="small-4 columns addSegment">
+        <div class="segmentTitle">Segment toevoegen</div>
+        <input type="text" name="segmentName1" id="segmentName1" placeholder="Segment Naam">
+        <select name="places1" id="places1">
+          <option ng-repeat="place in places" value="{{place}}">{{place}}</option>
+        </select>
+      </div>
+      <div class="small-4 columns">
+        <button ng-click="addSegment()">+</button>
+      </div>
+
+    <!--   <div class="small-4 columns addSegment">
+        <div class="segmentTitle">Segment toevoegen</div>
+        <input type="text" name="segment1" placeholder="Segment Naam">
+        <select name="places">
+          <option ng-repeat="place in places" value="{{place}}">{{place}}</option>
+        </select>
+        <button>+</button>
+      </div>
+
+      <div class="small-4 columns addSegment">
+        <div class="segmentTitle">Segment toevoegen</div>
+        <input type="text" name="segment1" placeholder="Segment Naam">
+        <select name="places">
+          <option ng-repeat="place in places" value="{{place}}">{{place}}</option>
+        </select>
+        <button>+</button>
+      </div> -->
+
+    </div>
+
+    <div class="small-12 columns">
+      <button ng-click="nextAddContainer()" class="button button-3d button-action button-pill right"><i class="fa fa-thumbs-up"></i> Verder</button>
+    </div>
+    
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
+
+  <row>
     <div class="off-canvas-wrap" data-offcanvas>
       <div class="inner-wrap">
         <nav class="tab-bar">
@@ -47,12 +119,12 @@
 
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
-            <li><label>Foundation</label></li>
+            <li><label>Menu</label></li>
             <li><a href="#/dashboard">Dashboard</a></li>
             <li><a href="#/customers">Klanten</a></li>
             <li><a href="#/storage">Opslag</a></li>
             <li><a href="#/contracts">Contracten</a></li>
-            <li><a class="button" href="#/new-product">Nieuw product</a></li>
+            <li><a class="button button-block button-rounded button-primary button-large" href="#/new-product">Nieuw product</a></li>
             <li><label>Instellingen</label></li>
             <li><a href="#/users">Users</a></li>
             <li><a href="#/storage-management">Opslag management</a></li>
@@ -71,27 +143,35 @@
       </div>
     </div>
   </row>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+  <script src="bower_components/foundation/js/vendor/jquery.js"></script>
+  <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+  <script src="bower_components/modernizr/modernizr.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
-
   <script src="bower_components/foundation/js/foundation.min.js"></script>
   <script src="bower_components/foundation/js/foundation/foundation.reveal.js"></script>
   <script src="bower_components/foundation-datepicker/js/foundation-datepicker.js"></script>
   <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
   <script src="bower_components/DateJS/build/production/date.min.js"></script>
-  <script src="bower_components/angular-ui-switch/angular-ui-switch.js"></script>
-  
+  <script src="bower_components/angular-ui-switch/angular-ui-switch.js"></script>  
   <script src="bower_components/angucomplete-alt/angucomplete-alt.js"></script>
   <script src="bower_components/ng-fab-form/dist/ng-fab-form.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-messages/angular-messages.js"></script>
   <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
   <script src="bower_components/angular-filter/dist/angular-filter.min.js"></script>
+  <script src="bower_components\angular-modal-service\dst\angular-modal-service.min.js"></script>
   <script src="bower_components/Buttons/js/buttons.js"></script>
+  <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
 
   <script src="main.js"></script>
   <script src="js/app.js"></script>
   <script src="js/newcontract.js"></script>
   <script src="js/storagemanagement.js"></script>
+  <script>
+  $(document).foundation();
+  </script>
 </body>
 </html>

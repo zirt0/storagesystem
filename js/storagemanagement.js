@@ -1,16 +1,19 @@
-app.controller('storagemanagementCtrl', function($scope, $http, $rootScope){
+app.controller('storagemanagementCtrl', function($scope, $http, $rootScope, ModalService){
+
+  ////////test purposee/////
+  
 
 	$http.post("server/read.php",{
 			'subject': 'containers'
 		})
-        	.success(function (response){
-        		$scope.containers = response.records;
-           		 console.log($scope.containers);
-        });
+  	.success(function (response){
+  		$scope.containers = response.records;
+     		 console.log($scope.containers);
+  });
 		
 });
 
-app.controller('containerContentCtrl', ['$scope', '$http' , '$routeParams', function ($scope, $http,  $routeParams) {
+app.controller('containerContentCtrl', ['$scope', '$http' , '$routeParams', '$location', function ($scope, $http,  $routeParams, $location) {
 
 	$scope.idContainer = $routeParams.id;
 	console.log($scope.idContainer);
@@ -23,12 +26,22 @@ app.controller('containerContentCtrl', ['$scope', '$http' , '$routeParams', func
       //console.log(response);
       $scope.places = response.records;
       // $scope.company = $scope.customerInfo['company']
+  });
 
-     });
+  $scope.deleteContainer  = function(){
+    
+    $http.post("server/remove.php",{'subject': "remove_container", 'id': $scope.idContainer })
+
+    .success(function (response) {
+
+      console.log(response);
+      $location.path( "/storage-management" );
+  });
+ } 
 
    $scope.occupy  = function(status){
 
-   		if(status == "0"){
+   		if(status == "" || status == 0){
 
    			return "Vrij";
 

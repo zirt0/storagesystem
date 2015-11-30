@@ -1,7 +1,7 @@
 {{idContainer}}
 <div style="min-height: 400px;" class="small-12 columns">
 
-	<div ng-repeat="(key, value) in places | groupBy: 'container_department'" class="small-3 columns">
+	<div ng-repeat="(key, value) in places | groupBy: 'container_department'" class="small-12 medium-4  columns">
 		<div class="button button-block button-rounded button-large depTitle">{{key}}</div>
 		<table>
 			<tr>
@@ -13,11 +13,14 @@
 			<tr ng-repeat="place in value" class="zebra animate-repeat {{occupy(place.contracts_id)}}">
 				<td >{{place.id}}</td>
 				<td>{{place.place_name}}</td>
-				<td>{{place.contracts_id}}</td>
+				<td><a href="#/contracts/{{place.contracts_id}}">{{place.contracts_id}}</a></td>
 				<td>{{occupy(place.contracts_id)}}</td>
 			</tr>
 		</table>
-		<input type="text">
+		<!-- <input type="text"> -->
 	</div>	
-<a class="button button-3d button-action button-pill">Voeg afdeling!</a>
+	<!-- <a class="button button-3d button-action button-pill">Voeg afdeling!</a> -->
+</div>
+<div style="min-height: 400px;" class="small-12 columns panel">
+	<span>Verwijder container </span>	<a ng-click="deleteContainer()" class="button button-3d button-caution button-pill">Vewijder Container!</a>
 </div>

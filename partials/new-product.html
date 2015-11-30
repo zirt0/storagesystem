@@ -5,12 +5,12 @@
 			<tr>
 				<td>Bedrijf</td>
 				<td>
-					<div class="small-10 columns">
+					<div class="small-9 columns">
 					<!-- <input type="text" name="company"> -->
-					<input id="tags" required>
+					<input id="tags" required class="req">
          			</div>
-         			<div class="small-2 columns">
-         				<button class="button tiny"> voeg toe</button>
+         			<div class="small-3 columns">
+         				<button class="button button-3d button-action button-pill"><i class="fa fa-user-plus"></i> voeg toe</button>
          			</div>
           		</td>
 			</tr>
@@ -80,24 +80,24 @@
 					<div class="small-12 columns">
 						<div class="small-4 columns">
 							<h3>Rechts Voor</h3>
-							<input type="number" name="bandprofiel1" ng-model="bandprofiel1" placeholder="Profiel v.b. 1.5">
-							<input type="text" name="bandenmaat1" ng-model="bandenmaat1" placeholder="Bandenmaat">
-							<select name="bandenmerk" id="bandenmerk1" ng-model="bandenmerk1" ng-change="allebanden()">
+							<input type="number" name="bandprofiel1" ng-model="bandprofiel1" placeholder="Profiel v.b. 1.5" class="req">
+							<input type="text" name="bandmaat1" ng-model="bandmaat1" placeholder="Bandenmaat" class="req">
+							<select name="bandenmerk" id="bandenmerk1" ng-model="bandenmerk1" ng-change="allebanden()" class="req">
 								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 							</select>
-							<input type="text" ng-model="bandtype1" placeholder="Type Band">
+							<input type="text" ng-model="bandtype1" placeholder="Type Band" class="req">
 						</div>
 						<div class="small-4 columns">
 							
 						</div>
 						<div class="small-4 columns">
 							<h3>Rechts Achter</h3>
-							<input type="number" name="bandprofiel2" ng-model="bandprofiel2" placeholder="Profiel v.b. 1.5">
-							<input type="text" name="bandenmaat2" ng-model="bandenmaat2" placeholder="Bandenmaat">
-							<select name="bandenmerk" id="bandenmerk2" ng-model="bandenmerk2">
+							<input type="number" name="bandprofiel2" ng-model="bandprofiel2" placeholder="Profiel v.b. 1.5" class="req">
+							<input type="text" name="bandmaat2" ng-model="bandmaat2" placeholder="Bandenmaat" class="req">
+							<select name="bandenmerk" id="bandenmerk2" ng-model="bandenmerk2" class="req">
 								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 							</select>
-						<input type="text" ng-model="bandtype2" placeholder="Type Band">
+						<input type="text" ng-model="bandtype2" placeholder="Type Band" class="req">
 						</div>
 					</div>
 					<div class="small-12 columns" style="text-align: center;">
@@ -109,24 +109,24 @@
 					<div class="small-12 columns">
 						<div class="small-4 columns">
 							<h3>Links Voor</h3>
-							<input type="number" name="bandprofiel3" ng-model="bandprofiel3" placeholder="Profiel v.b. 1.5">
-							<input type="text" name="bandenmaat3" ng-model="bandenmaat3" placeholder="Bandenmaat">
-							<select name="bandenmerk" id="bandenmerk3" ng-model="bandenmerk3">
+							<input type="number" name="bandprofiel3" ng-model="bandprofiel3" placeholder="Profiel v.b. 1.5" class="req">
+							<input type="text" name="bandmaat3" ng-model="bandmaat3" placeholder="Bandenmaat" class="req">
+							<select name="bandenmerk" id="bandenmerk3" ng-model="bandenmerk3" class="req">
 								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 							</select>
-							<input type="text" ng-model="bandtype3" placeholder="Type Band">
+							<input type="text" ng-model="bandtype3" placeholder="Type Band" class="req">
 						</div>
 						<div class="small-4 columns">
 							
 						</div>
 						<div class="small-4 columns">
 							<h3>Links Achter</h3>
-							<input type="number" name="bandprofiel4" ng-model="bandprofiel4" placeholder="Profiel v.b. 1.5">
-							<input type="text" name="bandenmaat4" ng-model="bandenmaat4" placeholder="Bandenmaat">
-							<select name="bandenmerk" id="bandenmerk4" ng-model="bandenmerk4">
+							<input type="number" name="bandprofiel4" ng-model="bandprofiel4" placeholder="Profiel v.b. 1.5" class="req">
+							<input type="text" name="bandmaat4" ng-model="bandmaat4" placeholder="Bandenmaat" class="req">
+							<select name="bandenmerk" id="bandenmerk4" ng-model="bandenmerk4" class="req">
 								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 							</select>
-							<input type="text" ng-model="bandtype4" placeholder="Type Band">
+							<input type="text" ng-model="bandtype4" placeholder="Type Band" class="req">
 						</div>
 					</div>
 				</td>
@@ -148,16 +148,41 @@
 			</tr>
 			<tr>
 				<td>Foto</td>
-				<td><input type="file" accept="image/*;capture=camera"></td>
+				<td><button ngf-select="uploadFiles($files)" multiple 
+            accept="image/*">Select Files</button>
+    <br>
+    <br>Files:
+    <ul>
+        <li ng-repeat="f in files" style="font:smaller">
+            {{f.name}}
+        </li>
+    </ul>
+    <span class="progress" ng-show="progress >= 0">
+        <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>
+    </span>
+    {{errorMsg}}</td>
 			</tr>
-			
+			<tr>
+				<td>Upload</td>
+				<td><div class="button" ngf-select="upload($file)">Upload on file select</div>
+<div class="button" ngf-select="uploadFiles($files)" multiple="multiple">Upload on file select</div>
+  Drop File:
+<div ngf-drop="uploadFiles($files)" class="drop-box"
+  ngf-drag-over-class="'dragover'" ngf-multiple="true" 
+  ngf-pattern="'image/*,application/pdf'">Drop Images or PDFs files here</div>
+<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+
+Image thumbnail: <img ngf-thumbnail="file || '/thumb.jpg'">
+Audio preview: <audio controls ngf-src="file"></audio>
+Video preview: <video controls ngf-src="file"></video></td>
+			</tr>
 			<tr>
 				<td>Opmerking</td>
 				<td><textarea name="opmerking" id="" cols="30" rows="10"></textarea></td>
 			</tr>
 			<tr>
-				<td><input type="submit" class="radius tiny button" value="verstuur"/></td>
 				<td></td>
+				<td><a ng-click="submitContract()" class="button button-3d button-primary button-rounded right">Opslaan</a></td>
 			</tr>
 		</table>
 	</form>

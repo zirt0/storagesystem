@@ -50,14 +50,14 @@
 		<tr ng-repeat="x in container | orderBy:sortType:sortReverse | filter:searchCustomer">
 		    <td>{{ x.id }}</td>
 		    <td>{{ x.company }}</td>
-		    <td>{{ x.container_name }}</td>
-		    <td>{{ x.place_name }}</td>
+		    <td>{{ x.name }}</td>
+		    <td>{{ x.container_contents_id }}</td>
 		    <td>{{ x.start_date }}</td>
 		    <td>{{ x.end_date }}</td>
 		    <td>Bereken rest. dagen</td>
 		    <td>{{ x.name }}</td>
 
-		    <td><a href="#/contracts/{{x.contract_id}}" class="round tiny button succes"> Bekijk </a></td>
+		    <td><a href="#/contracts/{{x.id}}" class="round tiny button succes"> Bekijk </a></td>
 		</tr>
 		</table>
 	</div>

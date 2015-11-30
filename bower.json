@@ -11,7 +11,9 @@
     "angular-animate": "~1.4.7",
     "angular-sanitize": "~1.4.7",
     "Buttons": "https://github.com/alexwolfe/Buttons.git#~2.0.0",
-    "angular-filter": "~0.5.8"
+    "angular-filter": "~0.5.8",
+    "angular-modal-service": "~0.6.9",
+    "ng-file-upload": "~10.1.0"
   },
   "homepage": "https://github.com/zirt0/storagesystem",
   "description": "",

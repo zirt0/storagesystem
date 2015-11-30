@@ -3,6 +3,7 @@
 @import "foundation/components/tables";
 //@import "foundation/components/pagination";
 @import "foundation/components/reveal";
+@import "foundation/components/reveal";
 
 
 $primary-color: #008CBA;
@@ -152,12 +153,18 @@ select  {
    background-color: green;
 }
 
+.container, .addcontainerButton{
+  width: 200px;
+  height: 180px;
+  margin-bottom: 20px;
+}
+
 .container{    
-    width: 200px;
-    height: 180px;
+   
     text-align: center;
     background-color: lightblue;
 }
+
 .containerColor{
     width: 90%;
     height: 20px;
@@ -184,4 +191,52 @@ input[data-toggle]:checked + label:active {
     background-color: #0880d7 !important;
     color: white !important;
     text-transform: capitalize;
+}
+
+.highlight {
+    border-color: red !important;
+    background-color: rgba(255, 0, 0, 0.1) !important;
+}
+.segmentTitle {
+  display: block;
+  font-weight: bold;
+}
+label {
+  display: inline-block;
+}
+
+label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:2px solid #f00;
+}
+
+.thumb {
+    width: 24px;
+    height: 24px;
+    float: none;
+    position: relative;
+    top: 7px;
+}
+
+form .progress {
+    line-height: 15px;
+}
+
+.progress {
+    display: inline-block;
+    width: 100px;
+    border: 3px groove #CCC;
+}
+
+.progress div {
+    font-size: smaller;
+    background: orange;
+    width: 0;
 }

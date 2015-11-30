@@ -7,6 +7,7 @@ $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
 $subject = $request->subject;
 $tirebrand = $request->tirebrand;
+$containerId = $request->id;
 
 //print $subject;
 
@@ -16,6 +17,18 @@ if($subject == "remove_tire"){
 	$result = $conn->query($sql);
 	$outp = $sql;
 }
+
+if($subject == "remove_container"){
+		
+	$sql = "DELETE container, container_content FROM container
+			LEFT JOIN container_content
+			ON container_content.container_id = container.id
+			WHERE container.id =" . "'".$containerId . "'";
+	$result = $conn->query($sql);
+	$outp = $sql;
+}
+
+
 
 $conn->close();
 
