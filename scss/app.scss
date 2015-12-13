@@ -240,3 +240,43 @@ form .progress {
     background: orange;
     width: 0;
 }
+
+.segmentpos, .containerpos, .placepos {
+    display: inline-block;
+    padding: 10px;
+    color: white;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.containerpos {
+  background-color: #e59501;
+}
+.segmentpos {
+  background-color: #e59501;
+}
+.placepos {
+  background-color: #e59501;
+}
+
+.tireprofile {
+    display: inline-block;
+    border-radius: 10px;
+    color: white;
+    font-weight: bolder;
+}
+.tireGood {
+  background-color: #8bc220;
+}
+.tireNormal {
+  background-color: #e59501;
+}
+.tireBad {
+  background-color: #f04124;
+}
+.right-small {
+  text-align: center;
+}
+.right-small .menu-icon {
+      text-indent: 0;
+}

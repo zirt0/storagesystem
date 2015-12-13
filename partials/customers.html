@@ -4,12 +4,12 @@
 		<table>
 			<tr>
 				<th>Bedrijfsnaam</th>
+				<th>Naam</th>
 				<th>Merk</th>
-				<th></th>
 			</tr>
 		  <tr ng-repeat="x in customers">
-		    <td><a href="#/customers/{{x.value}}">{{x.value}}. {{ x.label }}</a></td>
-		    <td>{{ x.company }}</td>
+		    <td><a href="#/customers/{{x.value}}">{{x.id}}. {{ x.company }}</a></td>
+		    <td>{{ x.fname }} {{ x.lname }}</td>
 		    <td>{{ x.merk }}</td>
 		  </tr>
 		</table>

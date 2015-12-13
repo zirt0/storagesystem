@@ -6,12 +6,28 @@ include("config.php");
 $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
 $subject = $request->subject;
+$username = $request->username;
+$password = $request->password;
 $customerId = $request->customerId;
 $contractId = $request->contractId;
 $id = $request->id;
 
 //print $subject;
 
+
+if($subject == "login"){
+
+	$sql = "SELECT * FROM users WHERE name = '" .  $username . "' AND password = '" . $password . "'"  ;
+	$result = $conn->query($sql);
+
+	$outp = "";
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    $outp .= '{"name":"'  . $rs["name"] . '",';
+	    $outp .= '"password":"'. $rs["password"]    . '"}'; 
+	}
+	$outp =$outp;
+}
 
 if($subject == "customers"){
 
@@ -24,10 +40,13 @@ if($subject == "customers"){
 	    $outp .= '{"id":"'  . $rs["id"] . '",';
 	    $outp .= '"company":"'  . $rs["company"] . '",';
 	    $outp .= '"fname":"'   . $rs["fname"]        . '",';
-	    $outp .= '"lname":"'. $rs["lname"]    . '"}'; 
+	    $outp .= '"lname":"'   . $rs["lname"]        . '",';
+	    $outp .= '"kenteken":"'   . $rs["kenteken"]        . '",';
+	    $outp .= '"merk":"'. $rs["merk"]    . '"}'; 
 	}
 	$outp ='{"records":['.$outp.']}';
 }
+
 
 if($subject == "containerDepartment"){
 
@@ -91,21 +110,7 @@ if($subject == "containers"){
 	//$outp = $sql;
 }
 
-if($subject == "customers"){
 
-	$sql = "SELECT * FROM customers";
-	$result = $conn->query($sql);
-
-	$outp = "";
-	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
-	    if ($outp != "") {$outp .= ",";}
-	    $outp .= '{"value":"'  . $rs["id"] . '",';
-	    $outp .= '"desc":"'   . $rs["fname"] . ' ' . $rs["lname"] . '",';
-	    $outp .= '"label":"'  . $rs["company"] . '"}';
-
-	}
-	$outp ='{"records":['.$outp.']}';
-}
 
 if($subject == "customerInfo"){
 
@@ -216,7 +221,7 @@ if($subject == "contractdetail"){
 
 	//sort contracts on end date
 	$sql = 'SELECT contracts.id, customer_id, employer, start_date, end_date, container_contents_id,
-				customers.company, customers.fname, customers.lname, tires.sezon,
+				customers.company, customers.fname, customers.lname, customers.merk, customers.kenteken, customers.tel, tires.sezon,
 				LV_brand, RV_brand, LA_brand, RA_brand,
 				LV_type, RV_type, LA_type, RA_type,
 				LV_profile, RV_profile, LA_profile, RA_profile,
@@ -268,6 +273,9 @@ if($subject == "contractdetail"){
 	    $outp .= '"company":"' . $rs["company"] . '",';
 	    $outp .= '"lname":"' . $rs["lname"] . '",';
 	    $outp .= '"fname":"' . $rs["fname"] . '",';
+	    $outp .= '"merk":"' . $rs["merk"] . '",';
+	    $outp .= '"kenteken":"' . $rs["kenteken"] . '",';
+	    $outp .= '"tel":"' . $rs["tel"] . '",';
 	    $outp .= '"customer_id":"' . $rs["customer_id"] . '",';
 	    
 	    $outp .= '"container_contents_id":"' . $rs["container_contents_id"] . '",';

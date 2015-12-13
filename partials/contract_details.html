@@ -1,15 +1,47 @@
 <div class="small-12 columns">
 <table ng-repeat="x in contractDetail" width="100%">
 	<tr>
-		<th>
+		<th colspan="2">
 			<h1><a href="#/customers/{{x.customer_id }}">{{x.company}} <small>{{x.fname}} {{x.lname}}</small> </a></h1> 
 		</th>
+	</tr>
+	<tr>
+		<td><h3>Klantgegevens</h3></td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>ID</td>
 		<td>{{x.id}}</td>
 	</tr>
 	<tr>
+		<td>Bedrijf</td>
+		<td>{{x.company}}</td>
+	</tr>
+	<tr>
+		<td>Voornaam</td>
+		<td>{{x.fname}}</td>
+	</tr>
+	<tr>
+		<td>Achternaam</td>
+		<td>{{x.lname}}</td>
+	</tr>
+	<tr>
+		<td>Merk Auto</td>
+		<td>{{x.merk}}</td>
+	</tr>
+	<tr>
+		<td>Kenteken</td>
+		<td class="kenteken">{{x.kenteken}}</td>
+	</tr>
+	<tr>
+		<td>Telefoonnummer</td>
+		<td>{{x.tel}}</td>
+	</tr>
+	<tr>
+		<td colspan="2"><br></td>
+	</tr>
+
+<!-- 	<tr>
 		<td>
 			<div class="bandrow">Links voor</div>
 			<div class="bandrow">Rechts Voor</div>
@@ -22,10 +54,11 @@
 			<div class="eachTire">LA {{x.LA_brand}} {{x.LA_type}} {{x.LA_profile}} {{x.LA_tiresize}}</div>
 			<div class="eachTire">RA {{x.RA_brand}} {{x.RA_type}} {{x.RA_profile}} {{x.RA_tiresize}}</div>
 		</td>
-	</tr>
+	</tr> -->
+
 	<tr>
-		<td>Sezoen</td>
-		<td>{{x.sezon}}  {{sezon(x.sezon)}} </td>
+		<td><h3>Contractdetails</h3></td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>Start Datum</td>
@@ -35,22 +68,83 @@
 		<td>Eind Datum</td>
 		<td>{{x.end_date}}</td>
 	</tr>
-
 	<tr>
+		<td colspan="2"><br></td>
+		
+	</tr>
+
+	<tr colspan="2">
 		<th><h3>Positie</h3></td>
 	</tr>
 	<tr>
 		<td>Container</td>
-		<td>{{x.name}} > {{x.container_department}} > {{x.container_contents_id}}</td>
+		<td><div class="containerpos">{{x.name}}</div> <i class="fa fa-arrow-right"></i> <div class="segmentpos">{{x.container_department}}</div> <i class="fa fa-arrow-right"></i> <div class="placepos">{{x.container_contents_id}}</div></td>
 	</tr>
-	<tr><th><h3>Comentaar</h3></td></tr>
+	<tr>
+		<td colspan="2"><br></td>
+	</tr>
+	<tr>
+		<th colspan="2"><h3>Comentaar</h3></td>
+	</tr>
 	<tr>
 		<td>Opmerking</td>
 		<td>{{x.comment}}</td>
 	</tr>
+	<tr>
+		<td colspan="2"><br></td>
+	</tr>
+	<tr>
+		<th colspan="2"><h3>Banddetails</h3></td>
+	</tr>
+	<tr>
+		<td>Sezoen</td>
+		<td><div ng-bind-html="sezon(x.sezon)"></div>{{x.sezon}}</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<table>
+				<tr>
+					<th>Pos</th>
+					<th>Merk</th>
+					<th>Type</th>
+					<th>Profiel</th>
+					<th>Maat</th>
+				</tr>
+				<tr>
+					<td>RV</td>
+					<td>{{x.RV_brand}}</td>
+					<td>{{x.RV_type}}</td>
+					<td class="{{tireProfile(x.RV_profile)}} tireprofile">{{x.RV_profile}}</td>
+					<td>{{x.RV_tiresize}}</td>
+				</tr>
+				<tr>
+					<td>LA</td>
+					<td>{{x.LA_brand}}</td>
+					<td>{{x.LA_type}}</td>
+					<td class="{{tireProfile(x.RV_profile)}} tireprofile">{{x.LA_profile}}</td>
+					<td>{{x.LA_tiresize}}</td>
+				</tr>
+				<tr>
+					<td>RA</td>
+					<td>{{x.RA_brand}}</td>
+					<td>{{x.RA_type}}</td>
+					<td class="{{tireProfile(x.RV_profile)}} tireprofile">{{x.RA_profile}}</td>
+					<td>{{x.RA_tiresize}}</td>
+				</tr>
+								<tr>
+					<td>LV</td>
+					<td>{{x.LV_brand}}</td>
+					<td>{{x.LV_type}}</td>
+					<td class="{{tireProfile(x.RV_profile)}} tireprofile">{{x.LV_profile}}</td>
+					<td>{{x.LV_tiresize}}</td>
+				</tr>
+			</table>
+
+		</td>
+	</tr>
 
 </table>
 
-<a class="button" href="javascript:window.print()"> <i class="fa fa-print"></i> Print This Page</a>
+<a class="right button button-3d button-primary button-rounded" href="javascript:window.print()"> <i class="fa fa-print"></i> Print This Page</a>
 
 </div>

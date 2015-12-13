@@ -1,4 +1,4 @@
-	var app = angular.module('APP',['ngRoute', 'ngSanitize', 'ngTagsInput', 'uiSwitch', 'ngFabForm','ngMessages', 'ngAnimate', 'angular.filter', 'angularModalService', 'ngFileUpload']);
+	var app = angular.module('APP',['ngRoute', 'ngSanitize', 'ngCookies', 'ngTagsInput', 'uiSwitch', 'ngFabForm','ngMessages', 'ngAnimate', 'angular.filter', 'angularModalService', 'ngFileUpload']);
 	
 	app.filter("sanitize", ['$sce', function($sce) {
 	  return function(htmlCode){
@@ -12,6 +12,10 @@
 			.when('/',{
 				templateUrl:'partials/index.html',
 				//controller:'customers'
+			})
+			.when('/login',{
+				templateUrl:'partials/login.html',
+				controller:'loginCtrl'
 			})
 			.when('/dashboard',{
 				templateUrl:'partials/dashboard.html',
@@ -75,6 +79,11 @@
 				controller:'settingsCtrl'
 
 			})
+			.when('/addcustomer',{
+				templateUrl:'partials/addcustomer.html',
+				controller:'addCustomer'
+
+			})
 			// .otherwise({
 			// 	//redirectTo:'/'
 			// });
@@ -86,7 +95,49 @@
 		//console.log("hoerraa!");
 	});
 
-	 app.run(function($rootScope) {
+	 app.run(function($rootScope, $location, $cookies) {
+
+	 	console.log("cookies " + $cookies.get('loggedIn'));
+	 	
+	 	$rootScope.$on( "$routeChangeStart", function(event, next, current) {
+
+	      if ( $cookies.get('loggedIn') == 'false' || $cookies.get('loggedIn') == undefined) {
+	      	console.log("routeChanges");
+	        $location.path( "/login" );
+
+	        // no logged user, we should be going to #login
+	        // if ( next.templateUrl == "partials/login.html" ) {
+	        // 	console.log("we are in contracts");
+	        // 	//$location.path('/login'); 
+	        //   // already going to #login, no redirect needed
+	        // } else {
+	        //   // not going to #login, we should redirect now
+	        //   //$location.path( "/login" );
+	        // }
+	      }else if($rootScope.justLogin == true){
+
+	      }else{
+			$location.path( "/dashboard" );
+			$rootScope.justLogin = true;      	
+	      }      
+	    });
+
+	    $rootScope.logoff = function(){
+
+			    var r = confirm("Wilt u uitloggen?");
+			    if (r == true) {
+			       	$cookies.remove('loggedIn');
+			       	$rootScope.justLogin = false;
+	    			$location.path( "/login" );
+			    } else {
+			        
+			    }	    	
+
+	    }
+
+
+		$rootScope.chosenCustomer = "";
+
         $rootScope.doTheBack = function() {
         	window.history.back();
             console.log("I'm global foo!");
@@ -99,39 +150,105 @@
 			var d = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
 
 			console.log(d);
-
     		//today = today.toString();
     		///return today;
     	}
 
 		$rootScope.sezon = function(sezon){
 			if(sezon == "zomer"){
-				return "<img src='/lib/img/snowflake'>";
+				return "<img src='/lib/img/sunny82.png'>";
 			}else{
-				return "Yeaah it is Winter, WinterPicture";
+				return "<img src='/lib/img/snowflake1.png'>";
 			}
 
 		}
 
 		$rootScope.dateformat = function(){
-		var today = new Date();
-	    var dd = today.getDate();
-	    var mm = today.getMonth()+1; //January is 0!
-	    var yyyy = today.getFullYear();
+			var today = new Date();
+		    var dd = today.getDate();
+		    var mm = today.getMonth()+1; //January is 0!
+		    var yyyy = today.getFullYear();
 
-	    if(dd<10){
-	        dd='0'+dd
-	    } 
-	    if(mm<10){
-	        mm='0'+mm
-	    } 
-	    var today = dd+'-'+mm+'-'+yyyy;
+		    if(dd<10){
+		        dd='0'+dd
+		    } 
+		    if(mm<10){
+		        mm='0'+mm
+		    } 
+		    var today = dd+'-'+mm+'-'+yyyy;
 
-	    return today;
+		    return today;
 
 		}
 
+		$rootScope.tireProfile = function(profile){
+			if(profile < 1){
+				return "tireBad";
+			}else if(profile < 2){
+				return "tireNormal";
+			}else{
+				return "tireGood";
+			}
+		}
+
     });
+
+    app.controller('loginCtrl', function($scope, $http, $rootScope, $location, $cookies){
+		
+		$scope.username = "adem";
+		$scope.password = "password1234";
+		$scope.loggedIn = $rootScope.loggedIn
+		console.log("dit is login");
+		
+		console.log($cookies.get('loggedIn'));
+		
+
+		$scope.submitLogin = function(){
+			$rootScope.loggedIn = true;
+		console.log("submit knop is ingedruk");
+		$http.post("server/read.php",{'subject': "login", 'username': $scope.username , 'password': $scope.password })
+        	.success(function (response) {
+
+	   			//$scope.customer = response.records;
+	   			console.log(response);
+	   			if(response == ""){
+	   				$rootScope.loggedIn = false;
+	   				console.log($rootScope.loggedIn);
+	   			}else{
+	   				$rootScope.loggedIn = true;
+	   				$location.path( "/dashboard" );
+	   				$cookies.put('loggedIn', 'true');
+
+	   				console.log($rootScope.loggedIn);
+	   			}
+
+	   	});
+		}
+
+
+	});
+
+	 app.controller('addCustomer',function($rootScope, $scope, $http){
+
+	 	$scope.x = "test"
+	 	$scope.sortType     = 'company', 'fname','lname','merk'; // set the default sort type
+		$scope.sortReverse  = true;  // set the default sort order
+		$scope.searchCustomer   = '';     // set the default search/filter term
+
+	 	$http.post("server/read.php",{'subject': "customers"})
+		
+	   		.success(function (response) {
+
+	   			$scope.customer = response.records;
+
+	   	});
+
+	   	$scope.selectCustomer = function(id, company, name ){
+			$rootScope.chosenCustomer = id + "." + company + " - " + name;
+			$('#SelectCustomer').foundation('reveal', 'close');
+		}
+
+	 })
 
 	app.controller('customerInfo', ['$scope', '$http' , '$routeParams', function ($scope, $http,  $routeParams) {
 
@@ -200,11 +317,10 @@
 	   	$scope.adem1 = "naberrr";
 	   	$scope.today = new Date();
 
-	   	$scope.sortType     = 'klant'; // set the default sort type
+	   	$scope.sortType     = 'container_name', 'klant'; // set the default sort type
 		$scope.sortReverse  = true;  // set the default sort order
 		$scope.searchCustomer   = '';     // set the default search/filter term
   
-	   	//$http.get("http://storagesystem.nl:8888/test.php")
 	   	$http.post("server/read.php",{'subject': "contracts"})
 	   	.success(function (response) {
 	   		console.debug(response);

@@ -1,4 +1,4 @@
-	app.controller('newProductCtrl', ['$scope', '$http', '$rootScope', 'Upload', '$timeout', function($scope, $http, $rootScope, Upload, $timeout){
+	app.controller('newProductCtrl', ['$rootScope', '$scope', '$http', '$rootScope', 'Upload', '$timeout', function( $rootScope, $scope, $http, $rootScope, Upload, $timeout){
 		
 		$scope.bandprofiel = true;
 		$scope.bandmaat = true;

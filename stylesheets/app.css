@@ -9972,3 +9972,60 @@ form .progress {
   background: orange;
   width: 0;
 }
+
+/* line 244, ../scss/app.scss */
+.segmentpos, .containerpos, .placepos {
+  display: inline-block;
+  padding: 10px;
+  color: white;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+/* line 252, ../scss/app.scss */
+.containerpos {
+  background-color: #e59501;
+}
+
+/* line 255, ../scss/app.scss */
+.segmentpos {
+  background-color: #e59501;
+}
+
+/* line 258, ../scss/app.scss */
+.placepos {
+  background-color: #e59501;
+}
+
+/* line 262, ../scss/app.scss */
+.tireprofile {
+  display: inline-block;
+  border-radius: 10px;
+  color: white;
+  font-weight: bolder;
+}
+
+/* line 268, ../scss/app.scss */
+.tireGood {
+  background-color: #8bc220;
+}
+
+/* line 271, ../scss/app.scss */
+.tireNormal {
+  background-color: #e59501;
+}
+
+/* line 274, ../scss/app.scss */
+.tireBad {
+  background-color: #f04124;
+}
+
+/* line 277, ../scss/app.scss */
+.right-small {
+  text-align: center;
+}
+
+/* line 280, ../scss/app.scss */
+.right-small .menu-icon {
+  text-indent: 0;
+}

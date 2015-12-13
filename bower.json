@@ -13,7 +13,8 @@
     "Buttons": "https://github.com/alexwolfe/Buttons.git#~2.0.0",
     "angular-filter": "~0.5.8",
     "angular-modal-service": "~0.6.9",
-    "ng-file-upload": "~10.1.0"
+    "ng-file-upload": "~10.1.0",
+    "angular-cookies": "~1.4.8"
   },
   "homepage": "https://github.com/zirt0/storagesystem",
   "description": "",
