@@ -19,7 +19,7 @@
 			})
 			.when('/dashboard',{
 				templateUrl:'partials/dashboard.html',
-				//controller:'customers'
+				controller:'dashboardCtrl'
 
 			})
 			.when('/customers',{
@@ -84,6 +84,12 @@
 				controller:'addCustomer'
 
 			})
+			.when('/tires',{
+				templateUrl:'partials/tires.html',
+				controller:'tiresCtrl'
+
+			})
+
 			// .otherwise({
 			// 	//redirectTo:'/'
 			// });
@@ -117,7 +123,7 @@
 	      }else if($rootScope.justLogin == true){
 
 	      }else{
-			$location.path( "/dashboard" );
+			//$location.path( "/dashboard" );
 			$rootScope.justLogin = true;      	
 	      }      
 	    });
@@ -163,6 +169,14 @@
 
 		}
 
+		$rootScope.YesNo = function(sezon){
+			if(sezon == 0){
+				return "No";
+			}else{
+				return "Yes";
+			}
+		}
+
 		$rootScope.dateformat = function(){
 			var today = new Date();
 		    var dd = today.getDate();
@@ -182,13 +196,30 @@
 		}
 
 		$rootScope.tireProfile = function(profile){
-			if(profile < 1){
+			
+			var profile = Number(profile);
+			console.log(profile);
+			if(profile <= 1){
+
 				return "tireBad";
-			}else if(profile < 2){
+
+			}else if(profile <= 2){
+
 				return "tireNormal";
+
 			}else{
+
 				return "tireGood";
+
 			}
+		}
+
+		$rootScope.differenceDate = function(val1, val2){
+			var date1 = new Date(val1);
+			var date2 = new Date(val2);
+			var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+			var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+			return diffDays;
 		}
 
     });

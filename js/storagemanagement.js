@@ -30,13 +30,16 @@ app.controller('containerContentCtrl', ['$scope', '$http' , '$routeParams', '$lo
 
   $scope.deleteContainer  = function(){
     
-    $http.post("server/remove.php",{'subject': "remove_container", 'id': $scope.idContainer })
+    var r = confirm("Weet u zeker dat u deze container wilt verwijderen?");
+    if (r == true) {
+      $http.post("server/remove.php",{'subject': "remove_container", 'id': $scope.idContainer })
+      .success(function (response) {
 
-    .success(function (response) {
-
-      console.log(response);
-      $location.path( "/storage-management" );
-  });
+        console.log(response);
+        $location.path( "/storage-management" );
+      });
+    
+    }     
  } 
 
    $scope.occupy  = function(status){

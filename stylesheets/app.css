@@ -10003,29 +10003,45 @@ form .progress {
   border-radius: 10px;
   color: white;
   font-weight: bolder;
+  text-align: center;
 }
 
-/* line 268, ../scss/app.scss */
+/* line 269, ../scss/app.scss */
+.dashboard .tireprofile {
+  display: table-cell;
+}
+
+/* line 272, ../scss/app.scss */
 .tireGood {
   background-color: #8bc220;
 }
 
-/* line 271, ../scss/app.scss */
+/* line 275, ../scss/app.scss */
 .tireNormal {
   background-color: #e59501;
 }
 
-/* line 274, ../scss/app.scss */
+/* line 278, ../scss/app.scss */
 .tireBad {
   background-color: #f04124;
 }
 
-/* line 277, ../scss/app.scss */
+/* line 281, ../scss/app.scss */
 .right-small {
   text-align: center;
 }
 
-/* line 280, ../scss/app.scss */
+/* line 284, ../scss/app.scss */
 .right-small .menu-icon {
   text-indent: 0;
+}
+
+/* line 287, ../scss/app.scss */
+.dashboard .small-12 > .small-12 {
+  height: 330px;
+}
+
+/* line 290, ../scss/app.scss */
+.banden td {
+  vertical-align: top;
 }

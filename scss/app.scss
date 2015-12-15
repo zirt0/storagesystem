@@ -264,6 +264,10 @@ form .progress {
     border-radius: 10px;
     color: white;
     font-weight: bolder;
+    text-align: center;
+}
+.dashboard .tireprofile {
+  display: table-cell;
 }
 .tireGood {
   background-color: #8bc220;
@@ -279,4 +283,10 @@ form .progress {
 }
 .right-small .menu-icon {
       text-indent: 0;
+}
+.dashboard .small-12 > .small-12 {
+    height: 330px;
+}
+.banden td {
+  vertical-align: top;
 }

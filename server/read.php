@@ -10,6 +10,7 @@ $username = $request->username;
 $password = $request->password;
 $customerId = $request->customerId;
 $contractId = $request->contractId;
+$sort = $request->sort;
 $id = $request->id;
 
 //print $subject;
@@ -31,7 +32,12 @@ if($subject == "login"){
 
 if($subject == "customers"){
 
-	$sql = "SELECT * FROM customers";
+	if($sort != ""){
+		$sql = "SELECT * FROM customers ORDER BY id DESC LIMIT " . $sort;
+	}else{
+		$sql = "SELECT * FROM customers";
+	}
+
 	$result = $conn->query($sql);
 
 	$outp = "";
@@ -42,6 +48,8 @@ if($subject == "customers"){
 	    $outp .= '"fname":"'   . $rs["fname"]        . '",';
 	    $outp .= '"lname":"'   . $rs["lname"]        . '",';
 	    $outp .= '"kenteken":"'   . $rs["kenteken"]        . '",';
+	    $outp .= '"tel":"'   . $rs["tel"]        . '",';
+	    $outp .= '"date":"'   . $rs["date"]        . '",';
 	    $outp .= '"merk":"'. $rs["merk"]    . '"}'; 
 	}
 	$outp ='{"records":['.$outp.']}';
@@ -232,8 +240,11 @@ if($subject == "contractdetail"){
 				JOIN customers ON contracts.customer_id = customers.id
 				JOIN tires ON contracts.tires_id = tires.id
 				JOIN container_content ON container_contents_id = container_content.id
-				JOIN container ON container_content.container_id = container.id
-				WHERE contracts.id =' . $contractId;
+				JOIN container ON container_content.container_id = container.id';
+				if($contractId != ""){
+					$sql .= ' WHERE contracts.id =' . $contractId;
+				}
+				
 	$result = $conn->query($sql);
 
 	$outp = "";
@@ -266,6 +277,7 @@ if($subject == "contractdetail"){
 	    //$outp .= '"type":"' . $rs["type"] . '",';
 	    $outp .= '"flatrun":"' . $rs["flatrun"] . '",';
 	    $outp .= '"sezon":"' . $rs["sezon"] . '",';
+	    $outp .= '"velg":"' . $rs["velg"] . '",';
 
 	   	$outp .= '"start_date":"' . $rs["start_date"] . '",';
 	    $outp .= '"end_date":"' . $rs["end_date"] . '",';
@@ -294,6 +306,34 @@ if($subject == "contractdetail"){
 	//$outp = $sql;
 }
 
+if($subject == "noInvoice"){
+
+	//sort contracts on end date
+	$sql = 'SELECT *, customers.company, contracts.id as sortId FROM contracts
+			JOIN customers ON contracts.customer_id = customers.id
+			WHERE invoiceno IS NULL ORDER BY sortId DESC LIMIT ' . $sort;
+
+	$result = $conn->query($sql);
+
+	$outp = "";
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    
+	    $outp .= '{"id":"' . $rs["sortId"] . '",';
+	    $outp .= '"company":"' . $rs["company"] . '",';
+	    $outp .= '"customer_id":"' . $rs["customer_id"] . '",';
+	    $outp .= '"date":"'. $rs["date"]     . '"}'; 
+	    //brand
+	    //$outp = "adeemm";
+	    
+	}
+	 $outp ='{"records":['.$outp.']}'; ;
+	//$outp = $adem ;
+
+	//$outp = $sql;
+}
+
+
 if($subject == "tire_brands"){
 
 	//sort contracts on end date
@@ -314,6 +354,35 @@ if($subject == "tire_brands"){
 
 	//$outp = $sql;
 }
+
+if($subject == "sortLowProfile"){
+
+	//sort contracts on end date
+	$sql = "SELECT *, customers.company, customers.id as customerId FROM tires 
+			JOIN contracts ON tires.contract_id = contracts.id
+			JOIN customers ON contracts.customer_id = customers.id
+			WHERE LV_profile <= 1 OR RV_profile <= 1 OR LA_profile <= 1 OR RA_profile <= 1
+			ORDER BY tires.id DESC LIMIT " . $sort;
+
+	$result = $conn->query($sql);
+
+	$outp = "";
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    
+	    $outp .= '{"id":"' . $rs["id"] . '",';
+	    $outp .= '"company":"' . $rs["company"] . '",';
+	    $outp .= '"customer_id":"' . $rs["customerId"] . '",';
+	    $outp .= '"LV_profile":"' . $rs["LV_profile"] . '",';
+	    $outp .= '"RV_profile":"' . $rs["RV_profile"] . '",';
+	    $outp .= '"LA_profile":"' . $rs["LA_profile"] . '",';
+	    $outp .= '"RA_profile":"' . $rs["RA_profile"] . '"}';
+	}
+	 $outp ='{"records":['.$outp.']}';
+	 //$outp = $sql;
+}
+
+
 
 $conn->close();
 
