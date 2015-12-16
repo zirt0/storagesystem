@@ -81,7 +81,7 @@
 					</div>
 					<div class="small-12 columns">
 						<div class="small-4 columns">
-							<h3>Rechts Voor</h3>
+							<h3>Links Voor</h3>
 							<input type="number" name="bandprofiel1" ng-model="bandprofiel1" placeholder="Profiel v.b. 1.5" class="req">
 							<input type="text" name="bandmaat1" ng-model="bandmaat1" placeholder="Bandenmaat" class="req">
 							<select name="bandenmerk" id="bandenmerk1" ng-model="bandenmerk1" ng-change="allebanden()" class="req">
@@ -93,7 +93,7 @@
 							
 						</div>
 						<div class="small-4 columns">
-							<h3>Rechts Achter</h3>
+							<h3>Rechts Voor</h3>
 							<input type="number" name="bandprofiel2" ng-model="bandprofiel2" placeholder="Profiel v.b. 1.5" class="req">
 							<input type="text" name="bandmaat2" ng-model="bandmaat2" placeholder="Bandenmaat" class="req">
 							<select name="bandenmerk" id="bandenmerk2" ng-model="bandenmerk2" class="req">
@@ -110,7 +110,7 @@
 					</div>
 					<div class="small-12 columns">
 						<div class="small-4 columns">
-							<h3>Links Voor</h3>
+							<h3>Rechts achter</h3>
 							<input type="number" name="bandprofiel3" ng-model="bandprofiel3" placeholder="Profiel v.b. 1.5" class="req">
 							<input type="text" name="bandmaat3" ng-model="bandmaat3" placeholder="Bandenmaat" class="req">
 							<select name="bandenmerk" id="bandenmerk3" ng-model="bandenmerk3" class="req">
@@ -180,7 +180,7 @@ Video preview: <video controls ngf-src="file"></video></td>
 			</tr>
 			<tr>
 				<td>Opmerking</td>
-				<td><textarea name="opmerking" id="" cols="30" rows="10"></textarea></td>
+				<td><textarea name="opmerking" ng-model="comment" id="" cols="30" rows="10"></textarea></td>
 			</tr>
 			<tr>
 				<td></td>

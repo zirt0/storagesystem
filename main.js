@@ -101,7 +101,7 @@
 		//console.log("hoerraa!");
 	});
 
-	 app.run(function($rootScope, $location, $cookies) {
+	 app.run(function($rootScope, $location, $cookies, $http) {
 
 	 	console.log("cookies " + $cookies.get('loggedIn'));
 	 	
@@ -220,6 +220,17 @@
 			var timeDiff = Math.abs(date2.getTime() - date1.getTime());
 			var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
 			return diffDays;
+		}
+
+		$rootScope.getUser = function(){
+			console.log("getuser Rootscope");
+			$http.post("server/read.php",{'subject': "users"})
+		   .success(function (response) {
+
+		   		$rootScope.gebruikers = response.records;
+		   		console.log($rootScope.gebruikers);
+		   	
+		   	});	
 		}
 
     });
@@ -400,20 +411,42 @@
 		};
 	}]);
 
-	app.controller('usersCtrl', function($scope, $http) {
+	app.controller('addUserwindow', function($rootScope, $scope, $http, $location){
+		
+		$scope.addUser = function(){
+			console.log("button is pressed");
+			$http.post("server/insert.php",{'subject': "addUser", 'addUsername': $scope.addUsername , "addPassword": $scope.addPassword})
+			   .success(function (response) {
+
+			   		console.log(response);
+			   		$scope.addUsername = "";
+			   		$scope.addPassword = "";
+					$('#addUserModal').foundation('reveal', 'close');
+					$rootScope.getUser();
+				});	
+		};
+
+	});
+
+
+
+	app.controller('usersCtrl', function($rootScope, $scope, $http, $location) {
+		
+
+		$rootScope.getUser();
+
+		$scope.removeUser = function (userid){
+
+			var r = confirm("Weet u zeker dat u wilt verwijderen?");
+			    if (r == true) {
+			    	$http.post("server/remove.php",{'subject': "removeUser", 'data': userid })
+			   		.success(function (response) {
+			   			console.log(response);
+			   			$rootScope.getUser();
+					});
+			    }
+		}
 	   
-	   //$scope.adem = "ademmm";
-	   //$http.get("http://storagesystem.nl:8888/test.php")
-
-	   //$scope.copies = ContentPage.copies();
-	   $http.post("server/read.php",{'subject': "users"})
-	   .success(function (response) {
-
-	   		$scope.adem;
-	   		$scope.gebruikers = response.records;
-	   		console.log($scope.gebruikers);
-	   	
-	   	});
 	});
 
 	app.controller('addContainer', function($scope, $http, $location) {

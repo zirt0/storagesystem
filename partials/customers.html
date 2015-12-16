@@ -1,16 +1,20 @@
 <div class="small-12 columns">
-	<h1>Klant</h1>
+	<h1>Klantenbestand</h1>
+		<input type="text" class="form-control" placeholder="Bedrijf, naam, achternaam, merk en kenteken zoeken" ng-model="searchCustomer">
+
 	<div class="panel">
 		<table>
 			<tr>
 				<th>Bedrijfsnaam</th>
 				<th>Naam</th>
 				<th>Merk</th>
+				<th>Kenteken</th>
 			</tr>
-		  <tr ng-repeat="x in customers">
+		  <tr ng-repeat="x in customers | orderBy:sortType:sortReverse | filter:searchCustomer">
 		    <td><a href="#/customers/{{x.id}}">{{x.id}}. {{ x.company }}</a></td>
 		    <td>{{ x.fname }} {{ x.lname }}</td>
 		    <td>{{ x.merk }}</td>
+		    <td>{{ x.kenteken }}</td>
 		  </tr>
 		</table>
 	</div>

@@ -158,6 +158,37 @@
     
     <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   </div>
+  <div ng-controller="addUserwindow" id="addUserModal" class="reveal-modal large" data-animation-in='spin-in' data-animation-out='spin-out' data-reveal>
+
+    <div class="screen1">
+      <h2>Gebruiker toevoegen</h2>
+      <div class="small-12 columns">
+
+        <div class="small-3 columns">
+          Naam Gebruiker:
+        </div>
+        <div class="small-9 columns">
+          <input type="text" name="addUsername" ng-model="addUsername" placeholder="Gebruikersnaam ">
+        </div>
+
+
+        <div class="small-3 columns">
+          Wachtwoord:
+        </div>
+        <div class="small-9 columns">
+          <input type="text" name="addPassword" ng-model="addPassword" placeholder="Wachtwoord">
+        </div>
+
+        <div class="small-3 columns">
+        </div>
+        <div class="small-9 columns">
+          <button ng-click="addUser()">Opslaan</button>
+        </div>
+      </div>
+    </div>
+    
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
 
   <!-- addcustomer -->
   <!-- <div ng-controller="addCustomer" id="SelectCustomer" class="reveal-modal large" data-animation-in='spin-in' data-animation-out='spin-out' data-reveal>

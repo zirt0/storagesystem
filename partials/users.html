@@ -1,5 +1,5 @@
 <div class="small-12 columns">
-	<h1>Users</h1>
+	<h1>Gebruikers</h1>
 	<div class="panel">
 		<table>
 			<tr>
@@ -8,6 +8,8 @@
 				<th>Wachtwoord</th>
 				<th>Status</th>
 				<th>Rol</th>
+				<th>Verwijder</th>
+
 			</tr>
 		  	<tr ng-repeat="x in gebruikers">
 			    <td>{{ x.id }}</td>
@@ -15,7 +17,9 @@
 			    <td>{{ x.password }}</td>
 			    <td>{{ x.status }}</td>
 			    <td>{{ x.role }}</td>
+			    <td><button ng-click="removeUser(x.id)" class="button button-3d button-caution button-small"><i class="fa fa-trash"></i> Verwijder</button></td>
+
 		  	</tr>
 		</table>
-	</div>
+		<a data-reveal-id="addUserModal" class="button button-3d button-primary button-rounded succes">Toevoegen</a>	</div>
 </div>

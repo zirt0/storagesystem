@@ -11,7 +11,8 @@ $tirebrand = $request->tirebrand;
 $segments = $request->segment;
 $containerName = $request->containerName;
 $containerColor = $request->containerColor;
-
+$addUser = $request->addUsername;
+$addPassword = $request->addPassword;
 //print $subject;
 
 if($subject == "insert_tire"){
@@ -21,6 +22,12 @@ if($subject == "insert_tire"){
 	$outp = $sql;
 }
 
+if($subject == "addUser"){
+
+	$sql = "INSERT INTO users (name, password, status, role) VALUES ('".$addUser."', '" . $addPassword ."', '1', 'employer' )";
+	$result = $conn->query($sql);
+	$outp = $sql;
+}
 
 
 

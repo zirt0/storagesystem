@@ -6,6 +6,7 @@ include("config.php");
 $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
 $subject = $request->subject;
+$data = $request->data;
 $tirebrand = $request->tirebrand;
 $containerId = $request->id;
 
@@ -28,6 +29,12 @@ if($subject == "remove_container"){
 	$outp = $sql;
 }
 
+if($subject == "removeUser"){
+
+	$sql = "DELETE FROM users WHERE id=" . "'".$data . "'";
+	$result = $conn->query($sql);
+	$outp = $sql;
+}
 
 
 $conn->close();

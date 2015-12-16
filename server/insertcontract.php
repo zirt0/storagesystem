@@ -45,13 +45,18 @@ if($subject == "insert_contract"){
 	$result = $conn->query($sql);
 	$contractid = $conn->insert_id;
 
-	$outp = $contractid;
+	$sql = "INSERT INTO tires (contract_id, LV_brand, RV_brand, LA_brand, RA_brand, LV_type, RV_type, LA_type, RA_type, LV_profile, RV_profile, LA_profile, RA_profile, LV_tiresize, RV_tiresize, LA_tiresize, RA_tiresize, sezon, flatrun, velg, comment   ) 
+	VALUES ('" . $contractid ."' , '" . $lv_merk . "', '" . $rv_merk . "', '" . $la_merk . "', '" . $ra_merk . "', '" . $lv_bandtype . "', '" . $rv_bandtype . "', '" . $la_bandtype . "', '" . $ra_bandtype . "', '" . $lv_profile . "', '" . $rv_profile . "', '" . $la_profile . "', '" . $ra_profile . "', '" . $lv_bandenmaat . "', '" . $rv_bandenmaat . "', '" . $la_bandenmaat . "', '" . $ra_bandenmaat . "', '" . $sezoen ."', '" . $flatrun ."', '" . $velg ."', '" . $comment ."'  )";
+	$result = $conn->query($sql);
+
+
+	//$outp = $contractid;
 }
 
 $conn->close();
 
 
-echo $outp;
+echo $sql;
 
 
 	
