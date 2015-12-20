@@ -1,5 +1,5 @@
+<h1 class="headerTitle">Dashboard <small>Dashboard & statistieken </small></h1>
 <div class="small-12 columns dashboard">
-	<h1>Dashboard</h1>
 	<div class="row" data-equalizer>
 		<div class="small-12 medium-6 columns">
 			<div class="small-12 columns panel">
@@ -45,7 +45,7 @@
 						<th>LA</th>
 					</tr>
 					<tr ng-repeat="x in sortLowProfile">
-						<td><a href="/#/customers/{{x.customerid}}">{{x.company}}</a></td>
+						<td><a href="/#/customers/{{x.id}}">{{x.company}}</a></td>
 						<td class="{{tireProfile(x.LV_profile)}} tireprofile">{{x.LV_profile}}</td>
 						<td class="{{tireProfile(x.RV_profile)}} tireprofile">{{x.RV_profile}}</td>
 						<td class="{{tireProfile(x.RA_profile)}} tireprofile">{{x.RA_profile}}</td>

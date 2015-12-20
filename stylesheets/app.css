@@ -9756,23 +9756,29 @@ input[data-toggle]:checked + label:active {
 body {
   height: 100%;
   width: 100%;
-  background-color: #f2f2f2;
+  background-color: #f5f7f6;
   background-image: url("http://www.adsnelkoeriers.nl/wp-content/uploads/2015/03/adsnel_koerier_haarlem_fast_track.png");
   background-repeat: no-repeat;
   background-position: 100%;
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-/* line 83, ../scss/app.scss */
+/* line 85, ../scss/app.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+/* line 88, ../scss/app.scss */
 table {
   width: 100%;
 }
 
-/* line 87, ../scss/app.scss */
+/* line 92, ../scss/app.scss */
 table tr:nth-of-type(even) {
   background: #f9f9f9;
 }
 
-/* line 91, ../scss/app.scss */
+/* line 96, ../scss/app.scss */
 .kenteken {
   background-color: #FFD400;
   display: inline;
@@ -9783,46 +9789,46 @@ table tr:nth-of-type(even) {
   padding: 8px 20px;
 }
 
-/* line 101, ../scss/app.scss */
+/* line 106, ../scss/app.scss */
 select {
   text-transform: capitalize;
 }
 
-/* line 105, ../scss/app.scss */
+/* line 110, ../scss/app.scss */
 .sezoen label {
   display: inline-block;
 }
 
-/* line 109, ../scss/app.scss */
+/* line 114, ../scss/app.scss */
 .sezoen label > input {
   /* HIDE RADIO */
   display: none;
 }
 
-/* line 112, ../scss/app.scss */
+/* line 117, ../scss/app.scss */
 .sezoen label > input + img, .sezoen label > input + button {
   /* IMAGE STYLES */
   cursor: pointer;
   border: 2px solid transparent;
 }
 
-/* line 116, ../scss/app.scss */
+/* line 121, ../scss/app.scss */
 .sezoen label > input:checked + img, .sezoen label > input:checked + button {
   /* (CHECKED) IMAGE STYLES */
   border: 2px solid #f00;
 }
 
-/* line 121, ../scss/app.scss */
+/* line 126, ../scss/app.scss */
 .view-animate.ng-enter {
   animation: fadeIn 0.5s;
 }
 
-/* line 125, ../scss/app.scss */
+/* line 130, ../scss/app.scss */
 .view-animate.ng-leave {
   display: none;
 }
 
-/* line 129, ../scss/app.scss */
+/* line 134, ../scss/app.scss */
 .profiel {
   background-color: red;
   display: inline-block;
@@ -9835,40 +9841,39 @@ select {
   margin-right: 4px;
 }
 
-/* line 141, ../scss/app.scss */
+/* line 146, ../scss/app.scss */
 .profiel.red {
   background-color: red;
 }
 
-/* line 145, ../scss/app.scss */
+/* line 150, ../scss/app.scss */
 .profiel.orange {
   background-color: orange;
 }
 
-/* line 148, ../scss/app.scss */
+/* line 153, ../scss/app.scss */
 .bandrow {
   margin-bottom: 5px;
 }
 
-/* line 152, ../scss/app.scss */
+/* line 157, ../scss/app.scss */
 .profiel.green {
   background-color: green;
 }
 
-/* line 156, ../scss/app.scss */
+/* line 161, ../scss/app.scss */
 .container, .addcontainerButton {
   width: 200px;
-  height: 180px;
   margin-bottom: 20px;
 }
 
-/* line 162, ../scss/app.scss */
+/* line 167, ../scss/app.scss */
 .container {
   text-align: center;
   background-color: lightblue;
 }
 
-/* line 168, ../scss/app.scss */
+/* line 173, ../scss/app.scss */
 .containerColor {
   width: 90%;
   height: 20px;
@@ -9877,53 +9882,53 @@ select {
   margin: 0 auto;
 }
 
-/* line 176, ../scss/app.scss */
+/* line 181, ../scss/app.scss */
 input[data-toggle] {
   display: none;
 }
 
-/* line 179, ../scss/app.scss */
+/* line 184, ../scss/app.scss */
 input[data-toggle]:checked + label,
 input[data-toggle]:checked + label:active {
   background-color: salmon;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-/* line 184, ../scss/app.scss */
+/* line 189, ../scss/app.scss */
 .button-group.toggle li:not(first-child) {
   margin: 0 -0.9rem;
 }
 
-/* line 187, ../scss/app.scss */
+/* line 192, ../scss/app.scss */
 .Vrij {
   background-color: #8bc220 !important;
 }
 
-/* line 190, ../scss/app.scss */
+/* line 195, ../scss/app.scss */
 .depTitle {
   background-color: #0880d7 !important;
   color: white !important;
   text-transform: capitalize;
 }
 
-/* line 196, ../scss/app.scss */
+/* line 201, ../scss/app.scss */
 .highlight {
   border-color: red !important;
   background-color: rgba(255, 0, 0, 0.1) !important;
 }
 
-/* line 200, ../scss/app.scss */
+/* line 205, ../scss/app.scss */
 .segmentTitle {
   display: block;
   font-weight: bold;
 }
 
-/* line 204, ../scss/app.scss */
+/* line 209, ../scss/app.scss */
 label {
   display: inline-block;
 }
 
-/* line 208, ../scss/app.scss */
+/* line 213, ../scss/app.scss */
 label > input {
   /* HIDE RADIO */
   visibility: hidden;
@@ -9932,20 +9937,20 @@ label > input {
   /* Remove input from document flow */
 }
 
-/* line 212, ../scss/app.scss */
+/* line 217, ../scss/app.scss */
 label > input + img {
   /* IMAGE STYLES */
   cursor: pointer;
   border: 2px solid transparent;
 }
 
-/* line 216, ../scss/app.scss */
+/* line 221, ../scss/app.scss */
 label > input:checked + img {
   /* (RADIO CHECKED) IMAGE STYLES */
   border: 2px solid #f00;
 }
 
-/* line 220, ../scss/app.scss */
+/* line 225, ../scss/app.scss */
 .thumb {
   width: 24px;
   height: 24px;
@@ -9954,26 +9959,26 @@ label > input:checked + img {
   top: 7px;
 }
 
-/* line 228, ../scss/app.scss */
+/* line 233, ../scss/app.scss */
 form .progress {
   line-height: 15px;
 }
 
-/* line 232, ../scss/app.scss */
+/* line 237, ../scss/app.scss */
 .progress {
   display: inline-block;
   width: 100px;
   border: 3px groove #CCC;
 }
 
-/* line 238, ../scss/app.scss */
+/* line 243, ../scss/app.scss */
 .progress div {
   font-size: smaller;
   background: orange;
   width: 0;
 }
 
-/* line 244, ../scss/app.scss */
+/* line 249, ../scss/app.scss */
 .segmentpos, .containerpos, .placepos {
   display: inline-block;
   padding: 10px;
@@ -9982,22 +9987,22 @@ form .progress {
   font-weight: bold;
 }
 
-/* line 252, ../scss/app.scss */
+/* line 257, ../scss/app.scss */
 .containerpos {
   background-color: #e59501;
 }
 
-/* line 255, ../scss/app.scss */
+/* line 260, ../scss/app.scss */
 .segmentpos {
   background-color: #e59501;
 }
 
-/* line 258, ../scss/app.scss */
+/* line 263, ../scss/app.scss */
 .placepos {
   background-color: #e59501;
 }
 
-/* line 262, ../scss/app.scss */
+/* line 267, ../scss/app.scss */
 .tireprofile {
   display: inline-block;
   border-radius: 10px;
@@ -10006,42 +10011,102 @@ form .progress {
   text-align: center;
 }
 
-/* line 269, ../scss/app.scss */
+/* line 274, ../scss/app.scss */
 .dashboard .tireprofile {
   display: table-cell;
 }
 
-/* line 272, ../scss/app.scss */
+/* line 277, ../scss/app.scss */
 .tireGood {
   background-color: #8bc220;
 }
 
-/* line 275, ../scss/app.scss */
+/* line 280, ../scss/app.scss */
 .tireNormal {
   background-color: #e59501;
 }
 
-/* line 278, ../scss/app.scss */
+/* line 283, ../scss/app.scss */
 .tireBad {
   background-color: #f04124;
 }
 
-/* line 281, ../scss/app.scss */
+/* line 286, ../scss/app.scss */
 .right-small {
   text-align: center;
 }
 
-/* line 284, ../scss/app.scss */
+/* line 289, ../scss/app.scss */
 .right-small .menu-icon {
   text-indent: 0;
 }
 
-/* line 287, ../scss/app.scss */
+/* line 292, ../scss/app.scss */
 .dashboard .small-12 > .small-12 {
   height: 330px;
 }
 
-/* line 290, ../scss/app.scss */
+/* line 295, ../scss/app.scss */
 .banden td {
   vertical-align: top;
+}
+
+/* line 299, ../scss/app.scss */
+.left-off-canvas-menu {
+  background: #1d2b36;
+}
+
+/* line 304, ../scss/app.scss */
+ul.off-canvas-list li a {
+  color: #c3def1;
+}
+
+/* line 307, ../scss/app.scss */
+.panel h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  color: #646464;
+}
+
+/* line 313, ../scss/app.scss */
+.panel {
+  border-color: white;
+  background: #fff;
+}
+
+/* line 318, ../scss/app.scss */
+.headerTitle {
+  background-image: url("/lib/img/titlebackground.png");
+  padding: 90px 10px 20px 30px;
+  color: white;
+  font-size: 1.6rem;
+  margin: 30px 0;
+  background-position-y: 0;
+}
+
+/* line 327, ../scss/app.scss */
+ul > li > a > i.fa {
+  margin-right: 10px;
+}
+
+/* line 331, ../scss/app.scss */
+h1.headerTitle small {
+  display: block;
+  color: #cccccc;
+  margin-top: 4px;
+}
+
+/* line 336, ../scss/app.scss */
+.panel.container {
+  padding: 0px;
+}
+
+/* line 340, ../scss/app.scss */
+.containerTitle {
+  background-color: #5C90D2;
+  color: white;
+  text-transform: Uppercase;
+  font-weight: bold;
+  padding: 5px;
 }

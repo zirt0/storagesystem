@@ -1,191 +1,44 @@
+<h1 class="headerTitle">Nieuw Contract <small>Contract maken voor bandenopslag</small></h1>
+
 <div class="panel">
 	<h1>Contract Maken</h1>
-		<form>
-		<table width="100%">
-			<tr>
-				<td>Bedrijf</td>
-				<td>
-					
-					<div class="small-9 columns">
-					<!-- <input type="text" name="company"> -->
-					<!-- <input id="tags" required class="req"> -->
-					<h3>{{chosenCustomer}}</h3>
-         			</div>
-         			<div class="small-2 columns">
-         				<button data-reveal-id="SelectCustomer" class"button button-3d button-action button-pill"><i class="fa fa-user-plus"></i>Toevoegen</button>
-         			</div>
-          		</td>
-			</tr>
-			<tr>
-				<td>Sezoen</td>
-				<td>
-					<div class="small-12 columns sezoen">
-						<ul class="button-group round toggle" data-toggle="buttons-radio">
-						      <li>
-						        <input type="radio" id="r1" name="sezoen" data-toggle="button" value="zomer">
-						        <label class="button" for="r1">Zomer</label>
-						      </li>
-						      <li>
-						        <input type="radio" id="r2" name="sezoen" data-toggle="button" value="winter">
-						        <label class="button" for="r2">Winter</label>
-						      </li>
-						      <li>
-						        <input type="radio" id="r3" name="sezoen" data-toggle="button" value="allsezoen">
-						        <label class="button" for="r3">All Sezoen</label>
-						      </li>
-						    </ul>
-
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>FlatRun banden</td>
-				<td> 
-					<div class="small-12 columns">
-						<switch id="enabled" name="enabled" ng-model="flatrun" class="green"></switch>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>Velg</td>
-				<td> 
-					<div class="small-12 columns">
-						<switch id="enabled" name="enabled" ng-model="velg" class="green"></switch>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Banden Eigenschappen
-				</td>
-				<td>
-					<div class="small-3 columns">
-						<!-- <input type="checkbox" name="profiel" ng-model="vierprofiel"> -->
-						Bandprofiel<br>
-						<switch ng-model="bandprofiel" class="green"></switch>
-						 
-					</div>
-					<div class="small-3 columns">
-						<!-- <input type="checkbox" name="profiel" ng-model="vierprofiel"> -->
-						Bandenmaat<br>
-						<switch ng-model="bandmaat" class="green"></switch>
-						
-					</div>
-					<div class="small-3 columns">
-						Merk <br>
-						<switch id="enabled" name="enabled" ng-change="changeCheckbox()" ng-model="bandmerk" class="green"></switch>
-					</div>
-					<div class="small-3 columns">
-						Merk Type <br>
-						<switch id="enabled" name="enabled" ng-change="changeCheckbox()" ng-model="bandtype" class="green"></switch>
-					</div>
-					<div class="small-12 columns">
-						<div class="small-4 columns">
-							<h3>Links Voor</h3>
-							<input type="number" name="bandprofiel1" ng-model="bandprofiel1" placeholder="Profiel v.b. 1.5" class="req">
-							<input type="text" name="bandmaat1" ng-model="bandmaat1" placeholder="Bandenmaat" class="req">
-							<select name="bandenmerk" id="bandenmerk1" ng-model="bandenmerk1" ng-change="allebanden()" class="req">
-								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
-							</select>
-							<input type="text" ng-model="bandtype1" placeholder="Type Band" class="req">
-						</div>
-						<div class="small-4 columns">
-							
-						</div>
-						<div class="small-4 columns">
-							<h3>Rechts Voor</h3>
-							<input type="number" name="bandprofiel2" ng-model="bandprofiel2" placeholder="Profiel v.b. 1.5" class="req">
-							<input type="text" name="bandmaat2" ng-model="bandmaat2" placeholder="Bandenmaat" class="req">
-							<select name="bandenmerk" id="bandenmerk2" ng-model="bandenmerk2" class="req">
-								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
-							</select>
-						<input type="text" ng-model="bandtype2" placeholder="Type Band" class="req">
-						</div>
-					</div>
-					<div class="small-12 columns" style="text-align: center;">
-						
-						
-							<img src="http://www.cliparthut.com/clip-arts/1161/car-top-view-1161320.jpg" alt="">
-					
-					</div>
-					<div class="small-12 columns">
-						<div class="small-4 columns">
-							<h3>Rechts achter</h3>
-							<input type="number" name="bandprofiel3" ng-model="bandprofiel3" placeholder="Profiel v.b. 1.5" class="req">
-							<input type="text" name="bandmaat3" ng-model="bandmaat3" placeholder="Bandenmaat" class="req">
-							<select name="bandenmerk" id="bandenmerk3" ng-model="bandenmerk3" class="req">
-								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
-							</select>
-							<input type="text" ng-model="bandtype3" placeholder="Type Band" class="req">
-						</div>
-						<div class="small-4 columns">
-							
-						</div>
-						<div class="small-4 columns">
-							<h3>Links Achter</h3>
-							<input type="number" name="bandprofiel4" ng-model="bandprofiel4" placeholder="Profiel v.b. 1.5" class="req">
-							<input type="text" name="bandmaat4" ng-model="bandmaat4" placeholder="Bandenmaat" class="req">
-							<select name="bandenmerk" id="bandenmerk4" ng-model="bandenmerk4" class="req">
-								<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
-							</select>
-							<input type="text" ng-model="bandtype4" placeholder="Type Band" class="req">
-						</div>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>Contractduur <!-- <button ng-click="buttonClicked()" value="yes">Yes</button> --></td>
-				<td>
-					<div class="small-4 columns sezoen">
-						<button ng-click="contract(6)" >6 Maaden</button>
-						<button ng-click="contract(12)">12 Maaden</button>
-					</div>
-					<div class="small-4 columns">
-						<input type="date" name="startdate" id="startdate" ng-model="startdate">
-					</div>
-					<div class="small-4 columns">
-						<input type="date" name="enddate" id="enddate" ng-model="enddate">
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>Foto</td>
-				<td><button ngf-select="uploadFiles($files)" multiple 
-            accept="image/*">Select Files</button>
-    <br>
-    <br>Files:
-    <ul>
-        <li ng-repeat="f in files" style="font:smaller">
-            {{f.name}}
-        </li>
-    </ul>
-    <span class="progress" ng-show="progress >= 0">
-        <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>
-    </span>
-    {{errorMsg}}</td>
-			</tr>
-			<tr>
-				<td>Upload</td>
-				<td><div class="button" ngf-select="upload($file)">Upload on file select</div>
-<div class="button" ngf-select="uploadFiles($files)" multiple="multiple">Upload on file select</div>
-  Drop File:
-<div ngf-drop="uploadFiles($files)" class="drop-box"
-  ngf-drag-over-class="'dragover'" ngf-multiple="true" 
-  ngf-pattern="'image/*,application/pdf'">Drop Images or PDFs files here</div>
-<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
-
-Image thumbnail: <img ngf-thumbnail="file || '/thumb.jpg'">
-Audio preview: <audio controls ngf-src="file"></audio>
-Video preview: <video controls ngf-src="file"></video></td>
-			</tr>
-			<tr>
-				<td>Opmerking</td>
-				<td><textarea name="opmerking" ng-model="comment" id="" cols="30" rows="10"></textarea></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><a ng-click="submitContract()" class="button button-3d button-primary button-rounded right">Opslaan</a></td>
-			</tr>
-		</table>
-	</form>
+	<div class="clearfix">
+		<h2>Bedrijf</h2>
+		{{chosenCustomer}}<button data-reveal-id="SelectCustomer" class"button button-3d button-action button-pill"><i class="fa fa-user-plus"></i>Toevoegen</button>
 	</div>
+	<div class="clearfix">
+		<h2>Sezoen</h2>
+		<ul class="button-group round toggle" data-toggle="buttons-radio">
+			<li>
+				<input type="radio" id="r1" name="sezoen" data-toggle="button" value="zomer">
+				<label class="button" for="r1">Zomer</label>
+			</li>
+			<li>
+				<input type="radio" id="r2" name="sezoen" data-toggle="button" value="winter">
+				<label class="button" for="r2">Winter</label>
+			</li>
+			<li>
+				<input type="radio" id="r3" name="sezoen" data-toggle="button" value="allsezoen">
+				<label class="button" for="r3">All Sezoen</label>
+			</li>
+		</ul>
+	</div>
+	<div class="clearfix">
+		<h2>FlatRun banden</h2>
+		<div class="small-12 columns">
+			<switch id="enabled" name="enabled" ng-model="flatrun" class="green"></switch>
+		</div>
+	</div>
+	<div class="clearfix">
+		<h2>Velg</h2>
+		<div class="small-12 columns">
+			<switch id="enabled" name="enabled" ng-model="velg" class="green"></switch>
+		</div>
+	</div>
+	<div class="clearfix">
+	</div>
+	<div class="clearfix">
+	</div>
+	<div class="clearfix">
+	</div>
+</div>
