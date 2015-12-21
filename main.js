@@ -37,6 +37,13 @@
 				controller:'newProductCtrl'
 
 			})
+
+			.when('/new-product/addto',{
+				templateUrl:'partials/new-product.html',
+				controller:'newProductCtrl'
+
+			})
+
 			.when('/new-customer',{
 				templateUrl:'partials/new-customer.html',
 				controller:'newCustomerCtrl'
@@ -89,10 +96,15 @@
 				controller:'tiresCtrl'
 
 			})
+			.when('/nopermission',{
+				templateUrl:'partials/nopermission.html',
+				controller:'tiresCtrl'
 
-			// .otherwise({
-			// 	//redirectTo:'/'
-			// });
+			})
+
+			.otherwise({
+				redirectTo:'/dashboard'
+			});
 	});
 
 	
@@ -103,7 +115,7 @@
 
 	 app.run(function($rootScope, $location, $cookies, $http) {
 
-	 	console.log("cookies " + $cookies.get('loggedIn'));
+	 	$rootScope.userRole = $cookies.get("userRole");
 	 	
 	 	$rootScope.$on( "$routeChangeStart", function(event, next, current) {
 
@@ -111,21 +123,25 @@
 	      	console.log("routeChanges");
 	        $location.path( "/login" );
 
-	        // no logged user, we should be going to #login
-	        // if ( next.templateUrl == "partials/login.html" ) {
-	        // 	console.log("we are in contracts");
-	        // 	//$location.path('/login'); 
-	        //   // already going to #login, no redirect needed
-	        // } else {
-	        //   // not going to #login, we should redirect now
-	        //   //$location.path( "/login" );
-	        // }
-	      }else if($rootScope.justLogin == true){
-
 	      }else{
 			//$location.path( "/dashboard" );
+			//console.log("1Justlogged In is true " + $cookies.get("userRole"))
 			$rootScope.justLogin = true;      	
-	      }      
+	      }
+
+	      //if user is loggedin and he is not admin
+	      if($rootScope.justLogin == true && $rootScope.userRole != "admin"){
+	      	console.log("2Justlogged In is true ")
+	      	//no logged user, we should be going to #login 
+	        if ( next.templateUrl == "partials/tires.html" || next.templateUrl == "partials/users.html" || next.templateUrl == "partials/settings.html" || next.templateUrl == "partials/storage-management.html" ) 
+	        {
+	        	console.log("we are in contracts");
+	        	$location.path('/nopermission'); 
+	          // already going to #login, no redirect needed
+	        }
+
+	      }
+
 	    });
 
 	    $rootScope.logoff = function(){
@@ -260,7 +276,9 @@
 	   				$rootScope.loggedIn = true;
 	   				$location.path( "/dashboard" );
 	   				$cookies.put('loggedIn', 'true');
+	   				$cookies.put('userRole', response["role"]);
 
+	   				//console.log("login" + response["role"]);
 	   				console.log($rootScope.loggedIn);
 	   			}
 

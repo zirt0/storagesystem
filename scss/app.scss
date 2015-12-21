@@ -13,6 +13,8 @@ $success-color: #43AC6A;
 $warning-color: #f08a24;
 $info-color: #a0d3e8;
 
+$placeholder-color: #999999;
+
 $selected-color: salmon;
 
 input[data-toggle] {
@@ -343,4 +345,47 @@ h1.headerTitle small{
     text-transform: Uppercase;
     font-weight: bold;
     padding: 5px;
+}
+
+.clearfix {
+      min-height: 140px;
+      padding: 20px;
+}
+
+.newProduct > .clearfix:nth-of-type(even){
+    background-color: #f5f7f6;
+}
+
+::-webkit-input-placeholder {
+  color: $placeholder-color;
+  font-style: italic;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: $placeholder-color;  
+   font-style: italic;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $placeholder-color;  
+   font-style: italic;
+}
+
+:-ms-input-placeholder {  
+   color: $placeholder-color;  
+   font-style: italic;
+}
+
+.bandSync{
+    background-color: #F5F7F6;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.exit-off-canvas {
+  height: 100%;
+}
+
+.off-canvas-wrap {
+  //min-height: 10000px;
 }

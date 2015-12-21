@@ -210,20 +210,24 @@
               <a ng-click="logoff()" class="menu-icon" title="Uitloggen"><i class="fa fa-power-off"></i></a>
             </section>
         </nav>
-
+      
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
-            <li><label>Menu</label></li>
+            <li><label>Menu {{userRole}}</label></li>
             <li><a href="#/dashboard"><i class="fa fa-tachometer"></i> Dashboard</a></li>
             <li><a href="#/customers"><i class="fa fa-users"></i> Klanten</a></li>
             <li><a href="#/storage"><i class="fa fa-building-o"></i> Opslag</a></li>
             <li><a href="#/contracts"><i class="fa fa-file-text"></i> Contracten</a></li>
-            <li><a href="#/tires"><i class="fa fa-car"></i> Banden</a></li>
-            <li><a class="button button-block button-rounded button-primary button-large" href="#/new-product"><i class="fa fa-plus"></i> Nieuw product</a></li>
-            <li><label>Instellingen</label></li>
-            <li><a href="#/users"><i class="fa fa-user"></i> Users</a></li>
-            <li><a href="#/storage-management"><i class="fa fa-map-signs"></i> Opslag management</a></li>
-            <li><a href="#/settings"><i class="fa fa-cogs"></i> Instellingen</a></li>
+            <div ng-if="userRole == 'admin'">
+              <li><a href="#/tires"><i class="fa fa-car"></i> Banden</a></li>
+            </div>
+              <li><a class="button button-block button-rounded button-primary button-large" href="#/new-product"><i class="fa fa-plus"></i> Nieuw product</a></li>
+            <div ng-if="userRole == 'admin'">
+              <li><label>Instellingen</label></li>
+              <li><a href="#/users"><i class="fa fa-user"></i> Users</a></li>
+              <li><a href="#/storage-management"><i class="fa fa-map-signs"></i> Opslag management</a></li>
+              <li><a href="#/settings"><i class="fa fa-cogs"></i> Instellingen</a></li>
+            </div>
           </ul>
         </aside>
         <section class="main-section view-animate-container" ng-controller="overall">

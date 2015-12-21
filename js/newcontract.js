@@ -35,6 +35,49 @@
 	        }
 	    };
 
+    	$http.post("server/read.php",{'subject': 'containers'})
+		  	.success(function (response){
+		  		$scope.containers = response.records;
+		     		 console.log($scope.containers);
+		  });
+				
+
+	    $scope.addContainer = function() {
+	    	//$(".newProduct").addClass("animate bounce");
+	    	animateOut(".newProduct", 'flipOutX');
+	    	animateIn(".addToContainer", 'flipInX');
+	    	//$('.newProduct').hide();
+	    	//$(".addToContainer").show();
+	    }
+
+	    function animateOut(element_ID, animation) {
+	    	console.log("animatee", element_ID);
+	        $(element_ID).addClass("animated "+animation);
+	        //$(element_ID).hide();
+	        var wait = window.setTimeout( function(){
+	            $(element_ID).removeClass(animation);
+	            $(element_ID).hide();
+
+	        }, 1300
+
+	        );
+	    }
+
+	    function animateIn(element_ID, animation) {
+	    	console.log("animatee11", element_ID);
+	    	 $(element_ID).show();
+	        $(element_ID).addClass("animated "+animation);
+	        //$(element_ID).hide();
+	        var wait = window.setTimeout( function(){
+
+	            $(element_ID).removeClass(animation);
+	           
+
+	        }, 1300
+
+	        );
+	    }
+
 
 	        $scope.submit = function() {
 		      if (form.file.$valid && $scope.file) {

@@ -1,44 +1,180 @@
 <h1 class="headerTitle">Nieuw Contract <small>Contract maken voor bandenopslag</small></h1>
 
-<div class="panel">
+<div class="panel newProduct">
 	<h1>Contract Maken</h1>
 	<div class="clearfix">
-		<h2>Bedrijf</h2>
+		<div class="small-12 large-4 columns">
+				<h2>Bedrijf:</h2>
+		</div>
+		<div class="small-12 large-8 columns">
 		{{chosenCustomer}}<button data-reveal-id="SelectCustomer" class"button button-3d button-action button-pill"><i class="fa fa-user-plus"></i>Toevoegen</button>
+		</div>
 	</div>
 	<div class="clearfix">
-		<h2>Sezoen</h2>
-		<ul class="button-group round toggle" data-toggle="buttons-radio">
-			<li>
-				<input type="radio" id="r1" name="sezoen" data-toggle="button" value="zomer">
-				<label class="button" for="r1">Zomer</label>
-			</li>
-			<li>
-				<input type="radio" id="r2" name="sezoen" data-toggle="button" value="winter">
-				<label class="button" for="r2">Winter</label>
-			</li>
-			<li>
-				<input type="radio" id="r3" name="sezoen" data-toggle="button" value="allsezoen">
-				<label class="button" for="r3">All Sezoen</label>
-			</li>
-		</ul>
+		<div class="small-12 large-4 columns">
+			<h2>Sezoen</h2>
+		</div>
+		<div class="small-12 large-8 columns">
+			<ul class="button-group round toggle" data-toggle="buttons-radio">
+				<li>
+					<input type="radio" id="r1" name="sezoen" data-toggle="button" value="zomer">
+					<label class="button" for="r1">Zomer</label>
+				</li>
+				<li>
+					<input type="radio" id="r2" name="sezoen" data-toggle="button" value="winter">
+					<label class="button" for="r2">Winter</label>
+				</li>
+				<li>
+					<input type="radio" id="r3" name="sezoen" data-toggle="button" value="allsezoen">
+					<label class="button" for="r3">All Sezoen</label>
+				</li>
+			</ul>
+		</div>
 	</div>
 	<div class="clearfix">
-		<h2>FlatRun banden</h2>
-		<div class="small-12 columns">
+		<div class="small-12 large-4 columns">
+			<h2>FlatRun banden</h2>
+		</div>
+		<div class="small-12 large-8 columns">
 			<switch id="enabled" name="enabled" ng-model="flatrun" class="green"></switch>
 		</div>
 	</div>
 	<div class="clearfix">
-		<h2>Velg</h2>
-		<div class="small-12 columns">
+		<div class="small-12 large-4 columns">
+			<h2>Velg</h2>
+		</div>
+		<div class="small-12 large-8 columns">
 			<switch id="enabled" name="enabled" ng-model="velg" class="green"></switch>
 		</div>
 	</div>
 	<div class="clearfix">
+		<div class="small-12 columns bandSync">
+			<h3>Synchronisatie van banden</h3>
+			<div class="small-3 columns">
+				<!-- <input type="checkbox" name="profiel" ng-model="vierprofiel"> -->
+				Bandprofiel<br>
+				<switch ng-model="bandprofiel" class="green"></switch>
+				 
+			</div>
+			<div class="small-3 columns">
+				<!-- <input type="checkbox" name="profiel" ng-model="vierprofiel"> -->
+				Bandenmaat<br>
+				<switch ng-model="bandmaat" class="green"></switch>
+				
+			</div>
+			<div class="small-3 columns">
+				Merk <br>
+				<switch id="enabled" name="enabled" ng-change="changeCheckbox()" ng-model="bandmerk" class="green"></switch>
+			</div>
+			<div class="small-3 columns">
+				Merk Type <br>
+				<switch id="enabled" name="enabled" ng-change="changeCheckbox()" ng-model="bandtype" class="green"></switch>
+			</div>
+		</div>
+		<div class="small-12 columns">
+			<div class="small-4 columns">
+				<h3>Links Voor</h3>
+				<input type="number" name="bandprofiel1" ng-model="bandprofiel1" placeholder="Profiel v.b. 1.5" class="req">
+				<input type="text" name="bandmaat1" ng-model="bandmaat1" placeholder="Bandenmaat" class="req">
+				<select name="bandenmerk" id="bandenmerk1" ng-model="bandenmerk1" ng-change="allebanden()" class="req">
+					<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
+				</select>
+				<input type="text" ng-model="bandtype1" placeholder="Type Band" class="req">
+			</div>
+			<div class="small-4 columns">
+				
+			</div>
+			<div class="small-4 columns">
+				<h3>Rechts Voor</h3>
+				<input type="number" name="bandprofiel2" ng-model="bandprofiel2" placeholder="Profiel v.b. 1.5" class="req">
+				<input type="text" name="bandmaat2" ng-model="bandmaat2" placeholder="Bandenmaat" class="req">
+				<select name="bandenmerk" id="bandenmerk2" ng-model="bandenmerk2" class="req">
+					<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
+				</select>
+			<input type="text" ng-model="bandtype2" placeholder="Type Band" class="req">
+			</div>
+		</div>
+		<div class="small-12 columns" style="text-align: center;">
+			
+			<img style="height: 470px;" src="/lib/img/bmw.jpg" alt="">
+				<!-- <img src="http://www.cliparthut.com/clip-arts/1161/car-top-view-1161320.jpg" alt=""> -->
+		
+		</div>
+		<div class="small-12 columns">
+			<div class="small-4 columns">
+				<h3>Rechts achter</h3>
+				<input type="number" name="bandprofiel3" ng-model="bandprofiel3" placeholder="Profiel v.b. 1.5" class="req">
+				<input type="text" name="bandmaat3" ng-model="bandmaat3" placeholder="Bandenmaat" class="req">
+				<select name="bandenmerk" id="bandenmerk3" ng-model="bandenmerk3" class="req">
+					<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
+				</select>
+				<input type="text" ng-model="bandtype3" placeholder="Type Band" class="req">
+			</div>
+			<div class="small-4 columns">
+				
+			</div>
+			<div class="small-4 columns">
+				<h3>Links Achter</h3>
+				<input type="number" name="bandprofiel4" ng-model="bandprofiel4" placeholder="Profiel v.b. 1.5" class="req">
+				<input type="text" name="bandmaat4" ng-model="bandmaat4" placeholder="Bandenmaat" class="req">
+				<select name="bandenmerk" id="bandenmerk4" ng-model="bandenmerk4" class="req">
+					<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
+				</select>
+				<input type="text" ng-model="bandtype4" placeholder="Type Band" class="req">
+			</div>
+		</div>
+	</div>
+	<div class="clearfix">
+		<div class="small-12 columns no-padding">
+				<h2>Contractduur:</h2>
+		</div>
+		<div class="small-4 columns sezoen">
+			<div class="small-12 columns">Duur van contract</div>
+			<button ng-click="contract(6)" >6 Maaden</button>
+			<button ng-click="contract(12)">12 Maaden</button>
+		</div>
+		<div class="small-4 columns">
+			Van
+			<input type="date" name="startdate" id="startdate" ng-model="startdate">
+		</div>
+		<div class="small-4 columns">
+			Tot
+			<input type="date" name="enddate" id="enddate" ng-model="enddate">
+		</div>
+	</div>
+	<div class="clearfix">
+		<div class="small-12 large-4 columns">
+				<h2>Opmerking:</h2>
+		</div>
+		<div class="small-12 large-8 columns">
+			<textarea placeholder="Probeer zo gedetaileerd mogelijk een omschrijving te geven van de banden" name="opmerking" ng-model="comment" id="" cols="30" rows="10"></textarea>
+		</div>
+	</div>
+	<div class="">
+		<a ng-click="addContainer()" class="button button-3d button-primary button-rounded right">Volgende</a>
+		<a ng-click="submitContract()" class="button button-3d button-primary button-rounded right">Opslaan</a>
 	</div>
 	<div class="clearfix">
 	</div>
-	<div class="clearfix">
+</div>
+<div class="addToContainer" style="display: none;">
+	Add to Container
+	<div class="small-12 columns">
+	<div class="">
+		<h2>Containers</h2>
+		<ul class="inline-list">
+			<li class="panel container" ng-repeat="container in containers">
+				<div class="containerTitle">{{container.name}}</div>
+				<div class="clearfix" style="height: 80px">	
+					<b>Plaatsen: {{container.places}}</b><br>
+					<b>Vrij: {{container.free}}</b><br>
+				</div>
+				<div class="clearfix" style="background-color: #F9F9F9; padding: 20px 0;">
+					<a href="#/storage-management/{{ container.id }}" class="button button-highlight">Bekijk</a>
+				</div>
+				<!-- <div class="containerColor"></div> -->
+			</li>
+		</ul>
 	</div>
+</div>
 </div>

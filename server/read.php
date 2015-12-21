@@ -25,6 +25,7 @@ if($subject == "login"){
 	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
 	    if ($outp != "") {$outp .= ",";}
 	    $outp .= '{"name":"'  . $rs["name"] . '",';
+	    $outp .= '"role":"'  . $rs["role"] . '",';
 	    $outp .= '"password":"'. $rs["password"]    . '"}'; 
 	}
 	$outp =$outp;
