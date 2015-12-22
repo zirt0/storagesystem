@@ -1,4 +1,4 @@
-	app.controller('newProductCtrl', ['$rootScope', '$scope', '$http', '$rootScope', 'Upload', '$timeout', function( $rootScope, $scope, $http, $rootScope, Upload, $timeout){
+	app.controller('newProductCtrl', ['$rootScope', '$scope', '$http', '$rootScope', 'Upload', '$timeout', '$cookies', function( $rootScope, $scope, $http, $rootScope, Upload, $timeout, $cookies){
 		
 		$scope.bandprofiel = true;
 		$scope.bandmaat = true;
@@ -9,6 +9,8 @@
 		$scope.vierprofiel = true;
 		//$scope.flatrun = false;
 		//$scope.contract(6);
+
+		console.log($rootScope.userId + " " + $rootScope.userName + " username and id");
 
 		/////
 		$scope.uploadFiles = function (files) {
@@ -290,7 +292,7 @@
 				console.log($scope.containerContentsId);
 				$http.post("server/insertcontract.php",{
 					'subject': "insert_contract",
-					'company_id': '' + $scope.company_id + '' ,
+					'company_id': '' + $rootScope.chosenCustomerId + '' ,
 					'sezoen': '' + $scope.sezoen + '' ,
 					'velg': '' + $scope.velg + '' ,
 					'flatrun': '' + $scope.flatrun + '' ,
@@ -320,6 +322,8 @@
 				'duration': '' + $scope.duration + '',
 				'image': '' + $scope.duration + '',
 				'comment': '' + $scope.comment + '',
+
+				'user_id': '' + $cookies.get("userId") + '',
 
 				'container_contents_id': '' + $scope.containerContentsId + ''
 

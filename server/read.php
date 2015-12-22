@@ -24,7 +24,8 @@ if($subject == "login"){
 	$outp = "";
 	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
 	    if ($outp != "") {$outp .= ",";}
-	    $outp .= '{"name":"'  . $rs["name"] . '",';
+	    $outp .= '{"id":"'  . $rs["id"] . '",';
+	    $outp .= '"name":"'  . $rs["name"] . '",';
 	    $outp .= '"role":"'  . $rs["role"] . '",';
 	    $outp .= '"password":"'. $rs["password"]    . '"}'; 
 	}
@@ -72,7 +73,7 @@ if($subject == "containerDepartment"){
 
 if($subject == "containerContent"){
 
-	$sql = "SELECT container_content.id as id,container_content.place_name, container_content.container_department, contracts.container_contents_id as contracts_id FROM container_content
+	$sql = "SELECT container_content.id as id,container_content.place_name, container_content.container_department, contracts.id as contracts_id FROM container_content
 			LEFT JOIN contracts ON contracts.container_contents_id = container_content.id
 			WHERE container_id =" . $id;
 	$result = $conn->query($sql);

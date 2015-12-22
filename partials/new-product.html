@@ -189,13 +189,13 @@
 					</tr>
 					<tr ng-repeat="place in value" class="zebra animate-repeat {{occupy(place.contracts_id)}}">
 						<td >{{place.id}}</td>
-						<td>{{place.place_name}}</td>
+						<td>{{place.place_name}} {{ place.contracts_id}}</td>
 						<!-- <td><a href="#/contracts/{{place.contracts_id}}">{{place.contracts_id}}</a></td> -->
 						<td>
-							<div ng-if="place.contracts_id != true">
+							<div ng-if="place.contracts_id == ''">
 								<button id="place{{place.id}}" ng-click="placesSelected(place.id)" class="contentbutton button button-action button-pill">selecteer</button>
 							</div>
-							<div ng-if="place.contracts_id == true">
+							<div ng-if="place.contracts_id != ''">
 								<button class="button button-caution button-pill contentbutton">Bezet</button>
 							</div>
 						</td>

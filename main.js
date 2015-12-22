@@ -157,6 +157,8 @@
 
 	    }
 
+	    $rootScope.userName = $cookies.get('userName');
+	    $rootScope.userId = $cookies.get('userId');
 
 		$rootScope.chosenCustomer = "";
 
@@ -277,6 +279,8 @@
 	   				$location.path( "/dashboard" );
 	   				$cookies.put('loggedIn', 'true');
 	   				$cookies.put('userRole', response["role"]);
+	   				$cookies.put('userName', response["name"]);
+	   				$cookies.put('userId', response["id"]);
 
 	   				//console.log("login" + response["role"]);
 	   				console.log($rootScope.loggedIn);
@@ -305,6 +309,7 @@
 
 	   	$scope.selectCustomer = function(id, company, name ){
 			$rootScope.chosenCustomer = id + "." + company + " - " + name;
+			$rootScope.chosenCustomerId = id;
 			$('#SelectCustomer').foundation('reveal', 'close');
 		}
 
