@@ -4,10 +4,10 @@
 	<h1>Contract Maken</h1>
 	<div class="clearfix">
 		<div class="small-12 large-4 columns">
-				<h2>Bedrijf:</h2>
+			<h2>Bedrijf:</h2>
 		</div>
 		<div class="small-12 large-8 columns">
-		{{chosenCustomer}}<button data-reveal-id="SelectCustomer" class"button button-3d button-action button-pill"><i class="fa fa-user-plus"></i>Toevoegen</button>
+			{{chosenCustomer}}<button data-reveal-id="SelectCustomer" class"button button-3d button-action button-pill"><i class="fa fa-user-plus"></i>Toevoegen</button>
 		</div>
 	</div>
 	<div class="clearfix">
@@ -54,7 +54,7 @@
 				<!-- <input type="checkbox" name="profiel" ng-model="vierprofiel"> -->
 				Bandprofiel<br>
 				<switch ng-model="bandprofiel" class="green"></switch>
-				 
+
 			</div>
 			<div class="small-3 columns">
 				<!-- <input type="checkbox" name="profiel" ng-model="vierprofiel"> -->
@@ -91,14 +91,14 @@
 				<select name="bandenmerk" id="bandenmerk2" ng-model="bandenmerk2" class="req">
 					<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 				</select>
-			<input type="text" ng-model="bandtype2" placeholder="Type Band" class="req">
+				<input type="text" ng-model="bandtype2" placeholder="Type Band" class="req">
 			</div>
 		</div>
 		<div class="small-12 columns" style="text-align: center;">
 			
 			<img style="height: 470px;" src="/lib/img/bmw.jpg" alt="">
-				<!-- <img src="http://www.cliparthut.com/clip-arts/1161/car-top-view-1161320.jpg" alt=""> -->
-		
+			<!-- <img src="http://www.cliparthut.com/clip-arts/1161/car-top-view-1161320.jpg" alt=""> -->
+
 		</div>
 		<div class="small-12 columns">
 			<div class="small-4 columns">
@@ -126,7 +126,7 @@
 	</div>
 	<div class="clearfix">
 		<div class="small-12 columns no-padding">
-				<h2>Contractduur:</h2>
+			<h2>Contractduur:</h2>
 		</div>
 		<div class="small-4 columns sezoen">
 			<div class="small-12 columns">Duur van contract</div>
@@ -144,7 +144,7 @@
 	</div>
 	<div class="clearfix">
 		<div class="small-12 large-4 columns">
-				<h2>Opmerking:</h2>
+			<h2>Opmerking:</h2>
 		</div>
 		<div class="small-12 large-8 columns">
 			<textarea placeholder="Probeer zo gedetaileerd mogelijk een omschrijving te geven van de banden" name="opmerking" ng-model="comment" id="" cols="30" rows="10"></textarea>
@@ -152,29 +152,59 @@
 	</div>
 	<div class="">
 		<a ng-click="addContainer()" class="button button-3d button-primary button-rounded right">Volgende</a>
-		<a ng-click="submitContract()" class="button button-3d button-primary button-rounded right">Opslaan</a>
 	</div>
 	<div class="clearfix">
 	</div>
 </div>
 <div class="addToContainer" style="display: none;">
-	Add to Container
 	<div class="small-12 columns">
-	<div class="">
-		<h2>Containers</h2>
-		<ul class="inline-list">
-			<li class="panel container" ng-repeat="container in containers">
-				<div class="containerTitle">{{container.name}}</div>
-				<div class="clearfix" style="height: 80px">	
-					<b>Plaatsen: {{container.places}}</b><br>
-					<b>Vrij: {{container.free}}</b><br>
-				</div>
-				<div class="clearfix" style="background-color: #F9F9F9; padding: 20px 0;">
-					<a href="#/storage-management/{{ container.id }}" class="button button-highlight">Bekijk</a>
-				</div>
-				<!-- <div class="containerColor"></div> -->
-			</li>
-		</ul>
+		<div class="">
+			<h2>Containers</h2>
+			<div data-alert class="alert-box info radius">
+				Selecteer een container en klik op bekijk om de plaatsen in de container te zien. 
+			</div>
+			<ul class="inline-list">
+				<li class="panel container" ng-repeat="container in containers">
+					<div class="containerTitle">{{container.name}}</div>
+					<div class="clearfix" style="height: 80px">	
+						<b>Plaatsen: {{container.places}}</b><br>
+						<b>Vrij: {{container.free}}</b><br>
+					</div>
+					<div class="clearfix" style="background-color: #F9F9F9; padding: 20px 0;">
+						<a ng-click="selectContainer(container.id)" class="button button-highlight">Bekijk</a>
+						<!-- <a href="#/storage-management/{{ container.id }}" class="button button-highlight">Bekijk</a> -->
+					</div>
+					<!-- <div class="containerColor"></div> -->
+				</li>
+			</ul>
+		</div>
+		<div id="contents" class="panel" style="display: -webkit-box;">
+			<div ng-repeat="(key, value) in places | groupBy: 'container_department'" class="small-12 medium-4 columns">
+				<div class="button button-block button-rounded button-large depTitle">{{key}}</div>
+				<table>
+					<tr>
+						<th>ID</th>
+						<th>Plaats</th>
+						<th>Status</th>
+					</tr>
+					<tr ng-repeat="place in value" class="zebra animate-repeat {{occupy(place.contracts_id)}}">
+						<td >{{place.id}}</td>
+						<td>{{place.place_name}}</td>
+						<!-- <td><a href="#/contracts/{{place.contracts_id}}">{{place.contracts_id}}</a></td> -->
+						<td>
+							<div ng-if="place.contracts_id != true">
+								<button id="place{{place.id}}" ng-click="placesSelected(place.id)" class="contentbutton button button-action button-pill">selecteer</button>
+							</div>
+							<div ng-if="place.contracts_id == true">
+								<button class="button button-caution button-pill contentbutton">Bezet</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<!-- <input type="text"> -->
+			</div>
+		</div>	
 	</div>
-</div>
+	<a ng-click="submitContract()" class="button button-3d button-primary button-rounded right">Opslaan</a>
+
 </div>

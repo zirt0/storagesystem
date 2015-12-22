@@ -2,3 +2,5 @@
 /.sass-cache/*
 *.DS_Store
 /stylesheets/*
+
+.sass-cache/7799429997a2ffff015330a45a8c03a7854c79b5/app.scssc

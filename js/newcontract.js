@@ -13,50 +13,75 @@
 		/////
 		$scope.uploadFiles = function (files) {
 			console.log("")
-	        $scope.files = files;
-	        if (files && files.length) {
-	            Upload.upload({
-	                url: '#/uploaded/',
-	                data: {
-	                    files: files
-	                }
-	            }).then(function (response) {
-	                $timeout(function () {
-	                    $scope.result = response.data;
-	                });
-	            }, function (response) {
-	                if (response.status > 0) {
-	                    $scope.errorMsg = response.status + ': ' + response.data;
-	                }
-	            }, function (evt) {
-	                $scope.progress = 
-	                    Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-	            });
-	        }
-	    };
+			$scope.files = files;
+			if (files && files.length) {
+				Upload.upload({
+					url: '#/uploaded/',
+					data: {
+						files: files
+					}
+				}).then(function (response) {
+					$timeout(function () {
+						$scope.result = response.data;
+					});
+				}, function (response) {
+					if (response.status > 0) {
+						$scope.errorMsg = response.status + ': ' + response.data;
+					}
+				}, function (evt) {
+					$scope.progress = 
+					Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+				});
+			}
+		};
+	    ///selectcontainer
 
-    	$http.post("server/read.php",{'subject': 'containers'})
-		  	.success(function (response){
-		  		$scope.containers = response.records;
-		     		 console.log($scope.containers);
+	    $http.post("server/read.php",{'subject': 'containers'})
+	    .success(function (response){
+	    	$scope.containers = response.records;
+	    	console.log($scope.containers);
+	    });
+
+	    $scope.selectContainer = function(id){
+	    	$scope.idContainer = id;
+	    	$scope.containerContentsId = "";
+	    	$('html, body').animate({ scrollTop:$(".contents").offset()}, 500);
+
+
+	    	$http.post("server/read.php",{'subject': "containerContent", 'id': $scope.idContainer })
+
+	    	.success(function (response) {
+
+		      //console.log(response);
+		      $scope.places = response.records;
+		      // $scope.company = $scope.customerInfo['company']
+
+		      $('html,body').animate({
+		      	scrollTop: $("#contents").offset().top
+		      });
 		  });
-				
 
-	    $scope.addContainer = function() {
-	    	//$(".newProduct").addClass("animate bounce");
-	    	animateOut(".newProduct", 'flipOutX');
-	    	animateIn(".addToContainer", 'flipInX');
-	    	//$('.newProduct').hide();
-	    	//$(".addToContainer").show();
 	    }
 
-	    function animateOut(element_ID, animation) {
-	    	console.log("animatee", element_ID);
-	        $(element_ID).addClass("animated "+animation);
+	    $scope.placesSelected = function(id) {
+
+	    	console.log("Selected id  " + id);
+	    	$scope.containerContentsId = id;
+	    	console.log("Selected id  " + $scope.containerContentsId);
+	    	$("button").removeClass("selectedContainer");
+	    	$("#place" + id + "").addClass("selectedContainer");
+	    }
+
+
+		//end selectcontainer
+
+		function animateOut(element_ID, animation) {
+			console.log("animatee", element_ID);
+			$(element_ID).addClass("animated "+animation);
 	        //$(element_ID).hide();
 	        var wait = window.setTimeout( function(){
-	            $(element_ID).removeClass(animation);
-	            $(element_ID).hide();
+	        	$(element_ID).removeClass(animation);
+	        	$(element_ID).hide();
 
 	        }, 1300
 
@@ -65,57 +90,95 @@
 
 	    function animateIn(element_ID, animation) {
 	    	console.log("animatee11", element_ID);
-	    	 $(element_ID).show();
-	        $(element_ID).addClass("animated "+animation);
+	    	$(element_ID).show();
+	    	$(element_ID).addClass("animated "+animation);
 	        //$(element_ID).hide();
 	        var wait = window.setTimeout( function(){
 
-	            $(element_ID).removeClass(animation);
-	           
+	        	$(element_ID).removeClass(animation);
+
 
 	        }, 1300
 
 	        );
 	    }
 
+	    $scope.addContainer = function() {
 
-	        $scope.submit = function() {
-		      if (form.file.$valid && $scope.file) {
-		        $scope.upload($scope.file);
-		      }
-		    };
+	    	isFormValid = true;
+			jQuery("input.req, select.req ").each(function(){
+				if (jQuery(this).val() == '') { 
+					console.log("5");
+					jQuery(this).addClass('highlight');
+					
+					isFormValid = false;
+					
+				}else{
+					console.log("6");
+					jQuery(this).removeClass('highlight	');
+					isFormValid = true;
+				}
+			});
+			
+			
+			if(!isFormValid){
+				
+				alert("Vult u a.u.b. de vereisde velden in.");
+				console.log("3");
+				  	//jQuery('input.req').css({'border': '1px solid red'});
+				  	return false;
+				  	
+				  }else {
+				  	console.log("4");
+					//gaverder();
+					//$scope.insertContractDB();
+					animateOut(".newProduct", 'flipOutX');
+	    			animateIn(".addToContainer", 'flipInX');
+					return false;
+				}
+	    	
+
+	    	
+
+	    }
+
+	    $scope.submit = function() {
+	    	if (form.file.$valid && $scope.file) {
+	    		$scope.upload($scope.file);
+	    	}
+	    };
 
 		    // upload on file select or drop
 		    $scope.upload = function (file) {
 		    	console.log("asdasd " + file)
-		        Upload.upload({
-		            url: '/uploaded/',
-		            data: {file: file, 'username': $scope.username}
-		        }).then(function (resp) {
-		            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-		        }, function (resp) {
-		            console.log('Error status: ' + resp.status);
-		        }, function (evt) {
-		            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-		            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-		        });
+		    	Upload.upload({
+		    		url: '/uploaded/',
+		    		data: {file: file, 'username': $scope.username}
+		    	}).then(function (resp) {
+		    		console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+		    	}, function (resp) {
+		    		console.log('Error status: ' + resp.status);
+		    	}, function (evt) {
+		    		var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+		    		console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+		    	});
 		    };
 		    // for multiple files:
 		    $scope.uploadFiles = function (files) {
-		      if (files && files.length) {
-		        for (var i = 0; i < files.length; i++) {
+		    	if (files && files.length) {
+		    		for (var i = 0; i < files.length; i++) {
 		          //Upload.upload({..., data: {file: files[i]}, ...})...;
-		        }
+		      }
 		        // or send them all together for HTML5 browsers:
 		        //Upload.upload({..., data: {file: files}, ...})...;
-		      }
 		    }
+		}
 		/////
 		var today = $rootScope.dateformat();
-	    var sezoen = parseInt($scope.sezoen, 0);
+		var sezoen = parseInt($scope.sezoen, 0);
 
 		$scope.startdate = Date.today();
-	
+
 		$scope.contract = function(v){
 			
 			if(v == "12"){
@@ -193,43 +256,44 @@
 			
 			isFormValid = true;
 			jQuery("input.req, select.req ").each(function(){
-			  		if (jQuery(this).val() == '') { 
-				      console.log("5");
-				      jQuery(this).addClass('highlight');
-				      
-				      isFormValid = false;
-				      
-				    }else{
-				    console.log("6");
-					    jQuery(this).removeClass('highlight	');
-					    isFormValid = true;
-				    }
-			  	});
-  				
-  				
-  				if(!isFormValid){
-				  
-				  	alert("Vult u a.u.b. de vereisde velden in.");
-				  	console.log("3");
+				if (jQuery(this).val() == '') { 
+					console.log("5");
+					jQuery(this).addClass('highlight');
+
+					isFormValid = false;
+
+				}else{
+					console.log("6");
+					jQuery(this).removeClass('highlight	');
+					isFormValid = true;
+				}
+			});
+
+
+			if(!isFormValid){
+
+				alert("Vult u a.u.b. de vereisde velden in.");
+				console.log("3");
 				  	//jQuery('input.req').css({'border': '1px solid red'});
 				  	return false;
 				  	
-			  	}else {
-					console.log("4");
+				  }else {
+				  	console.log("4");
 					//gaverder();
 					$scope.insertContractDB();
 					return false;
 				}
-		}
+			}
 
-		$scope.insertContractDB = function(){
+			$scope.insertContractDB = function(){
 
-			$http.post("server/insertcontract.php",{
-				'subject': "insert_contract",
-				'company_id': '' + $scope.company_id + '' ,
-				'sezoen': '' + $scope.sezoen + '' ,
-				'velg': '' + $scope.velg + '' ,
-				'flatrun': '' + $scope.flatrun + '' ,
+				console.log($scope.containerContentsId);
+				$http.post("server/insertcontract.php",{
+					'subject': "insert_contract",
+					'company_id': '' + $scope.company_id + '' ,
+					'sezoen': '' + $scope.sezoen + '' ,
+					'velg': '' + $scope.velg + '' ,
+					'flatrun': '' + $scope.flatrun + '' ,
 				//profiel
 				'lv_profile': '' + $scope.bandprofiel1 + '' ,
 				'rv_profile': '' + $scope.bandprofiel2 + '' ,
@@ -255,39 +319,42 @@
 				'enddate': '' + $scope.enddate + '',
 				'duration': '' + $scope.duration + '',
 				'image': '' + $scope.duration + '',
-				'comment': '' + $scope.comment + ''
+				'comment': '' + $scope.comment + '',
+
+				'container_contents_id': '' + $scope.containerContentsId + ''
+
 
 			})
-	        	.success(function (response){
-	        		$scope.a = response;
-	           		console.log("contract inserted " + $scope.a);
-	        });
+	.success(function (response){
+		$scope.a = response;
+		console.log("contract inserted " + $scope.a);
+	});
 
-        };
+};
 
-		$http.post("server/read.php",{'subject': "customers"})
-        	.success(function (response){
-        		$scope.customers = response.records;
-           		 console.log($scope.customers);
-        });
+$http.post("server/read.php",{'subject': "customers"})
+.success(function (response){
+	$scope.customers = response.records;
+	console.log($scope.customers);
+});
 
-       	$http.post("server/read.php",{'subject': "onlycustomers"})
-        	.success(function (response){
-        		$scope.onlycustomers = response.records;
-           		 console.log($scope.onlycustomers);
-        });
+$http.post("server/read.php",{'subject': "onlycustomers"})
+.success(function (response){
+	$scope.onlycustomers = response.records;
+	console.log($scope.onlycustomers);
+});
 
-		$http.post("server/read.php",{'subject': "tire_brands"})
-        	.success(function (response){
-        		$scope.allbrands = response.records;
-           		 console.log(" Successfully" + $scope.allbrands);
-        });
+$http.post("server/read.php",{'subject': "tire_brands"})
+.success(function (response){
+	$scope.allbrands = response.records;
+	console.log(" Successfully" + $scope.allbrands);
+});
 
 
-  
 
-		var availableTags = $scope.onlycustomers;
-	    $( "#tags" ).autocomplete({
-	      source: availableTags
-	    });
-	}]);
+
+var availableTags = $scope.onlycustomers;
+$( "#tags" ).autocomplete({
+	source: availableTags
+});
+}]);

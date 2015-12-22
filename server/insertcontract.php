@@ -37,17 +37,19 @@ $duration = $request->duration;
 $image = $request->image;
 $comment = $request->comment;
 
+$container_contents_id = $request->container_contents_id;
+
 //print $subject;
 
 if($subject == "insert_contract"){
 
-	$sql = "INSERT INTO contracts (customer_id, employer, start_date, end_date, container_contents_id) VALUES ('10','12', '" . $startdate . "', '" . $enddate ."', '0' )";
+	$sql = "INSERT INTO contracts (customer_id, employer, start_date, end_date, container_contents_id) VALUES ('10','12', '" . $startdate . "', '" . $enddate ."', '" . $container_contents_id . "' )";
 	$result = $conn->query($sql);
 	$contractid = $conn->insert_id;
 
-	$sql = "INSERT INTO tires (contract_id, LV_brand, RV_brand, LA_brand, RA_brand, LV_type, RV_type, LA_type, RA_type, LV_profile, RV_profile, LA_profile, RA_profile, LV_tiresize, RV_tiresize, LA_tiresize, RA_tiresize, sezon, flatrun, velg, comment   ) 
+	$sql2 = "INSERT INTO tires (contract_id, LV_brand, RV_brand, LA_brand, RA_brand, LV_type, RV_type, LA_type, RA_type, LV_profile, RV_profile, LA_profile, RA_profile, LV_tiresize, RV_tiresize, LA_tiresize, RA_tiresize, sezon, flatrun, velg, comment   ) 
 	VALUES ('" . $contractid ."' , '" . $lv_merk . "', '" . $rv_merk . "', '" . $la_merk . "', '" . $ra_merk . "', '" . $lv_bandtype . "', '" . $rv_bandtype . "', '" . $la_bandtype . "', '" . $ra_bandtype . "', '" . $lv_profile . "', '" . $rv_profile . "', '" . $la_profile . "', '" . $ra_profile . "', '" . $lv_bandenmaat . "', '" . $rv_bandenmaat . "', '" . $la_bandenmaat . "', '" . $ra_bandenmaat . "', '" . $sezoen ."', '" . $flatrun ."', '" . $velg ."', '" . $comment ."'  )";
-	$result = $conn->query($sql);
+	$result = $conn->query($sql2);
 
 
 	//$outp = $contractid;
@@ -56,7 +58,7 @@ if($subject == "insert_contract"){
 $conn->close();
 
 
-echo $sql;
+echo $container_contents_id;
 
 
 	
