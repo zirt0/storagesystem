@@ -2,7 +2,14 @@
 <table ng-repeat="x in contractDetail" width="100%">
 	<tr>
 		<th colspan="2">
-			<h1><a href="#/customers/{{x.customer_id }}">{{x.company}} <small>{{x.fname}} {{x.lname}}</small> </a></h1> 
+			<h1>
+				<a href="#/customers/{{x.customer_id }}">{{x.company}} <small>{{x.fname}} {{x.lname}}</small> </a>
+				
+				<div class="printlabels right">
+				<a class="button button-primary button-small " href="#/tirelabels/{{x.id}}"><i class="fa fa-print"></i> Banden Labels Printen</a>
+				<a class="button button-primary button-small " href="#/tirelabels/{{x.id}}"><i class="fa fa-print"></i> Klantcontract Printen</a>
+				</div>
+			</h1> 
 		</th>
 	</tr>
 	<tr>

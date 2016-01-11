@@ -12,6 +12,7 @@ $customerId = $request->customerId;
 $contractId = $request->contractId;
 $sort = $request->sort;
 $id = $request->id;
+$tireid = $request->tireid;
 
 //print $subject;
 
@@ -190,6 +191,12 @@ if($subject == "container"){
 
 if($subject == "contracts"){
 
+	$condition = "";
+
+	if($customerId != false){
+		$condition = 'WHERE customer_id = "' . $customerId . '"';
+	}
+
 	//sort contracts on end date
 	$sql = "SELECT contracts.id, customer_id, employer, start_date, end_date, container_contents_id,
 				customers.company, customers.fname, customers.lname, tires.sezon,
@@ -198,13 +205,18 @@ if($subject == "contracts"){
 				LV_profile, RV_profile, LA_profile, RA_profile,
 				LV_tiresize, RV_tiresize, LA_tiresize, RA_tiresize,
 				flatrun, velg, comment,
-				container_content.container_department, container.name, container.color
+				container_content.container_department, container.name, container.color,
+				users.name as username
 				FROM contracts
 				LEFT JOIN customers ON contracts.customer_id = customers.id
 				LEFT JOIN tires ON contracts.tires_id = tires.id
 				LEFT JOIN container_content ON container_contents_id = container_content.id
 				LEFT JOIN container ON container_content.container_id = container.id
+				LEFT JOIN users ON contracts.employer = users.id
+				" . $condition . " 
 			ORDER BY end_date ASC" ;
+	
+
 	$result = $conn->query($sql);
 
 	$outp = "";
@@ -220,10 +232,10 @@ if($subject == "contracts"){
 	    $outp .= '"start_date":"' . $rs["start_date"] . '",';
 	    $outp .= '"end_date":"' . $rs["end_date"] . '",';
 	    $outp .= '"contract_id":"' . $rs["contract_id"] . '",';
-	    $outp .= '"user_name":"' . $rs["name"] . '",';
+	    $outp .= '"username":"' . $rs["username"] . '",';
 	    $outp .= '"status":"'. $rs["status"]     . '"}'; 
 	}
-	$outp = $$outp ='{"records":['.$outp.']}'; ;
+	$outp ='{"records":['.$outp.']}';
 	//$outp = $sql;
 }
 
@@ -239,10 +251,10 @@ if($subject == "contractdetail"){
 				flatrun, velg, comment,
 				container_content.container_department, container.name, container.color
 				FROM contracts
-				JOIN customers ON contracts.customer_id = customers.id
-				JOIN tires ON contracts.tires_id = tires.id
-				JOIN container_content ON container_contents_id = container_content.id
-				JOIN container ON container_content.container_id = container.id';
+				LEFT JOIN customers ON contracts.customer_id = customers.id
+				LEFT JOIN tires ON contracts.tires_id = tires.id
+				LEFT JOIN container_content ON container_contents_id = container_content.id
+				LEFT JOIN container ON container_content.container_id = container.id';
 				if($contractId != ""){
 					$sql .= ' WHERE contracts.id =' . $contractId;
 				}
@@ -302,10 +314,8 @@ if($subject == "contractdetail"){
 	    //$outp = "adeemm";
 	    
 	}
-	 $outp ='{"records":['.$outp.']}'; ;
+	$outp ='{"records":['.$outp.']}'; ;
 	//$outp = $sql ;
-
-	//$outp = $sql;
 }
 
 if($subject == "noInvoice"){

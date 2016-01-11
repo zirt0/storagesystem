@@ -9757,7 +9757,7 @@ body {
   height: 100%;
   width: 100%;
   background-color: #f5f7f6;
-  background-image: url("http://www.adsnelkoeriers.nl/wp-content/uploads/2015/03/adsnel_koerier_haarlem_fast_track.png");
+  background-image: url("http://www.koerier-amsterdam.nl/wp-content/uploads/2015/03/adsnel_koerier_haarlem_fast_track.png");
   background-repeat: no-repeat;
   background-position: 100%;
   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -10177,4 +10177,102 @@ h1.headerTitle small {
 /* line 405, ../scss/app.scss */
 .contentbutton {
   width: 100%;
+}
+
+/* line 409, ../scss/app.scss */
+#tirelabels .tirelabel {
+  height: 595px;
+}
+
+/* line 413, ../scss/app.scss */
+#tirelabels h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* line 418, ../scss/app.scss */
+.borderline {
+  border: solid 1px #DDDDDD;
+  margin-bottom: 20px;
+  padding: 7px;
+}
+
+/* line 424, ../scss/app.scss */
+.printlabels {
+  line-height: 10px;
+  width: 190px;
+}
+/* line 428, ../scss/app.scss */
+.printlabels a {
+  width: 100%;
+  text-align: left;
+}
+
+@media print {
+  /* insert your style declarations here */
+  /* line 437, ../scss/app.scss */
+  .tab-bar {
+    display: none;
+  }
+
+  /* line 440, ../scss/app.scss */
+  .borderline, #tirelabels table {
+    margin-bottom: 10px;
+  }
+
+  /* line 444, ../scss/app.scss */
+  button.goBack {
+    display: none;
+  }
+
+  /* line 448, ../scss/app.scss */
+  #tirelabels .small-6 {
+    width: 50%;
+    float: left;
+  }
+
+  /* line 452, ../scss/app.scss */
+  #tirelabels {
+    padding: 0;
+    font-size: 8px;
+  }
+
+  /* line 457, ../scss/app.scss */
+  #tirelabels .tirelabel {
+    height: 430px;
+  }
+
+  /* line 461, ../scss/app.scss */
+  #tirelabels h2 {
+    font-size: 12px;
+  }
+
+  /* line 465, ../scss/app.scss */
+  #tirelabels h3, #tirelabels table td {
+    font-size: 9px;
+  }
+
+  /* line 469, ../scss/app.scss */
+  #tirelabels .tirelabel {
+    padding: 0;
+  }
+
+  /* line 472, ../scss/app.scss */
+  .tirelabel > div {
+    padding: 0;
+  }
+
+  /* line 476, ../scss/app.scss */
+  #tirelabels table, #tirelabels table tr td {
+    line-height: 110%;
+  }
+
+  /* line 480, ../scss/app.scss */
+  a.printbutton {
+    display: none;
+  }
+}
+/* line 485, ../scss/app.scss */
+#tirelabels > div {
+  border: 1px solid #DDDDDD;
 }

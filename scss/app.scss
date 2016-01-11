@@ -78,7 +78,7 @@ body{
     height:100%;
     width:100%;
     background-color: #f5f7f6;
-    background-image: url('http://www.adsnelkoeriers.nl/wp-content/uploads/2015/03/adsnel_koerier_haarlem_fast_track.png');
+    background-image: url('http://www.koerier-amsterdam.nl/wp-content/uploads/2015/03/adsnel_koerier_haarlem_fast_track.png');
     background-repeat: no-repeat;
     background-position: 100%;
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -405,3 +405,84 @@ h1.headerTitle small{
 .contentbutton {
   width: 100%;
 }
+
+#tirelabels .tirelabel {
+  height: 595px;
+}
+
+#tirelabels h3 {
+      font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.borderline {
+  border: solid 1px #DDDDDD;
+  margin-bottom: 20px;
+  padding: 7px;
+}
+
+.printlabels {
+  line-height: 10px;
+  width: 190px;
+
+  a{
+    width: 100%;
+    text-align: left;
+  }
+}
+
+
+@media print {
+      /* insert your style declarations here */
+  .tab-bar{
+    display: none;
+  }
+  .borderline, #tirelabels table {
+  margin-bottom: 10px;
+  }
+
+  button.goBack {
+  display: none;
+  }
+
+  #tirelabels .small-6{
+    width: 50%;
+    float: left;
+  }
+  #tirelabels {
+    padding: 0;
+    font-size: 8px;
+  }
+
+  #tirelabels .tirelabel {
+  height: 430px;
+}
+
+  #tirelabels h2 {
+  font-size: 12px;
+  }
+
+  #tirelabels h3, #tirelabels table td {
+  font-size: 9px;
+  }
+
+  #tirelabels .tirelabel {
+      padding: 0;
+  }
+  .tirelabel > div {
+     padding: 0;
+  }
+
+   #tirelabels table, #tirelabels table tr td {
+    line-height: 110%;
+  }
+
+  a.printbutton {
+  display: none;
+  }
+}
+
+#tirelabels > div { 
+  
+    border: 1px solid #DDDDDD;
+  }

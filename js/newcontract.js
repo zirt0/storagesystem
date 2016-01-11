@@ -1,6 +1,6 @@
 	app.controller('newProductCtrl', ['$rootScope', '$scope', '$http', '$rootScope', 'Upload', '$timeout', '$cookies', function( $rootScope, $scope, $http, $rootScope, Upload, $timeout, $cookies){
 		
-		$scope.bandprofiel = true;
+		$scope.bandprofiel = false;
 		$scope.bandmaat = true;
 		$scope.bandmerk = true;
 		$scope.bandtype = true;
