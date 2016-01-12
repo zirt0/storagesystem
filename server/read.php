@@ -74,9 +74,10 @@ if($subject == "containerDepartment"){
 
 if($subject == "containerContent"){
 
-	$sql = "SELECT container_content.id as id,container_content.place_name, container_content.container_department, contracts.id as contracts_id FROM container_content
+	$sql = "SELECT container_content.id as id,container_content.place_name, container_content.container_department, contracts.id as contracts_id, customers.company, customers.fname, customers.lname FROM container_content
 			LEFT JOIN contracts ON contracts.container_contents_id = container_content.id
-			WHERE container_id =" . $id;
+			LEFT JOIN customers ON  contracts.customer_id = customers.id
+			WHERE container_id = " . $id;
 	$result = $conn->query($sql);
 
 	$outp = "";
@@ -86,6 +87,9 @@ if($subject == "containerContent"){
 	    $outp .= '"place_name":"'  . $rs["place_name"] . '",';
 	    $outp .= '"container_id":"'   . $rs["container_id"]        . '",';
 	    $outp .= '"contracts_id":"'   . $rs["contracts_id"]        . '",';
+	    $outp .= '"company":"'   . $rs["company"]        . '",';
+	    $outp .= '"fname":"'   . $rs["fname"]        . '",';
+	    $outp .= '"lname":"'   . $rs["lname"]        . '",';
 	    $outp .= '"container_department":"'   . $rs["container_department"]        . '",';
 	    $outp .= '"status":"'. $rs["status"]    . '"}'; 
 	}

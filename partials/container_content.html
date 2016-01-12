@@ -1,4 +1,4 @@
-{{idContainer}}
+<!-- {{idContainer}} -->
 <div style="min-height: 400px;" class="small-12 columns">
 
 	<div ng-repeat="(key, value) in places | groupBy: 'container_department'" class="small-12 medium-4  columns">
@@ -13,7 +13,7 @@
 			<tr ng-repeat="place in value" class="zebra animate-repeat {{occupy(place.contracts_id)}}">
 				<td >{{place.id}}</td>
 				<td>{{place.place_name}}</td>
-				<td><a href="#/contracts/{{place.contracts_id}}">{{place.contracts_id}}</a></td>
+				<td><a href="#/contracts/{{place.contracts_id}}">{{place.contracts_id}}. {{place.company}} {{place.fname}}{{place.lname}}</a></td>
 				<td>{{occupy(place.contracts_id)}}</td>
 			</tr>
 		</table>
