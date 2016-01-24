@@ -202,7 +202,7 @@ if($subject == "contracts"){
 	}
 
 	//sort contracts on end date
-	$sql = "SELECT contracts.id, customer_id, employer, start_date, end_date, container_contents_id,
+	$sql = "SELECT contracts.id, customer_id, employer, start_date, end_date, container_contents_id, invoiceno, 
 				customers.company, customers.fname, customers.lname, tires.sezon,
 				LV_brand, RV_brand, LA_brand, RA_brand,
 				LV_type, RV_type, LA_type, RA_type,
@@ -235,6 +235,7 @@ if($subject == "contracts"){
 	    $outp .= '"container_department":"' . $rs["container_department"] . '",';
 	    $outp .= '"start_date":"' . $rs["start_date"] . '",';
 	    $outp .= '"end_date":"' . $rs["end_date"] . '",';
+	    $outp .= '"invoiceno":"' . $rs["invoiceno"] . '",';
 	    $outp .= '"contract_id":"' . $rs["contract_id"] . '",';
 	    $outp .= '"username":"' . $rs["username"] . '",';
 	    $outp .= '"status":"'. $rs["status"]     . '"}'; 
@@ -246,7 +247,7 @@ if($subject == "contracts"){
 if($subject == "contractdetail"){
 
 	//sort contracts on end date
-	$sql = 'SELECT contracts.id, customer_id, employer, start_date, end_date, container_contents_id,
+	$sql = 'SELECT contracts.id, customer_id, employer, start_date, end_date, container_contents_id, invoiceno, 
 				customers.company, customers.fname, customers.lname, customers.merk, customers.kenteken, customers.tel, tires.sezon,
 				LV_brand, RV_brand, LA_brand, RA_brand,
 				LV_type, RV_type, LA_type, RA_type,
@@ -299,6 +300,7 @@ if($subject == "contractdetail"){
 
 	   	$outp .= '"start_date":"' . $rs["start_date"] . '",';
 	    $outp .= '"end_date":"' . $rs["end_date"] . '",';
+	    $outp .= '"invoiceno":"' . $rs["invoiceno"] . '",';
 	    
 	    $outp .= '"company":"' . $rs["company"] . '",';
 	    $outp .= '"lname":"' . $rs["lname"] . '",';

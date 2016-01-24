@@ -9842,8 +9842,8 @@ select {
 }
 
 /* line 148, ../scss/app.scss */
-.profiel.red {
-  background-color: red;
+.profiel.red, .red {
+  background-color: #f04124;
 }
 
 /* line 152, ../scss/app.scss */
@@ -9857,23 +9857,44 @@ select {
 }
 
 /* line 159, ../scss/app.scss */
-.profiel.green {
-  background-color: green;
+.profiel.green, .green {
+  background-color: #8BC220;
 }
 
 /* line 163, ../scss/app.scss */
+.green-icon {
+  text-align: center;
+  color: #8BC220;
+}
+
+/* line 168, ../scss/app.scss */
+.red-icon {
+  text-align: center;
+  color: #F04124;
+}
+
+/* line 173, ../scss/app.scss */
+.addCustomer {
+  width: auto;
+  display: inline;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  background-color: #eeeeee;
+}
+
+/* line 181, ../scss/app.scss */
 .container, .addcontainerButton {
   width: 200px;
   margin-bottom: 20px;
 }
 
-/* line 169, ../scss/app.scss */
+/* line 187, ../scss/app.scss */
 .container {
   text-align: center;
   background-color: lightblue;
 }
 
-/* line 175, ../scss/app.scss */
+/* line 193, ../scss/app.scss */
 .containerColor {
   width: 90%;
   height: 20px;
@@ -9882,53 +9903,53 @@ select {
   margin: 0 auto;
 }
 
-/* line 183, ../scss/app.scss */
+/* line 201, ../scss/app.scss */
 input[data-toggle] {
   display: none;
 }
 
-/* line 186, ../scss/app.scss */
+/* line 204, ../scss/app.scss */
 input[data-toggle]:checked + label,
 input[data-toggle]:checked + label:active {
   background-color: salmon;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-/* line 191, ../scss/app.scss */
+/* line 209, ../scss/app.scss */
 .button-group.toggle li:not(first-child) {
   margin: 0 -0.9rem;
 }
 
-/* line 194, ../scss/app.scss */
+/* line 212, ../scss/app.scss */
 .Vrij {
   background-color: #8bc220 !important;
 }
 
-/* line 197, ../scss/app.scss */
+/* line 215, ../scss/app.scss */
 .depTitle {
   background-color: #0880d7 !important;
   color: white !important;
   text-transform: capitalize;
 }
 
-/* line 203, ../scss/app.scss */
+/* line 221, ../scss/app.scss */
 .highlight {
   border-color: red !important;
   background-color: rgba(255, 0, 0, 0.1) !important;
 }
 
-/* line 207, ../scss/app.scss */
+/* line 225, ../scss/app.scss */
 .segmentTitle {
   display: block;
   font-weight: bold;
 }
 
-/* line 211, ../scss/app.scss */
+/* line 229, ../scss/app.scss */
 label {
   display: inline-block;
 }
 
-/* line 215, ../scss/app.scss */
+/* line 233, ../scss/app.scss */
 label > input {
   /* HIDE RADIO */
   visibility: hidden;
@@ -9937,20 +9958,20 @@ label > input {
   /* Remove input from document flow */
 }
 
-/* line 219, ../scss/app.scss */
+/* line 237, ../scss/app.scss */
 label > input + img {
   /* IMAGE STYLES */
   cursor: pointer;
   border: 2px solid transparent;
 }
 
-/* line 223, ../scss/app.scss */
+/* line 241, ../scss/app.scss */
 label > input:checked + img {
   /* (RADIO CHECKED) IMAGE STYLES */
   border: 2px solid #f00;
 }
 
-/* line 227, ../scss/app.scss */
+/* line 245, ../scss/app.scss */
 .thumb {
   width: 24px;
   height: 24px;
@@ -9959,26 +9980,26 @@ label > input:checked + img {
   top: 7px;
 }
 
-/* line 235, ../scss/app.scss */
+/* line 253, ../scss/app.scss */
 form .progress {
   line-height: 15px;
 }
 
-/* line 239, ../scss/app.scss */
+/* line 257, ../scss/app.scss */
 .progress {
   display: inline-block;
   width: 100px;
   border: 3px groove #CCC;
 }
 
-/* line 245, ../scss/app.scss */
+/* line 263, ../scss/app.scss */
 .progress div {
   font-size: smaller;
   background: orange;
   width: 0;
 }
 
-/* line 251, ../scss/app.scss */
+/* line 269, ../scss/app.scss */
 .segmentpos, .containerpos, .placepos {
   display: inline-block;
   padding: 10px;
@@ -9987,22 +10008,22 @@ form .progress {
   font-weight: bold;
 }
 
-/* line 259, ../scss/app.scss */
+/* line 277, ../scss/app.scss */
 .containerpos {
   background-color: #e59501;
 }
 
-/* line 262, ../scss/app.scss */
+/* line 280, ../scss/app.scss */
 .segmentpos {
   background-color: #e59501;
 }
 
-/* line 265, ../scss/app.scss */
+/* line 283, ../scss/app.scss */
 .placepos {
   background-color: #e59501;
 }
 
-/* line 269, ../scss/app.scss */
+/* line 287, ../scss/app.scss */
 .tireprofile {
   display: inline-block;
   border-radius: 10px;
@@ -10011,57 +10032,57 @@ form .progress {
   text-align: center;
 }
 
-/* line 276, ../scss/app.scss */
+/* line 294, ../scss/app.scss */
 .dashboard .tireprofile {
   display: table-cell;
 }
 
-/* line 279, ../scss/app.scss */
+/* line 297, ../scss/app.scss */
 .tireGood {
   background-color: #8bc220;
 }
 
-/* line 282, ../scss/app.scss */
+/* line 300, ../scss/app.scss */
 .tireNormal {
   background-color: #e59501;
 }
 
-/* line 285, ../scss/app.scss */
+/* line 303, ../scss/app.scss */
 .tireBad {
   background-color: #f04124;
 }
 
-/* line 288, ../scss/app.scss */
+/* line 306, ../scss/app.scss */
 .right-small {
   text-align: center;
 }
 
-/* line 291, ../scss/app.scss */
+/* line 309, ../scss/app.scss */
 .right-small .menu-icon {
   text-indent: 0;
 }
 
-/* line 294, ../scss/app.scss */
+/* line 312, ../scss/app.scss */
 .dashboard .small-12 > .small-12 {
   height: 330px;
 }
 
-/* line 297, ../scss/app.scss */
+/* line 315, ../scss/app.scss */
 .banden td {
   vertical-align: top;
 }
 
-/* line 301, ../scss/app.scss */
+/* line 319, ../scss/app.scss */
 .left-off-canvas-menu {
   background: #1d2b36;
 }
 
-/* line 306, ../scss/app.scss */
+/* line 324, ../scss/app.scss */
 ul.off-canvas-list li a {
   color: #c3def1;
 }
 
-/* line 309, ../scss/app.scss */
+/* line 327, ../scss/app.scss */
 .panel h2 {
   text-transform: uppercase;
   font-weight: bold;
@@ -10069,13 +10090,13 @@ ul.off-canvas-list li a {
   color: #646464;
 }
 
-/* line 315, ../scss/app.scss */
+/* line 333, ../scss/app.scss */
 .panel {
   border-color: white;
   background: #fff;
 }
 
-/* line 320, ../scss/app.scss */
+/* line 338, ../scss/app.scss */
 .headerTitle {
   background-image: url("/lib/img/titlebackground.png");
   padding: 90px 10px 20px 30px;
@@ -10085,24 +10106,24 @@ ul.off-canvas-list li a {
   background-position-y: 0;
 }
 
-/* line 329, ../scss/app.scss */
+/* line 347, ../scss/app.scss */
 ul > li > a > i.fa {
   margin-right: 10px;
 }
 
-/* line 333, ../scss/app.scss */
+/* line 351, ../scss/app.scss */
 h1.headerTitle small {
   display: block;
   color: #cccccc;
   margin-top: 4px;
 }
 
-/* line 338, ../scss/app.scss */
+/* line 356, ../scss/app.scss */
 .panel.container {
   padding: 0px;
 }
 
-/* line 342, ../scss/app.scss */
+/* line 360, ../scss/app.scss */
 .containerTitle {
   background-color: #5C90D2;
   color: white;
@@ -10111,56 +10132,56 @@ h1.headerTitle small {
   padding: 5px;
 }
 
-/* line 350, ../scss/app.scss */
+/* line 368, ../scss/app.scss */
 .clearfix {
   min-height: 140px;
   padding: 20px;
 }
 
-/* line 355, ../scss/app.scss */
+/* line 373, ../scss/app.scss */
 .newProduct > .clearfix:nth-of-type(even) {
   background-color: #f5f7f6;
 }
 
-/* line 359, ../scss/app.scss */
+/* line 377, ../scss/app.scss */
 ::-webkit-input-placeholder {
   color: #999999;
   font-style: italic;
 }
 
-/* line 364, ../scss/app.scss */
+/* line 382, ../scss/app.scss */
 :-moz-placeholder {
   /* Firefox 18- */
   color: #999999;
   font-style: italic;
 }
 
-/* line 369, ../scss/app.scss */
+/* line 387, ../scss/app.scss */
 ::-moz-placeholder {
   /* Firefox 19+ */
   color: #999999;
   font-style: italic;
 }
 
-/* line 374, ../scss/app.scss */
+/* line 392, ../scss/app.scss */
 :-ms-input-placeholder {
   color: #999999;
   font-style: italic;
 }
 
-/* line 379, ../scss/app.scss */
+/* line 397, ../scss/app.scss */
 .bandSync {
   background-color: #F5F7F6;
   padding: 30px;
   margin-bottom: 30px;
 }
 
-/* line 385, ../scss/app.scss */
+/* line 403, ../scss/app.scss */
 .exit-off-canvas {
   height: 100%;
 }
 
-/* line 393, ../scss/app.scss */
+/* line 411, ../scss/app.scss */
 .selectedContainer {
   background-color: #e59501 !important;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -10174,35 +10195,35 @@ h1.headerTitle small {
   box-shadow: inset 0 7px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* line 405, ../scss/app.scss */
+/* line 423, ../scss/app.scss */
 .contentbutton {
   width: 100%;
 }
 
-/* line 409, ../scss/app.scss */
+/* line 427, ../scss/app.scss */
 #tirelabels .tirelabel {
   height: 595px;
 }
 
-/* line 413, ../scss/app.scss */
+/* line 431, ../scss/app.scss */
 #tirelabels h3 {
   font-size: 1.4rem;
   font-weight: bold;
 }
 
-/* line 418, ../scss/app.scss */
+/* line 436, ../scss/app.scss */
 .borderline {
   border: solid 1px #DDDDDD;
   margin-bottom: 20px;
   padding: 7px;
 }
 
-/* line 424, ../scss/app.scss */
+/* line 442, ../scss/app.scss */
 .printlabels {
   line-height: 10px;
   width: 190px;
 }
-/* line 428, ../scss/app.scss */
+/* line 446, ../scss/app.scss */
 .printlabels a {
   width: 100%;
   text-align: left;
@@ -10210,69 +10231,237 @@ h1.headerTitle small {
 
 @media print {
   /* insert your style declarations here */
-  /* line 437, ../scss/app.scss */
+  /* line 455, ../scss/app.scss */
   .tab-bar {
     display: none;
   }
 
-  /* line 440, ../scss/app.scss */
+  /* line 458, ../scss/app.scss */
   .borderline, #tirelabels table {
     margin-bottom: 10px;
   }
 
-  /* line 444, ../scss/app.scss */
+  /* line 462, ../scss/app.scss */
   button.goBack {
     display: none;
   }
 
-  /* line 448, ../scss/app.scss */
+  /* line 466, ../scss/app.scss */
   #tirelabels .small-6 {
     width: 50%;
     float: left;
   }
 
-  /* line 452, ../scss/app.scss */
+  /* line 470, ../scss/app.scss */
   #tirelabels {
     padding: 0;
     font-size: 8px;
   }
 
-  /* line 457, ../scss/app.scss */
+  /* line 475, ../scss/app.scss */
   #tirelabels .tirelabel {
     height: 430px;
   }
 
-  /* line 461, ../scss/app.scss */
+  /* line 479, ../scss/app.scss */
   #tirelabels h2 {
     font-size: 12px;
   }
 
-  /* line 465, ../scss/app.scss */
+  /* line 483, ../scss/app.scss */
   #tirelabels h3, #tirelabels table td {
     font-size: 9px;
   }
 
-  /* line 469, ../scss/app.scss */
+  /* line 487, ../scss/app.scss */
   #tirelabels .tirelabel {
     padding: 0;
   }
 
-  /* line 472, ../scss/app.scss */
+  /* line 490, ../scss/app.scss */
   .tirelabel > div {
     padding: 0;
   }
 
-  /* line 476, ../scss/app.scss */
+  /* line 494, ../scss/app.scss */
   #tirelabels table, #tirelabels table tr td {
     line-height: 110%;
   }
 
-  /* line 480, ../scss/app.scss */
+  /* line 498, ../scss/app.scss */
   a.printbutton {
     display: none;
   }
 }
-/* line 485, ../scss/app.scss */
+/* line 503, ../scss/app.scss */
 #tirelabels > div {
   border: 1px solid #DDDDDD;
 }
+
+/* line 507, ../scss/app.scss */
+.contractSteps {
+  padding: 16px 100px;
+  background-color: rgba(238, 238, 238, 0.49);
+  position: absolute;
+  right: 0;
+  margin-top: -60px;
+  font-size: 18px;
+}
+
+/* line 515, ../scss/app.scss */
+.stepDetails {
+  display: inline;
+  margin-right: 10px;
+}
+
+/* line 520, ../scss/app.scss */
+.stepDetails i {
+  margin-left: 4px;
+}
+
+/* line 524, ../scss/app.scss */
+.contractSteps > div {
+  display: inline;
+}
+
+/* line 528, ../scss/app.scss */
+.contractSteps > div > span {
+  background-color: white;
+  color: #0880d7;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  border: 6px solid #eeeeee;
+  vertical-align: middle;
+  padding: 8px;
+  border: 4px solid #dddddd;
+}
+
+/* line 541, ../scss/app.scss */
+.contractSteps span.passedStep {
+  background-color: #0880d7;
+  color: white;
+}
+
+/* line 547, ../scss/app.scss */
+.bs-wizard {
+  margin-top: 40px;
+}
+
+/*Form Wizard*/
+/* line 550, ../scss/app.scss */
+.bs-wizard {
+  border-bottom: solid 1px #e0e0e0;
+  padding: 0 0 10px 0;
+}
+
+/* line 551, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step {
+  padding: 0;
+  position: relative;
+}
+
+/* line 553, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step .bs-wizard-stepnum {
+  color: #595959;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* line 554, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step .bs-wizard-info {
+  color: #999;
+  font-size: 14px;
+}
+
+/* line 555, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step > .bs-wizard-dot {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  display: block;
+  background: #fbe8aa;
+  top: 45px;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -15px;
+  border-radius: 50%;
+}
+
+/* line 556, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {
+  content: ' ';
+  width: 14px;
+  height: 14px;
+  background: #fbbd19;
+  border-radius: 50px;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+/* line 557, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step > .progress {
+  position: relative;
+  border-radius: 0px;
+  height: 8px;
+  box-shadow: none;
+  margin: 20px 0;
+}
+
+/* line 558, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step > .progress > .progress-bar {
+  width: 0px;
+  box-shadow: none;
+  background: #fbe8aa;
+}
+
+/* line 559, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {
+  width: 100%;
+}
+
+/* line 560, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {
+  width: 50%;
+}
+
+/* line 561, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {
+  width: 0%;
+}
+
+/* line 562, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {
+  width: 100%;
+}
+
+/* line 563, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {
+  background-color: #f5f5f5;
+}
+
+/* line 564, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {
+  opacity: 0;
+}
+
+/* line 565, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step:first-child > .progress {
+  left: 50%;
+  width: 50%;
+}
+
+/* line 566, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step:last-child > .progress {
+  width: 50%;
+}
+
+/* line 567, ../scss/app.scss */
+.bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot {
+  pointer-events: none;
+}
+
+/*END Form Wizard*/

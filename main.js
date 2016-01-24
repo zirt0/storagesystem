@@ -361,7 +361,17 @@
 	});
 	
 	app.controller('contractsCtrl', function($scope, $http) {
-		$scope.adem1 = "naberrr";
+		
+		$scope.invoicestatus = function(status){
+
+			if(status != ""){
+				return '<div class="green-icon"><i class="fa fa-check-square"></i></div>';
+			}else{
+				return '<div class="red-icon"><i class="fa fa-exclamation-circle"></i></div>';
+			}
+
+		}
+
 		$scope.today = new Date();
 
 	   	$scope.sortType     = 'container_name', 'klant'; // set the default sort type
@@ -380,24 +390,43 @@
 	app.controller('contractsDetailsCtrl', ['$scope', '$http' , '$routeParams', function ($scope, $http, $routeParams) {
 
 		$scope.idContract = "" + $routeParams.id + "";
+		
+		$scope.invoicestatus = function(number){
+			
+			if(number != ""){
+				return "green";
+			}else{
+				return "red";
+			}
+		};
+
+		$scope.saveinvoiceNo = function(){
+			
+			var val = jQuery("input[name='invoiceNumber']").val();
+			
+			$http.post("server/update.php",{'subject': "update_invoiceno", 'value': val , 'id': $scope.idContract})
+			
+			.success(function (response) {
+
+				$scope.contractDetail = response.records;
+
+				//console.log($scope.contractDetail.invoiceno);
+
+			console.log(response);
+			});
+
+
+		};
 
 		$http.post("server/read.php",{'subject': "contractdetail", 'contractId': $scope.idContract})
 		.success(function (response) {
 
 			$scope.contractDetail = response.records;
 
-		  //  	console.log($scope.contractDetail);
+			//console.log($scope.contractDetail.invoiceno);
 
-		  //  		angular.forEach($scope.contractDetail[0], function(value, key) {
-			 //  		console.log(key + ': ' + value);
-			 //  		$scope.key = "value"
-			 
-				// 	  if(key == "tire_profile"){
-				// 	  	$scope.tires = value.split(',');
-				// 	  }
-				// });
 		console.log(response);
-	});
+		});
 
 		$scope.bandDiepte = function(band){
 			//band = band.toFixed(1);

@@ -1,13 +1,31 @@
-<h1 class="headerTitle">Nieuw Contract <small>Contract maken voor bandenopslag</small></h1>
+<h1 class="headerTitle">
+	<div class="contractSteps">
+		<div class="stepOne"><span class="passedStep">1</span>
+			<div class="stepDetails">BandDetails<i class="fa fa-long-arrow-right"></i></div>
+		</div>
+		<div class="stepTwo">
+			<span>2</span>
+			<div class="stepDetails">Opslag<i class="fa fa-long-arrow-right"></i>
+			</div>
+		</div>
+		<div class="stepThree"><span>3</span>
+			<div class="stepDetails">Complete</div>
+		</div>
+    </div>
+	Nieuw Contract <small>Contract maken voor bandenopslag</small>
+
+</h1>
 
 <div class="panel newProduct">
-	<h1>Contract Maken</h1>
+
+			<h1>Contract Maken</h1>
+	
 	<div class="clearfix">
 		<div class="small-12 large-4 columns">
 			<h2>Bedrijf:</h2>
 		</div>
 		<div class="small-12 large-8 columns">
-			{{chosenCustomer}}<button data-reveal-id="SelectCustomer" class"button button-3d button-action button-pill"><i class="fa fa-user-plus"></i>Toevoegen</button>
+			<div class="addCustomer">{{chosenCustomer}}</div><button data-reveal-id="SelectCustomer" class="right button button-3d button-action button-pill"><i class="fa fa-user-plus"></i>Toevoegen</button>
 		</div>
 	</div>
 	<div class="clearfix">
@@ -50,23 +68,23 @@
 	<div class="clearfix">
 		<div class="small-12 columns bandSync">
 			<h3>Synchronisatie van banden</h3>
-			<div class="small-3 columns">
+			<div class="small-6 medium-3 columns">
 				<!-- <input type="checkbox" name="profiel" ng-model="vierprofiel"> -->
 				Bandprofiel<br>
 				<switch ng-model="bandprofiel" class="green"></switch>
 
 			</div>
-			<div class="small-3 columns">
+			<div class="small-6 medium-3 columns">
 				<!-- <input type="checkbox" name="profiel" ng-model="vierprofiel"> -->
 				Bandenmaat<br>
 				<switch ng-model="bandmaat" class="green"></switch>
 				
 			</div>
-			<div class="small-3 columns">
+			<div class="small-6 medium-3 columns">
 				Merk <br>
 				<switch id="enabled" name="enabled" ng-change="changeCheckbox()" ng-model="bandmerk" class="green"></switch>
 			</div>
-			<div class="small-3 columns">
+			<div class="small-6 medium-3 columns">
 				Merk Type <br>
 				<switch id="enabled" name="enabled" ng-change="changeCheckbox()" ng-model="bandtype" class="green"></switch>
 			</div>
