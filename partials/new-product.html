@@ -93,7 +93,7 @@
 			<div class="small-4 columns">
 				<h3>Links Voor</h3>
 				<input type="number" name="bandprofiel1" ng-model="bandprofiel1" placeholder="Profiel v.b. 1.5" class="req">
-				<input type="text" name="bandmaat1" ng-model="bandmaat1" placeholder="Bandenmaat" class="req">
+				<input type="text" name="bandmaat1" ng-model="bandmaat1" placeholder="Bandenmaat" class="req"> {{bandmaat1}}
 				<select name="bandenmerk" id="bandenmerk1" ng-model="bandenmerk1" ng-change="allebanden()" class="req">
 					<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 				</select>
@@ -190,13 +190,11 @@
 					</div>
 					<div class="clearfix" style="background-color: #F9F9F9; padding: 20px 0;">
 						<a ng-click="selectContainer(container.id)" class="button button-highlight">Bekijk</a>
-						<!-- <a href="#/storage-management/{{ container.id }}" class="button button-highlight">Bekijk</a> -->
 					</div>
-					<!-- <div class="containerColor"></div> -->
 				</li>
 			</ul>
 		</div>
-		<div id="contents" class="panel" style="display: -webkit-box;">
+		<div id="contents" class="small-12 columns panel" style="display: inline-block;">
 			<div ng-repeat="(key, value) in places | groupBy: 'container_department'" class="small-12 medium-4 columns">
 				<div class="button button-block button-rounded button-large depTitle">{{key}}</div>
 				<table>
@@ -208,7 +206,6 @@
 					<tr ng-repeat="place in value" class="zebra animate-repeat {{occupy(place.contracts_id)}}">
 						<td >{{place.id}}</td>
 						<td>{{place.place_name}} {{ place.contracts_id}}</td>
-						<!-- <td><a href="#/contracts/{{place.contracts_id}}">{{place.contracts_id}}</a></td> -->
 						<td>
 							<div ng-if="place.contracts_id == ''">
 								<button id="place{{place.id}}" ng-click="placesSelected(place.id)" class="contentbutton button button-action button-pill">selecteer</button>
@@ -219,10 +216,8 @@
 						</td>
 					</tr>
 				</table>
-				<!-- <input type="text"> -->
 			</div>
 		</div>	
 	</div>
 	<a ng-click="submitContract()" class="button button-3d button-primary button-rounded right">Opslaan</a>
-
 </div>

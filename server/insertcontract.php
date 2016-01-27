@@ -57,14 +57,14 @@ if($subject == "insert_contract"){
 	$sql = "UPDATE contracts SET tires_id = '" . $tiresid . "' WHERE id = '" . $contractid . "'";
 	$result = $conn->query($sql);
 
-	//$outp = $contractid;
+	$outp = $contractid;
 }
 
 $conn->close();
 
 
-echo $container_contents_id;
-
+//echo $container_contents_id;
+echo $outp;
 
 	
 ?>

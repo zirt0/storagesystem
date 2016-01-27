@@ -10345,123 +10345,38 @@ h1.headerTitle small {
   color: white;
 }
 
-/* line 547, ../scss/app.scss */
-.bs-wizard {
-  margin-top: 40px;
-}
-
-/*Form Wizard*/
-/* line 550, ../scss/app.scss */
-.bs-wizard {
-  border-bottom: solid 1px #e0e0e0;
-  padding: 0 0 10px 0;
-}
-
+/* ANIMATIONS
+============================================================================= */
 /* line 551, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step {
-  padding: 0;
-  position: relative;
+.pageView.ng-leave {
+  z-index: 9999;
 }
 
-/* line 553, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step .bs-wizard-stepnum {
-  color: #595959;
-  font-size: 16px;
-  margin-bottom: 5px;
+/* line 552, ../scss/app.scss */
+.pageView.ng-enter {
+  z-index: 8888;
 }
 
-/* line 554, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step .bs-wizard-info {
-  color: #999;
-  font-size: 14px;
-}
-
-/* line 555, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step > .bs-wizard-dot {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  display: block;
-  background: #fbe8aa;
-  top: 45px;
-  left: 50%;
-  margin-top: -15px;
-  margin-left: -15px;
-  border-radius: 50%;
-}
-
-/* line 556, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {
-  content: ' ';
-  width: 14px;
-  height: 14px;
-  background: #fbbd19;
-  border-radius: 50px;
-  position: absolute;
-  top: 8px;
-  left: 8px;
-}
-
+/* page specific animations ------------------------ */
+/* home -------------------------- */
 /* line 557, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step > .progress {
-  position: relative;
-  border-radius: 0px;
-  height: 8px;
-  box-shadow: none;
-  margin: 20px 0;
-}
-
-/* line 558, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step > .progress > .progress-bar {
-  width: 0px;
-  box-shadow: none;
-  background: #fbe8aa;
-}
-
-/* line 559, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {
-  width: 100%;
-}
-
-/* line 560, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {
-  width: 50%;
-}
-
-/* line 561, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {
-  width: 0%;
-}
-
-/* line 562, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {
-  width: 100%;
-}
-
-/* line 563, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {
-  background-color: #f5f5f5;
-}
-
-/* line 564, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {
-  opacity: 0;
+.pageView.ng-leave {
+  -webkit-transform-origin: 0% 0%;
+  -webkit-animation: scaleUp 1s both ease-in;
+  -moz-transform-origin: 0% 0%;
+  -moz-animation: scaleUp 1s both ease-in;
+  transform-origin: 0% 0%;
+  animation: scaleUp 1s both ease-in;
 }
 
 /* line 565, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step:first-child > .progress {
-  left: 50%;
-  width: 50%;
+.pageView.ng-enter {
+  -webkit-animation: slideOutRight 0.5s both ease-in;
+  -moz-animation: slideOutRight 0.5s both ease-in;
+  animation: slideOutRight 0.5s both ease-in;
 }
 
-/* line 566, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step:last-child > .progress {
-  width: 50%;
+/* line 571, ../scss/app.scss */
+.addToContainer .columns + .columns:last-child {
+  float: left;
 }
-
-/* line 567, ../scss/app.scss */
-.bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot {
-  pointer-events: none;
-}
-
-/*END Form Wizard*/

@@ -1,0 +1,764 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"container_con",
+				"container_contents_id"
+			],
+			[
+				"json_",
+				"json_encode"
+			],
+			[
+				"settings",
+				"settingsCtrl"
+			],
+			[
+				"tire",
+				"tire_profile"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"encode",
+				"json_encode"
+			],
+			[
+				"view",
+				"viewController"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "partials/contract_details.html",
+			"settings":
+			{
+				"buffer_size": 4062,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scss/app.scss",
+			"settings":
+			{
+				"buffer_size": 10875,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/newcontract.js",
+			"settings":
+			{
+				"buffer_size": 9606,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/insertcontract.php",
+			"settings":
+			{
+				"buffer_size": 2461,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "main.js",
+			"settings":
+			{
+				"buffer_size": 11303,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/read.php",
+			"settings":
+			{
+				"buffer_size": 14768,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/insert.php",
+			"settings":
+			{
+				"buffer_size": 1621,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/update.php",
+			"settings":
+			{
+				"buffer_size": 406,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 12300,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "partials/new-product.html",
+			"settings":
+			{
+				"buffer_size": 8589,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<h1 class=\"headerTitle\">\n	<div class=\"contractSteps\">\n		<div class=\"stepOne\"><span class=\"passedStep\">1</span>\n			<div class=\"stepDetails\">BandDetails<i class=\"fa fa-long-arrow-right\"></i></div>\n		</div>\n		<div class=\"stepTwo\">\n			<span class=\"passedStep\">2</span>\n			<div class=\"stepDetails\">Opslag<i class=\"fa fa-long-arrow-right\"></i>\n			</div>\n		</div>\n		<div class=\"stepThree\"><span>3</span>\n			<div class=\"stepDetails\">Complete</div>\n		</div>\n    </div>\n	Nieuw Contract <small>Contract maken voor bandenopslag</small>\n\n</h1>\n<div class=\"addToContainer\">\n	<div class=\"small-12 columns\">\n		<div class=\"\">\n			<h2>Containers</h2>\n			{{bandmaat1}}\n			<div data-alert class=\"alert-box info radius\">\n				Selecteer een container en klik op bekijk om de plaatsen in de container te zien. \n			</div>\n			<ul class=\"inline-list\">\n				<li class=\"panel container\" ng-repeat=\"container in containers\">\n					<div class=\"containerTitle\">{{container.name}}</div>\n					<div class=\"clearfix\" style=\"height: 80px\">	\n						<b>Plaatsen: {{container.places}}</b><br>\n						<b>Vrij: {{container.free}}</b><br>\n					</div>\n					<div class=\"clearfix\" style=\"background-color: #F9F9F9; padding: 20px 0;\">\n						<a ng-click=\"selectContainer(container.id)\" class=\"button button-highlight\">Bekijk</a>\n						<!-- <a href=\"#/storage-management/{{ container.id }}\" class=\"button button-highlight\">Bekijk</a> -->\n					</div>\n					<!-- <div class=\"containerColor\"></div> -->\n				</li>\n			</ul>\n		</div>\n		<div id=\"contents\" class=\"panel\" style=\"display: -webkit-box;\">\n			<div ng-repeat=\"(key, value) in places | groupBy: 'container_department'\" class=\"small-12 medium-4 columns\">\n				<div class=\"button button-block button-rounded button-large depTitle\">{{key}}</div>\n				<table>\n					<tr>\n						<th>ID</th>\n						<th>Plaats</th>\n						<th>Status</th>\n					</tr>\n					<tr ng-repeat=\"place in value\" class=\"zebra animate-repeat {{occupy(place.contracts_id)}}\">\n						<td >{{place.id}}</td>\n						<td>{{place.place_name}} {{ place.contracts_id}}</td>\n						<!-- <td><a href=\"#/contracts/{{place.contracts_id}}\">{{place.contracts_id}}</a></td> -->\n						<td>\n							<div ng-if=\"place.contracts_id == ''\">\n								<button id=\"place{{place.id}}\" ng-click=\"placesSelected(place.id)\" class=\"contentbutton button button-action button-pill\">selecteer</button>\n							</div>\n							<div ng-if=\"place.contracts_id != ''\">\n								<button class=\"button button-caution button-pill contentbutton\">Bezet</button>\n							</div>\n						</td>\n					</tr>\n				</table>\n				<!-- <input type=\"text\"> -->\n			</div>\n		</div>	\n	</div>\n	<a ng-click=\"submitContract()\" class=\"button button-3d button-primary button-rounded right\">Opslaan</a>\n</div>",
+			"file": "partials/addcontainer.html",
+			"file_size": 2697,
+			"file_write_time": 1453686697000000,
+			"settings":
+			{
+				"buffer_size": 2691,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/contracts.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/js/storagemanagement.js",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/dashboard.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/tirelabels.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/contract_details.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/customer.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/server/read.php",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/index.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/js/newcontract.js",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/js/tires.js",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/scss/app.scss",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/storage-management.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/storage.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/main.js",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/container_content.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/config.rb",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/js/app.js",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/nopermission.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/js/dashboard.js",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/new-productold.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/preference.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/settings.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/tires.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/customers.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/users.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/snowflake1.png",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/test.php",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/server/remove.php",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/new-product.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/addcustomer.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/server/insert.php",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/server/insertcontract.php",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/lib/img/sunny82.png",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/server/config.php",
+		"/Users/iMac/Akmedia Test Projects/testgit/storagesystem/.gitignore",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/.gitignore",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/bower_components/angucomplete/angucomplete.css",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/server/insert_old.php",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/settings",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/bower_components/foundation-datepicker/index",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/index_old.html",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/partials/contracts.html",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/partials/customers.html",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/scss/app.scss",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/partials/storage.html",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/partials/contract_details.html",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/index.html",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/server/read.php",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/main.js",
+		"/Users/iMac/Downloads/AngularJS-Authentication/Home.html",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/stylesheets/app.css",
+		"/Users/iMac/Downloads/AngularJS-Authentication/app.js",
+		"/Users/iMac/Downloads/snowflake1.png",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/server/config.php",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/server/insert.php",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/partials/customer.html",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/partials/users.html",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/partials/new-product.html",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/js/app.js",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/index_old.html",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/test.php",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/partials/dashboard.html",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/partials/storage-management.html",
+		"/Users/iMac/Akmedia Test Projects/StorageSystem/storagsystem/scss/_settings.scss"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"location",
+			"last-ch",
+			".columns:last-child",
+			".columns:last-child {\n    float: right;",
+			"view",
+			"$location",
+			"view",
+			"html",
+			"contracts\"",
+			"contractsCtrl",
+			"$outp = $sql;",
+			"red",
+			"green",
+			"contractdetail",
+			"contractsDetailsCtrl",
+			"contracts",
+			"containerContent",
+			"containerContentCtrl",
+			"adsnel_k",
+			"Commentaar",
+			"colspan=\"1\"",
+			"contractdetail",
+			"contractId",
+			"tireid",
+			"container\"",
+			"customerId",
+			"tiresid",
+			"tireid",
+			"customerId",
+			"\"contracts\"",
+			"customerId",
+			"customerInfo",
+			"contracts\"",
+			"tireid",
+			"contracts",
+			"tireslabelsCtrl",
+			"customerInfo",
+			"tiresC",
+			"new-product",
+			"customer\"",
+			"customerinfo",
+			"contracts",
+			"customers",
+			"addCustomer",
+			"nieuw produc",
+			"nieuw klant",
+			"container_contents_id",
+			"$cookie",
+			"cookie",
+			"loggedIn",
+			"login",
+			"animate",
+			"medium",
+			"img",
+			"panel",
+			"canvas",
+			"canvast",
+			"body",
+			"left",
+			"YesNo(",
+			"contract",
+			"storagemanagementCtrl",
+			"log",
+			"\"customers\"",
+			"customers",
+			"numb",
+			"int",
+			"tireProfile",
+			"\"contract",
+			"contract",
+			"customers",
+			"Bedrijfsnaam",
+			"customers",
+			"back",
+			"loginCtrl",
+			"watch",
+			"()\"",
+			"sezon",
+			"terug",
+			"print this",
+			"print",
+			"contractDetail",
+			"close",
+			"2",
+			"newproduct",
+			"newprodic",
+			"customers",
+			"addcusto",
+			"addcustomer",
+			"container\"",
+			"customers\"",
+			"customer",
+			"customer\"",
+			"addcustomer",
+			"customers",
+			"checkCustomer",
+			"customer\"",
+			"customer",
+			"addcustomer",
+			"contracts\"",
+			"contracts",
+			"searchCustomer",
+			"newProductCtrl",
+			"local",
+			";pca;",
+			"local",
+			"containers",
+			"</div>\n</div>\ncontracts",
+			"</div>\n</div>\n\"contracts\"",
+			"</div>\n\"contracts\"",
+			"\"contracts\"",
+			"contracts",
+			"contractsCtrl",
+			"contractsDetailsCtrl",
+			"containerContentCtrl",
+			"containerDepartment",
+			"containerContent",
+			"contractId",
+			"contractdetail",
+			"contractsDetailsCtrl",
+			"\"container\"",
+			"containerCtrl",
+			"container",
+			"containerCtrl",
+			"containers",
+			"storagemanagementCtrl",
+			"$scope.bandmaat",
+			"bandmaat"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Opmerk.",
+			"colspan=\"2\"",
+			"large"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "partials/contract_details.html",
+					"settings":
+					{
+						"buffer_size": 4062,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1008,
+								1008
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "scss/app.scss",
+					"settings":
+					{
+						"buffer_size": 10875,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10434,
+								10434
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7923.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/newcontract.js",
+					"settings":
+					{
+						"buffer_size": 9606,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8955,
+								8955
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4705.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "server/insertcontract.php",
+					"settings":
+					{
+						"buffer_size": 2461,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2454,
+								2454
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 2.0,
+						"translation.y": 423.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "main.js",
+					"settings":
+					{
+						"buffer_size": 11303,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1044,
+								1044
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "server/read.php",
+					"settings":
+					{
+						"buffer_size": 14768,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8931,
+								8931
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3237.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "server/insert.php",
+					"settings":
+					{
+						"buffer_size": 1621,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								527,
+								530
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "server/update.php",
+					"settings":
+					{
+						"buffer_size": 406,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								244,
+								244
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 12300,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9690,
+								9698
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3201.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "partials/new-product.html",
+					"settings":
+					{
+						"buffer_size": 8589,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6703,
+								6717
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2554.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "partials/addcontainer.html",
+					"settings":
+					{
+						"buffer_size": 2691,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								356,
+								356
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 448.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.5,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 295.0,
+	"status_bar_visible": true
+}

@@ -38,6 +38,12 @@
 
 		})
 
+		.when('/new-product/addcontainer',{
+			templateUrl:'partials/addcontainer.html',
+			controller:'newProductCtrl'
+
+		})
+
 		.when('/new-product/addto',{
 			templateUrl:'partials/new-product.html',
 			controller:'newProductCtrl'

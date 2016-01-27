@@ -1,0 +1,69 @@
+<h1 class="headerTitle">
+	<div class="contractSteps">
+		<div class="stepOne"><span class="passedStep">1</span>
+			<div class="stepDetails">BandDetails<i class="fa fa-long-arrow-right"></i></div>
+		</div>
+		<div class="stepTwo">
+			<span class="passedStep">2</span>
+			<div class="stepDetails">Opslag<i class="fa fa-long-arrow-right"></i>
+			</div>
+		</div>
+		<div class="stepThree"><span>3</span>
+			<div class="stepDetails">Complete</div>
+		</div>
+    </div>
+	Nieuw Contract <small>Contract maken voor bandenopslag</small>
+
+</h1>
+<div class="addToContainer">
+	<div class="small-12 columns">
+		<div class="">
+			<h2>Containers</h2>
+			{{bandmaat1}}213123
+			<div data-alert class="alert-box info radius">
+				Selecteer een container en klik op bekijk om de plaatsen in de container te zien. 
+			</div>
+			<ul class="inline-list">
+				<li class="panel container" ng-repeat="container in containers">
+					<div class="containerTitle">{{container.name}}</div>
+					<div class="clearfix" style="height: 80px">	
+						<b>Plaatsen: {{container.places}}</b><br>
+						<b>Vrij: {{container.free}}</b><br>
+					</div>
+					<div class="clearfix" style="background-color: #F9F9F9; padding: 20px 0;">
+						<a ng-click="selectContainer(container.id)" class="button button-highlight">Bekijk</a>
+						<!-- <a href="#/storage-management/{{ container.id }}" class="button button-highlight">Bekijk</a> -->
+					</div>
+					<!-- <div class="containerColor"></div> -->
+				</li>
+			</ul>
+		</div>
+		<div id="contents" class="panel" style="display: -webkit-box;">
+			<div ng-repeat="(key, value) in places | groupBy: 'container_department'" class="small-12 medium-4 columns">
+				<div class="button button-block button-rounded button-large depTitle">{{key}}</div>
+				<table>
+					<tr>
+						<th>ID</th>
+						<th>Plaats</th>
+						<th>Status</th>
+					</tr>
+					<tr ng-repeat="place in value" class="zebra animate-repeat {{occupy(place.contracts_id)}}">
+						<td >{{place.id}}</td>
+						<td>{{place.place_name}} {{ place.contracts_id}}</td>
+						<!-- <td><a href="#/contracts/{{place.contracts_id}}">{{place.contracts_id}}</a></td> -->
+						<td>
+							<div ng-if="place.contracts_id == ''">
+								<button id="place{{place.id}}" ng-click="placesSelected(place.id)" class="contentbutton button button-action button-pill">selecteer</button>
+							</div>
+							<div ng-if="place.contracts_id != ''">
+								<button class="button button-caution button-pill contentbutton">Bezet</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<!-- <input type="text"> -->
+			</div>
+		</div>	
+	</div>
+	<a ng-click="submitContract()" class="button button-3d button-primary button-rounded right">Opslaan</a>
+</div>

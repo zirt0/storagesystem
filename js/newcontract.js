@@ -1,4 +1,4 @@
-	app.controller('newProductCtrl', ['$rootScope', '$scope', '$http', '$rootScope', 'Upload', '$timeout', '$cookies', function( $rootScope, $scope, $http, $rootScope, Upload, $timeout, $cookies){
+	app.controller('newProductCtrl', ['$rootScope', '$scope', '$location', '$http', '$rootScope', 'Upload', '$timeout', '$cookies', function( $rootScope, $scope, $location, $http, $rootScope, Upload, $timeout, $cookies){
 		
 		$scope.bandprofiel = false;
 		$scope.bandmaat = true;
@@ -121,27 +121,26 @@
 					isFormValid = true;
 				}
 			});
-			
+
+			//is for test
+			//isFormValid = true;
 			
 			if(!isFormValid){
 				
-				alert("Vult u a.u.b. de vereisde velden in.");
-				console.log("3");
-				  	//jQuery('input.req').css({'border': '1px solid red'});
-				  	return false;
-				  	
-				  }else {
-				  	console.log("4");
-					//gaverder();
-					//$scope.insertContractDB();
-					animateOut(".newProduct", 'flipOutX');
-	    			animateIn(".addToContainer", 'flipInX');
-					return false;
-				}
-	    	
-
-	    	
-
+			alert("Vult u a.u.b. de vereisde velden in.");
+			console.log("3");
+			  	//jQuery('input.req').css({'border': '1px solid red'});
+			  	return false;
+			  	
+			  }else {
+			  	console.log("4");
+				//gaverder();
+				//$scope.insertContractDB();
+				animateOut(".newProduct", 'slideOutRight');
+    			animateIn(".addToContainer", 'slideOutRight');
+    			$(".stepTwo span").addClass("passedStep");
+				return false;
+			}
 	    }
 
 	    $scope.submit = function() {
@@ -291,11 +290,11 @@
 
 				console.log($scope.containerContentsId);
 				$http.post("server/insertcontract.php",{
-					'subject': "insert_contract",
-					'company_id': '' + $rootScope.chosenCustomerId + '' ,
-					'sezoen': '' + $scope.sezoen + '' ,
-					'velg': '' + $scope.velg + '' ,
-					'flatrun': '' + $scope.flatrun + '' ,
+				'subject': "insert_contract",
+				'company_id': '' + $rootScope.chosenCustomerId + '' ,
+				'sezoen': '' + $scope.sezoen + '' ,
+				'velg': '' + $scope.velg + '' ,
+				'flatrun': '' + $scope.flatrun + '' ,
 				//profiel
 				'lv_profile': '' + $scope.bandprofiel1 + '' ,
 				'rv_profile': '' + $scope.bandprofiel2 + '' ,
@@ -332,6 +331,7 @@
 	.success(function (response){
 		$scope.a = response;
 		console.log("contract inserted " + $scope.a);
+		$location.path("/contracts/" + $scope.a);
 	});
 
 };
@@ -353,9 +353,6 @@ $http.post("server/read.php",{'subject': "tire_brands"})
 	$scope.allbrands = response.records;
 	console.log(" Successfully" + $scope.allbrands);
 });
-
-
-
 
 var availableTags = $scope.onlycustomers;
 $( "#tags" ).autocomplete({
