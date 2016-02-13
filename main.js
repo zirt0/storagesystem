@@ -148,7 +148,6 @@
 	      		$location.path('/nopermission'); 
 	          // already going to #login, no redirect needed
 	      }
-
 	  }
 
 	});

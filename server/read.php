@@ -30,7 +30,8 @@ if($subject == "login"){
 	    $outp .= '"role":"'  . $rs["role"] . '",';
 	    $outp .= '"password":"'. $rs["password"]    . '"}'; 
 	}
-	$outp =$outp;
+	
+	$outp = $outp;
 }
 
 if($subject == "customers"){
