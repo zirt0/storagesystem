@@ -16,62 +16,143 @@
   <link rel="stylesheet" href="bower_components/angucomplete-alt/angucomplete-alt.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
   <link rel="stylesheet" href="bower_components/Buttons/css/buttons.css">
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
+
 </head>
 <body>
-   <div ng-controller="addCustomer" id="SelectCustomer" class="reveal-modal large" data-animation-in='spin-in' data-animation-out='spin-out' data-reveal>
-    <div class="row collapse" >     
-      <div class="small-8 columns" >     
-        <input type="text" class="form-control" placeholder="Klant zoeken" ng-model="searchCustomer">
+  <div ng-controller="addCustomer" id="SelectCustomer" class="reveal-modal large" data-animation-in='spin-in' data-animation-out='spin-out' data-reveal>
+    <div ng-show="addCustomer" class="small-12 columns addNewCustomer panel">
+      
+      <div class="small-12 columns">
+      <h2>Nieuw Klant toevoegen</h2>
       </div>
-      <div class="small-3 small-offset-1 columns" >
-        <button class="button button-3d button-action button-rounded"><i class="fa fa-user-plus"></i> Nieuw Klant</button>
-      </div>     
+      <div class="small-12 columns">
+        <div class="small-12 large-4 columns">
+          <h2>Bedrijf:</h2>
+        </div>
+        <div class="small-12 large-8 columns">
+          <input type="text" model="addNewCompany" class="req"/>
+        </div>
+      </div>
+
+      <div class="small-12 columns">
+        <div class="small-12 large-4 columns">
+          <h2>Naam:</h2>
+        </div>
+        <div class="small-12 large-8 columns">
+          <input type="text" model="addNewfName" class="req"/>
+        </div>
+      </div>
+
+      <div class="small-12 columns">
+        <div class="small-12 large-4 columns">
+          <h2>Achternaam:</h2>
+        </div>
+        <div class="small-12 large-8 columns">
+          <input type="text" model="addNewlName" class="req"/>
+        </div>
+      </div>
+
+      <div class="small-12 columns">
+        <div class="small-12 large-4 columns">
+          <h2>Kenteken:</h2>
+        </div>
+        <div class="small-12 large-8 columns">
+          <input type="text" model="addNewLicense"/>
+        </div>
+      </div>
+
+      <div class="small-12 columns">
+        <div class="small-12 large-4 columns">
+          <h2>Merk:</h2>
+        </div>
+        <div class="small-12 large-8 columns">
+          <input type="text" model="addNewBrand"/>
+        </div>
+      </div>
+
+      <div class="small-12 columns">
+        <div class="small-12 large-4 columns">
+          <h2>Telefoon:</h2>
+        </div>
+        <div class="small-12 large-8 columns">
+          <input type="text" model="addNewPhone" class="req"/>
+        </div>
+      </div>
+
+      <div class="small-12 columns">
+        <div class="small-12 large-4 columns">
+          <h2>Email:</h2>
+        </div>
+        <div class="small-12 large-8 columns">
+          <input type="text" model="addNewEmail" class="req"/>
+        </div>
+      </div>
+
+      <div class="small-12 columns">
+        <div class="small-12 large-4 columns">
+         
+        </div>
+        <div class="small-12 large-8 columns">
+          <button ng-click="addNewCustomer()"> Opslaan</button>
+        </div>
+      </div>
+
     </div>
-     <div class="small-12 columns panel" >
-      <table class="table table-bordered table-striped">
-    <tr>
-      <th>id</th>
-      <th>
-        <a ng-click="sortType = 'company'; sortReverse = !sortReverse">
-                Bedrijfsnaam
-                <span ng-show="sortType == 'company' && !sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="sortType == 'company' && sortReverse" class="fa fa-caret-up"></span>
-              </a>
-          </th>
-      <th>
-        <a ng-click="sortType = 'fname'; sortReverse = !sortReverse">
-                Klantnaam
-                <span ng-show="sortType == 'fname' && !sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="sortType == 'fname' && sortReverse" class="fa fa-caret-up"></span>
-              </a>
-          </th>
-      <th>
-                Kenteken
-          </th>
-      <th>
-        <a ng-click="sortType = 'merk'; sortReverse = !sortReverse">
-                Merk
-                <span ng-show="sortType == 'merk' && !sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="sortType == 'merk' && sortReverse" class="fa fa-caret-up"></span>
-              </a>
-          </th>
-      <th>
-                Actie
-      </th>
-    </tr>
-    <tr ng-repeat="x in customer | orderBy:sortType:sortReverse | filter:searchCustomer">
-        
-        <td>{{x.id}}.</a></td>
-        <td><a href="#/customers/{{x.id}}">{{ x.company }}</a></td>
-        <td>{{ x.fname }} {{ x.lname }}</td>
-         <td>{{ x.kenteken }}</td>
-          <td>{{ x.merk }}</td>
-        <td><a ng-click="selectCustomer(x.id, x.company , x.lname  )" class="button button-3d button-action button-pill"> Selecteer</a></td>
-    </tr>
-    </table>
+    <div ng-show="!addCustomer" class="small-12 columns no-padding selectcustomer">
+      <div class="row collapse">     
+        <div class="small-8 columns" >     
+            <input type="text" class="form-control" placeholder="Klant zoeken" ng-model="searchCustomer">
+        </div>
+        <div class="small-3 small-offset-1 columns" >
+            <button ng-click="addCustomerFunction()" class="button button-3d button-action button-rounded"><i class="fa fa-user-plus"></i> Nieuw Klant</button>
+        </div>     
+      </div>
+      <div class="small-12 columns panel">
+        <table class="table table-bordered table-striped">
+          <tr>
+            <th>id</th>
+            <th>
+              <a ng-click="sortType = 'company'; sortReverse = !sortReverse">
+                      Bedrijfsnaam
+                      <span ng-show="sortType == 'company' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'company' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </th>
+            <th>
+              <a ng-click="sortType = 'fname'; sortReverse = !sortReverse">
+                      Klantnaam
+                      <span ng-show="sortType == 'fname' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'fname' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </th>
+            <th>
+                      Kenteken
+                </th>
+            <th>
+              <a ng-click="sortType = 'merk'; sortReverse = !sortReverse">
+                      Merk
+                      <span ng-show="sortType == 'merk' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'merk' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </th>
+            <th>
+                      Actie
+            </th>
+          </tr>
+          <tr ng-repeat="x in customer | orderBy:sortType:sortReverse | filter:searchCustomer">
+              
+              <td>{{x.id}}.</a></td>
+              <td><a href="#/customers/{{x.id}}">{{ x.company }}</a></td>
+              <td>{{ x.fname }} {{ x.lname }}</td>
+               <td>{{ x.kenteken }}</td>
+                <td>{{ x.merk }}</td>
+              <td><a ng-click="selectCustomer(x.id, x.company , x.lname  )" class="button button-3d button-action button-pill"> Selecteer</a></td>
+          </tr>
+        </table>
+      </div>
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>
-    
-    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
    </div>
   <div ng-controller="addContainer" id="firstModal" class="reveal-modal large" data-animation-in='spin-in' data-animation-out='spin-out' data-reveal>
 
@@ -265,6 +346,7 @@
   <script src="bower_components/Buttons/js/buttons.js"></script>
   <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
 
   <script src="main.js"></script>
   <script src="js/app.js"></script>

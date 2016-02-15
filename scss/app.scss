@@ -126,11 +126,11 @@ select  {
 
 
 .view-animate.ng-enter {
-  animation: fadeIn 0.5s;
+  //animation: fadeIn 0.5s;
 }
 
 .view-animate.ng-leave {
- display: none; 
+ //display: none; 
 }
 
 .profiel {
@@ -563,9 +563,9 @@ h1.headerTitle small{
   animation: scaleUp 1s both ease-in;
 }
 .pageView.ng-enter     {  
-    -webkit-animation:slideOutRight 0.5s both ease-in;
-  -moz-animation:slideOutRight 0.5s both ease-in;
-  animation:slideOutRight 0.5s both ease-in;    
+ //   -webkit-animation:slideOutRight 0.5s both ease-in;
+ // -moz-animation:slideOutRight 0.5s both ease-in;
+ // animation:slideOutRight 0.5s both ease-in;    
 }
 
 .addToContainer .columns + .columns:last-child {

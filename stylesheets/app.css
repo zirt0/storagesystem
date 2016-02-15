@@ -9818,16 +9818,6 @@ select {
   border: 2px solid #f00;
 }
 
-/* line 128, ../scss/app.scss */
-.view-animate.ng-enter {
-  animation: fadeIn 0.5s;
-}
-
-/* line 132, ../scss/app.scss */
-.view-animate.ng-leave {
-  display: none;
-}
-
 /* line 136, ../scss/app.scss */
 .profiel {
   background-color: red;
@@ -10367,13 +10357,6 @@ h1.headerTitle small {
   -moz-animation: scaleUp 1s both ease-in;
   transform-origin: 0% 0%;
   animation: scaleUp 1s both ease-in;
-}
-
-/* line 565, ../scss/app.scss */
-.pageView.ng-enter {
-  -webkit-animation: slideOutRight 0.5s both ease-in;
-  -moz-animation: slideOutRight 0.5s both ease-in;
-  animation: slideOutRight 0.5s both ease-in;
 }
 
 /* line 571, ../scss/app.scss */

@@ -1,4 +1,4 @@
-	var app = angular.module('APP',['ngRoute', 'ngSanitize', 'ngCookies', 'ngTagsInput', 'uiSwitch', 'ngFabForm','ngMessages', 'ngAnimate', 'angular.filter', 'angularModalService', 'ngFileUpload']);
+	var app = angular.module('APP',['ngRoute', 'ngSanitize','angular-loading-bar' , 'ngCookies', 'ngTagsInput', 'uiSwitch', 'ngFabForm','ngMessages', 'ngAnimate', 'angular.filter', 'angularModalService', 'ngFileUpload']);
 	
 	app.filter("sanitize", ['$sce', function($sce) {
 		return function(htmlCode){
@@ -123,6 +123,10 @@
 	});
 
 	app.run(function($rootScope, $location, $cookies, $http) {
+
+		$rootScope.$on('$routeChangeSuccess', function (event, next, current) {
+	        console.log("finished loading");
+	    });
 
 		$rootScope.userRole = $cookies.get("userRole");
 		
@@ -270,6 +274,50 @@
 	});
 
 	app.controller('addCustomer',function($rootScope, $scope, $http){
+
+		$scope.addCustomerFunction = function(){
+			console.log("addCustomer pressed");
+
+			$scope.addCustomer = true;
+
+		};
+
+		$scope.addNewCustomer = function(){
+
+			isFormValid = true;
+			jQuery(".addNewCustomer input.req, select.req ").each(function(){
+				if (jQuery(this).val() == '') { 
+					console.log("5");
+					jQuery(this).addClass('highlight');
+					
+					isFormValid = false;
+					
+				}else{
+					console.log("6");
+					jQuery(this).removeClass('highlight	');
+					isFormValid = true;
+				}
+			});
+
+			//is for test
+			//isFormValid = true;
+			
+			if(!isFormValid){
+				
+				alert("Vult u a.u.b. de vereisde velden in.");
+				console.log("3");
+			  	//jQuery('input.req').css({'border': '1px solid red'});
+			  	return false;
+			  	
+			}else {
+			  	console.log("4");
+				//gaverder();
+				//$scope.insertContractDB();
+
+				return false;
+			}
+
+		}
 
 		$scope.x = "test"
 	 	$scope.sortType     = 'company', 'fname','lname','merk'; // set the default sort type

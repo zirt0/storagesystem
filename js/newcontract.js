@@ -36,8 +36,8 @@
 				});
 			}
 		};
+	    
 	    ///selectcontainer
-
 	    $http.post("server/read.php",{'subject': 'containers'})
 	    .success(function (response){
 	    	$scope.containers = response.records;
@@ -73,7 +73,6 @@
 	    	$("button").removeClass("selectedContainer");
 	    	$("#place" + id + "").addClass("selectedContainer");
 	    }
-
 
 		//end selectcontainer
 
@@ -175,6 +174,23 @@
 		    }
 		}
 		/////
+		$scope.$watch('enddate', function (val){
+		       
+			$scope.sqlenddateformat = $scope.sqlDateFormat($scope.enddate)
+
+		});
+
+		$scope.$watch('startdate', function (val){
+		       
+			$scope.sqlstartdateformat = $scope.sqlDateFormat($scope.startdate)
+
+		});
+
+		$scope.$watch('sezoen', function (val){
+		       
+			console.log("gekozen sezoen is " + val);
+		});
+
 		var today = $rootScope.dateformat();
 		var sezoen = parseInt($scope.sezoen, 0);
 
@@ -183,16 +199,41 @@
 		$scope.contract = function(v){
 			
 			if(v == "12"){
-				console.log("this is the value " + v);
-				$scope.enddate = Date.today().add(12).months();	
+
+				$scope.enddate = Date.today().add(12).months();
+				
+				console.log("this is the value " + v + " " + $scope.enddate );
+
 			}else if(v == "6"){
 				$scope.enddate = Date.today().add(6).months();	
+				$scope.sqlenddateformat = $scope.sqlDateFormat($scope.enddate)
+
+				console.log("this is the value " + v + " " + $scope.enddate + " " + $scope.sqlenddateformat );
 			}
 		}
+
+		$scope.sqlDateFormat = function (d) {
+			var d = new Date(d);
+	        var year, month, day;
+	        year = String(d.getFullYear());
+	        month = String(d.getMonth() + 1);
+	        if (month.length == 1) {
+	            month = "0" + month;
+	        }
+	        day = String(d.getDate());
+	        if (day.length == 1) {
+	            day = "0" + day;
+	        }
+	        return year + "-" + month + "-" + day;
+	    }
+
+
+	
 
 		$scope.contract(6);
 
 		$scope.changeCheckbox = function(){
+			
 			console.log("checkbox check " + $scope.viermerk);
 		}
 
@@ -316,8 +357,8 @@
 				'la_bandtype': '' + $scope.bandtype3 + '',
 				'ra_bandtype': '' + $scope.bandtype4 + '',
 
-				'startdate': '' + $scope.startdate + '',
-				'enddate': '' + $scope.enddate + '',
+				'startdate': '' + $scope.sqlstartdateformat + '',
+				'enddate': '' + $scope.sqlenddateformat + '',
 				'duration': '' + $scope.duration + '',
 				'image': '' + $scope.duration + '',
 				'comment': '' + $scope.comment + '',
