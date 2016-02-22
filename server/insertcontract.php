@@ -41,6 +41,17 @@ $user_id = $request->user_id;
 
 $container_contents_id = $request->container_contents_id;
 
+
+///newcustomer
+
+$company = $request->company;
+$fname = $request->fname;
+$lname = $request->lname;
+$kenteken = $request->kenteken;
+$merk = $request->merk;
+$tel = $request->tel;
+$email = $request->email;
+
 //print $subject;
 
 if($subject == "insert_contract"){
@@ -59,6 +70,16 @@ if($subject == "insert_contract"){
 
 	$outp = $contractid;
 }
+
+if($subject == "insert_newcustomer"){
+
+	$sql = "INSERT INTO customers (company, fname, lname, kenteken, merk, tel, email) VALUES ('" . $company . "','" . $fname ."', '" . $lname . "', '" . $kenteken ."', '" . $merk . "', '" . $tel . "', '" . $email . "' )";
+	$result = $conn->query($sql);
+	$contractid = $conn->insert_id;
+
+	$outp = $sql;
+}
+
 
 $conn->close();
 
