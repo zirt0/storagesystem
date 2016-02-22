@@ -70,7 +70,10 @@ function addnewcustomerFnc($scope, $http){
 		})
 		.success(function (response){
 			$scope.a = response;
-			console.log("contract inserted " + $scope.a);
+			console.log($scope.a);
+			$scope.selectCustomer(response.id, response.company , response.lname  );
+			$scope.addCustomer = false;
+
 			//$location.path("/contracts/" + $scope.a);
 		});
 

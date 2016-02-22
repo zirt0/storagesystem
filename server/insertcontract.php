@@ -75,9 +75,20 @@ if($subject == "insert_newcustomer"){
 
 	$sql = "INSERT INTO customers (company, fname, lname, kenteken, merk, tel, email) VALUES ('" . $company . "','" . $fname ."', '" . $lname . "', '" . $kenteken ."', '" . $merk . "', '" . $tel . "', '" . $email . "' )";
 	$result = $conn->query($sql);
-	$contractid = $conn->insert_id;
+	$customerid = $conn->insert_id;
 
-	$outp = $sql;
+	$sql2 = "SELECT id, company, lname FROM customers WHERE id = '" . $customerid ."'";
+	$result2 = $conn->query($sql2); 
+
+	$outp = "";
+	while($rs = $result2->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    $outp .= '{"id":"'  . $rs["id"] . '",';
+	    $outp .= '"company":"'  . $rs["company"] . '",';
+	    $outp .= '"lname":"'. $rs["lname"]    . '"}'; 
+	}
+
+	$outp = $outp ;
 }
 
 
