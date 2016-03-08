@@ -277,50 +277,9 @@
 
 	app.controller('addCustomer',function($rootScope, $scope, $http){
 
-		$scope.addCustomerFunction = function(){
-			console.log("addCustomer pressed");
+		//see file js/addnewcustomer.js
+		addnewcustomerFnc($scope, $http); 
 
-			$scope.addCustomer = true;
-
-		};
-
-		$scope.addNewCustomer = function(){
-
-			isFormValid = true;
-			jQuery(".addNewCustomer input.req, select.req ").each(function(){
-				if (jQuery(this).val() == '') { 
-					console.log("5");
-					jQuery(this).addClass('highlight');
-					
-					isFormValid = false;
-					
-				}else{
-					console.log("6");
-					jQuery(this).removeClass('highlight	');
-					isFormValid = true;
-				}
-			});
-
-			//is for test
-			//isFormValid = true;
-			
-			if(!isFormValid){
-				
-				alert("Vult u a.u.b. de vereisde velden in.");
-				console.log("3");
-			  	//jQuery('input.req').css({'border': '1px solid red'});
-			  	return false;
-			  	
-			}else {
-			  	console.log("4");
-				//gaverder();
-				//$scope.insertContractDB();
-				alert("must be added to the db");
-
-				return false;
-			}
-
-		}
 
 		$scope.x = "test"
 	 	$scope.sortType     = 'company', 'fname','lname','merk'; // set the default sort type

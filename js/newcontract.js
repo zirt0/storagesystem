@@ -10,6 +10,8 @@
 		//$scope.flatrun = false;
 		//$scope.contract(6);
 
+		
+
 		console.log($rootScope.userId + " " + $rootScope.userName + " username and id");
 
 		/////
@@ -379,7 +381,8 @@
 
 	});
 
-};
+
+		};
 
 $http.post("server/read.php",{'subject': "customers"})
 .success(function (response){

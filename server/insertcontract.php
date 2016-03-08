@@ -41,6 +41,17 @@ $user_id = $request->user_id;
 
 $container_contents_id = $request->container_contents_id;
 
+
+///newcustomer
+
+$company = $request->company;
+$fname = $request->fname;
+$lname = $request->lname;
+$kenteken = $request->kenteken;
+$merk = $request->merk;
+$tel = $request->tel;
+$email = $request->email;
+
 //print $subject;
 
 if($subject == "insert_contract"){
@@ -59,6 +70,27 @@ if($subject == "insert_contract"){
 
 	$outp = $contractid;
 }
+
+if($subject == "insert_newcustomer"){
+
+	$sql = "INSERT INTO customers (company, fname, lname, kenteken, merk, tel, email) VALUES ('" . $company . "','" . $fname ."', '" . $lname . "', '" . $kenteken ."', '" . $merk . "', '" . $tel . "', '" . $email . "' )";
+	$result = $conn->query($sql);
+	$customerid = $conn->insert_id;
+
+	$sql2 = "SELECT id, company, lname FROM customers WHERE id = '" . $customerid ."'";
+	$result2 = $conn->query($sql2); 
+
+	$outp = "";
+	while($rs = $result2->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    $outp .= '{"id":"'  . $rs["id"] . '",';
+	    $outp .= '"company":"'  . $rs["company"] . '",';
+	    $outp .= '"lname":"'. $rs["lname"]    . '"}'; 
+	}
+
+	$outp = $outp ;
+}
+
 
 $conn->close();
 
