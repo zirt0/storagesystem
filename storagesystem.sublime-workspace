@@ -44,42 +44,18 @@
 			}
 		},
 		{
-			"file": "scss/app.scss",
+			"file": "js/addnewcustomer.js",
 			"settings":
 			{
-				"buffer_size": 10875,
+				"buffer_size": 1809,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "js/newcontract.js",
+			"file": "js/storagemanagement.js",
 			"settings":
 			{
-				"buffer_size": 9606,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "server/insertcontract.php",
-			"settings":
-			{
-				"buffer_size": 2461,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "main.js",
-			"settings":
-			{
-				"buffer_size": 11303,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "server/read.php",
-			"settings":
-			{
-				"buffer_size": 14768,
+				"buffer_size": 1342,
 				"line_ending": "Unix"
 			}
 		},
@@ -92,10 +68,44 @@
 			}
 		},
 		{
-			"file": "server/update.php",
+			"file": "main.js",
 			"settings":
 			{
-				"buffer_size": 406,
+				"buffer_size": 11527,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/insertcontract.php",
+			"settings":
+			{
+				"buffer_size": 3387,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 2370 files for \"addNewCustomer\"\n\n/Users/iMac/Akmedia Test Projects/storagsystem/index.html:\n   22  <body>\n   23    <div ng-controller=\"addCustomer\" id=\"SelectCustomer\" class=\"reveal-modal large\" data-animation-in='spin-in' data-animation-out='spin-out' data-reveal>\n   24:     <div ng-show=\"addCustomer\" class=\"small-12 columns addNewCustomer panel\">\n   25        \n   26        <div class=\"small-12 columns\">\n   ..\n   95          </div>\n   96          <div class=\"small-12 large-8 columns\">\n   97:           <button ng-click=\"addNewCustomer()\"> Opslaan</button>\n   98          </div>\n   99        </div>\n  ...\n  359    <script src=\"js/users.js\"></script>\n  360    <script src=\"js/settings.js\"></script>\n  361:   <script src=\"js/addnewcustomer.js\"></script>\n  362    <script>\n  363    $(document).foundation();\n\n/Users/iMac/Akmedia Test Projects/storagsystem/main.js:\n  276  	app.controller('addCustomer',function($rootScope, $scope, $http){\n  277  \n  278: 		//see file js/addnewcustomer.js\n  279: 		addnewcustomer($scope); \n  280  \n  281  		$scope.addCustomerFunction = function(){\n  ...\n  286  		};\n  287  \n  288: 		$scope.addNewCustomer = function(){\n  289  \n  290  			isFormValid = true;\n  291: 			jQuery(\".addNewCustomer input.req, select.req \").each(function(){\n  292  				if (jQuery(this).val() == '') { \n  293  					console.log(\"5\");\n\n/Users/iMac/Akmedia Test Projects/storagsystem/js/addnewcustomer.js:\n    1: function addnewcustomer($scope){\n    2  \n    3  	$scope.submitNewCustomer = function(){\n\n8 matches across 3 files\n",
+			"settings":
+			{
+				"buffer_size": 1542,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "js/newcontract.js",
+			"settings":
+			{
+				"buffer_size": 10635,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "partials/addcustomer.html",
+			"settings":
+			{
+				"buffer_size": 1887,
 				"line_ending": "Unix"
 			}
 		},
@@ -103,7 +113,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 12300,
+				"buffer_size": 15201,
 				"line_ending": "Unix"
 			}
 		},
@@ -111,18 +121,15 @@
 			"file": "partials/new-product.html",
 			"settings":
 			{
-				"buffer_size": 8589,
+				"buffer_size": 8643,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "<h1 class=\"headerTitle\">\n	<div class=\"contractSteps\">\n		<div class=\"stepOne\"><span class=\"passedStep\">1</span>\n			<div class=\"stepDetails\">BandDetails<i class=\"fa fa-long-arrow-right\"></i></div>\n		</div>\n		<div class=\"stepTwo\">\n			<span class=\"passedStep\">2</span>\n			<div class=\"stepDetails\">Opslag<i class=\"fa fa-long-arrow-right\"></i>\n			</div>\n		</div>\n		<div class=\"stepThree\"><span>3</span>\n			<div class=\"stepDetails\">Complete</div>\n		</div>\n    </div>\n	Nieuw Contract <small>Contract maken voor bandenopslag</small>\n\n</h1>\n<div class=\"addToContainer\">\n	<div class=\"small-12 columns\">\n		<div class=\"\">\n			<h2>Containers</h2>\n			{{bandmaat1}}\n			<div data-alert class=\"alert-box info radius\">\n				Selecteer een container en klik op bekijk om de plaatsen in de container te zien. \n			</div>\n			<ul class=\"inline-list\">\n				<li class=\"panel container\" ng-repeat=\"container in containers\">\n					<div class=\"containerTitle\">{{container.name}}</div>\n					<div class=\"clearfix\" style=\"height: 80px\">	\n						<b>Plaatsen: {{container.places}}</b><br>\n						<b>Vrij: {{container.free}}</b><br>\n					</div>\n					<div class=\"clearfix\" style=\"background-color: #F9F9F9; padding: 20px 0;\">\n						<a ng-click=\"selectContainer(container.id)\" class=\"button button-highlight\">Bekijk</a>\n						<!-- <a href=\"#/storage-management/{{ container.id }}\" class=\"button button-highlight\">Bekijk</a> -->\n					</div>\n					<!-- <div class=\"containerColor\"></div> -->\n				</li>\n			</ul>\n		</div>\n		<div id=\"contents\" class=\"panel\" style=\"display: -webkit-box;\">\n			<div ng-repeat=\"(key, value) in places | groupBy: 'container_department'\" class=\"small-12 medium-4 columns\">\n				<div class=\"button button-block button-rounded button-large depTitle\">{{key}}</div>\n				<table>\n					<tr>\n						<th>ID</th>\n						<th>Plaats</th>\n						<th>Status</th>\n					</tr>\n					<tr ng-repeat=\"place in value\" class=\"zebra animate-repeat {{occupy(place.contracts_id)}}\">\n						<td >{{place.id}}</td>\n						<td>{{place.place_name}} {{ place.contracts_id}}</td>\n						<!-- <td><a href=\"#/contracts/{{place.contracts_id}}\">{{place.contracts_id}}</a></td> -->\n						<td>\n							<div ng-if=\"place.contracts_id == ''\">\n								<button id=\"place{{place.id}}\" ng-click=\"placesSelected(place.id)\" class=\"contentbutton button button-action button-pill\">selecteer</button>\n							</div>\n							<div ng-if=\"place.contracts_id != ''\">\n								<button class=\"button button-caution button-pill contentbutton\">Bezet</button>\n							</div>\n						</td>\n					</tr>\n				</table>\n				<!-- <input type=\"text\"> -->\n			</div>\n		</div>	\n	</div>\n	<a ng-click=\"submitContract()\" class=\"button button-3d button-primary button-rounded right\">Opslaan</a>\n</div>",
-			"file": "partials/addcontainer.html",
-			"file_size": 2697,
-			"file_write_time": 1453686697000000,
+			"file": "server/read.php",
 			"settings":
 			{
-				"buffer_size": 2691,
+				"buffer_size": 14768,
 				"line_ending": "Unix"
 			}
 		}
@@ -155,18 +162,25 @@
 	},
 	"file_history":
 	[
+		"/Users/iMac/Documents/Belastingdienst/Boekhouding 2015/Uitgaven/akmedia_bankrekening.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/storage-management.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/addcontainer.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/index.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/index.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/server/read.php",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/new-product.html",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/server/update.php",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/server/insert.php",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/server/insertcontract.php",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/scss/app.scss",
+		"/Users/iMac/Akmedia Test Projects/storagsystem/js/newcontract.js",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/contracts.html",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/js/storagemanagement.js",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/dashboard.html",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/tirelabels.html",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/contract_details.html",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/customer.html",
-		"/Users/iMac/Akmedia Test Projects/storagsystem/server/read.php",
-		"/Users/iMac/Akmedia Test Projects/storagsystem/index.html",
-		"/Users/iMac/Akmedia Test Projects/storagsystem/js/newcontract.js",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/js/tires.js",
-		"/Users/iMac/Akmedia Test Projects/storagsystem/scss/app.scss",
-		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/storage-management.html",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/storage.html",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/main.js",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/container_content.html",
@@ -183,10 +197,7 @@
 		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/snowflake1.png",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/test.php",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/server/remove.php",
-		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/new-product.html",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/partials/addcustomer.html",
-		"/Users/iMac/Akmedia Test Projects/storagsystem/server/insert.php",
-		"/Users/iMac/Akmedia Test Projects/storagsystem/server/insertcontract.php",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/lib/img/sunny82.png",
 		"/Users/iMac/Akmedia Test Projects/storagsystem/server/config.php",
 		"/Users/iMac/Akmedia Test Projects/testgit/storagesystem/.gitignore",
@@ -237,6 +248,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"<ul",
+			"<li",
+			"<div",
+			"<li",
+			"<ul",
+			"addCustomerFunction",
+			"addCustomerFunction()",
+			"customerid",
+			"input",
+			"model",
+			"addNewCustomer",
+			"NIEUW KLANT TOEVOEGEN",
 			"location",
 			"last-ch",
 			".columns:last-child",
@@ -352,19 +375,7 @@
 			"contractsCtrl",
 			"contractsDetailsCtrl",
 			"containerContentCtrl",
-			"containerDepartment",
-			"containerContent",
-			"contractId",
-			"contractdetail",
-			"contractsDetailsCtrl",
-			"\"container\"",
-			"containerCtrl",
-			"container",
-			"containerCtrl",
-			"containers",
-			"storagemanagementCtrl",
-			"$scope.bandmaat",
-			"bandmaat"
+			"containerDepartment"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -372,6 +383,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"<table",
+			"<tr",
+			"<td",
+			"<tr",
+			"<table",
 			"Opmerk.",
 			"colspan=\"2\"",
 			"large"
@@ -385,7 +401,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -410,119 +426,59 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 978.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "scss/app.scss",
+					"file": "js/addnewcustomer.js",
 					"settings":
 					{
-						"buffer_size": 10875,
+						"buffer_size": 1809,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10434,
-								10434
+								1748,
+								1748
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7923.0,
+						"translation.y": 580.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "js/newcontract.js",
+					"file": "js/storagemanagement.js",
 					"settings":
 					{
-						"buffer_size": 9606,
+						"buffer_size": 1342,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8955,
-								8955
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4705.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "server/insertcontract.php",
-					"settings":
-					{
-						"buffer_size": 2461,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2454,
-								2454
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 2.0,
-						"translation.y": 423.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 5,
-			"sheets":
-			[
-				{
-					"buffer": 4,
-					"file": "main.js",
-					"settings":
-					{
-						"buffer_size": 11303,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1044,
-								1044
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -531,34 +487,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "server/read.php",
-					"settings":
-					{
-						"buffer_size": 14768,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8931,
-								8931
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3237.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
+					"buffer": 3,
 					"file": "server/insert.php",
 					"settings":
 					{
@@ -569,14 +498,145 @@
 						"selection":
 						[
 							[
-								527,
-								530
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 311.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "main.js",
+					"settings":
+					{
+						"buffer_size": 11527,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6410,
+								6410
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3302.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "server/insertcontract.php",
+					"settings":
+					{
+						"buffer_size": 3387,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2989,
+								2989
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 822.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"settings":
+					{
+						"buffer_size": 1542,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										338,
+										352
+									],
+									[
+										536,
+										550
+									],
+									[
+										738,
+										752
+									],
+									[
+										982,
+										996
+									],
+									[
+										1009,
+										1023
+									],
+									[
+										1134,
+										1148
+									],
+									[
+										1220,
+										1234
+									],
+									[
+										1437,
+										1451
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -586,23 +646,24 @@
 				},
 				{
 					"buffer": 7,
-					"file": "server/update.php",
+					"file": "js/newcontract.js",
 					"settings":
 					{
-						"buffer_size": 406,
+						"buffer_size": 10635,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								244,
-								244
+								461,
+								461
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -612,18 +673,18 @@
 				},
 				{
 					"buffer": 8,
-					"file": "index.html",
+					"file": "partials/addcustomer.html",
 					"settings":
 					{
-						"buffer_size": 12300,
+						"buffer_size": 1887,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9690,
-								9698
+								0,
+								0
 							]
 						],
 						"settings":
@@ -633,62 +694,89 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3201.0,
+						"translation.y": 68.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 9,
-					"file": "partials/new-product.html",
+					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 8589,
+						"buffer_size": 15201,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6703,
-								6717
+								1720,
+								1720
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2554.0,
+						"translation.y": 281.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 10,
-					"file": "partials/addcontainer.html",
+					"file": "partials/new-product.html",
 					"settings":
 					{
-						"buffer_size": 2691,
+						"buffer_size": 8643,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								356,
-								356
+								1356,
+								1359
 							]
 						],
 						"settings":
 						{
-							"auto_name": "",
 							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 448.0,
+						"translation.y": 251.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "server/read.php",
+					"settings":
+					{
+						"buffer_size": 14768,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								834,
+								532
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 166.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
