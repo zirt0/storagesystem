@@ -1,4 +1,7 @@
 <div class="small-12 columns">
+<div ng-show="contractAddedSuccesfully" data-alert class="alert-box success radius">
+Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden <a href="#" class="close">&times;</a>
+</div>
 <table ng-repeat="x in contractDetail" width="100%">
 	<tr>
 		<th colspan="2">
@@ -15,7 +18,7 @@
 	<tr>
 		<td><h3>Klantgegevens</h3></td>
 		<td>
-			<div class="{{invoicestatus(x.invoiceno)}}" style="float: right; width: 100px; color: white; padding: 9px;">
+			<div class="{{invoicestatus(x.invoiceno)}}" style="float: right; width: 190px; color: white; padding: 9px;">
 				FactuurNo: <input type="text" name="invoiceNumber" value="{{x.invoiceno}}">
 				<button ng-click="saveinvoiceNo()" class="button button-tiny">Opslaan</button>
 			</div>

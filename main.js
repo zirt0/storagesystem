@@ -9,10 +9,10 @@
 	app.config(function($routeProvider){
 
 		$routeProvider
-		.when('/',{
-			templateUrl:'partials/index.html',
-				//controller:'customers'
-			})
+		// .when('/',{
+		// 	templateUrl:'partials/index.html',
+		// 		//controller:'customers'
+		// 	})
 		.when('/login',{
 			templateUrl:'partials/login.html',
 			controller:'loginCtrl'
@@ -271,6 +271,8 @@
 			});	
 		}
 
+		$rootScope.contractAddedSuccesfully = false;
+
 	});
 
 	app.controller('addCustomer',function($rootScope, $scope, $http){
@@ -313,6 +315,7 @@
 			  	console.log("4");
 				//gaverder();
 				//$scope.insertContractDB();
+				alert("must be added to the db");
 
 				return false;
 			}
@@ -414,6 +417,7 @@
 	});
 	
 	app.controller('contractsCtrl', function($scope, $http) {
+
 		
 		$scope.invoicestatus = function(status){
 
@@ -440,63 +444,7 @@
 		});
 	});
 
-	app.controller('contractsDetailsCtrl', ['$scope', '$http' , '$routeParams', function ($scope, $http, $routeParams) {
-
-		$scope.idContract = "" + $routeParams.id + "";
-		
-		$scope.invoicestatus = function(number){
-			
-			if(number != ""){
-				return "green";
-			}else{
-				return "red";
-			}
-		};
-
-		$scope.saveinvoiceNo = function(){
-			
-			var val = jQuery("input[name='invoiceNumber']").val();
-			
-			$http.post("server/update.php",{'subject': "update_invoiceno", 'value': val , 'id': $scope.idContract})
-			
-			.success(function (response) {
-
-				$scope.contractDetail = response.records;
-
-				//console.log($scope.contractDetail.invoiceno);
-
-			console.log(response);
-			});
-
-
-		};
-
-		$http.post("server/read.php",{'subject': "contractdetail", 'contractId': $scope.idContract})
-		.success(function (response) {
-
-			$scope.contractDetail = response.records;
-
-			//console.log($scope.contractDetail.invoiceno);
-
-		console.log(response);
-		});
-
-		$scope.bandDiepte = function(band){
-			//band = band.toFixed(1);
-			if(band < 1){
-				perBand = "<div class='profiel red'>" + band + "</div>";
-			}else if(band < 2){
-
-				perBand = "<div class='profiel orange'>" + band + "</div>";
-
-			}else{
-				perBand = "<div class='profiel green'>" + band + "</div>";
-			}
-
-			return "<div class='bandrow'>" + perBand  + "</div>";
-
-		};
-	}]);
+	
 
 	app.controller('addUserwindow', function($rootScope, $scope, $http, $location){
 		

@@ -373,6 +373,10 @@
 		$scope.a = response;
 		console.log("contract inserted " + $scope.a);
 		$location.path("/contracts/" + $scope.a);
+		
+		//show message on contract page
+		$rootScope.contractAddedSuccesfully = true;
+
 	});
 
 };
