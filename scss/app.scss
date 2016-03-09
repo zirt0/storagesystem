@@ -548,19 +548,19 @@ h1.headerTitle small{
 /* ANIMATIONS
 ============================================================================= */
 
-.pageView.ng-leave  { z-index:9999; }
-.pageView.ng-enter  { z-index:8888; }
+//.pageView.ng-leave  { z-index:9999; }
+//.pageView.ng-enter  { z-index:8888; }
 
 /* page specific animations ------------------------ */
 
 /* home -------------------------- */
 .pageView.ng-leave         {
-  -webkit-transform-origin: 0% 0%;
-  -webkit-animation: scaleUp 1s both ease-in;
-  -moz-transform-origin: 0% 0%;
-  -moz-animation: scaleUp 1s both ease-in;
-  transform-origin: 0% 0%;
-  animation: scaleUp 1s both ease-in;
+//  -webkit-transform-origin: 0% 0%;
+//  -webkit-animation: scaleUp 1s both ease-in;
+//  -moz-transform-origin: 0% 0%;
+//  -moz-animation: scaleUp 1s both ease-in;
+//  transform-origin: 0% 0%;
+//  animation: scaleUp 1s both ease-in;
 }
 .pageView.ng-enter     {  
  //   -webkit-animation:slideOutRight 0.5s both ease-in;

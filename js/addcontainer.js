@@ -1,4 +1,4 @@
-	app.controller('addContainer', function($scope, $http, $location) {
+	app.controller('addContainer', function($scope, $rootScope, $http, $location) {
 		$scope.containerName;
 		$scope.containerColor;
 
@@ -51,10 +51,13 @@
 					   .success(function (response) {
 					   		console.log(response);
 					   	});
+			           $rootScope.loadContainers();  					 
 					
 					console.log("clicked on second next");
 					$('#firstModal').foundation('reveal', 'close');
 					//$location.path( "/storage-management" );
+					$rootScope.containersCheck = 1;
+					
 					}
 
 				}else{

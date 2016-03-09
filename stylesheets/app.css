@@ -10337,28 +10337,8 @@ h1.headerTitle small {
 
 /* ANIMATIONS
 ============================================================================= */
-/* line 551, ../scss/app.scss */
-.pageView.ng-leave {
-  z-index: 9999;
-}
-
-/* line 552, ../scss/app.scss */
-.pageView.ng-enter {
-  z-index: 8888;
-}
-
 /* page specific animations ------------------------ */
 /* home -------------------------- */
-/* line 557, ../scss/app.scss */
-.pageView.ng-leave {
-  -webkit-transform-origin: 0% 0%;
-  -webkit-animation: scaleUp 1s both ease-in;
-  -moz-transform-origin: 0% 0%;
-  -moz-animation: scaleUp 1s both ease-in;
-  transform-origin: 0% 0%;
-  animation: scaleUp 1s both ease-in;
-}
-
 /* line 571, ../scss/app.scss */
 .addToContainer .columns + .columns:last-child {
   float: left;

@@ -271,6 +271,19 @@
 			});	
 		}
 
+		$rootScope.loadContainers = function() {
+
+		    $http.post("server/read.php",{
+		        'subject': 'containers'
+		      })
+		      .success(function (response){
+		        $rootScope.containers = response.records;
+		           console.log($rootScope.containers);
+		           console.log("load storage");
+
+		    });
+		  }
+
 		$rootScope.contractAddedSuccesfully = false;
 
 	});

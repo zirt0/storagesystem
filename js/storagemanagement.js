@@ -2,14 +2,25 @@ app.controller('storagemanagementCtrl', function($scope, $http, $rootScope, Moda
 
   ////////test purposee/////
   
+  $rootScope.loadContainers();
 
-	$http.post("server/read.php",{
-			'subject': 'containers'
-		})
-  	.success(function (response){
-  		$scope.containers = response.records;
-     		 console.log($scope.containers);
-  });
+  $rootScope.$watch('containersCheck', function() {
+        console.log('1111hey, myVar has changed!' + $rootScope.containersCheck);
+         //$rootScope.loadContainers();
+         if($rootScope.containersCheck == 1){
+
+            setTimeout(function(){ $rootScope.loadContainers(); }, 3000);
+          
+          console.log('Load containers');
+
+          $rootScope.containersCheck = 0;
+         }
+    });
+
+  $rootScope.refreshContainer = function(){
+     $rootScope.loadContainers();
+  }
+	
 		
 });
 
@@ -25,6 +36,7 @@ app.controller('containerContentCtrl', ['$scope', '$http' , '$routeParams', '$lo
 
       //console.log(response);
       $scope.places = response.records;
+
       // $scope.company = $scope.customerInfo['company']
   });
 
