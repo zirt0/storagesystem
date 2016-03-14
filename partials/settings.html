@@ -1,7 +1,8 @@
 <h1 class="headerTitle">Instellingen <small>Voorkeur en wensen</small></h1>
 
-<div class="small-12 columns">
-	<div class="panel">
+<div class="small-12 panel columns settings">
+	
+	<div class="small-12 columns">
 		<div class="small-6 columns">
 			<strong>Bandenmerken</strong>
 		</div>
@@ -9,14 +10,49 @@
 			Merken
 			<tags-input ng-model="tags" on-tag-removed="tagRemoved($tag)" replace-spaces-with-dashes="false" on-tag-added="tagAdded($tag)"></tags-input>
 		</div>
+	</div>
+	<div class="small-12 columns">
 		<div class="small-6 columns">
-			<strong>Automerk</strong>
+			<strong>Algemene Voorwaarden</strong>
 		</div>
 		<div class="small-6 columns">
-			Merken
+			<textarea ng-model="terms" placeholder="Text voor Algemene Voorwaarden"></textarea>
+			<div ng-show="termsSaved" data-alert class="alert-box success radius">
+			Succesvol opgeslagen <a href="#" class="close">&times;</a>
+			</div>
+			<button class="small right" ng-click="saveTerms()">Opslaan</button>
 			
 		</div>
-
-
 	</div>
+	<div class="small-12 columns">
+		<div class="small-6 columns">
+			<strong>Bandenprofiel indicatie</strong>
+		</div>
+		<div class="small-6 columns tireIndicate">
+			<div>
+				<div class="red tireIndicator"></div>Onder <input type="text" ng-model="redTireIndicator" > bar
+			</div>
+			<div>
+				<div class="orange tireIndicator"></div>Onder <input type="text" ng-model="orangeTireIndicator"> bar
+			</div>
+			<div ng-show="tireSaved" data-alert class="alert-box success radius">
+			Succesvol opgeslagen <a href="#" class="close">&times;</a>
+			</div>
+			<button class="small right" ng-click="saveTireSize()">Opslaan</button>
+			
+		</div>
+	</div>
+	<div class="small-12 columns">
+		<div class="small-6 columns">
+			<strong>Dashboard show min.profiel</strong>
+		</div>
+		<div class="small-6 columns">
+			<input type="text" ng-model="minBandprofielDashboard" >
+			<button class="small right" ng-click="saveTerms()">Opslaan</button>
+			
+		</div>
+	</div>
+
+
+
 </div>

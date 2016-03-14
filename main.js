@@ -1,4 +1,4 @@
-	var app = angular.module('APP',['ngRoute', 'ngSanitize','angular-loading-bar' , 'ngCookies', 'ngTagsInput', 'uiSwitch', 'ngFabForm','ngMessages', 'ngAnimate', 'angular.filter', 'angularModalService', 'ngFileUpload']);
+	var app = angular.module('APP',['ngRoute', 'ngSanitize','angular-loading-bar' , 'ngCookies', 'ngTagsInput', 'uiSwitch', 'ngFabForm','ngMessages', 'ngAnimate', 'angular.filter', 'angularModalService', 'ngFileUpload', 'ngCsv']);
 	
 	app.filter("sanitize", ['$sce', function($sce) {
 		return function(htmlCode){
@@ -113,6 +113,11 @@
 
 		})
 
+		.when('/export',{
+			templateUrl:'partials/export.html',
+			controller:'exportDataCtrl'
+		})
+
 		.otherwise({
 			redirectTo:'/dashboard'
 		});
@@ -129,6 +134,14 @@
 	    });
 
 		$rootScope.userRole = $cookies.get("userRole");
+
+		$http.post("server/read.php",{'subject': "options"})
+			.success(function (response) {
+				console.debug(response);
+				console.debug("test");
+
+				$rootScope.options = response.records;
+		});
 		
 		$rootScope.$on( "$routeChangeStart", function(event, next, current) {
 
@@ -153,6 +166,27 @@
 	          // already going to #login, no redirect needed
 	      }
 	  }
+
+	  $http.post("server/read.php",{
+		        'subject': 'options'
+		      })
+		      .success(function (response){
+		        	var option = response.records;
+		        	
+		        	for(var x in option){
+		        		console.log(option[x].option_name)
+		        		if(option[x].option_name == 'redTire'){
+		        			$rootScope.redTireIndicator = option[x].option_value;
+		        		}
+
+		        		if(option[x].option_name == 'orangeTire'){
+		        			$rootScope.orangeTireIndicator = option[x].option_value;
+		        		}
+		        	}
+
+		        	console.log("Test from Run");
+		        	//$scope.$digest();
+		    });
 
 	});
 
@@ -225,22 +259,30 @@
 		}
 
 		$rootScope.tireProfile = function(profile){
+
+			
 			
 			var profile = Number(profile);
 			console.log(profile);
-			if(profile <= 1){
 
-				return "tireBad";
 
-			}else if(profile <= 2){
+			if(profile <= $rootScope.redTireIndicator){
 
-				return "tireNormal";
+					return "tireBad";
 
-			}else{
+				}else if(profile <= $rootScope.orangeTireIndicator){
 
-				return "tireGood";
+					return "tireNormal";
 
-			}
+				}else{
+
+					return "tireGood";
+
+				}
+
+			
+			
+			
 		}
 
 		$rootScope.differenceDate = function(val1, val2){
@@ -280,11 +322,33 @@
 		        $rootScope.containers = response.records;
 		           console.log($rootScope.containers);
 		           console.log("load storage");
-
 		    });
 		  }
 
 		$rootScope.contractAddedSuccesfully = false;
+
+
+		$rootScope.downloadCSV = function(){
+			console.log("download CSV test");
+		}
+
+		$rootScope.getOptions = function(option_name) {
+
+		    $http.post("server/read.php",{
+		        'subject': 'options','option_name': option_name
+		      })
+		      .success(function (response){
+		      	console.log("get response" + response);
+		        
+		       $rootScope.redProfile =  response.option_value;
+		    })
+		     .error(function (status){
+		      	console.log("get error" + status);
+		        
+		       return response.option_value;
+		    });
+		 }
+
 
 	});
 
@@ -389,7 +453,6 @@
 	});
 	
 	app.controller('contractsCtrl', function($scope, $http) {
-
 		
 		$scope.invoicestatus = function(status){
 
@@ -414,9 +477,64 @@
 			$scope.container = response.records;
 			
 		});
-	});
 
-	
+		function exportTableToCSV(table, filename) {
+			console.log(table)
+
+	        var $rows = table.find('tr:has(td)'),
+
+	            // Temporary delimiter characters unlikely to be typed by keyboard
+	            // This is to avoid accidentally splitting the actual contents
+	            tmpColDelim = String.fromCharCode(11), // vertical tab character
+	            tmpRowDelim = String.fromCharCode(0), // null character
+
+	            // actual delimiter characters for CSV format
+	            colDelim = '","',
+	            rowDelim = '"\r\n"',
+
+	            // Grab text from table into CSV formatted string
+	            csv = '"' + $rows.map(function (i, row) {
+	                var $row = $(row),
+	                    $cols = $row.find('td');
+
+	                return $cols.map(function (j, col) {
+	                    var $col = $(col),
+	                        text = $col.text();
+
+	                    return text.replace(/"/g, '""'); // escape double quotes
+
+	                }).get().join(tmpColDelim);
+
+	            }).get().join(tmpRowDelim)
+	                .split(tmpRowDelim).join(rowDelim)
+	                .split(tmpColDelim).join(colDelim) + '"',
+
+	            // Data URI
+	            csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csv);
+
+	        $(this)
+	            .attr({
+	            'download': filename,
+	                'href': csvData,
+	                'target': '_blank'
+	        });
+	    }
+
+	    // This must be a hyperlink
+	   $scope.makeCSV = function() {
+	        // CSV
+	        console.log("makeCSV")
+	        var table = $('#contracttable>table');
+	        exportTableToCSV(table, 'export.csv');
+	        
+	        // IF CSV, don't do event.preventDefault() or return false
+	        // We actually need this to be a typical hyperlink
+	    };
+
+	    $scope.exportCSVcontract =  function(){
+	    	return jQuery("#contracttable>table");
+	    }
+	});	
 
 	app.controller('addUserwindow', function($rootScope, $scope, $http, $location){
 		

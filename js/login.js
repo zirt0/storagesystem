@@ -1,7 +1,5 @@
     app.controller('loginCtrl', function($scope, $http, $rootScope, $location, $cookies){
 		
-		$scope.username = "adem";
-		$scope.password = "password1234";
 		$scope.loggedIn = $rootScope.loggedIn
 		console.log("dit is login");
 		

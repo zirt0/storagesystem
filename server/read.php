@@ -12,7 +12,7 @@ $contractId = $request->contractId;
 $sort = $request->sort;
 $id = $request->id;
 $tireid = $request->tireid;
-
+$option_name = $request->option_name;
 //print $subject;
 
 
@@ -162,7 +162,7 @@ if($subject == "users"){
 	    $outp .= '"role":"' . $rs["role"] . '",';
 	    $outp .= '"status":"'. $rs["status"]     . '"}'; 
 	}
-	$outp = $$outp ='{"records":['.$outp.']}'; ;
+	$outp = $outp ='{"records":['.$outp.']}'; ;
 }
 
 if($subject == "container"){
@@ -247,8 +247,8 @@ if($subject == "contracts"){
 if($subject == "contractdetail"){
 
 	//sort contracts on end date
-	$sql = 'SELECT contracts.id, customer_id, employer, start_date, end_date, container_contents_id, invoiceno, 
-				customers.company, customers.fname, customers.lname, customers.merk, customers.kenteken, customers.tel, tires.sezon,
+	$sql = 'SELECT contracts.id, contracts.kenteken, customer_id, employer, start_date, end_date, container_contents_id, invoiceno, 
+				customers.company, customers.fname, customers.lname, customers.merk, customers.tel, tires.sezon,
 				LV_brand, RV_brand, LA_brand, RA_brand,
 				LV_type, RV_type, LA_type, RA_type,
 				LV_profile, RV_profile, LA_profile, RA_profile,
@@ -400,6 +400,44 @@ if($subject == "sortLowProfile"){
 	 //$outp = $sql;
 }
 
+if($subject == "options"){
+
+	//sort contracts on end date
+	$sql = 'SELECT * FROM options';
+				
+				
+	$result = $conn->query($sql);
+
+	$outp = "";
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    
+	    $outp .= '{"option_name":"' . $rs["option_name"] . '",';
+	    $outp .= '"option_value":"'. $rs["option_value"]     . '"}'; 
+	    //$outp = "adeemm";
+	    
+	}
+	$outp ='{"records":['.$outp.']}'; ;
+	//$outp = $sql ;
+}
+
+
+
+if($subject == "profilecolors"){
+	$sql = "SELECT option_value FROM options WHERE option_name = 'redTire'";
+	$result = $conn->query($sql);
+
+	$outp = "";
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    
+	    $outp .= '{"option_value":"' . $rs["option_value"] . '"}';
+
+	}
+	$outp = $outp ;
+	
+	// $outp = $sql;
+}
 
 
 $conn->close();

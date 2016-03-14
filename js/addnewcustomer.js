@@ -58,8 +58,7 @@ function addnewcustomerFnc($scope, $http){
 		'company': '' + $scope.addNewCompany + '' ,
 		'fname': '' + $scope.addNewfName + '' ,
 		'lname': '' + $scope.addNewlName + '' ,
-		'kenteken': '' + $scope.addNewLicense + '' ,
-
+		
 		'merk': '' + $scope.addNewBrand + '',
 		'tel': '' + $scope.addNewPhone + '',
 		'date': '' + $scope.addNewLicense + '',

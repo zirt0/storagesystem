@@ -7,8 +7,9 @@ app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$rout
 
         	 });
 			console.log("change the contractAddedSuccesfully")
+			$scope.getinfoOption();
 
-		}, 6000);
+		}, 3000);
 
 		$scope.idContract = "" + $routeParams.id + "";
 		
@@ -64,4 +65,39 @@ app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$rout
 			return "<div class='bandrow'>" + perBand  + "</div>";
 
 		};
+
+		$scope.removefromContainer = function(id){
+
+			var r = confirm("Weet u zeker dat u de banden wilt uit de container?");
+		    if (r == true) {
+				console.log("Ja hij wilt verwijderen." + id);
+				$http.post("server/update.php",{'subject': "removefromcontainer", 'value': id})
+			
+				.success(function (response) {
+
+					$scope.contractDetail = response.records;
+					console.log(response);
+				});
+		    
+		    }     
+		}
+
+		$scope.getinfoOption = function(){
+
+			var options = $rootScope.options;
+			console.log("getttt optionn")
+			console.log($rootScope.options);	
+			for(var x in options){
+				console.log("Get option value " + x + " " + options[x]);
+				for(var y in options[x]){
+					console.log("Get Y of optons " + y.option_name )
+				}
+			}
+
+		}
+
+		
+		//$rootScope.getOptions('redTire');
+
+		//console.log($rootScope.redProfile);
 	}]);

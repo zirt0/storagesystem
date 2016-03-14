@@ -1,83 +1,86 @@
 <div id="tirelabels" class="small-12 columns" ng-repeat="x in banden">
-	<!-- LinksVoor -->
+	<!-- LinksVoor TEST -->
 	<div class="small-6 columns">
 		<div class="panel tirelabel">
-			<div class="small-6 columns">
-				<div class="borderline">
-				BMW SPECIALIST
-				</div>
-				<div class="borderline">
-					<h2>Kenteken</h2>
-					<td>{{x.kenteken}}</td>
-				</div>
-				<div class="borderline">
-					<h2>MagazijnLocatie</h2>
-					<h3>{{x.name}} > {{x.container_department}} > {{x.container_contents_id}} </h3>
-				</div>
-				<div class="borderline">
-					<h2>Bandenpositie</h2>
-					<h3>LV</h3>
-				</div>
-				<div class="borderline">
-					<h2>Soort Opslag:</h2> 
-					<h3>{{x.sezon}}</h3>
-				</div>
-				<div class="borderline">
-					<h2>Datum Inname:</h2>
-					<h3>{{x.start_date}}</h3>
-				</div>
+			
+			<div class="small-12 columns center">
+				<h3>Klantgegevens<div class="right">id: {{x.id}}</div></h3>
 			</div>
-			<div class="small-6 columns">
-				<table>
-					<tr>
-						<th colspan="2">Bandgegevens</td>
-					</tr>
-					<tr>
-						<td>Merk</td>
-						<td>{{x.LV_brand}}</td>
-					</tr>
-					<tr>
-						<td>Profiel</td>
-						<td>{{x.LV_profile}}</td>
-					</tr>
-					<tr>
-						<td>Maat</td>
-						<td>{{x.LV_tiresize}}</td>
-					</tr>
-					<tr>
-						<td>Type</td>
-						<td>{{x.LV_type}}</td>
-					</tr>
-					<tr>
-						<td>Opmerk.</td>
-						<td>{{x.comment}}</td>
-					</tr>
-				</table>
-
-				<table>
-					<tr>
-						<th colspan="2">Klantgegevsn</td>
-					</tr>
-					<tr>
-						<td>Bedrijf</td>
-						<td>{{x.company}}</td>
-					</tr>
-					<tr>
-						<td>Naam</td>
-						<td>{{x.fname}} {{x.lname}}</td>
-					</tr>
-					<tr>
-						<td>Auto merk</td>
-						<td>{{x.merk}}</td>
-					</tr>
-					<tr>
-						<td>Telefoon</td>
-						<td>{{x.tel}}</td>
-					</tr>
-				</table>
-
+			<div class="small-3 columns">
+				Naam:
 			</div>
-			<div class="small-12 columns">
+			<div class="small-9 columns">
+				<h3>Sayar InCorp</h3>
+			</div>
+			
+			<div class="small-3 columns">
+				Kentekn:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.kenteken}}</h3>
+			</div>
+
+			<div class="small-3 columns">
+				Merk:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.merk}}</h3>
+			</div>
+			<div class="clearfix"></div>
+			
+			<!-- Opslag -->
+			<div class="small-12 columns center">
+				<h3>Opslag</h3>
+			</div>
+			<div class="small-3 columns">
+				Plaats:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.name}} > {{x.container_department}} > {{x.container_contents_id}} </h3>
+			</div>
+			<div class="small-3 columns">
+				Sezoen:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.sezon}}</h3>
+			</div>
+			<div class="small-3 columns">
+				Datum inname:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.start_date}}</h3>			
+			</div>
+			<!-- end Opslag -->
+			
+			<div class="clearfix"></div>
+			
+			<!-- bandgegevens -->
+			<div class="small-12 columns center">
+				<h3>Bandgegevens</h3>
+			</div>
+			<div class="small-3 columns">
+				Band Merk
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.RV_brand}}</h3>			
+			</div>
+			<div class="small-3 columns">
+				Profiel
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.RV_profile}}</h3>			
+			</div>
+			<!-- end bandgegevens -->
+
+			<div class="clearfix"></div>
+
+			<div class="small-8 columns">
+				<h3> </h3>
+			</div>
+			<div class="small-4 columns">
+				<h3>LINKSVOOR</h3>
+			</div>
+			<div class="small-12 columns labelfooter">
 				website: www.sayar.nl | email: info@sayar.nl
 			</div>
 		</div>
@@ -86,256 +89,269 @@
 	<!-- RechtsVoor -->
 	<div class="small-6 columns">
 		<div class="panel tirelabel">
-			<div class="small-6 columns">
-				<div class="borderline">
-				BMW SPECIALIST
-				</div>
-				<div class="borderline">
-					<h2>Kenteken</h2>
-					<td>{{x.kenteken}}</td>
-				</div>
-				<div class="borderline">
-					<h2>MagazijnLocatie</h2>
-					<h3>{{x.name}} > {{x.container_department}} > {{x.container_contents_id}} </h3>
-				</div>
-				<div class="borderline">
-					<h2>Bandenpositie</h2>
-					<h3>RV</h3>
-				</div>
-				<div class="borderline">
-					<h2>Soort Opslag:</h2> 
-					<h3>{{x.sezon}}</h3>
-				</div>
-				<div class="borderline">
-					<h2>Datum Inname:</h2>
-					<h3>{{x.start_date}}</h3>
-				</div>
+			
+			<div class="small-12 columns center">
+				<h3>Klantgegevens<div class="right">id: {{x.id}}</div></h3>
 			</div>
-			<div class="small-6 columns">
-				<table>
-					<tr>
-						<th colspan="2">Bandgegevens</td>
-					</tr>
-					<tr>
-						<td>Merk</td>
-						<td>{{x.RV_brand}}</td>
-					</tr>
-					<tr>
-						<td>Profiel</td>
-						<td>{{x.RV_profile}}</td>
-					</tr>
-					<tr>
-						<td>Maat</td>
-						<td>{{x.RV_tiresize}}</td>
-					</tr>
-					<tr>
-						<td>Type</td>
-						<td>{{x.RV_type}}</td>
-					</tr>
-					<tr>
-						<td>Opmerk.</td>
-						<td>{{x.comment}}</td>
-					</tr>
-				</table>
-
-				<table>
-					<tr>
-						<th colspan="2">Klantgegevsn</td>
-					</tr>
-					<tr>
-						<td>Bedrijf</td>
-						<td>{{x.company}}</td>
-					</tr>
-					<tr>
-						<td>Naam</td>
-						<td>{{x.fname}} {{x.lname}}</td>
-					</tr>
-					<tr>
-						<td>Auto merk</td>
-						<td>{{x.merk}}</td>
-					</tr>
-					<tr>
-						<td>Telefoon</td>
-						<td>{{x.tel}}</td>
-					</tr>
-				</table>
-
+			<div class="small-3 columns">
+				Naam:
 			</div>
-			<div class="small-12 columns">
+			<div class="small-9 columns">
+				<h3>Sayar InCorp</h3>
+			</div>
+			
+			<div class="small-3 columns">
+				Kentekn:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.kenteken}}</h3>
+			</div>
+
+			<div class="small-3 columns">
+				Merk:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.merk}}</h3>
+			</div>
+			<div class="clearfix"></div>
+			
+			<!-- Opslag -->
+			<div class="small-12 columns center">
+				<h3>Opslag</h3>
+			</div>
+			<div class="small-3 columns">
+				Plaats:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.name}} > {{x.container_department}} > {{x.container_contents_id}} </h3>
+			</div>
+			<div class="small-3 columns">
+				Sezoen:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.sezon}}</h3>
+			</div>
+			<div class="small-3 columns">
+				Datum inname:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.start_date}}</h3>			
+			</div>
+			<!-- end Opslag -->
+			
+			<div class="clearfix"></div>
+			
+			<!-- bandgegevens -->
+			<div class="small-12 columns center">
+				<h3>Bandgegevens</h3>
+			</div>
+			<div class="small-3 columns">
+				Band Merk
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.LV_brand}}</h3>			
+			</div>
+			<div class="small-3 columns">
+				Profiel
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.LV_profile}}</h3>			
+			</div>
+
+			<!-- end bandgegevens -->
+
+			<div class="clearfix"></div>
+
+			<div class="small-8 columns">
+				<h3> </h3>
+			</div>
+			<div class="small-4 columns">
+				<h3>RECHTSVOOR</h3>
+			</div>
+			<div class="small-12 columns labelfooter">
 				website: www.sayar.nl | email: info@sayar.nl
 			</div>
 		</div>
 	</div>
-	<!-- End RechstVoor -->
+	<!-- End RechstVoorTEST -->
 
-		<!-- LinksAchter -->
+	<!-- LinksAchter TEST -->
 	<div class="small-6 columns">
 		<div class="panel tirelabel">
-			<div class="small-6 columns">
-				<div class="borderline">
-				BMW SPECIALIST
-				</div>
-				<div class="borderline">
-					<h2>Kenteken</h2>
-					<td>{{x.kenteken}}</td>
-				</div>
-				<div class="borderline">
-					<h2>MagazijnLocatie</h2>
-					<h3>{{x.name}} > {{x.container_department}} > {{x.container_contents_id}} </h3>
-				</div>
-				<div class="borderline">
-					<h2>Bandenpositie</h2>
-					<h3>LA</h3>
-				</div>
-				<div class="borderline">
-					<h2>Soort Opslag:</h2> 
-					<h3>{{x.sezon}}</h3>
-				</div>
-				<div class="borderline">
-					<h2>Datum Inname:</h2>
-					<h3>{{x.start_date}}</h3>
-				</div>
+			
+			<div class="small-12 columns center">
+				<h3>Klantgegevens<div class="right">id: {{x.id}}</div></h3>
 			</div>
-			<div class="small-6 columns">
-				<table>
-					<tr>
-						<th colspan="2">Bandgegevens</td>
-					</tr>
-					<tr>
-						<td>Merk</td>
-						<td>{{x.LA_brand}}</td>
-					</tr>
-					<tr>
-						<td>Profiel</td>
-						<td>{{x.LA_profile}}</td>
-					</tr>
-					<tr>
-						<td>Maat</td>
-						<td>{{x.LA_tiresize}}</td>
-					</tr>
-					<tr>
-						<td>Type</td>
-						<td>{{x.LA_type}}</td>
-					</tr>
-					<tr>
-						<td>Opmerk.</td>
-						<td>{{x.comment}}</td>
-					</tr>
-				</table>
-
-				<table>
-					<tr>
-						<th colspan="2">Klantgegevens</td>
-					</tr>
-					<tr>
-						<td>Bedrijf</td>
-						<td>{{x.company}}</td>
-					</tr>
-					<tr>
-						<td>Naam</td>
-						<td>{{x.fname}} {{x.lname}}</td>
-					</tr>
-					<tr>
-						<td>Auto merk</td>
-						<td>{{x.merk}}</td>
-					</tr>
-					<tr>
-						<td>Telefoon</td>
-						<td>{{x.tel}}</td>
-					</tr>
-				</table>
-
+			<div class="small-3 columns">
+				Naam:
 			</div>
-			<div class="small-12 columns">
+			<div class="small-9 columns">
+				<h3>Sayar InCorp</h3>
+			</div>
+			
+			<div class="small-3 columns">
+				Kentekn:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.kenteken}}</h3>
+			</div>
+
+			<div class="small-3 columns">
+				Merk:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.merk}}</h3>
+			</div>
+			<div class="clearfix"></div>
+			
+			<!-- Opslag -->
+			<div class="small-12 columns center">
+				<h3>Opslag</h3>
+			</div>
+			<div class="small-3 columns">
+				Plaats:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.name}} > {{x.container_department}} > {{x.container_contents_id}} </h3>
+			</div>
+			<div class="small-3 columns">
+				Sezoen:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.sezon}}</h3>
+			</div>
+			<div class="small-3 columns">
+				Datum inname:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.start_date}}</h3>			
+			</div>
+			<!-- end Opslag -->
+			
+			<div class="clearfix"></div>
+			
+			<!-- bandgegevens -->
+			<div class="small-12 columns center">
+				<h3>Bandgegevens</h3>
+			</div>
+			<div class="small-3 columns">
+				Band Merk
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.LA_brand}}</h3>			
+			</div>
+			<div class="small-3 columns">
+				Profiel
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.LA_profile}}</h3>			
+			</div>
+			<!-- end bandgegevens -->
+
+			<div class="clearfix"></div>
+
+			<div class="small-8 columns">
+				<h3> </h3>
+			</div>
+			<div class="small-4 columns">
+				<h3>LINKSACHTER</h3>
+			</div>
+			<div class="small-12 columns labelfooter">
 				website: www.sayar.nl | email: info@sayar.nl
 			</div>
 		</div>
 	</div>
-	<!-- End LinksVoor -->
+	<!-- End LinksAchter -->
 	<!-- RechtsAchter -->
 	<div class="small-6 columns">
 		<div class="panel tirelabel">
-			<div class="small-6 columns">
-				<div class="borderline">
-				BMW SPECIALIST
-				</div>
-				<div class="borderline">
-					<h2>Kenteken</h2>
-					<td>{{x.kenteken}}</td>
-				</div>
-				<div class="borderline">
-					<h2>MagazijnLocatie</h2>
-					<h3>{{x.name}} > {{x.container_department}} > {{x.container_contents_id}} </h3>
-				</div>
-				<div class="borderline">
-					<h2>Bandenpositie</h2>
-					<h3>RA</h3>
-				</div>
-				<div class="borderline">
-					<h2>Soort Opslag:</h2> 
-					<h3>{{x.sezon}}</h3>
-				</div>
-				<div class="borderline">
-					<h2>Datum Inname:</h2>
-					<h3>{{x.start_date}}</h3>
-				</div>
+			
+			<div class="small-12 columns center">
+				<h3>Klantgegevens<div class="right">id: {{x.id}}</div></h3>
 			</div>
-			<div class="small-6 columns">
-				<table>
-					<tr>
-						<th colspan="2">Bandgegevens</td>
-					</tr>
-					<tr>
-						<td>Merk</td>
-						<td>{{x.RA_brand}}</td>
-					</tr>
-					<tr>
-						<td>Profiel</td>
-						<td>{{x.RA_profile}}</td>
-					</tr>
-					<tr>
-						<td>Maat</td>
-						<td>{{x.RA_tiresize}}</td>
-					</tr>
-					<tr>
-						<td>Type</td>
-						<td>{{x.RA_type}}</td>
-					</tr>
-					<tr>
-						<td>Opmerk.</td>
-						<td>{{x.comment}}</td>
-					</tr>
-				</table>
-
-				<table>
-					<tr>
-						<th colspan="2">Klantgegevens</td>
-					</tr>
-					<tr>
-						<td>Bedrijf</td>
-						<td>{{x.company}}</td>
-					</tr>
-					<tr>
-						<td>Naam</td>
-						<td>{{x.fname}} {{x.lname}}</td>
-					</tr>
-					<tr>
-						<td>Auto merk</td>
-						<td>{{x.merk}}</td>
-					</tr>
-					<tr>
-						<td>Telefoon</td>
-						<td>{{x.tel}}</td>
-					</tr>
-				</table>
-
+			<div class="small-3 columns">
+				Naam:
 			</div>
-			<div class="small-12 columns">
+			<div class="small-9 columns">
+				<h3>Sayar InCorp</h3>
+			</div>
+			
+			<div class="small-3 columns">
+				Kentekn:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.kenteken}}</h3>
+			</div>
+
+			<div class="small-3 columns">
+				Merk:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.merk}}</h3>
+			</div>
+			<div class="clearfix"></div>
+			
+			<!-- Opslag -->
+			<div class="small-12 columns center">
+				<h3>Opslag</h3>
+			</div>
+			<div class="small-3 columns">
+				Plaats:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.name}} > {{x.container_department}} > {{x.container_contents_id}} </h3>
+			</div>
+			<div class="small-3 columns">
+				Sezoen:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.sezon}}</h3>
+			</div>
+			<div class="small-3 columns">
+				Datum inname:
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.start_date}}</h3>			
+			</div>
+			<!-- end Opslag -->
+			
+			<div class="clearfix"></div>
+			
+			<!-- bandgegevens -->
+			<div class="small-12 columns center">
+				<h3>Bandgegevens</h3>
+			</div>
+			<div class="small-3 columns">
+				Band Merk
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.RA_brand}}</h3>			
+			</div>
+			<div class="small-3 columns">
+				Profiel
+			</div>
+			<div class="small-9 columns">
+				<h3>{{x.RA_profile}}</h3>			
+			</div>
+
+			<!-- end bandgegevens -->
+
+			<div class="clearfix"></div>
+
+			<div class="small-8 columns">
+				<h3> </h3>
+			</div>
+			<div class="small-4 columns">
+				<h3>RECHTSACHTER</h3>
+			</div>
+			<div class="small-12 columns labelfooter">
 				website: www.sayar.nl | email: info@sayar.nl
 			</div>
 		</div>
 	</div>
-	<!-- End RechstVoor -->
+	<!-- End RechstAchter -->
+
+
 	
 </div>
 

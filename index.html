@@ -51,16 +51,7 @@
         <div class="small-12 large-8 columns">
           <input type="text" ng-model="addNewlName" class="req"/>
         </div>
-      </div>
-
-      <div class="small-12 columns">
-        <div class="small-12 large-4 columns">
-          <h2>Kenteken:</h2>
-        </div>
-        <div class="small-12 large-8 columns">
-          <input type="text" ng-model="addNewLicense"/>
-        </div>
-      </div>
+      </div>  
 
       <div class="small-12 columns">
         <div class="small-12 large-4 columns">
@@ -127,9 +118,6 @@
                     </a>
                 </th>
             <th>
-                      Kenteken
-                </th>
-            <th>
               <a ng-click="sortType = 'merk'; sortReverse = !sortReverse">
                       Merk
                       <span ng-show="sortType == 'merk' && !sortReverse" class="fa fa-caret-down"></span>
@@ -145,7 +133,6 @@
               <td>{{x.id}}.</a></td>
               <td><a href="#/customers/{{x.id}}">{{ x.company }}</a></td>
               <td>{{ x.fname }} {{ x.lname }}</td>
-               <td>{{ x.kenteken }}</td>
                 <td>{{ x.merk }}</td>
               <td><a ng-click="selectCustomer(x.id, x.company , x.lname  )" class="button button-3d button-action button-pill"> Selecteer</a></td>
           </tr>
@@ -279,6 +266,7 @@
   <row>
     <div class="off-canvas-wrap" data-offcanvas>
       <div class="inner-wrap">
+        <div class="fixed">
         <nav ng-if="justLogin" class="tab-bar">
           <section class="left-small">
             <a class="left-off-canvas-toggle menu-icon" href=""><span></span></a>
@@ -287,10 +275,9 @@
           <section class="middle tab-bar-section">
             <h1 class="title">StorageSystem BMW Specialist</h1>
           </section>
-            <section class="right-small">
-              <a ng-click="logoff()" class="menu-icon" title="Uitloggen"><i class="fa fa-power-off"></i></a>
-            </section>
+          <a class="button button-primary right" href="#/new-product" style="height: 100%;"><i class="fa fa-plus"></i> Banden opslaan</a>
         </nav>
+        </div>
       
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
@@ -302,13 +289,16 @@
             <div ng-if="userRole == 'admin'">
               <li><a href="#/tires"><i class="fa fa-car"></i> Banden</a></li>
             </div>
-              <li><a class="button button-block button-rounded button-primary button-large" href="#/new-product"><i class="fa fa-plus"></i> Nieuw product</a></li>
+              <li><a class="button button-block button-rounded button-primary button-large" href="#/new-product"><i class="fa fa-plus"></i> Banden Opslaan</a></li>
             <div ng-if="userRole == 'admin'">
               <li><label>Instellingen</label></li>
               <li><a href="#/users"><i class="fa fa-user"></i> Users</a></li>
               <li><a href="#/storage-management"><i class="fa fa-map-signs"></i> Opslag management</a></li>
-              <li><a href="#/settings"><i class="fa fa-cogs"></i> Instellingen</a></li>
+              <li><a href="#/settings"><i class="fa fa-cogs"></i> Instellingen</a>
+              <ul><li><a href="#/export"><i class="fa fa-download"></i>Export</li></a></ul>
+              </li>
             </div>
+            <li><a ng-click="logoff()"><i class="fa fa-power-off"></i>Uitloggen</a></li>
           </ul>
         </aside>
         <section class="main-section view-animate-container" ng-controller="overall">
@@ -347,6 +337,9 @@
   <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.js"></script>
   <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ng-csv/0.3.6/ng-csv.js"></script>
+
+
 
   <script src="main.js"></script>
   <script src="js/app.js"></script>
@@ -361,6 +354,7 @@
 
   <script src="js/settings.js"></script>
   <script src="js/addnewcustomer.js"></script>
+   <script src="js/exportdata.js"></script>
   <script>
   $(document).foundation();
   </script>

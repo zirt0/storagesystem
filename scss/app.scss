@@ -149,8 +149,8 @@ select  {
    background-color: #f04124;
 }
 
-.profiel.orange {
-   background-color: orange;
+.profiel.orange, .orange {
+   background-color: #e59501;
 }
 .bandrow {
     margin-bottom: 5px;
@@ -171,11 +171,12 @@ select  {
 }
 
 .addCustomer {
-  width: auto;
+    height: 46px;
     display: inline;
     padding: 10px;
     border: 1px solid #dddddd;
     background-color: #eeeeee;
+    box-shadow: inset 1px 1px 2px;
 }
 
 .container, .addcontainerButton{
@@ -321,7 +322,7 @@ form .progress {
   background: #1d2b36;
 }
 
-ul.off-canvas-list li a {
+ul.off-canvas-list li a, ul.off-canvas-list li ul li a  {
     color: #c3def1;
 }
 .panel h2 {
@@ -425,13 +426,14 @@ h1.headerTitle small{
 }
 
 #tirelabels .tirelabel {
-  height: 595px;
+  height: 405px;
 }
 
 #tirelabels h3 {
       font-size: 1.4rem;
     font-weight: bold;
 }
+
 
 .borderline {
   border: solid 1px #DDDDDD;
@@ -447,11 +449,12 @@ h1.headerTitle small{
     width: 100%;
     text-align: left;
   }
+
 }
 
 
 @media print {
-      /* insert your style declarations here */
+  /* insert your style declarations here */
   .tab-bar{
     display: none;
   }
@@ -459,40 +462,39 @@ h1.headerTitle small{
   margin-bottom: 10px;
   }
 
-  button.goBack {
+  button.goBack, #tirelabels .clearfix {
   display: none;
   }
 
-  #tirelabels .small-6{
-    width: 50%;
-    float: left;
-  }
-  #tirelabels {
-    padding: 0;
-    font-size: 8px;
-  }
-
-  #tirelabels .tirelabel {
-  height: 430px;
-}
-
-  #tirelabels h2 {
-  font-size: 12px;
-  }
-
-  #tirelabels h3, #tirelabels table td {
-  font-size: 9px;
+  #tirelabels .small-6 {
+  width: 50%;
+  float: left;
   }
 
   #tirelabels .tirelabel {
       padding: 0;
   }
-  .tirelabel > div {
-     padding: 0;
+ 
+  #tirelabels .small-3 {
+      font-size: 10px;
+  }
+ 
+  #tirelabels h3 {
+      font-size: 18px;
   }
 
-   #tirelabels table, #tirelabels table tr td {
-    line-height: 110%;
+  #tirelabels .labelfooter{
+    font-size: 8px;
+  }
+
+  #tirelabels .small-9, #tirelabels .small-3 {
+      float: left;
+      display: inline-block;
+      width: 40%;
+  }
+
+  .tirelabel > div {
+     padding: 0;
   }
 
   a.printbutton {
@@ -544,6 +546,49 @@ h1.headerTitle small{
   
 }
 
+.tap-bar {
+///
+    position: fixed !important;
+    width: 100% !important;
+}
+
+ .tireIndicator{
+   width : 30px;
+   height: 30px;
+   display: inline-block;
+   margin-right: 10px;
+   border-radius: 50%;
+ }
+
+ .redTireIndicator {
+    background-color: #f04124;
+ }
+
+ .orangeTireIndicator {
+    background-color: #e59501;
+ }
+
+ .greenTireIndicator {
+    background-color: #8bc220;
+ }
+
+ .tireIndicate input {
+  display: inline-block;      
+  width: 75px;
+}
+.settings > div {
+    padding-bottom: 40px;
+    border-bottom: 1px solid #dddddd;
+    padding-top: 40px;
+}
+
+.main-section {
+    padding-top: 50px;
+}
+
+.smalltext {
+  font-size: 9px;
+}
 
 /* ANIMATIONS
 ============================================================================= */

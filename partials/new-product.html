@@ -25,7 +25,18 @@
 			<h2>Bedrijf:</h2>
 		</div>
 		<div class="small-12 large-8 columns">
-			<div class="addCustomer">{{chosenCustomer}}</div><button data-reveal-id="SelectCustomer" class="right button button-3d button-action button-pill"><i class="fa fa-user-plus"></i>Toevoegen</button>
+			<div class="small-9 columns addCustomer">{{chosenCustomer}}</div>
+			<div class="small-3 columns">
+				<button data-reveal-id="SelectCustomer" class="right button button-3d button-action button-pill"><i class="fa fa-user-plus"></i>Toevoegen</button>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix">
+		<div class="small-12 large-4 columns">
+			<h2>Kenteken</h2>
+		</div>
+		<div class="small-12 large-8 columns">
+			<input type="text" ng-model="kenteken" class="req" placeholder="vb: XX-ZZ-11"/>
 		</div>
 	</div>
 	<div class="clearfix">
@@ -93,7 +104,7 @@
 			<div class="small-4 columns">
 				<h3>Links Voor</h3>
 				<input type="number" name="bandprofiel1" ng-model="bandprofiel1" placeholder="Profiel v.b. 1.5" class="req">
-				<input type="text" name="bandmaat1" ng-model="bandmaat1" placeholder="Bandenmaat" class="req"> {{bandmaat1}}
+				<input type="text" name="bandmaat1" ng-model="bandmaat1" placeholder="Bandenmaat" class="req">
 				<select name="bandenmerk" id="bandenmerk1" ng-model="bandenmerk1" ng-change="allebanden()" class="req">
 					<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 				</select>
@@ -120,7 +131,7 @@
 		</div>
 		<div class="small-12 columns">
 			<div class="small-4 columns">
-				<h3>Rechts achter</h3>
+				<h3>Links Achter</h3>
 				<input type="number" name="bandprofiel3" ng-model="bandprofiel3" placeholder="Profiel v.b. 1.5" class="req">
 				<input type="text" name="bandmaat3" ng-model="bandmaat3" placeholder="Bandenmaat" class="req">
 				<select name="bandenmerk" id="bandenmerk3" ng-model="bandenmerk3" class="req">
@@ -132,10 +143,10 @@
 				
 			</div>
 			<div class="small-4 columns">
-				<h3>Links Achter</h3>
+				<h3>Rechts achter</h3>
 				<input type="number" name="bandprofiel4" ng-model="bandprofiel4" placeholder="Profiel v.b. 1.5" class="req">
 				<input type="text" name="bandmaat4" ng-model="bandmaat4" placeholder="Bandenmaat" class="req">
-				<select name="bandenmerk" id="bandenmerk4" ng-model="bandenmerk4" class="req">
+				<select name="bandenmerk" id="bandenmerk3" ng-model="bandenmerk4" class="req">
 					<option ng-repeat="x in allbrands" value="{{x.text}}" class="">{{x.text}}</option>
 				</select>
 				<input type="text" ng-model="bandtype4" placeholder="Type Band" class="req">

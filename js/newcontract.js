@@ -7,8 +7,8 @@
 		$scope.velg = true;
 		$scope.viermerk = true;
 		$scope.vierprofiel = true;
-		//$scope.flatrun = false;
-		//$scope.contract(6);
+		$scope.flatrun = false;
+		$scope.sezoen = "allsezoen";
 
 		
 
@@ -109,31 +109,56 @@
 	    $scope.addContainer = function() {
 
 	    	isFormValid = true;
-			jQuery("input.req, select.req ").each(function(){
+
+	    	var countError = 0;
+	    	var tireError = 0;
+			jQuery(".newProduct input.req,.newProduct select.req ").each(function(){
+				isFormValid = true;
 				if (jQuery(this).val() == '') { 
-					console.log("5");
+					//console.log("5");
 					jQuery(this).addClass('highlight');
 					
+					
+					tireError++
 					isFormValid = false;
+					console.log(this);
+					console.log(tireError);
 					
 				}else{
-					console.log("6");
+					//console.log("6");
 					jQuery(this).removeClass('highlight	');
-					isFormValid = true;
+					console.log(this);
+					console.log(tireError);
 				}
 			});
+
+			console.log("tireError " + tireError);
+
+			if(!$rootScope.chosenCustomerId){
+				alert("U heeft geen klant toegevoegd. Maak a.u.b een klant aan of kies een bestaande klant.");
+				console.log("U heeft geen klant toegevoegd");
+				countError++
+			}else{
+				if(countError > 0){
+
+					countError--
+				}else{
+					countError = 0;
+				}
+			}
+			console.log("Choosen customer id" + $rootScope.chosenCustomerId + " countError " + countError)
 
 			//is for test
 			//isFormValid = true;
 			
-			if(!isFormValid){
+			if(!isFormValid || countError != 0){
 				
-			alert("Vult u a.u.b. de vereisde velden in.");
+			alert("Vult u a.u.b. de vereisde velden in." + countError);
 			console.log("3");
 			  	//jQuery('input.req').css({'border': '1px solid red'});
 			  	return false;
 			  	
-			  }else {
+			}else {
 			  	console.log("4");
 				//gaverder();
 				//$scope.insertContractDB();
@@ -229,9 +254,6 @@
 	        return year + "-" + month + "-" + day;
 	    }
 
-
-	
-
 		$scope.contract(6);
 
 		$scope.changeCheckbox = function(){
@@ -318,16 +340,16 @@
 
 				alert("Vult u a.u.b. de vereisde velden in.");
 				console.log("3");
-				  	//jQuery('input.req').css({'border': '1px solid red'});
-				  	return false;
-				  	
-				  }else {
-				  	console.log("4");
-					//gaverder();
-					$scope.insertContractDB();
-					return false;
-				}
+			  	//jQuery('input.req').css({'border': '1px solid red'});
+			  	return false;
+			  	
+			  }else {
+			  	console.log("4");
+				//gaverder();
+				$scope.insertContractDB();
+				return false;
 			}
+		}
 
 			$scope.insertContractDB = function(){
 
@@ -338,6 +360,7 @@
 				'sezoen': '' + $scope.sezoen + '' ,
 				'velg': '' + $scope.velg + '' ,
 				'flatrun': '' + $scope.flatrun + '' ,
+				'kenteken': '' + $scope.kenteken + '' ,
 				//profiel
 				'lv_profile': '' + $scope.bandprofiel1 + '' ,
 				'rv_profile': '' + $scope.bandprofiel2 + '' ,
@@ -381,8 +404,7 @@
 
 	});
 
-
-		};
+	};
 
 $http.post("server/read.php",{'subject': "customers"})
 .success(function (response){

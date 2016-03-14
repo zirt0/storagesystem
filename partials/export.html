@@ -1,0 +1,279 @@
+<h1 class="headerTitle">Contracten <small>Overzicht van contracten </small></h1>
+<div class="small-12 columns">
+	<input type="text" class="form-control" placeholder="Klant zoeken" ng-model="searchCustomer">
+<!-- 	<button class="right small" ng-click="makeCSV()">download CSV</button> -->
+<button class="small right" ng-csv="container" filename="test.csv">Export CSV</button>
+	<div class="panel small-12 column" id="contracttable" style="overflow-x: scroll;">
+		<table class="table table-bordered table-striped">
+		<tr>
+			<th>id</th>
+			<th>
+				<a ng-click="sortType = 'klant'; sortReverse = !sortReverse">
+		            Klant
+		            <span ng-show="sortType == 'klant' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'klant' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'klant'; sortReverse = !sortReverse">
+		            Voornaam
+		            <span ng-show="sortType == 'klant' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'klant' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'klant'; sortReverse = !sortReverse">
+		            Achternaam
+		            <span ng-show="sortType == 'klant' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'klant' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'klant'; sortReverse = !sortReverse">
+		            Merk
+		            <span ng-show="sortType == 'klant' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'klant' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'klant'; sortReverse = !sortReverse">
+		            Kenteken
+		            <span ng-show="sortType == 'klant' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'klant' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'klant'; sortReverse = !sortReverse">
+		            Telefoonnr.
+		            <span ng-show="sortType == 'klant' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'klant' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+
+			<th>
+				<a ng-click="sortType = 'container_name'; sortReverse = !sortReverse">
+		            Container
+		            <span ng-show="sortType == 'container_name' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'container_name' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'container_name'; sortReverse = !sortReverse">
+		            Segment
+		            <span ng-show="sortType == 'container_name' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'container_name' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+			<th>
+				<a ng-click="sortType = 'place_name'; sortReverse = !sortReverse">
+		            Positie
+		            <span ng-show="sortType == 'place_name' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'place_name' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+			<th>
+				<a ng-click="sortType = 'start_date'; sortReverse = !sortReverse">
+		            Start Datum
+		            <span ng-show="sortType == 'start_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'start_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+			<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            Eind Datum
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<!-- merk banden -->
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            LV merk
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            RV merk
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            LA merk
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            RA merk
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+
+      		<!-- Type banden -->
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            LV Type
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            RV Type
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            LA Type
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            RA Type
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+
+      		<!-- merk profiel -->
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            LV profiel
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            RV profiel
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            LA profiel
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            RA profiel
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+
+      		<!-- merk tiresize -->
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            LV bandenmaat
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            RV bandenmaat
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            LA bandenmaat
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            RA bandenmaat
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            Flatrun
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            Velg
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+      		<th>
+				<a ng-click="sortType = 'end_date'; sortReverse = !sortReverse">
+		            Sezoen
+		            <span ng-show="sortType == 'end_date' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'end_date' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
+
+
+		</tr>
+		<tr class="" ng-repeat="x in container | orderBy:sortType:sortReverse | filter:searchCustomer">
+		    <td>{{ x.id }}</td>
+		    
+		    <td>{{ x.company }}</td>
+		    <td>{{ x.lname }}</td>
+		    <td>{{ x.fname }}</td>
+		    <td>{{ x.merk }}</td>
+		    <td>{{ x.kenteken }}</td>
+		    <td>{{ x.tel }}</td>
+		    <td>{{ x.name }}</td>
+		    
+		    <td>{{ x.container_department }}</td>
+		    <td>{{ x.container_contents_id }}</td>
+		    
+		    <td>{{ x.start_date }}</td>
+		    <td>{{ x.end_date }}</td>
+
+			<td>{{ x.LV_brand }}</td>
+			<td>{{ x.RV_brand }}</td>
+			<td>{{ x.LA_brand }}</td>
+			<td>{{ x.RA_brand }}</td>
+
+			<td>{{ x.LV_type }}</td>
+			<td>{{ x.RV_type }}</td>
+			<td>{{ x.LA_type }}</td>
+			<td>{{ x.RA_type }}</td>
+
+			<td>{{ x.LV_profile }}</td>
+			<td>{{ x.RV_profile }}</td>
+			<td>{{ x.LA_profile }}</td>
+			<td>{{ x.RA_profile }}</td>
+
+			<td>{{ x.LV_tiresize }}</td>
+			<td>{{ x.RV_tiresize }}</td>
+			<td>{{ x.LA_tiresize }}</td>
+			<td>{{ x.RA_tiresize }}</td>
+
+			<td>{{ x.flatrun }}</td>
+			<td>{{ x.velg }}</td>
+			<td>{{ x.sezon }}</td>
+
+		    
+		    <td>{{ differenceDate(x.start_date, x.end_date)}} Dagen</td>
+		    <td><a href="#/contracts/{{x.id}}" class="round tiny button succes"> Bekijk </a></td>
+		</tr>
+		</table>
+	</div>
+</div>

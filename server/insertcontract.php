@@ -10,6 +10,7 @@ $company_id = $request->company_id;
 $sezoen 	= $request->sezoen;
 $velg 		= $request->velg;
 $flatrun 	= $request->flatrun;
+$kenteken 	= $request->kenteken;
 
 $lv_profile = $request->lv_profile;
 $rv_profile = $request->rv_profile;
@@ -56,7 +57,7 @@ $email = $request->email;
 
 if($subject == "insert_contract"){
 
-	$sql = "INSERT INTO contracts (customer_id, employer, start_date, end_date, container_contents_id) VALUES ('" . $company_id . "','" . $user_id ."', '" . $startdate . "', '" . $enddate ."', '" . $container_contents_id . "' )";
+	$sql = "INSERT INTO contracts (customer_id, employer, start_date, end_date, container_contents_id, kenteken) VALUES ('" . $company_id . "','" . $user_id ."', '" . $startdate . "', '" . $enddate ."', '" . $container_contents_id . "', '" . $kenteken ."' )";
 	$result = $conn->query($sql);
 	$contractid = $conn->insert_id;
 
