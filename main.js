@@ -259,8 +259,6 @@
 		}
 
 		$rootScope.tireProfile = function(profile){
-
-			
 			
 			var profile = Number(profile);
 			console.log(profile);
@@ -280,9 +278,6 @@
 
 				}
 
-			
-			
-			
 		}
 
 		$rootScope.differenceDate = function(val1, val2){
@@ -389,7 +384,15 @@
 
 			$scope.customerInfo = response;
 			console.log($scope.customerInfo);
-			$scope.company = $scope.customerInfo['company']
+			
+			$scope.customeId = $scope.customerInfo['id']
+			$scope.company = $scope.customerInfo['company'];
+			$scope.fname = $scope.customerInfo['fname'];
+			$scope.lname = $scope.customerInfo['lname'];
+			$scope.merk = $scope.customerInfo['merk'];
+			$scope.tel = $scope.customerInfo['tel'];
+			$scope.email = $scope.customerInfo['email'];
+
 
 		});
 
@@ -402,6 +405,49 @@
 
 			
 		});
+		$("td > input, button.saveCustomer, button.cancelCustomer").hide();
+
+		$scope.editCustomer = function(){
+
+			$("td > input, button.saveCustomer, button.cancelCustomer").show();
+			$("td > span, button.editCustomer").hide();
+
+			console.log("Edit Customer" + $scope.editComapny);
+		}
+
+		$scope.cancelCustomeredit = function(){
+
+			console.log("customer edit");
+
+			$("td > input, button.saveCustomer, button.cancelCustomer").hide();
+			$("td > span, button.editCustomer").show();
+
+			//console.log("Edit Customer" + $scope.editComapny);
+		}
+
+		$scope.saveCustomeredit = function(){
+
+			$http.post("server/update.php",{'subject': "updateCustomer", 'id': $scope.customeId , 'company': $scope.company , 'fname': $scope.fname , 'lname': $scope.lname, 'merk': $scope.merk, 'tel': $scope.tel, 'email': $scope.email, 'id': $scope.customeId})
+			
+			.success(function (response) {
+
+				console.log(response);
+				$scope.customerEditedSuccesfully = true;
+				$("td > input, button.saveCustomer, button.cancelCustomer").hide();
+				$("td > span, button.editCustomer").show();
+				window.setTimeout(function(){
+
+					$scope.$apply(function() {
+						$scope.customerEditedSuccesfully = false;
+
+		        	 });
+
+				}, 3000);				
+				//location.reload();
+
+			});
+		}
+
 	}]);
 
 	app.controller('checkCustomer', ['$scope', '$http', '$routeParams', function ($scope, $http ) {

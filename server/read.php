@@ -142,6 +142,7 @@ if($subject == "customerInfo"){
 	    $outp .= '"kenteken":"'   . $rs["kenteken"]        . '",';
 	    $outp .= '"merk":"'   . $rs["merk"]        . '",';
 	    $outp .= '"tel":"'   . $rs["tel"]        . '",';
+	    $outp .= '"email":"'   . $rs["email"]        . '",';
 	    $outp .= '"regdate":"'. $rs["date"]     . '"}'; 
 	}
 	$outp = $outp ;
@@ -327,7 +328,7 @@ if($subject == "contractdetail"){
 if($subject == "noInvoice"){
 
 	//sort contracts on end date
-	$sql = 'SELECT *, customers.company, contracts.id as sortId FROM contracts
+	$sql = 'SELECT *, customers.company, customers.fname, customers.lname, contracts.id as sortId FROM contracts
 			JOIN customers ON contracts.customer_id = customers.id
 			WHERE invoiceno IS NULL ORDER BY sortId DESC LIMIT ' . $sort;
 
@@ -339,6 +340,8 @@ if($subject == "noInvoice"){
 	    
 	    $outp .= '{"id":"' . $rs["sortId"] . '",';
 	    $outp .= '"company":"' . $rs["company"] . '",';
+	    $outp .= '"fname":"' . $rs["fname"] . '",';
+	    $outp .= '"lname":"' . $rs["lname"] . '",';
 	    $outp .= '"customer_id":"' . $rs["customer_id"] . '",';
 	    $outp .= '"date":"'. $rs["date"]     . '"}'; 
 	    //brand

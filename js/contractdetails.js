@@ -1,4 +1,4 @@
-app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$routeParams', function ($scope, $rootScope, $http, $routeParams) {
+app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$routeParams', '$location', function ($scope, $rootScope, $http, $routeParams, $location) {
 
 		window.setTimeout(function(){
 
@@ -95,6 +95,114 @@ app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$rout
 			}
 
 		}
+
+		function animateOut(element_ID, animation) {
+			console.log("animatee", element_ID);
+			$(element_ID).addClass("animated "+animation);
+	        //$(element_ID).hide();
+	        var wait = window.setTimeout( function(){
+	        	$(element_ID).removeClass(animation);
+	        	$(element_ID).hide();
+
+	        }, 1300
+
+	        );
+	    }
+
+	    function animateIn(element_ID, animation) {
+	    	console.log("animatee11", element_ID);
+	    	$(element_ID).show();
+	    	$(element_ID).addClass("animated "+animation);
+	        //$(element_ID).hide();
+	        var wait = window.setTimeout( function(){
+
+	        	$(element_ID).removeClass(animation);
+
+
+	        }, 1300
+
+	        );
+	    }
+
+
+		$scope.changeContainerPosition = function(positionId){
+			
+			console.log(positionId);
+
+			var r = confirm("Weet u zeker dat u de bandenpositie wilt wijzigen?");
+			if (r == true) {
+
+				animateOut(".contractDetailsPage", 'slideOutRight');
+    			animateIn(".addToContainer", 'slideOutRight');
+
+    			$http.post("server/read.php",{'subject': 'containers'})
+			    .success(function (response){
+			    	$scope.containers = response.records;
+			    	console.log($scope.containers);
+			    });
+
+			} else {
+				
+			}	
+
+		}
+
+		$scope.selectContainer = function(id){
+	    	$scope.idContainer = id;
+	    	$scope.containerContentsId = "";
+	    	$('html, body').animate({ scrollTop:$(".contents").offset()}, 500);
+
+
+	    	$http.post("server/read.php",{'subject': "containerContent", 'id': $scope.idContainer })
+
+	    	.success(function (response) {
+
+		      //console.log(response);
+		      $scope.places = response.records;
+		      // $scope.company = $scope.customerInfo['company']
+
+		      $('html,body').animate({
+		      	scrollTop: $("#contents").offset().top
+		      });
+		  });
+
+	    }
+
+		$scope.placesSelected = function(id) {
+
+	    	console.log("Selected id  " + id);
+	    	$scope.containerContentsId = id;
+	    	console.log("Selected id  " + $scope.containerContentsId);
+	    	$("button").removeClass("selectedContainer");
+	    	$("#place" + id + "").addClass("selectedContainer");
+	    }
+
+	    $scope.submitContractPoistioinChange = function(){
+
+	    	//change in database the position of the 
+
+	    	if($scope.containerContentsId == false){
+	    		alert("kies een nieuwe plaats!");
+
+	    		return false;
+	    	}
+
+	    	$http.post("server/update.php",{'subject': "changeContractpos", 'value': $scope.containerContentsId , 'id': $scope.idContract})
+			
+			.success(function (response) {
+
+				console.log(response);
+
+				
+				 location.reload();
+				 $rootScope.contractAddedSuccesfully = true;
+				//$location.path("/contracts/" + $scope.idContract);
+				//show message on contract page
+				
+			});
+
+
+	    }
 
 		
 		//$rootScope.getOptions('redTire');

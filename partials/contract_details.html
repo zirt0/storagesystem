@@ -2,7 +2,7 @@
 <div ng-show="contractAddedSuccesfully" data-alert class="alert-box success radius">
 Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden <a href="#" class="close">&times;</a>
 </div>
-<table ng-repeat="x in contractDetail" width="100%">
+<table class="contractDetailsPage" ng-repeat="x in contractDetail" width="100%">
 	<tr>
 		<th colspan="2">
 			<h1>
@@ -99,7 +99,7 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 		<td>Container</td>
 		<td><div class="containerpos">{{x.name}}</div> <i class="fa fa-arrow-right"></i> <div class="segmentpos">{{x.container_department}}</div> <i class="fa fa-arrow-right"></i> <div class="placepos">{{x.container_contents_id}}</div>
 		<div class="right">
-			<button class="button button-3d button-action button-pill button-small" ng-click="removefromContainer(x.id)">Verplaats banden</button>
+			<button class="button button-3d button-action button-pill button-small" ng-click="changeContainerPosition(x.id)">Verplaats banden</button>
 			<button class="button button-3d button-caution button-pill button-small" ng-click="removefromContainer(x.id)">Verwijder</button>
 			
 		</div></td>
@@ -159,7 +159,55 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 </table>
 {{$rootScope.options}}
 
-<a ng-click="getOptions('redTire')">Test info</a>
+<div class="addToContainer" style="display: none;">
+	<div class="small-12 columns">
+		<div class="">
+			<h2>Containers</h2>
+			<div data-alert class="alert-box info radius">
+				Selecteer de nieuwe plek van de banden en sla op.
+			</div>
+			<ul class="inline-list">
+				<li class="panel container" ng-repeat="container in containers">
+					<div class="containerTitle">{{container.name}}</div>
+					<div class="clearfix" style="height: 80px">	
+						<b>Plaatsen: {{container.places}}</b><br>
+						<b>Vrij: {{container.free}}</b><br>
+					</div>
+					<div class="clearfix" style="background-color: #F9F9F9; padding: 20px 0;">
+						<a ng-click="selectContainer(container.id)" class="button button-highlight">Bekijk</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div id="contents" class="small-12 columns panel" style="display: inline-block;">
+			<div ng-repeat="(key, value) in places | groupBy: 'container_department'" class="small-12 medium-4 columns">
+				<div class="button button-block button-rounded button-large depTitle">{{key}}</div>
+				<table>
+					<tr>
+						<th>ID</th>
+						<th>Plaats</th>
+						<th>Status</th>
+					</tr>
+					<tr ng-repeat="place in value" class="zebra animate-repeat {{occupy(place.contracts_id)}}">
+						<td >{{place.id}}</td>
+						<td>{{place.place_name}} {{ place.contracts_id}}</td>
+						<td>
+							<div ng-if="place.contracts_id == ''">
+								<button id="place{{place.id}}" ng-click="placesSelected(place.id)" class="contentbutton button button-action button-pill">selecteer</button>
+							</div>
+							<div ng-if="place.contracts_id != ''">
+								<button class="button button-caution button-pill contentbutton">Bezet</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>	
+	</div>
+	<a ng-click="submitContractPoistioinChange()" class="button button-3d button-primary button-rounded right">Opslaan</a>
+</div>
+
 <a class="right button button-3d button-primary button-rounded" href="javascript:window.print()"> <i class="fa fa-print"></i> Print This Page</a>
+
 
 </div>

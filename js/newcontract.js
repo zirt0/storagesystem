@@ -351,6 +351,11 @@
 			}
 		}
 
+		$scope.cancelContract = function(){
+			location.reload();
+			
+		}
+
 			$scope.insertContractDB = function(){
 
 				console.log($scope.containerContentsId);

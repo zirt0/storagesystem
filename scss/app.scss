@@ -427,6 +427,7 @@ h1.headerTitle small{
 
 #tirelabels .tirelabel {
   height: 405px;
+  display: inline-table;
 }
 
 #tirelabels h3 {
@@ -487,6 +488,10 @@ h1.headerTitle small{
     font-size: 8px;
   }
 
+  #tirelabels span {
+  font-size: 15px;
+  }
+
   #tirelabels .small-9, #tirelabels .small-3 {
       float: left;
       display: inline-block;
@@ -501,6 +506,10 @@ h1.headerTitle small{
   display: none;
   }
 }
+
+#tirelabels span {
+  font-size: 15px;
+  }
 
 #tirelabels > div { 
   border: 1px solid #DDDDDD;
@@ -589,6 +598,12 @@ h1.headerTitle small{
 .smalltext {
   font-size: 9px;
 }
+
+.customerPage input {
+   margin-bottom: 0px;
+}
+
+
 
 /* ANIMATIONS
 ============================================================================= */

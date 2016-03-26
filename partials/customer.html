@@ -1,43 +1,50 @@
 <h1 class="headerTitle">Klantenbestand <small>Overzicht van klanten </small></h1>
-<div class="small-12 columns">
+<div class="small-12 columns customerPage">
 	<div class="panel">
 		<h2>Klantgegevens</h2>
+		<div ng-show="customerEditedSuccesfully" data-alert class="alert-box success radius">
+		Klant is succesvol gewijzigd.<a href="#" class="close">&times;</a>
+		</div>
 		<table width="100%">
 			<tr>
 				<td>Bedrijf</td>
-				<td>{{company}}</td>
+				<td><span>{{company}}</span> <input type="text" ng-model="company" value="{{company}}"></td>
 			</tr>
 			<tr>
 				<td>Voornaam</td>
-				<td>{{customerInfo.fname}}</td>
+				<td><span>{{fname}}</span> <input type="text" ng-model="fname" value="{{fname}}"></td>
 			</tr>
 			<tr>
 				<td>Achternaam</td>
-				<td>{{customerInfo.lname}}</td>
+				<td><span>{{lname}}</span> <input type="text" ng-model="lname" value="{{lname}}"></td>
 			</tr>
-			<tr>
-				<td>Kenteken</td>
-				<td class="kenteken">{{customerInfo.kenteken}}</td>
-			</tr>
+
 			<tr>
 				<td>Merk</td>
-				<td>{{customerInfo.merk}}</td>
+				<td><span>{{merk}} </span><input type="text" ng-model="merk" value="{{merk}}"></td>
 			</tr>
 			<tr>
 				<td>Tel</td>
-				<td><a href="tel:{{customerInfo.tel}}">{{customerInfo.tel}}</a></td>
+				<td><span><a href="tel:{{tel}}">{{tel}}</a></span> <input type="text" ng-model="tel" value="{{tel}}"></td>
 			</tr>
 			<tr>
 				<td>E-mail</td>
-				<td><a href="mailto:info@dummymail.nl">info@dummymail.nl</a></td>
+				<td><span><a href="mailto:{{email}}">{{email}}</a></span> <input type="text" ng-model="email" value="{{email}}"></td>
 			</tr>
 			<tr>
 				<td>Reg.Datum</td>
 				<td>{{customerInfo.regdate}}</td>
 			</tr>
 			<tr>
-				<td><button class="rbutton button-highlight button-rounded button-small">Bewerken</button></td>
-				<td></td>
+				<td>
+					<button ng-click="editCustomer()" class="editCustomer rbutton button-highlight button-rounded button-small">Bewerken</button>
+					
+				</td>
+				<td>
+					<button class="saveCustomer button-action button-rounded button-small" ng-click="saveCustomeredit()">Opslaan</button>
+					<button class="cancelCustomer button-caution button-rounded button-small" ng-click="cancelCustomeredit()">Cancel</button>
+
+				</td>
 			</tr>
 
 		</table>

@@ -10194,27 +10194,28 @@ h1.headerTitle small {
 /* line 428, ../scss/app.scss */
 #tirelabels .tirelabel {
   height: 405px;
+  display: inline-table;
 }
 
-/* line 432, ../scss/app.scss */
+/* line 433, ../scss/app.scss */
 #tirelabels h3 {
   font-size: 1.4rem;
   font-weight: bold;
 }
 
-/* line 438, ../scss/app.scss */
+/* line 439, ../scss/app.scss */
 .borderline {
   border: solid 1px #DDDDDD;
   margin-bottom: 20px;
   padding: 7px;
 }
 
-/* line 444, ../scss/app.scss */
+/* line 445, ../scss/app.scss */
 .printlabels {
   line-height: 10px;
   width: 190px;
 }
-/* line 448, ../scss/app.scss */
+/* line 449, ../scss/app.scss */
 .printlabels a {
   width: 100%;
   text-align: left;
@@ -10222,70 +10223,80 @@ h1.headerTitle small {
 
 @media print {
   /* insert your style declarations here */
-  /* line 458, ../scss/app.scss */
+  /* line 459, ../scss/app.scss */
   .tab-bar {
     display: none;
   }
 
-  /* line 461, ../scss/app.scss */
+  /* line 462, ../scss/app.scss */
   .borderline, #tirelabels table {
     margin-bottom: 10px;
   }
 
-  /* line 465, ../scss/app.scss */
+  /* line 466, ../scss/app.scss */
   button.goBack, #tirelabels .clearfix {
     display: none;
   }
 
-  /* line 469, ../scss/app.scss */
+  /* line 470, ../scss/app.scss */
   #tirelabels .small-6 {
     width: 50%;
     float: left;
   }
 
-  /* line 474, ../scss/app.scss */
+  /* line 475, ../scss/app.scss */
   #tirelabels .tirelabel {
     padding: 0;
   }
 
-  /* line 478, ../scss/app.scss */
+  /* line 479, ../scss/app.scss */
   #tirelabels .small-3 {
     font-size: 10px;
   }
 
-  /* line 482, ../scss/app.scss */
+  /* line 483, ../scss/app.scss */
   #tirelabels h3 {
     font-size: 18px;
   }
 
-  /* line 486, ../scss/app.scss */
+  /* line 487, ../scss/app.scss */
   #tirelabels .labelfooter {
     font-size: 8px;
   }
 
-  /* line 490, ../scss/app.scss */
+  /* line 491, ../scss/app.scss */
+  #tirelabels span {
+    font-size: 15px;
+  }
+
+  /* line 495, ../scss/app.scss */
   #tirelabels .small-9, #tirelabels .small-3 {
     float: left;
     display: inline-block;
     width: 40%;
   }
 
-  /* line 496, ../scss/app.scss */
+  /* line 501, ../scss/app.scss */
   .tirelabel > div {
     padding: 0;
   }
 
-  /* line 500, ../scss/app.scss */
+  /* line 505, ../scss/app.scss */
   a.printbutton {
     display: none;
   }
 }
-/* line 505, ../scss/app.scss */
+/* line 510, ../scss/app.scss */
+#tirelabels span {
+  font-size: 15px;
+}
+
+/* line 514, ../scss/app.scss */
 #tirelabels > div {
   border: 1px solid #DDDDDD;
 }
 
-/* line 509, ../scss/app.scss */
+/* line 518, ../scss/app.scss */
 .contractSteps {
   padding: 16px 100px;
   background-color: rgba(238, 238, 238, 0.49);
@@ -10295,23 +10306,23 @@ h1.headerTitle small {
   font-size: 18px;
 }
 
-/* line 517, ../scss/app.scss */
+/* line 526, ../scss/app.scss */
 .stepDetails {
   display: inline;
   margin-right: 10px;
 }
 
-/* line 522, ../scss/app.scss */
+/* line 531, ../scss/app.scss */
 .stepDetails i {
   margin-left: 4px;
 }
 
-/* line 526, ../scss/app.scss */
+/* line 535, ../scss/app.scss */
 .contractSteps > div {
   display: inline;
 }
 
-/* line 530, ../scss/app.scss */
+/* line 539, ../scss/app.scss */
 .contractSteps > div > span {
   background-color: white;
   color: #0880d7;
@@ -10326,19 +10337,19 @@ h1.headerTitle small {
   border: 4px solid #dddddd;
 }
 
-/* line 543, ../scss/app.scss */
+/* line 552, ../scss/app.scss */
 .contractSteps span.passedStep {
   background-color: #0880d7;
   color: white;
 }
 
-/* line 549, ../scss/app.scss */
+/* line 558, ../scss/app.scss */
 .tap-bar {
   position: fixed !important;
   width: 100% !important;
 }
 
-/* line 555, ../scss/app.scss */
+/* line 564, ../scss/app.scss */
 .tireIndicator {
   width: 30px;
   height: 30px;
@@ -10347,49 +10358,54 @@ h1.headerTitle small {
   border-radius: 50%;
 }
 
-/* line 563, ../scss/app.scss */
+/* line 572, ../scss/app.scss */
 .redTireIndicator {
   background-color: #f04124;
 }
 
-/* line 567, ../scss/app.scss */
+/* line 576, ../scss/app.scss */
 .orangeTireIndicator {
   background-color: #e59501;
 }
 
-/* line 571, ../scss/app.scss */
+/* line 580, ../scss/app.scss */
 .greenTireIndicator {
   background-color: #8bc220;
 }
 
-/* line 575, ../scss/app.scss */
+/* line 584, ../scss/app.scss */
 .tireIndicate input {
   display: inline-block;
   width: 75px;
 }
 
-/* line 579, ../scss/app.scss */
+/* line 588, ../scss/app.scss */
 .settings > div {
   padding-bottom: 40px;
   border-bottom: 1px solid #dddddd;
   padding-top: 40px;
 }
 
-/* line 585, ../scss/app.scss */
+/* line 594, ../scss/app.scss */
 .main-section {
   padding-top: 50px;
 }
 
-/* line 589, ../scss/app.scss */
+/* line 598, ../scss/app.scss */
 .smalltext {
   font-size: 9px;
+}
+
+/* line 602, ../scss/app.scss */
+.customerPage input {
+  margin-bottom: 0px;
 }
 
 /* ANIMATIONS
 ============================================================================= */
 /* page specific animations ------------------------ */
 /* home -------------------------- */
-/* line 616, ../scss/app.scss */
+/* line 631, ../scss/app.scss */
 .addToContainer .columns + .columns:last-child {
   float: left;
 }

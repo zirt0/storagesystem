@@ -13,6 +13,14 @@ $option_value = $request->option_value;
 $redTire = $request->redTire;
 $orangeTire = $request->orangeTire;
 $greenTire = $request->greenTire;
+
+$company = $request->company;
+$fname = $request->fname;
+$lname = $request->lname;
+$merk = $request->merk;
+$tel = $request->tel;
+$email = $request->email;
+
 //print $subject
 
 if($subject == "update_invoiceno"){
@@ -49,6 +57,26 @@ if($subject == "saveTires"){
 if($subject == "removefromcontainer"){
 
 	$sql = "UPDATE contracts SET container_contents_id = '0' WHERE id = '" . $value . "'";
+	$result = $conn->query($sql);
+	
+
+
+	$outp = $sql;
+}
+
+if($subject == "changeContractpos"){
+
+	$sql = "UPDATE contracts SET container_contents_id = '" . $value . "' WHERE id = '" . $id . "'";
+	$result = $conn->query($sql);
+	
+
+
+	$outp = $sql;
+}
+
+if($subject == "updateCustomer"){
+
+	$sql = "UPDATE customers SET company = '" . $company . "', fname = '" . $fname . "', lname = '" . $lname . "', merk = '" . $merk . "', tel = '" . $tel . "', email = '" . $email . "' WHERE id = '" . $id . "'";
 	$result = $conn->query($sql);
 	
 

@@ -6,11 +6,11 @@
 				<h2>Nieuwe Klanten</h2>
 				<table class="no-bullet">
 					<tr>
-						<th>Company</th>
+						<th>Naam</th>
 						<th>Date</th>
 					</tr>
 					<tr ng-repeat="x in customerSort">
-						<td><a href="/#/customers/{{x.id}}">{{x.company}}</a></td>
+						<td><a href="/#/customers/{{x.id}}">{{x.fname}} {{x.lname}} - {{x.company}}</a></td>
 						<td>{{x.date}}</td>
 					</tr>
 				</table>
@@ -27,7 +27,7 @@
 						<th>Status</th>
 					</tr>
 					<tr ng-repeat="x in invoiceSort">
-						<td><a href="/#/customers/{{x.customerid}}">{{x.company}}</a></td>
+						<td><a href="/#/customers/{{x.customerid}}">{{x.fname}} {{x.lname}} - {{x.company}}</a></td>
 						<td>{{x.date}} </td>
 						<td><span class="warning label">Nog te factureren</span></td>
 					</tr>
