@@ -27,6 +27,7 @@
 			controller:'checkCustomer'
 
 		})
+
 		.when('/customers/:id',{
 			templateUrl:'partials/customer.html',
 			controller:'customerInfo'
@@ -51,7 +52,7 @@
 		})
 
 		.when('/new-customer',{
-			templateUrl:'partials/new-customer.html',
+			templateUrl:'partials/addnewcustomer.html',
 			controller:'newCustomerCtrl'
 
 		})
@@ -421,6 +422,26 @@
 
 			$("td > input, button.saveCustomer, button.cancelCustomer").hide();
 			$("td > span, button.editCustomer").show();
+
+			//console.log("Edit Customer" + $scope.editComapny);
+		}
+
+		$scope.removeCustomer = function(id){
+
+			console.log(id);
+
+			var r = confirm("Weet u zeker dat u deze klant wilt verwijderen?");
+			if (r == true) {
+				$http.post("server/remove.php",{'subject': "remove_customer", 'id': id})
+			   	.success(function (response) {
+			   		console.log(response);
+			   	});
+			   	$location.path( "/customers" );
+			} else {
+				
+			}	
+
+			//remove customer
 
 			//console.log("Edit Customer" + $scope.editComapny);
 		}

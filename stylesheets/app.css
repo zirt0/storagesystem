@@ -10401,11 +10401,36 @@ h1.headerTitle small {
   margin-bottom: 0px;
 }
 
+/* line 606, ../scss/app.scss */
+.color_green {
+  background-color: #8BC21F;
+}
+
+/* line 610, ../scss/app.scss */
+.color_red {
+  background-color: #F04124;
+}
+
+/* line 614, ../scss/app.scss */
+.color_blue {
+  background-color: #008CBA;
+}
+
+/* line 618, ../scss/app.scss */
+.color_pink {
+  background-color: #E91E63;
+}
+
+/* line 622, ../scss/app.scss */
+.color_brown {
+  background-color: #79554F;
+}
+
 /* ANIMATIONS
 ============================================================================= */
 /* page specific animations ------------------------ */
 /* home -------------------------- */
-/* line 631, ../scss/app.scss */
+/* line 651, ../scss/app.scss */
 .addToContainer .columns + .columns:last-child {
   float: left;
 }

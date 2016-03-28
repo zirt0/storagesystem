@@ -51,17 +51,7 @@
         <div class="small-12 large-8 columns">
           <input type="text" ng-model="addNewlName" class="req"/>
         </div>
-      </div>  
-
-      <div class="small-12 columns">
-        <div class="small-12 large-4 columns">
-          <h2>Merk:</h2>
-        </div>
-        <div class="small-12 large-8 columns">
-          <input type="text" ng-model="addNewBrand"/>
-        </div>
       </div>
-
       <div class="small-12 columns">
         <div class="small-12 large-4 columns">
           <h2>Telefoon:</h2>
@@ -283,7 +273,9 @@
           <ul class="off-canvas-list">
             <li><label>Menu {{userRole}}</label></li>
             <li><a href="#/dashboard"><i class="fa fa-tachometer"></i> Dashboard</a></li>
-            <li><a href="#/customers"><i class="fa fa-users"></i> Klanten</a></li>
+            <li><a href="#/customers"><i class="fa fa-users"></i> Klanten</a>
+              <ul><li><a href="#/new-customer"><i class="fa fa-plus-square"></i>Klant Toevoegen</li></a></ul>
+            </li>
             <!-- <li><a href="#/storage"><i class="fa fa-building-o"></i> Opslag</a></li> -->
             <li><a href="#/contracts"><i class="fa fa-file-text"></i> Contracten</a></li>
             <div ng-if="userRole == 'admin'">

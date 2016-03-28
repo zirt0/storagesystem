@@ -49,6 +49,10 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 		<td class="kenteken">{{x.kenteken}}</td>
 	</tr>
 	<tr>
+		<td>Auto</td>
+		<td>{{x.car_brand}} - {{x.car_type}}</td>
+	</tr>
+	<tr>
 		<td>Telefoonnummer</td>
 		<td>{{x.tel}}</td>
 	</tr>
@@ -91,13 +95,21 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 		<td>Sezoen</td>
 		<td><div ng-bind-html="sezon(x.sezon)"></div>{{x.sezon}}</td>
 	</tr>
+	<tr>
+		<td>Velg</td>
+		<td><div ng-bind-html="conditionTF(x.velg)"></div></td>
+	</tr>
+	<tr>
+		<td>Run Flat</td>
+		<td><div ng-bind-html="conditionTF(x.flatrun)"></div></td>
+	</tr>
 
 	<tr>
 		<th colspan="2"><h3>Positie</h3></td>
 	</tr>
 	<tr>
 		<td>Container</td>
-		<td><div class="containerpos">{{x.name}}</div> <i class="fa fa-arrow-right"></i> <div class="segmentpos">{{x.container_department}}</div> <i class="fa fa-arrow-right"></i> <div class="placepos">{{x.container_contents_id}}</div>
+		<td><div class="containerpos">{{x.name}}</div> <i class="fa fa-arrow-right"></i> <div class="segmentpos">{{x.container_department}}</div> <i class="fa fa-arrow-right"></i> <div class="placepos">{{x.place_name}}</div>
 		<div class="right">
 			<button class="button button-3d button-action button-pill button-small" ng-click="changeContainerPosition(x.id)">Verplaats banden</button>
 			<button class="button button-3d button-caution button-pill button-small" ng-click="removefromContainer(x.id)">Verwijder</button>
@@ -125,10 +137,10 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 				</tr>
 				<tr>
 					<td>LV</td>
-					<td>{{x.LV_brand}}</td>
-					<td>{{x.LV_type}}</td>
-					<td class="{{tireProfile(x.LV_profile)}} tireprofile">{{x.LV_profile}}</td>
-					<td>{{x.LV_tiresize}}</td>
+					<td>{{x.LV_brand}}<input ng-model="edit_lvbrand"></td>
+					<td>{{x.LV_type}}<input ng-model="edit_lvtype"></td>
+					<td class="{{tireProfile(x.LV_profile)}} tireprofile">{{x.LV_profile}}<input type="text" ng-model="edit_lvprofile"></td>
+					<td>{{x.LV_tiresize}} <input ng-model="edit_lvtiresize"></td>
 				</tr>
 				<tr>
 					<td>RV</td>
@@ -157,6 +169,8 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 	</tr>
 
 </table>
+
+<button ng-click="testfields()">TestFields</button>
 {{$rootScope.options}}
 
 <div class="addToContainer" style="display: none;">

@@ -21,13 +21,7 @@
 		            <span ng-show="sortType == 'container_name' && sortReverse" class="fa fa-caret-up"></span>
 		          </a>
       		</th>
-			<th>
-				<a ng-click="sortType = 'place_name'; sortReverse = !sortReverse">
-		            Positie
-		            <span ng-show="sortType == 'place_name' && !sortReverse" class="fa fa-caret-down"></span>
-		            <span ng-show="sortType == 'place_name' && sortReverse" class="fa fa-caret-up"></span>
-		          </a>
-      		</th>
+			
 			<th>
 				<a ng-click="sortType = 'start_date'; sortReverse = !sortReverse">
 		            Start Datum
@@ -60,12 +54,11 @@
 		</tr>
 		<tr class="" ng-repeat="x in container | orderBy:sortType:sortReverse | filter:searchCustomer">
 		    <td>{{ x.id }}</td>
-		    <td>{{ x.company }}</td>
-		    <td>{{ x.name }}</td>
-		    <td>{{ x.container_contents_id }}</td>
+		    <td>{{ x.fname }} {{ x.lname }} - {{ x.company }}</td>
+		    <td>{{ x.name }} > {{ x.container_department}} > {{ x.place_name }} </td>
 		    <td>{{ x.start_date }}</td>
 		    <td>{{ x.end_date }}</td>
-		    <td>{{ differenceDate(x.start_date, x.end_date)}} Dagen</td>
+		    <td>{{ differenceDate(x.start_date, x.end_date)}} </td>
 		    <td ng-bind-html="invoicestatus(x.invoiceno)"></td>
 
 		    <td><a href="#/contracts/{{x.id}}" class="button button-action button-pill"> Bekijk </a></td>

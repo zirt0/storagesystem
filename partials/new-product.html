@@ -39,6 +39,108 @@
 			<input type="text" ng-model="kenteken" class="req" placeholder="vb: XX-ZZ-11"/>
 		</div>
 	</div>
+
+	<div class="clearfix">
+		<div class="small-12 large-4 columns">
+			<h2>Auto Merk</h2>
+		</div>
+		<div class="small-12 large-8 columns">
+			<div class="small-12 large-6 columns">
+				<select class="form-control" id="car_brand" name="car_brand" ng-model="car_brand">
+					<optgroup label="Populair">
+						<option value="" selected="selected">Kies een merk</option>
+						<option value="audi">Audi</option>
+						<option value="bmw">BMW</option>
+						<option value="ford">Ford</option>
+						<option value="peugeot">Peugeot</option>
+						<option value="opel">Opel</option>
+						<option value="volkswagen">Volkswagen</option>
+						<option value="volvo">Volvo</option>
+					</optgroup>
+					<optgroup label="Alle Merken">
+						<option value="abarth">Abarth</option>
+						<option value="alfa-romeo">Alfa Romeo</option>
+						<option value="aston-martin">Aston Martin</option>
+						<option value="audi">Audi</option>
+						<option value="austin">Austin</option>
+						<option value="austin-healey">Austin Healey</option>
+						<option value="autobianchi">Autobianchi</option>
+						<option value="bentley">Bentley</option>
+						<option value="bmw">BMW</option>
+						<option value="brommobiel">Brommobiel</option>
+						<option value="buick">Buick</option>
+						<option value="cadillac">Cadillac</option>
+						<option value="chevrolet">Chevrolet</option>
+						<option value="chrysler">Chrysler</option>
+						<option value="citroen">Citroën</option>
+						<option value="concorde">Concorde</option>
+						<option value="dacia">Dacia</option>
+						<option value="daewoo">Daewoo</option>
+						<option value="daihatsu">Daihatsu</option>
+						<option value="daimler">Daimler</option>
+						<option value="dodge">Dodge</option>
+						<option value="ds">DS</option>
+						<option value="ferrari">Ferrari</option>
+						<option value="fiat">Fiat</option>
+						<option value="fisker">Fisker</option>
+						<option value="ford">Ford</option>
+						<option value="ford-usa">Ford usa</option>
+						<option value="galloper">Galloper</option>
+						<option value="gmc">GMC</option>
+						<option value="honda">Honda</option>
+						<option value="hyundai">Hyundai</option>
+						<option value="infiniti">Infiniti</option>
+						<option value="isuzu">Isuzu</option>
+						<option value="iveco">Iveco</option>
+						<option value="jaguar">Jaguar</option>
+						<option value="jeep">Jeep</option>
+						<option value="kia">Kia</option>
+						<option value="lada">Lada</option>
+						<option value="lancia">Lancia</option>
+						<option value="land-rover">Land Rover</option>
+						<option value="landwind">Landwind</option>
+						<option value="ldv">LDV</option>
+						<option value="lexus">Lexus</option>
+						<option value="lincoln">Lincoln</option>
+						<option value="maserati">Maserati</option>
+						<option value="mazda">Mazda</option>
+						<option value="mercedes-benz">Mercedes-Benz</option>
+						<option value="mercury">Mercury</option>
+						<option value="mg">MG</option>
+						<option value="mini">Mini</option>
+						<option value="mitsubishi">Mitsubishi</option>
+						<option value="mitsubishi-fuso">Mitsubishi Fuso</option>
+						<option value="motorfiets">Motorfiets</option>
+						<option value="nissan">Nissan</option>
+						<option value="opel">Opel</option>
+						<option value="peugeot">Peugeot</option>
+						<option value="pontiac">Pontiac</option>
+						<option value="porsche">Porsche</option>
+						<option value="renault">Renault</option>
+						<option value="rimor">Rimor</option>
+						<option value="rolls-royce">Rolls-Royce</option>
+						<option value="rover">Rover</option>
+						<option value="saab">Saab</option>
+						<option value="seat">Seat</option>
+						<option value="skoda">Skoda</option>
+						<option value="smart">Smart</option>
+						<option value="ssangyong">SsangYong</option>
+						<option value="subaru">Subaru</option>
+						<option value="suzuki">Suzuki</option>
+						<option value="tesla">Tesla</option>
+						<option value="toyota">Toyota</option>
+						<option value="triumph">Triumph</option>
+						<option value="tvr">TVR</option>
+						<option value="volkswagen">Volkswagen</option>
+						<option value="volvo">Volvo</option>
+					</optgroup>
+				</select>
+			</div>
+			<div class="small-12 large-6 columns">
+				<input type="text" ng-model="car_type" class="req" placeholder="Model" ng-model="car_type"/>
+			</div>
+		</div>
+	</div>
 	<div class="clearfix">
 		<div class="small-12 large-4 columns">
 			<h2>Sezoen</h2>
@@ -62,7 +164,7 @@
 	</div>
 	<div class="clearfix">
 		<div class="small-12 large-4 columns">
-			<h2>FlatRun banden</h2>
+			<h2>Runflat banden</h2>
 		</div>
 		<div class="small-12 large-8 columns">
 			<switch id="enabled" name="enabled" ng-model="flatrun" class="green"></switch>
@@ -218,7 +320,7 @@
 					</tr>
 					<tr ng-repeat="place in value" class="zebra animate-repeat {{occupy(place.contracts_id)}}">
 						<td >{{place.id}}</td>
-						<td>{{place.place_name}} {{ place.contracts_id}}</td>
+						<td>{{place.place_name}}</td>
 						<td>
 							<div ng-if="place.contracts_id == ''">
 								<button id="place{{place.id}}" ng-click="placesSelected(place.id)" class="contentbutton button button-action button-pill">selecteer</button>

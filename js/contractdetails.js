@@ -1,5 +1,11 @@
 app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$routeParams', '$location', function ($scope, $rootScope, $http, $routeParams, $location) {
 
+		$scope.testfields = function(){
+
+	    	console.debug($scope.edit_lvprofile);
+
+	    }
+
 		window.setTimeout(function(){
 
 			$scope.$apply(function() {
@@ -19,6 +25,17 @@ app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$rout
 				return "green";
 			}else{
 				return "red";
+			}
+		};
+
+		$scope.conditionTF = function(value){
+			console.debug(value);
+
+			if(value == "true"){
+				return "Aanwezig";
+			}else if(value == "false"){
+
+				return "Geen";
 			}
 		};
 
@@ -203,6 +220,8 @@ app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$rout
 
 
 	    }
+
+
 
 		
 		//$rootScope.getOptions('redTire');

@@ -138,7 +138,7 @@ if($subject == "customerInfo"){
 	    $outp .= '{"id":"'  . $rs["id"] . '",';
 	    $outp .= '"company":"'  . $rs["company"] . '",';
 	    $outp .= '"fname":"'   . $rs["fname"]        . '",';
-	    $outp .= '"lname":"'   . $rs["fname"]        . '",';
+	    $outp .= '"lname":"'   . $rs["lname"]        . '",';
 	    $outp .= '"kenteken":"'   . $rs["kenteken"]        . '",';
 	    $outp .= '"merk":"'   . $rs["merk"]        . '",';
 	    $outp .= '"tel":"'   . $rs["tel"]        . '",';
@@ -210,7 +210,7 @@ if($subject == "contracts"){
 				LV_profile, RV_profile, LA_profile, RA_profile,
 				LV_tiresize, RV_tiresize, LA_tiresize, RA_tiresize,
 				flatrun, velg, comment,
-				container_content.container_department, container.name, container.color,
+				container_content.container_department, container_content.place_name, container.name, container.color,
 				users.name as username
 				FROM contracts
 				LEFT JOIN customers ON contracts.customer_id = customers.id
@@ -230,6 +230,8 @@ if($subject == "contracts"){
 	    
 	    $outp .= '{"id":"' . $rs["id"] . '",';
 	    $outp .= '"company":"' . $rs["company"] . '",';
+	    $outp .= '"fname":"' . $rs["fname"] . '",';
+	    $outp .= '"lname":"' . $rs["lname"] . '",';
 	    $outp .= '"place_name":"' . $rs["place_name"] . '",';
 	    $outp .= '"name":"' . $rs["name"] . '",';//name of the container contract_id
 		$outp .= '"container_contents_id":"' . $rs["container_contents_id"] . '",';
@@ -248,14 +250,14 @@ if($subject == "contracts"){
 if($subject == "contractdetail"){
 
 	//sort contracts on end date
-	$sql = 'SELECT contracts.id, contracts.kenteken, customer_id, employer, start_date, end_date, container_contents_id, invoiceno, 
+	$sql = 'SELECT contracts.id, contracts.kenteken, contracts.car_brand, contracts.car_type, customer_id, employer, start_date, end_date, container_contents_id, invoiceno, 
 				customers.company, customers.fname, customers.lname, customers.merk, customers.tel, tires.sezon,
 				LV_brand, RV_brand, LA_brand, RA_brand,
 				LV_type, RV_type, LA_type, RA_type,
 				LV_profile, RV_profile, LA_profile, RA_profile,
 				LV_tiresize, RV_tiresize, LA_tiresize, RA_tiresize,
 				flatrun, velg, comment,
-				container_content.container_department, container.name, container.color
+				container_content.container_department, container_content.place_name, container.name, container.color
 				FROM contracts
 				LEFT JOIN customers ON contracts.customer_id = customers.id
 				LEFT JOIN tires ON contracts.tires_id = tires.id
@@ -308,11 +310,15 @@ if($subject == "contractdetail"){
 	    $outp .= '"fname":"' . $rs["fname"] . '",';
 	    $outp .= '"merk":"' . $rs["merk"] . '",';
 	    $outp .= '"kenteken":"' . $rs["kenteken"] . '",';
+	    $outp .= '"car_brand":"' . $rs["car_brand"] . '",';
+	    $outp .= '"car_type":"' . $rs["car_type"] . '",';
+	    $outp .= '"kenteken":"' . $rs["kenteken"] . '",';
 	    $outp .= '"tel":"' . $rs["tel"] . '",';
 	    $outp .= '"customer_id":"' . $rs["customer_id"] . '",';
 	    
 	    $outp .= '"container_contents_id":"' . $rs["container_contents_id"] . '",';
 	    $outp .= '"container_department":"' . $rs["container_department"] . '",';
+	    $outp .= '"place_name":"' . $rs["place_name"] . '",';
 	    $outp .= '"name":"' . $rs["name"] . '",';
 	    $outp .= '"color":"' . $rs["color"] . '",';
 

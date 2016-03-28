@@ -112,7 +112,9 @@
 
 	    	var countError = 0;
 	    	var tireError = 0;
-			jQuery(".newProduct input.req,.newProduct select.req ").each(function(){
+			jQuery(".newProduct input.req, .newProduct select.req, select#car_brand ").each(function(){
+
+				console.log($scope.car_brand);
 				isFormValid = true;
 				if (jQuery(this).val() == '') { 
 					//console.log("5");
@@ -356,49 +358,52 @@
 			
 		}
 
-			$scope.insertContractDB = function(){
+		$scope.insertContractDB = function(){
 
-				console.log($scope.containerContentsId);
-				$http.post("server/insertcontract.php",{
-				'subject': "insert_contract",
-				'company_id': '' + $rootScope.chosenCustomerId + '' ,
-				'sezoen': '' + $scope.sezoen + '' ,
-				'velg': '' + $scope.velg + '' ,
-				'flatrun': '' + $scope.flatrun + '' ,
-				'kenteken': '' + $scope.kenteken + '' ,
-				//profiel
-				'lv_profile': '' + $scope.bandprofiel1 + '' ,
-				'rv_profile': '' + $scope.bandprofiel2 + '' ,
-				'la_profile': '' + $scope.bandprofiel3 + '' ,
-				'ra_profile': '' + $scope.bandprofiel4 + '' ,
-				//bandenmaat
-				'lv_bandenmaat': '' + $scope.bandmaat1 + '' ,
-				'rv_bandenmaat': '' + $scope.bandmaat2 + '' ,
-				'la_bandenmaat': '' + $scope.bandmaat3 + '' ,
-				'ra_bandenmaat': '' + $scope.bandmaat4 + '' ,
-				//merk
-				'lv_merk': '' + $scope.bandenmerk1 + '' ,
-				'rv_merk': '' + $scope.bandenmerk2 + '' ,
-				'la_merk': '' + $scope.bandenmerk3 + '' ,
-				'ra_merk': '' + $scope.bandenmerk4 + '' ,
-				//bandentype
-				'lv_bandtype': '' + $scope.bandtype1 + '',
-				'rv_bandtype': '' + $scope.bandtype2 + '',
-				'la_bandtype': '' + $scope.bandtype3 + '',
-				'ra_bandtype': '' + $scope.bandtype4 + '',
+			console.log($scope.containerContentsId);
+			$http.post("server/insertcontract.php",{
+			'subject': "insert_contract",
+			'company_id': '' + $rootScope.chosenCustomerId + '' ,
+			'sezoen': '' + $scope.sezoen + '' ,
+			'velg': '' + $scope.velg + '' ,
+			'flatrun': '' + $scope.flatrun + '' ,
+			'kenteken': '' + $scope.kenteken + '' ,
+			'car_brand': '' + $scope.car_brand + '' ,
+			'car_type': '' + $scope.car_type + '' ,
+			//profiel
+			'lv_profile': '' + $scope.bandprofiel1 + '' ,
+			'rv_profile': '' + $scope.bandprofiel2 + '' ,
+			'la_profile': '' + $scope.bandprofiel3 + '' ,
+			'ra_profile': '' + $scope.bandprofiel4 + '' ,
+			//bandenmaat
+			'lv_bandenmaat': '' + $scope.bandmaat1 + '' ,
+			'rv_bandenmaat': '' + $scope.bandmaat2 + '' ,
+			'la_bandenmaat': '' + $scope.bandmaat3 + '' ,
+			'ra_bandenmaat': '' + $scope.bandmaat4 + '' ,
+			//merk
+			'lv_merk': '' + $scope.bandenmerk1 + '' ,
+			'rv_merk': '' + $scope.bandenmerk2 + '' ,
+			'la_merk': '' + $scope.bandenmerk3 + '' ,
+			'ra_merk': '' + $scope.bandenmerk4 + '' ,
+			//bandentype
+			'lv_bandtype': '' + $scope.bandtype1 + '',
+			'rv_bandtype': '' + $scope.bandtype2 + '',
+			'la_bandtype': '' + $scope.bandtype3 + '',
+			'ra_bandtype': '' + $scope.bandtype4 + '',
 
-				'startdate': '' + $scope.sqlstartdateformat + '',
-				'enddate': '' + $scope.sqlenddateformat + '',
-				'duration': '' + $scope.duration + '',
-				'image': '' + $scope.duration + '',
-				'comment': '' + $scope.comment + '',
+			'startdate': '' + $scope.sqlstartdateformat + '',
+			'enddate': '' + $scope.sqlenddateformat + '',
+			'duration': '' + $scope.duration + '',
+			'image': '' + $scope.duration + '',
+			'comment': '' + $scope.comment + '',
 
-				'user_id': '' + $cookies.get("userId") + '',
+			'user_id': '' + $cookies.get("userId") + '',
 
-				'container_contents_id': '' + $scope.containerContentsId + ''
+			'container_contents_id': '' + $scope.containerContentsId + ''
 
 
-			})
+		})
+
 	.success(function (response){
 		$scope.a = response;
 		console.log("contract inserted " + $scope.a);

@@ -12,6 +12,9 @@ $velg 		= $request->velg;
 $flatrun 	= $request->flatrun;
 $kenteken 	= $request->kenteken;
 
+$car_brand 	= $request->car_brand;
+$car_type 	= $request->car_type;
+
 $lv_profile = $request->lv_profile;
 $rv_profile = $request->rv_profile;
 $la_profile = $request->la_profile;
@@ -57,7 +60,7 @@ $email = $request->email;
 
 if($subject == "insert_contract"){
 
-	$sql = "INSERT INTO contracts (customer_id, employer, start_date, end_date, container_contents_id, kenteken) VALUES ('" . $company_id . "','" . $user_id ."', '" . $startdate . "', '" . $enddate ."', '" . $container_contents_id . "', '" . $kenteken ."' )";
+	$sql = "INSERT INTO contracts (customer_id, employer, start_date, end_date, container_contents_id, kenteken, car_brand, car_type) VALUES ('" . $company_id . "','" . $user_id ."', '" . $startdate . "', '" . $enddate ."', '" . $container_contents_id . "', '" . $kenteken ."', '" . $car_brand . "', '" . $car_type ."' )";
 	$result = $conn->query($sql);
 	$contractid = $conn->insert_id;
 
@@ -74,7 +77,7 @@ if($subject == "insert_contract"){
 
 if($subject == "insert_newcustomer"){
 
-	$sql = "INSERT INTO customers (company, fname, lname, kenteken, merk, tel, email) VALUES ('" . $company . "','" . $fname ."', '" . $lname . "', '" . $kenteken ."', '" . $merk . "', '" . $tel . "', '" . $email . "' )";
+	$sql = "INSERT INTO customers (company, fname, lname, kenteken, tel, email) VALUES ('" . $company . "','" . $fname ."', '" . $lname . "', '" . $kenteken ."', '" . $tel . "', '" . $email . "' )";
 	$result = $conn->query($sql);
 	$customerid = $conn->insert_id;
 
