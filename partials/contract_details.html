@@ -137,10 +137,10 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 				</tr>
 				<tr>
 					<td>LV</td>
-					<td>{{x.LV_brand}}<input ng-model="edit_lvbrand"></td>
-					<td>{{x.LV_type}}<input ng-model="edit_lvtype"></td>
-					<td class="{{tireProfile(x.LV_profile)}} tireprofile">{{x.LV_profile}}<input type="text" ng-model="edit_lvprofile"></td>
-					<td>{{x.LV_tiresize}} <input ng-model="edit_lvtiresize"></td>
+					<td><span>{{x.LV_brand}}</span><input ng-model="edit_lvbrand"></td>
+					<td><span>{{x.LV_type}}</span><input ng-model="edit_lvtype"></td>
+					<td class="{{tireProfile(x.LV_profile)}} tireprofile"><span>{{x.LV_profile}}</span><input type="text" ng-model="edit_lvprofile"></td>
+					<td><span>{{x.LV_tiresize}}</span><input ng-model="edit_lvtiresize"></td>
 				</tr>
 				<tr>
 					<td>RV</td>
