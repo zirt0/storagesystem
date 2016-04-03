@@ -53,8 +53,6 @@ app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$rout
 
 			console.log(response);
 			});
-
-
 		};
 
 		$http.post("server/read.php",{'subject': "contractdetail", 'contractId': $scope.idContract})
@@ -80,7 +78,6 @@ app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$rout
 			}
 
 			return "<div class='bandrow'>" + perBand  + "</div>";
-
 		};
 
 		$scope.removefromContainer = function(id){
@@ -110,7 +107,6 @@ app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$rout
 					console.log("Get Y of optons " + y.option_name )
 				}
 			}
-
 		}
 
 		function animateOut(element_ID, animation) {
@@ -161,7 +157,6 @@ app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$rout
 			} else {
 				
 			}	
-
 		}
 
 		$scope.selectContainer = function(id){
@@ -182,7 +177,6 @@ app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$rout
 		      	scrollTop: $("#contents").offset().top
 		      });
 		  });
-
 	    }
 
 		$scope.placesSelected = function(id) {
@@ -218,9 +212,16 @@ app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$rout
 				
 			});
 
-
 	    }
 
+	    $("#bandenDetails tr td input").hide();
+
+		$scope.editTireinfo = function(){
+			console.log("edittireinfo");
+
+			$("#bandenDetails tr td input").toggle();
+			$("#bandenDetails tr td span").toggle();
+		}
 
 
 		

@@ -262,7 +262,7 @@
 		$rootScope.tireProfile = function(profile){
 			
 			var profile = Number(profile);
-			console.log(profile);
+			//console.log(profile);
 
 
 			if(profile <= $rootScope.redTireIndicator){

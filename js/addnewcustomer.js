@@ -77,6 +77,20 @@ function addnewcustomerFnc($scope, $http){
 		});
 
 	};
+
+	$scope.backNewCustomer = function(){
+
+		$scope.addCustomer = false;
+	}
+
+	$scope.resetNewCustomer = function(){
+
+		$scope.addNewCompany = "";
+		$scope.addNewfName = "";
+		$scope.addNewlName = "";
+		$scope.addNewPhone = "";
+		$scope.addNewEmail = "";
+	}
 }
 
 app.controller('newCustomerCtrl', ['$scope', '$rootScope', '$http' , '$routeParams', '$location', function ($scope, $rootScope, $http, $routeParams, $location) {
