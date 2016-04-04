@@ -5,15 +5,15 @@
 		<div class="button button-block button-rounded button-large depTitle">{{key}}</div>
 		<table>
 			<tr>
-				<th>ID</th>
 				<th>Plaats</th>
-				<th>Contract_ID</th>
+				<th>Klant</th>
+				<th>Kenteken</th>
 				<th>Status</th>
 			</tr>
 			<tr ng-repeat="place in value" class="zebra animate-repeat {{occupy(place.contracts_id)}}">
-				<td >{{place.id}}</td>
 				<td>{{place.place_name}}</td>
-				<td><a href="#/contracts/{{place.contracts_id}}">{{place.contracts_id}}. {{place.company}} {{place.fname}}{{place.lname}}</a></td>
+				<td><a href="#/contracts/{{place.contracts_id}}">{{place.fname}} {{place.lname}}</a></td>
+				<td>{{place.kenteken}}</td>
 				<td>{{occupy(place.contracts_id)}}</td>
 			</tr>
 		</table>

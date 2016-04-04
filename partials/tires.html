@@ -50,7 +50,7 @@
 		</tr>
 		<tr ng-repeat="x in banden | orderBy:sortType:sortReverse | filter:searchCustomer">
 		    <td>{{ x.id }}</td>
-		    <td>{{ x.company }}</td>
+		    <td>{{ x.fname }} {{ x.lname }} {{ x.company }}</td>
 		    <td>LV<br>
 		    	RV<br>
 		    	LA<br>

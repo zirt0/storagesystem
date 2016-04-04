@@ -199,13 +199,11 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 				<div class="button button-block button-rounded button-large depTitle">{{key}}</div>
 				<table>
 					<tr>
-						<th>ID</th>
 						<th>Plaats</th>
 						<th>Status</th>
 					</tr>
 					<tr ng-repeat="place in value" class="zebra animate-repeat {{occupy(place.contracts_id)}}">
-						<td >{{place.id}}</td>
-						<td>{{place.place_name}} {{ place.contracts_id}}</td>
+						<td>{{place.place_name}}</td>
 						<td>
 							<div ng-if="place.contracts_id == ''">
 								<button id="place{{place.id}}" ng-click="placesSelected(place.id)" class="contentbutton button button-action button-pill">selecteer</button>

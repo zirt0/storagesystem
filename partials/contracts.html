@@ -14,6 +14,13 @@
 		            <span ng-show="sortType == 'klant' && sortReverse" class="fa fa-caret-up"></span>
 		          </a>
       		</th>
+      		<th>
+				<a ng-click="sortType = 'klant'; sortReverse = !sortReverse">
+		            Kenteken
+		            <span ng-show="sortType == 'klant' && !sortReverse" class="fa fa-caret-down"></span>
+		            <span ng-show="sortType == 'klant' && sortReverse" class="fa fa-caret-up"></span>
+		          </a>
+      		</th>
 			<th>
 				<a ng-click="sortType = 'container_name'; sortReverse = !sortReverse">
 		            Container
@@ -55,6 +62,7 @@
 		<tr class="" ng-repeat="x in container | orderBy:sortType:sortReverse | filter:searchCustomer">
 		    <td>{{ x.id }}</td>
 		    <td>{{ x.fname }} {{ x.lname }} - {{ x.company }}</td>
+		    <td class="kenteken">{{ x.kenteken }}</td>
 		    <td>{{ x.name }} > {{ x.container_department}} > {{ x.place_name }} </td>
 		    <td>{{ x.start_date }}</td>
 		    <td>{{ x.end_date }}</td>

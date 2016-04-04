@@ -364,6 +364,7 @@
 		.success(function (response) {
 
 			$scope.customer = response.records;
+			console.log($scope.customer);
 
 		});
 

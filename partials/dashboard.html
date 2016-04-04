@@ -40,14 +40,14 @@
 				<h2>Banden met lage profiel<br><small>Banden onder 1.0 profiel</small></h2>
 				<table class="no-bullet">
 					<tr>
-						<th>Company</th>
+						<th>Klant</th>
 						<th>LV</th>
 						<th>RV</th>
 						<th>RA</th>
 						<th>LA</th>
 					</tr>
 					<tr ng-repeat="x in sortLowProfile">
-						<td><a href="/#/customers/{{x.id}}">{{x.company}}</a></td>
+						<td><a href="/#/customers/{{x.id}}">{{x.fname}} {{x.lname}}</a></td>
 						<td class="{{tireProfile(x.LV_profile)}} tireprofile">{{x.LV_profile}}</td>
 						<td class="{{tireProfile(x.RV_profile)}} tireprofile">{{x.RV_profile}}</td>
 						<td class="{{tireProfile(x.RA_profile)}} tireprofile">{{x.RA_profile}}</td>

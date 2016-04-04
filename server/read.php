@@ -38,7 +38,9 @@ if($subject == "customers"){
 	if($sort != ""){
 		$sql = "SELECT * FROM customers ORDER BY id DESC LIMIT " . $sort;
 	}else{
-		$sql = "SELECT * FROM customers";
+		$sql = "SELECT customers.id, customers.fname, customers.lname, contracts.car_brand, contracts.kenteken FROM customers
+	INNER JOIN contracts
+ 	WHERE contracts.customer_id = customers.id";
 	}
 
 	$result = $conn->query($sql);
@@ -51,6 +53,8 @@ if($subject == "customers"){
 	    $outp .= '"fname":"'   . $rs["fname"]        . '",';
 	    $outp .= '"lname":"'   . $rs["lname"]        . '",';
 	    $outp .= '"kenteken":"'   . $rs["kenteken"]        . '",';
+	    $outp .= '"car_brand":"'   . $rs["car_brand"]        . '",';
+	    $outp .= '"car_type":"'   . $rs["car_type"]        . '",';
 	    $outp .= '"tel":"'   . $rs["tel"]        . '",';
 	    $outp .= '"date":"'   . $rs["date"]        . '",';
 	    $outp .= '"merk":"'. $rs["merk"]    . '"}'; 
@@ -74,7 +78,7 @@ if($subject == "containerDepartment"){
 
 if($subject == "containerContent"){
 
-	$sql = "SELECT container_content.id as id,container_content.place_name, container_content.container_department, contracts.id as contracts_id, customers.company, customers.fname, customers.lname FROM container_content
+	$sql = "SELECT container_content.id as id,container_content.place_name, container_content.container_department, contracts.kenteken, contracts.id as contracts_id, customers.company, customers.fname, customers.lname FROM container_content
 			LEFT JOIN contracts ON contracts.container_contents_id = container_content.id
 			LEFT JOIN customers ON  contracts.customer_id = customers.id
 			WHERE container_id = " . $id;
@@ -90,6 +94,7 @@ if($subject == "containerContent"){
 	    $outp .= '"company":"'   . $rs["company"]        . '",';
 	    $outp .= '"fname":"'   . $rs["fname"]        . '",';
 	    $outp .= '"lname":"'   . $rs["lname"]        . '",';
+	    $outp .= '"kenteken":"'   . $rs["kenteken"]        . '",';
 	    $outp .= '"container_department":"'   . $rs["container_department"]        . '",';
 	    $outp .= '"status":"'. $rs["status"]    . '"}'; 
 	}
@@ -203,7 +208,7 @@ if($subject == "contracts"){
 	}
 
 	//sort contracts on end date
-	$sql = "SELECT contracts.id, customer_id, employer, start_date, end_date, container_contents_id, invoiceno, 
+	$sql = "SELECT contracts.id, contracts.kenteken, customer_id, employer, start_date, end_date, container_contents_id, invoiceno, 
 				customers.company, customers.fname, customers.lname, tires.sezon,
 				LV_brand, RV_brand, LA_brand, RA_brand,
 				LV_type, RV_type, LA_type, RA_type,
@@ -232,6 +237,7 @@ if($subject == "contracts"){
 	    $outp .= '"company":"' . $rs["company"] . '",';
 	    $outp .= '"fname":"' . $rs["fname"] . '",';
 	    $outp .= '"lname":"' . $rs["lname"] . '",';
+	    $outp .= '"kenteken":"' . $rs["kenteken"] . '",';
 	    $outp .= '"place_name":"' . $rs["place_name"] . '",';
 	    $outp .= '"name":"' . $rs["name"] . '",';//name of the container contract_id
 		$outp .= '"container_contents_id":"' . $rs["container_contents_id"] . '",';
@@ -385,7 +391,7 @@ if($subject == "tire_brands"){
 if($subject == "sortLowProfile"){
 
 	//sort contracts on end date
-	$sql = "SELECT *, customers.company, customers.id as customerId FROM tires 
+	$sql = "SELECT *, customers.company, customers.id as customerId, customers.fname, customers.lname FROM tires 
 			JOIN contracts ON tires.contract_id = contracts.id
 			JOIN customers ON contracts.customer_id = customers.id
 			WHERE LV_profile <= 1 OR RV_profile <= 1 OR LA_profile <= 1 OR RA_profile <= 1
@@ -399,6 +405,8 @@ if($subject == "sortLowProfile"){
 	    
 	    $outp .= '{"id":"' . $rs["id"] . '",';
 	    $outp .= '"company":"' . $rs["company"] . '",';
+		$outp .= '"fname":"' . $rs["fname"] . '",';
+		$outp .= '"lname":"' . $rs["lname"] . '",';
 	    $outp .= '"customer_id":"' . $rs["customerId"] . '",';
 	    $outp .= '"LV_profile":"' . $rs["LV_profile"] . '",';
 	    $outp .= '"RV_profile":"' . $rs["RV_profile"] . '",';
