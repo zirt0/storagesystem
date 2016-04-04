@@ -123,7 +123,7 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 	
 
 	<tr>
-		<th colspan="2"><h3>Banddetails<button ng-click="editTireinfo()" class="right">Bewerk bandgegevens</button></h3></td>
+		<th colspan="2"><h3>Banddetails<button ng-click="editTireinfo()" class="right button-small button-highlight button-rounded">Bewerk bandgegevens</button></h3></td>
 	</tr>
 	<tr>
 		<td colspan="2">
@@ -137,33 +137,33 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 				</tr>
 				<tr>
 					<td>LV</td>
-					<td><span>{{x.LV_brand}}</span><input ng-model="x.LV_brand" value="{{x.LV_brand}}" style="display: none;"></td>
-					<td><span>{{x.LV_type}}</span><input ng-model="x.LV_type" value="x.LV_type" style="display: none;"></td>
-					<td class="{{tireProfile(x.LV_profile)}} tireprofile"><span>{{x.LV_profile}}</span><input type="text" ng-model="x.LV_profile" value="{{x.LV_profile}}" style="display: none;"></td>
-					<td><span>{{x.LV_tiresize}}</span><input ng-model="x.LV_tiresize" value="{{x.LV_tiresize}}" style="display: none;"></td>
+					<td><span>{{LV_brand}}</span><input ng-model="LV_brand" value="{{LV_brand}}" style="display: none;"></td>
+					<td><span>{{LV_type}}</span><input ng-model="LV_type" value="{{LV_type}}" style="display: none;"></td>
+					<td class="{{tireProfile(LV_profile)}} tireprofile"><span>{{LV_profile}}</span><input type="text" ng-model="LV_profile" value="{{LV_profile}}" style="display: none;"></td>
+					<td><span>{{LV_tiresize}}</span><input ng-model="LV_tiresize" value="{{LV_tiresize}}" style="display: none;"></td>
 				</tr>
 				<tr>
 					<td>RV</td>
-					<td><span>{{x.RV_brand}}</span><input ng-model="x.RV_brand" value="{{x.RV_brand}}" style="display: none;"></td>
-					<td><span>{{x.RV_type}}</span><input ng-model="x.RV_type" value="x.RV_type" style="display: none;"></td>
-					<td class="{{tireProfile(x.RV_profile)}} tireprofile"><span>{{x.RV_profile}}</span><input type="text" ng-model="x.RV_profile" value="{{x.RV_profile}}" style="display: none;"></td>
-					<td><span>{{x.RV_tiresize}}</span><input ng-model="x.RV_tiresize" value="{{x.RV_tiresize}}" style="display: none;"></td>
+					<td><span>{{RV_brand}}</span><input ng-model="RV_brand" value="{{RV_brand}}" style="display: none;"></td>
+					<td><span>{{RV_type}}</span><input ng-model="RV_type" value="RV_type" style="display: none;"></td>
+					<td class="{{tireProfile(RV_profile)}} tireprofile"><span>{{RV_profile}}</span><input type="text" ng-model="RV_profile" value="{{RV_profile}}" style="display: none;"></td>
+					<td><span>{{RV_tiresize}}</span><input ng-model="RV_tiresize" value="{{RV_tiresize}}" style="display: none;"></td>
 				</tr>
 				<tr>
 					<td>LA</td>
-					<td><span>{{x.LA_brand}}</span><input ng-model="x.LA_brand" value="{{x.LA_brand}}" style="display: none;"></td>
-					<td><span>{{x.LA_type}}</span><input ng-model="x.LA_type" value="x.LA_type" style="display: none;"></td>
-					<td class="{{tireProfile(x.LA_profile)}} tireprofile"><span>{{x.LA_profile}}</span><input type="text" ng-model="x.LA_profile" value="{{x.LA_profile}}" style="display: none;"></td>
-					<td><span>{{x.LA_tiresize}}</span><input ng-model="x.LA_tiresize" value="{{x.LA_tiresize}}" style="display: none;"></td>
+					<td><span>{{x.LA_brand}}</span><input ng-model="LA_brand" value="{{LA_brand}}" style="display: none;"></td>
+					<td><span>{{LA_type}}</span><input ng-model="LA_type" value="LA_type" style="display: none;"></td>
+					<td class="{{tireProfile(LA_profile)}} tireprofile"><span>{{LA_profile}}</span><input type="text" ng-model="LA_profile" value="{{LA_profile}}" style="display: none;"></td>
+					<td><span>{{LA_tiresize}}</span><input ng-model="LA_tiresize" value="{{LA_tiresize}}" style="display: none;"></td>
 				</tr>
 				<tr>
 					<td>RA</td>
-					<td><span>{{x.RA_brand}}</span><input ng-model="x.RA_brand" value="{{x.RA_brand}}" style="display: none;"></td>
-					<td><span>{{x.RA_type}}</span><input ng-model="x.RA_type" value="x.RA_type" style="display: none;"></td>
-					<td class="{{tireProfile(x.RA_profile)}} tireprofile"><span>{{x.RA_profile}}</span><input type="text" ng-model="x.RA_profile" value="{{x.RA_profile}}" style="display: none;"></td>
-					<td><span>{{x.RA_tiresize}}</span><input ng-model="x.RA_tiresize" value="{{x.RA_tiresize}}" style="display: none;"></td>
+					<td><span>{{RA_brand}}</span><input ng-model="RA_brand" value="{{RA_brand}}" style="display: none;"></td>
+					<td><span>{{RA_type}}</span><input ng-model="RA_type" value="RA_type" style="display: none;"></td>
+					<td class="{{tireProfile(RA_profile)}} tireprofile"><span>{{RA_profile}}</span><input type="text" ng-model="RA_profile" value="{{RA_profile}}" style="display: none;"></td>
+					<td><span>{{RA_tiresize}}</span><input ng-model="RA_tiresize" value="{{RA_tiresize}}" style="display: none;"></td>
 				</tr>
-				<tr><td col="5"><button>Opslaan</button></td></tr>
+				<tr><td col="5"><button ng-click="saveTireInfo()">Opslaan</button></td></tr>
 			</table>
 
 		</td>

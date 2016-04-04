@@ -49,7 +49,9 @@ app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$rout
 
 				$scope.contractDetail = response.records;
 
-				//console.log($scope.contractDetail.invoiceno);
+				console.log($scope.contractDetail.invoiceno);
+
+
 
 			console.log(response);
 			});
@@ -60,9 +62,35 @@ app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$rout
 
 			$scope.contractDetail = response.records;
 
-			//console.log($scope.contractDetail.invoiceno);
+			$scope.LV_brand = $scope.contractDetail[0]["LV_brand"];
+			$scope.LV_merk = $scope.contractDetail[0]["LV_merk"];
+			$scope.LV_type = $scope.contractDetail[0]["LV_type"];
+			$scope.LV_profile = $scope.contractDetail[0]["LV_profile"];
+			$scope.LV_tiresize = $scope.contractDetail[0]["LV_tiresize"];
 
-		console.log(response);
+			$scope.RV_brand = $scope.contractDetail[0]["RV_brand"];
+			$scope.RV_merk = $scope.contractDetail[0]["RV_merk"];
+			$scope.RV_type = $scope.contractDetail[0]["RV_type"];
+			$scope.RV_profile = $scope.contractDetail[0]["RV_profile"];
+			$scope.RV_tiresize = $scope.contractDetail[0]["RV_tiresize"];
+
+			
+
+			$scope.LA_brand = $scope.contractDetail[0]["LA_brand"];
+			$scope.LA_merk = $scope.contractDetail[0]["LA_merk"];
+			$scope.LA_type = $scope.contractDetail[0]["LA_type"];
+			$scope.LA_profile = $scope.contractDetail[0]["LA_profile"];
+			$scope.LA_tiresize = $scope.contractDetail[0]["LA_tiresize"];
+
+			$scope.RA_brand = $scope.contractDetail[0]["RA_brand"];
+			$scope.RA_merk = $scope.contractDetail[0]["RA_merk"];
+			$scope.RA_type = $scope.contractDetail[0]["RA_type"];
+			$scope.RA_profile = $scope.contractDetail[0]["RA_profile"];
+			$scope.RA_tiresize = $scope.contractDetail[0]["RA_tiresize"];
+
+			console.log($scope.LA_brand);
+
+			console.log($scope.contractDetail);
 		});
 
 		$scope.bandDiepte = function(band){
@@ -221,6 +249,11 @@ app.controller('contractsDetailsCtrl', ['$scope', '$rootScope', '$http' , '$rout
 
 			$("#bandenDetails tr td input").toggle();
 			$("#bandenDetails tr td span").toggle();
+		}
+
+		$scope.saveTireInfo = function(){
+
+			alert($scope.LV_brand);
 		}
 
 
