@@ -134,7 +134,11 @@
 	        console.log("finished loading");
 	    });
 
-		$rootScope.userRole = $cookies.get("userRole");
+	    // $scope.$apply(function() {
+			$rootScope.userRole = $cookies.get("userRole");
+			console.log($rootScope.userRole);
+    	// });
+		
 
 		$http.post("server/read.php",{'subject': "options"})
 			.success(function (response) {
@@ -376,7 +380,7 @@
 
 	})
 
-	app.controller('customerInfo', ['$scope', '$http' , '$routeParams', function ($scope, $http,  $routeParams) {
+	app.controller('customerInfo', ['$scope', '$http' , '$routeParams', '$location', function ($scope, $http,  $routeParams, $location) {
 
 		$scope.idCustomers = $routeParams.id;
 
@@ -436,8 +440,9 @@
 				$http.post("server/remove.php",{'subject': "remove_customer", 'id': id})
 			   	.success(function (response) {
 			   		console.log(response);
+			   		$location.path( "/customers" );
 			   	});
-			   	$location.path( "/customers" );
+			   	
 			} else {
 				
 			}	

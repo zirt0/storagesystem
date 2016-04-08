@@ -24,6 +24,7 @@
 	   				$cookies.put('userRole', response["role"]);
 	   				$cookies.put('userName', response["name"]);
 	   				$cookies.put('userId', response["id"]);
+	   				$rootScope.userRole = $cookies.get("userRole");
 
 	   				//console.log("login" + response["role"]);
 	   				console.log($rootScope.loggedIn);

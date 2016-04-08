@@ -1,7 +1,7 @@
 <!-- {{idContainer}} -->
 <div style="min-height: 400px;" class="small-12 columns">
 
-	<div ng-repeat="(key, value) in places | groupBy: 'container_department'" class="small-12 medium-4  columns">
+	<div ng-repeat="(key, value) in places | groupBy: 'container_department'" class="small-12 medium-4  columns containerCon">
 		<div class="button button-block button-rounded button-large depTitle">{{key}}</div>
 		<table>
 			<tr>
@@ -16,10 +16,12 @@
 				<td>{{place.kenteken}}</td>
 				<td>{{occupy(place.contracts_id)}}</td>
 			</tr>
-		</table>
+		</table>		
 		<!-- <input type="text"> -->
-	</div>	
-	<!-- <a class="button button-3d button-action button-pill">Voeg afdeling!</a> -->
+	</div>
+	<button ng-click="addSegment()">+</button>
+	<button class="button button-3d button-action button-pill" ng-click="saveSegments()">Save</button>	
+	<!-- <a >Voeg afdeling!</a> -->
 </div>
 <div style="min-height: 400px;" class="small-12 columns panel">
 	<span>Verwijder container </span>	<a ng-click="deleteContainer()" class="button button-3d button-caution button-pill">Vewijder Container!</a>

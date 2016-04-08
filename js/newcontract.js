@@ -1,4 +1,4 @@
-	app.controller('newProductCtrl', ['$rootScope', '$scope', '$location', '$http', '$rootScope', 'Upload', '$timeout', '$cookies', function( $rootScope, $scope, $location, $http, $rootScope, Upload, $timeout, $cookies){
+	app.controller('newProductCtrl', ['$rootScope', '$scope', '$location', '$http', '$rootScope', '$timeout', '$cookies', function( $rootScope, $scope, $location, $http, $rootScope, $timeout, $cookies){
 		
 		$scope.bandprofiel = false;
 		$scope.bandmaat = true;
@@ -9,35 +9,12 @@
 		$scope.vierprofiel = true;
 		$scope.flatrun = false;
 		$scope.sezoen = "allsezoen";
+		$rootScope.chosenCustomer = "";
+		$rootScope.chosenCustomerId = "";
 
 		
 
 		console.log($rootScope.userId + " " + $rootScope.userName + " username and id");
-
-		/////
-		$scope.uploadFiles = function (files) {
-			console.log("")
-			$scope.files = files;
-			if (files && files.length) {
-				Upload.upload({
-					url: '#/uploaded/',
-					data: {
-						files: files
-					}
-				}).then(function (response) {
-					$timeout(function () {
-						$scope.result = response.data;
-					});
-				}, function (response) {
-					if (response.status > 0) {
-						$scope.errorMsg = response.status + ': ' + response.data;
-					}
-				}, function (evt) {
-					$scope.progress = 
-					Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-				});
-			}
-		};
 	    
 	    ///selectcontainer
 	    $http.post("server/read.php",{'subject': 'containers'})
@@ -75,7 +52,6 @@
 	    	$("button").removeClass("selectedContainer");
 	    	$("#place" + id + "").addClass("selectedContainer");
 	    }
-
 		//end selectcontainer
 
 		function animateOut(element_ID, animation) {
@@ -153,7 +129,7 @@
 			//is for test
 			//isFormValid = true;
 			
-			if(!isFormValid || countError != 0){
+			if(tireError != 0 || countError != 0){
 				
 			alert("Vult u a.u.b. de vereisde velden in." + countError);
 			console.log("3");
@@ -171,38 +147,7 @@
 			}
 	    }
 
-	    $scope.submit = function() {
-	    	if (form.file.$valid && $scope.file) {
-	    		$scope.upload($scope.file);
-	    	}
-	    };
 
-		    // upload on file select or drop
-		    $scope.upload = function (file) {
-		    	console.log("asdasd " + file)
-		    	Upload.upload({
-		    		url: '/uploaded/',
-		    		data: {file: file, 'username': $scope.username}
-		    	}).then(function (resp) {
-		    		console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-		    	}, function (resp) {
-		    		console.log('Error status: ' + resp.status);
-		    	}, function (evt) {
-		    		var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-		    		console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-		    	});
-		    };
-		    // for multiple files:
-		    $scope.uploadFiles = function (files) {
-		    	if (files && files.length) {
-		    		for (var i = 0; i < files.length; i++) {
-		          //Upload.upload({..., data: {file: files[i]}, ...})...;
-		      }
-		        // or send them all together for HTML5 browsers:
-		        //Upload.upload({..., data: {file: files}, ...})...;
-		    }
-		}
-		/////
 		$scope.$watch('enddate', function (val){
 		       
 			$scope.sqlenddateformat = $scope.sqlDateFormat($scope.enddate)
@@ -315,7 +260,7 @@
 			}
 		});
 		
-		console.log($scope.stardate);
+		//console.log($scope.stardate);
 
 		$scope.bandenmaat = "";
 
@@ -323,6 +268,7 @@
 			console.log("submitContract is pressed");
 			
 			isFormValid = true;
+			
 			jQuery("input.req, select.req ").each(function(){
 				if (jQuery(this).val() == '') { 
 					console.log("5");
