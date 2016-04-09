@@ -9787,38 +9787,39 @@ table tr:nth-of-type(even) {
   font-weight: bold;
   font-size: 15px;
   padding: 8px 20px;
+  text-transform: uppercase;
 }
 
-/* line 108, ../scss/app.scss */
+/* line 109, ../scss/app.scss */
 select {
   text-transform: capitalize;
 }
 
-/* line 112, ../scss/app.scss */
+/* line 113, ../scss/app.scss */
 .sezoen label {
   display: inline-block;
 }
 
-/* line 116, ../scss/app.scss */
+/* line 117, ../scss/app.scss */
 .sezoen label > input {
   /* HIDE RADIO */
   display: none;
 }
 
-/* line 119, ../scss/app.scss */
+/* line 120, ../scss/app.scss */
 .sezoen label > input + img, .sezoen label > input + button {
   /* IMAGE STYLES */
   cursor: pointer;
   border: 2px solid transparent;
 }
 
-/* line 123, ../scss/app.scss */
+/* line 124, ../scss/app.scss */
 .sezoen label > input:checked + img, .sezoen label > input:checked + button {
   /* (CHECKED) IMAGE STYLES */
   border: 2px solid #f00;
 }
 
-/* line 136, ../scss/app.scss */
+/* line 137, ../scss/app.scss */
 .profiel {
   background-color: red;
   display: inline-block;
@@ -9831,39 +9832,39 @@ select {
   margin-right: 4px;
 }
 
-/* line 148, ../scss/app.scss */
+/* line 149, ../scss/app.scss */
 .profiel.red, .red {
   background-color: #f04124;
 }
 
-/* line 152, ../scss/app.scss */
+/* line 153, ../scss/app.scss */
 .profiel.orange, .orange {
   background-color: #e59501;
 }
 
-/* line 155, ../scss/app.scss */
+/* line 156, ../scss/app.scss */
 .bandrow {
   margin-bottom: 5px;
 }
 
-/* line 159, ../scss/app.scss */
+/* line 160, ../scss/app.scss */
 .profiel.green, .green {
   background-color: #8BC220;
 }
 
-/* line 163, ../scss/app.scss */
+/* line 164, ../scss/app.scss */
 .green-icon {
   text-align: center;
   color: #8BC220;
 }
 
-/* line 168, ../scss/app.scss */
+/* line 169, ../scss/app.scss */
 .red-icon {
   text-align: center;
   color: #F04124;
 }
 
-/* line 173, ../scss/app.scss */
+/* line 174, ../scss/app.scss */
 .addCustomer {
   height: 46px;
   display: inline;
@@ -9873,19 +9874,19 @@ select {
   box-shadow: inset 1px 1px 2px;
 }
 
-/* line 182, ../scss/app.scss */
+/* line 183, ../scss/app.scss */
 .container, .addcontainerButton {
   width: 200px;
   margin-bottom: 20px;
 }
 
-/* line 188, ../scss/app.scss */
+/* line 189, ../scss/app.scss */
 .container {
   text-align: center;
   background-color: lightblue;
 }
 
-/* line 194, ../scss/app.scss */
+/* line 195, ../scss/app.scss */
 .containerColor {
   width: 90%;
   height: 20px;
@@ -9894,53 +9895,53 @@ select {
   margin: 0 auto;
 }
 
-/* line 202, ../scss/app.scss */
+/* line 203, ../scss/app.scss */
 input[data-toggle] {
   display: none;
 }
 
-/* line 205, ../scss/app.scss */
+/* line 206, ../scss/app.scss */
 input[data-toggle]:checked + label,
 input[data-toggle]:checked + label:active {
   background-color: salmon;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-/* line 210, ../scss/app.scss */
+/* line 211, ../scss/app.scss */
 .button-group.toggle li:not(first-child) {
   margin: 0 -0.9rem;
 }
 
-/* line 213, ../scss/app.scss */
+/* line 214, ../scss/app.scss */
 .Vrij {
   background-color: #8bc220 !important;
 }
 
-/* line 216, ../scss/app.scss */
+/* line 217, ../scss/app.scss */
 .depTitle {
   background-color: #0880d7 !important;
   color: white !important;
   text-transform: capitalize;
 }
 
-/* line 222, ../scss/app.scss */
+/* line 223, ../scss/app.scss */
 .highlight {
   border-color: red !important;
   background-color: rgba(255, 0, 0, 0.1) !important;
 }
 
-/* line 226, ../scss/app.scss */
+/* line 227, ../scss/app.scss */
 .segmentTitle {
   display: block;
   font-weight: bold;
 }
 
-/* line 230, ../scss/app.scss */
+/* line 231, ../scss/app.scss */
 label {
   display: inline-block;
 }
 
-/* line 234, ../scss/app.scss */
+/* line 235, ../scss/app.scss */
 label > input {
   /* HIDE RADIO */
   visibility: hidden;
@@ -9949,20 +9950,20 @@ label > input {
   /* Remove input from document flow */
 }
 
-/* line 238, ../scss/app.scss */
+/* line 239, ../scss/app.scss */
 label > input + img {
   /* IMAGE STYLES */
   cursor: pointer;
   border: 2px solid transparent;
 }
 
-/* line 242, ../scss/app.scss */
+/* line 243, ../scss/app.scss */
 label > input:checked + img {
   /* (RADIO CHECKED) IMAGE STYLES */
   border: 2px solid #f00;
 }
 
-/* line 246, ../scss/app.scss */
+/* line 247, ../scss/app.scss */
 .thumb {
   width: 24px;
   height: 24px;
@@ -9971,26 +9972,26 @@ label > input:checked + img {
   top: 7px;
 }
 
-/* line 254, ../scss/app.scss */
+/* line 255, ../scss/app.scss */
 form .progress {
   line-height: 15px;
 }
 
-/* line 258, ../scss/app.scss */
+/* line 259, ../scss/app.scss */
 .progress {
   display: inline-block;
   width: 100px;
   border: 3px groove #CCC;
 }
 
-/* line 264, ../scss/app.scss */
+/* line 265, ../scss/app.scss */
 .progress div {
   font-size: smaller;
   background: orange;
   width: 0;
 }
 
-/* line 270, ../scss/app.scss */
+/* line 271, ../scss/app.scss */
 .segmentpos, .containerpos, .placepos {
   display: inline-block;
   padding: 10px;
@@ -9999,22 +10000,22 @@ form .progress {
   font-weight: bold;
 }
 
-/* line 278, ../scss/app.scss */
+/* line 279, ../scss/app.scss */
 .containerpos {
   background-color: #e59501;
 }
 
-/* line 281, ../scss/app.scss */
+/* line 282, ../scss/app.scss */
 .segmentpos {
   background-color: #e59501;
 }
 
-/* line 284, ../scss/app.scss */
+/* line 285, ../scss/app.scss */
 .placepos {
   background-color: #e59501;
 }
 
-/* line 288, ../scss/app.scss */
+/* line 289, ../scss/app.scss */
 .tireprofile {
   display: inline-block;
   border-radius: 10px;
@@ -10023,57 +10024,57 @@ form .progress {
   text-align: center;
 }
 
-/* line 295, ../scss/app.scss */
+/* line 296, ../scss/app.scss */
 .dashboard .tireprofile {
   display: table-cell;
 }
 
-/* line 298, ../scss/app.scss */
+/* line 299, ../scss/app.scss */
 .tireGood {
   background-color: #8bc220;
 }
 
-/* line 301, ../scss/app.scss */
+/* line 302, ../scss/app.scss */
 .tireNormal {
   background-color: #e59501;
 }
 
-/* line 304, ../scss/app.scss */
+/* line 305, ../scss/app.scss */
 .tireBad {
   background-color: #f04124;
 }
 
-/* line 307, ../scss/app.scss */
+/* line 308, ../scss/app.scss */
 .right-small {
   text-align: center;
 }
 
-/* line 310, ../scss/app.scss */
+/* line 311, ../scss/app.scss */
 .right-small .menu-icon {
   text-indent: 0;
 }
 
-/* line 313, ../scss/app.scss */
+/* line 314, ../scss/app.scss */
 .dashboard .small-12 > .small-12 {
   height: 330px;
 }
 
-/* line 316, ../scss/app.scss */
+/* line 317, ../scss/app.scss */
 .banden td {
   vertical-align: top;
 }
 
-/* line 320, ../scss/app.scss */
+/* line 321, ../scss/app.scss */
 .left-off-canvas-menu {
   background: #1d2b36;
 }
 
-/* line 325, ../scss/app.scss */
+/* line 326, ../scss/app.scss */
 ul.off-canvas-list li a, ul.off-canvas-list li ul li a {
   color: #c3def1;
 }
 
-/* line 328, ../scss/app.scss */
+/* line 329, ../scss/app.scss */
 .panel h2 {
   text-transform: uppercase;
   font-weight: bold;
@@ -10081,13 +10082,13 @@ ul.off-canvas-list li a, ul.off-canvas-list li ul li a {
   color: #646464;
 }
 
-/* line 334, ../scss/app.scss */
+/* line 335, ../scss/app.scss */
 .panel {
   border-color: white;
   background: #fff;
 }
 
-/* line 339, ../scss/app.scss */
+/* line 340, ../scss/app.scss */
 .headerTitle {
   background-image: url("/lib/img/titlebackground.png");
   padding: 90px 10px 20px 30px;
@@ -10097,24 +10098,24 @@ ul.off-canvas-list li a, ul.off-canvas-list li ul li a {
   background-position-y: 0;
 }
 
-/* line 348, ../scss/app.scss */
+/* line 349, ../scss/app.scss */
 ul > li > a > i.fa {
   margin-right: 10px;
 }
 
-/* line 352, ../scss/app.scss */
+/* line 353, ../scss/app.scss */
 h1.headerTitle small {
   display: block;
   color: #cccccc;
   margin-top: 4px;
 }
 
-/* line 357, ../scss/app.scss */
+/* line 358, ../scss/app.scss */
 .panel.container {
   padding: 0px;
 }
 
-/* line 361, ../scss/app.scss */
+/* line 362, ../scss/app.scss */
 .containerTitle {
   background-color: #5C90D2;
   color: white;
@@ -10123,56 +10124,56 @@ h1.headerTitle small {
   padding: 5px;
 }
 
-/* line 369, ../scss/app.scss */
+/* line 370, ../scss/app.scss */
 .clearfix {
   min-height: 140px;
   padding: 20px;
 }
 
-/* line 374, ../scss/app.scss */
+/* line 375, ../scss/app.scss */
 .newProduct > .clearfix:nth-of-type(even) {
   background-color: #f5f7f6;
 }
 
-/* line 378, ../scss/app.scss */
+/* line 379, ../scss/app.scss */
 ::-webkit-input-placeholder {
   color: #999999;
   font-style: italic;
 }
 
-/* line 383, ../scss/app.scss */
+/* line 384, ../scss/app.scss */
 :-moz-placeholder {
   /* Firefox 18- */
   color: #999999;
   font-style: italic;
 }
 
-/* line 388, ../scss/app.scss */
+/* line 389, ../scss/app.scss */
 ::-moz-placeholder {
   /* Firefox 19+ */
   color: #999999;
   font-style: italic;
 }
 
-/* line 393, ../scss/app.scss */
+/* line 394, ../scss/app.scss */
 :-ms-input-placeholder {
   color: #999999;
   font-style: italic;
 }
 
-/* line 398, ../scss/app.scss */
+/* line 399, ../scss/app.scss */
 .bandSync {
   background-color: #F5F7F6;
   padding: 30px;
   margin-bottom: 30px;
 }
 
-/* line 404, ../scss/app.scss */
+/* line 405, ../scss/app.scss */
 .exit-off-canvas {
   height: 100%;
 }
 
-/* line 412, ../scss/app.scss */
+/* line 413, ../scss/app.scss */
 .selectedContainer {
   background-color: #e59501 !important;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -10186,35 +10187,35 @@ h1.headerTitle small {
   box-shadow: inset 0 7px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* line 424, ../scss/app.scss */
+/* line 425, ../scss/app.scss */
 .contentbutton {
   width: 100%;
 }
 
-/* line 428, ../scss/app.scss */
+/* line 429, ../scss/app.scss */
 #tirelabels .tirelabel {
   height: 405px;
 }
 
-/* line 433, ../scss/app.scss */
+/* line 434, ../scss/app.scss */
 #tirelabels h3 {
   font-size: 1.4rem;
   font-weight: bold;
 }
 
-/* line 439, ../scss/app.scss */
+/* line 440, ../scss/app.scss */
 .borderline {
   border: solid 1px #DDDDDD;
   margin-bottom: 20px;
   padding: 7px;
 }
 
-/* line 445, ../scss/app.scss */
+/* line 446, ../scss/app.scss */
 .printlabels {
   line-height: 10px;
   width: 190px;
 }
-/* line 449, ../scss/app.scss */
+/* line 450, ../scss/app.scss */
 .printlabels a {
   width: 100%;
   text-align: left;
@@ -10222,80 +10223,80 @@ h1.headerTitle small {
 
 @media print {
   /* insert your style declarations here */
-  /* line 459, ../scss/app.scss */
+  /* line 460, ../scss/app.scss */
   .tab-bar {
     display: none;
   }
 
-  /* line 462, ../scss/app.scss */
+  /* line 463, ../scss/app.scss */
   .borderline, #tirelabels table {
     margin-bottom: 10px;
   }
 
-  /* line 466, ../scss/app.scss */
+  /* line 467, ../scss/app.scss */
   button.goBack, #tirelabels .clearfix {
     display: none;
   }
 
-  /* line 470, ../scss/app.scss */
+  /* line 471, ../scss/app.scss */
   #tirelabels .small-6 {
     width: 50%;
     float: left;
   }
 
-  /* line 475, ../scss/app.scss */
+  /* line 476, ../scss/app.scss */
   #tirelabels .tirelabel {
     padding: 0;
   }
 
-  /* line 479, ../scss/app.scss */
+  /* line 480, ../scss/app.scss */
   #tirelabels .small-3 {
     font-size: 10px;
   }
 
-  /* line 483, ../scss/app.scss */
+  /* line 484, ../scss/app.scss */
   #tirelabels h3 {
     font-size: 18px;
   }
 
-  /* line 487, ../scss/app.scss */
+  /* line 488, ../scss/app.scss */
   #tirelabels .labelfooter {
     font-size: 8px;
   }
 
-  /* line 491, ../scss/app.scss */
+  /* line 492, ../scss/app.scss */
   #tirelabels span {
     font-size: 15px;
   }
 
-  /* line 495, ../scss/app.scss */
+  /* line 496, ../scss/app.scss */
   #tirelabels .small-9, #tirelabels .small-3 {
     float: left;
     display: inline-block;
     width: 40%;
   }
 
-  /* line 501, ../scss/app.scss */
+  /* line 502, ../scss/app.scss */
   .tirelabel > div {
     padding: 0;
   }
 
-  /* line 505, ../scss/app.scss */
+  /* line 506, ../scss/app.scss */
   a.printbutton {
     display: none;
   }
 }
-/* line 510, ../scss/app.scss */
+/* line 511, ../scss/app.scss */
 #tirelabels span {
   font-size: 15px;
 }
 
-/* line 514, ../scss/app.scss */
+/* line 515, ../scss/app.scss */
 #tirelabels > div {
   border: 1px solid #DDDDDD;
 }
 
-/* line 518, ../scss/app.scss */
+/* line 519, ../scss/app.scss */
 .contractSteps {
   padding: 16px 100px;
   background-color: rgba(238, 238, 238, 0.49);
@@ -10305,23 +10306,23 @@ h1.headerTitle small {
   font-size: 18px;
 }
 
-/* line 526, ../scss/app.scss */
+/* line 527, ../scss/app.scss */
 .stepDetails {
   display: inline;
   margin-right: 10px;
 }
 
-/* line 531, ../scss/app.scss */
+/* line 532, ../scss/app.scss */
 .stepDetails i {
   margin-left: 4px;
 }
 
-/* line 535, ../scss/app.scss */
+/* line 536, ../scss/app.scss */
 .contractSteps > div {
   display: inline;
 }
 
-/* line 539, ../scss/app.scss */
+/* line 540, ../scss/app.scss */
 .contractSteps > div > span {
   background-color: white;
   color: #0880d7;
@@ -10336,19 +10337,19 @@ h1.headerTitle small {
   border: 4px solid #dddddd;
 }
 
-/* line 552, ../scss/app.scss */
+/* line 553, ../scss/app.scss */
 .contractSteps span.passedStep {
   background-color: #0880d7;
   color: white;
 }
 
-/* line 558, ../scss/app.scss */
+/* line 559, ../scss/app.scss */
 .tap-bar {
   position: fixed !important;
   width: 100% !important;
 }
 
-/* line 564, ../scss/app.scss */
+/* line 565, ../scss/app.scss */
 .tireIndicator {
   width: 30px;
   height: 30px;
@@ -10357,79 +10358,87 @@ h1.headerTitle small {
   border-radius: 50%;
 }
 
-/* line 572, ../scss/app.scss */
+/* line 573, ../scss/app.scss */
 .redTireIndicator {
   background-color: #f04124;
 }
 
-/* line 576, ../scss/app.scss */
+/* line 577, ../scss/app.scss */
 .orangeTireIndicator {
   background-color: #e59501;
 }
 
-/* line 580, ../scss/app.scss */
+/* line 581, ../scss/app.scss */
 .greenTireIndicator {
   background-color: #8bc220;
 }
 
-/* line 584, ../scss/app.scss */
+/* line 585, ../scss/app.scss */
 .tireIndicate input {
   display: inline-block;
   width: 75px;
 }
 
-/* line 588, ../scss/app.scss */
+/* line 589, ../scss/app.scss */
 .settings > div {
   padding-bottom: 40px;
   border-bottom: 1px solid #dddddd;
   padding-top: 40px;
 }
 
-/* line 594, ../scss/app.scss */
+/* line 595, ../scss/app.scss */
 .main-section {
   padding-top: 50px;
 }
 
-/* line 598, ../scss/app.scss */
+/* line 599, ../scss/app.scss */
 .smalltext {
   font-size: 9px;
 }
 
-/* line 602, ../scss/app.scss */
+/* line 603, ../scss/app.scss */
 .customerPage input {
   margin-bottom: 0px;
 }
 
-/* line 606, ../scss/app.scss */
+/* line 607, ../scss/app.scss */
 .color_green {
   background-color: #8BC21F;
 }
 
-/* line 610, ../scss/app.scss */
+/* line 611, ../scss/app.scss */
 .color_red {
   background-color: #F04124;
 }
 
-/* line 614, ../scss/app.scss */
+/* line 615, ../scss/app.scss */
 .color_blue {
   background-color: #008CBA;
 }
 
-/* line 618, ../scss/app.scss */
+/* line 619, ../scss/app.scss */
 .color_pink {
   background-color: #E91E63;
 }
 
-/* line 622, ../scss/app.scss */
+/* line 623, ../scss/app.scss */
 .color_brown {
   background-color: #79554F;
+}
+
+/* line 627, ../scss/app.scss */
+.copybutton {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 200px;
 }
 
 /* ANIMATIONS
 ============================================================================= */
 /* page specific animations ------------------------ */
 /* home -------------------------- */
-/* line 651, ../scss/app.scss */
+/* line 658, ../scss/app.scss */
 .addToContainer .columns + .columns:last-child {
   float: left;
 }

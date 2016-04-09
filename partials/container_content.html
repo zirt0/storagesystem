@@ -2,7 +2,7 @@
 <div style="min-height: 400px;" class="small-12 columns">
 
 	<div ng-repeat="(key, value) in places | groupBy: 'container_department'" class="small-12 medium-4  columns containerCon">
-		<div class="button button-block button-rounded button-large depTitle">{{key}}</div>
+		<div class="text-center button-block button-rounded button-large depTitle" style="padding: 0 10px">{{key}} <span ng-click="removeContainer(key)" class="right"><i class="fa fa-times"></i></span></div>
 		<table>
 			<tr>
 				<th>Plaats</th>

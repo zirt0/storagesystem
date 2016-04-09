@@ -40,8 +40,35 @@ if($subject == "customers"){
 	}else{
 		$sql = "SELECT customers.id, customers.fname, customers.lname, contracts.car_brand, contracts.kenteken FROM customers
 	INNER JOIN contracts
- 	WHERE contracts.customer_id = customers.id";
+ 	WHERE contracts.customer_id = customers.id GROUP BY id";
 	}
+
+	$result = $conn->query($sql);
+
+	$outp = "";
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    $outp .= '{"id":"'  . $rs["id"] . '",';
+	    $outp .= '"company":"'  . $rs["company"] . '",';
+	    $outp .= '"fname":"'   . $rs["fname"]        . '",';
+	    $outp .= '"lname":"'   . $rs["lname"]        . '",';
+	    $outp .= '"kenteken":"'   . $rs["kenteken"]        . '",';
+	    $outp .= '"car_brand":"'   . $rs["car_brand"]        . '",';
+	    $outp .= '"car_type":"'   . $rs["car_type"]        . '",';
+	    $outp .= '"tel":"'   . $rs["tel"]        . '",';
+	    $outp .= '"date":"'   . $rs["date"]        . '",';
+	    $outp .= '"merk":"'. $rs["merk"]    . '"}'; 
+	}
+	$outp ='{"records":['.$outp.']}';
+}
+
+if($subject == "customer_select"){
+
+
+	$sql = "SELECT customers.id, customers.fname, customers.lname, contracts.car_brand, contracts.kenteken FROM customers
+	INNER JOIN contracts
+ 	WHERE contracts.customer_id = customers.id";
+
 
 	$result = $conn->query($sql);
 
@@ -262,7 +289,7 @@ if($subject == "contractdetail"){
 				LV_type, RV_type, LA_type, RA_type,
 				LV_profile, RV_profile, LA_profile, RA_profile,
 				LV_tiresize, RV_tiresize, LA_tiresize, RA_tiresize,
-				flatrun, velg, comment,
+				tires.id as tire_id, flatrun, velg, comment,
 				container_content.container_department, container_content.place_name, container.name, container.color
 				FROM contracts
 				LEFT JOIN customers ON contracts.customer_id = customers.id
@@ -306,6 +333,7 @@ if($subject == "contractdetail"){
 	    $outp .= '"flatrun":"' . $rs["flatrun"] . '",';
 	    $outp .= '"sezon":"' . $rs["sezon"] . '",';
 	    $outp .= '"velg":"' . $rs["velg"] . '",';
+	    $outp .= '"tire_id":"' . $rs["tire_id"] . '",';
 
 	   	$outp .= '"start_date":"' . $rs["start_date"] . '",';
 	    $outp .= '"end_date":"' . $rs["end_date"] . '",';

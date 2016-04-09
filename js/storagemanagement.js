@@ -36,7 +36,8 @@ app.controller('containerContentCtrl', ['$scope', '$http' , '$routeParams', '$lo
 
     .success(function (response) {
 
-      //console.log(response);
+      console.log("TEEEEESSTTT");
+      console.log(response);
       $scope.places = response.records;
 
       // $scope.company = $scope.customerInfo['company']
@@ -75,11 +76,11 @@ app.controller('containerContentCtrl', ['$scope', '$http' , '$routeParams', '$lo
       plaatsen += '<option value="' + i + '">' + i +'</option>';
     }
 
-    var segments = $( ".addSegmentCon" ).length + 1;
+    var segments = $( ".addSegmentCon" ).length;
 
     var segment = '<div class="small-4 columns addSegmentCon">';
     segment += '<div class="segmentTitle">Segment toevoegen</div>';
-    segment += '<input type="text" name="segmentName'+ segments +'" id="segmentName'+ segments +'" placeholder="Segment Naam">';
+    segment += '<input type="text" name="segmentNames'+ segments +'" id="segmentNames'+ segments +'" placeholder="Segment Naam">';
     segment += '<select name="places'+ segments +'" id="places'+ segments +'">';
     segment += plaatsen;
     segment += '</select>';
@@ -102,8 +103,8 @@ $scope.saveSegments = function(){
   console.debug(segments);
 
   for(i = 0; i < segments; i++){
-    console.log('#segmentName' + i);
-    var name = $('#segmentName' + i).val();
+    console.log('#segmentNames' + i);
+    var name = $('#segmentNames' + i).val();
     var placeamount = $('#places'+ i).val();
     //console.log(i + " " + segments);
     
@@ -120,65 +121,32 @@ $scope.saveSegments = function(){
   json ='['+ json +']';
   console.log(json);
 
+  $http.post("server/insert.php",{'subject': "addSegment", "id": $scope.idContainer
+   , "segment" : json })
+   .success(function (response) {
+      console.log(response);
+      location.reload();
+    });
+
   //check is everything is filled in
 
   //if everything is filled in  
 
 }
 
- $scope.saveSegments1 = function(){
 
-      console.log($scope.containerColor + " " + $scope.containerName );
-      
-      //check if all fields are filled
-      if($scope.containerName != undefined && $scope.containerColor != undefined){
-        
-        //check the screen and swicth
-        if ( $('.screen2').css('display') == 'none' ){
-          $('.screen1').hide();
-          $('.screen2').show();
+  $scope.removeContainer = function(naam){
 
-          console.log("show screen2");
-        }else if($('.screen1').css('display') == 'none'){
-          
-          var segmentInputs; 
-          var segments = $( ".addSegment" ).length + 1; //count segment amounts
-          var json = "";
-
-          for(i = 1; i < segments; i++){
-            console.log('#segmentName' + i);
-            var name = $('#segmentName' + i).val();
-            var placeamount = $('#places'+ i).val();
-            //console.log(i + " " + segments);
-            
-            if(i == segments-1){
-              var record = '{"segment":"' + name + '", "placeAmount":"' + placeamount + '"}'; 
-            }else{
-              var record = '{"segment":"' + name + '", "placeAmount":"' + placeamount + '"},';  
-            }
-            
-            json += record;
-          }
-          json ='['+ json +']';
-          console.log(json);
-          // add to database
-
-          $http.post("server/insert.php",{'subject': "addContainer", "containerName": $scope.containerName
-   ,"containerColor":  $scope.containerColor , "segment" : json })
-             .success(function (response) {
-                console.log(response);
-              });
-                 $rootScope.loadContainers();            
-          
-          console.log("clicked on second next");
-          $('#firstModal').foundation('reveal', 'close');
-          //$location.path( "/storage-management" );
-          $rootScope.containersCheck = 1;
-          
-          }
-
-        }else{
-          alert("vul vereisde velden in..");
-        }
+    console.log("Segmentnaam " + naam + " containernaamId " + $scope.idContainer);
+var r = confirm("Weet u zeker dat u deze segment wilt verwijderen, alle gegevens in deze segment worden verwijderd.");
+    if (r == true) {
+      $http.post("server/remove.php",{'subject': "removeSegment", "id": $scope.idContainer, "segmentName": naam })
+     .success(function (response) {
+        console.log(response);
+        location.reload();
+      });
     }
+    
+  }
+
 }]);

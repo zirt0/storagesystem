@@ -6,11 +6,14 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 	<tr>
 		<th colspan="2">
 			<h1>
-				<a href="#/customers/{{x.customer_id }}">{{x.company}} <small>{{x.fname}} {{x.lname}}</small> </a>
+				<a href="#/customers/{{x.customer_id }}">{{x.company}} <small>{{x.fname}} {{x.lname}}</small> </a>	
+
+				
 				
 				<div class="printlabels right">
 				<a class="button button-primary button-small " href="#/tirelabels/{{x.id}}"><i class="fa fa-print"></i> Banden Labels Printen</a>
 				<a class="button button-primary button-small " href="#/tirelabels/{{x.id}}"><i class="fa fa-print"></i> Klantcontract Printen</a>
+				<a class="button button-caution button-small" ng-click="removeContract()"><i class="fa fa-times"></i> Verwijder Contract</a>
 				</div>
 			</h1> 
 		</th>
@@ -41,18 +44,6 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 		<td>{{x.lname}}</td>
 	</tr>
 	<tr>
-		<td>Merk Auto</td>
-		<td>{{x.merk}}</td>
-	</tr>
-	<tr>
-		<td>Kenteken</td>
-		<td class="kenteken">{{x.kenteken}}</td>
-	</tr>
-	<tr>
-		<td>Auto</td>
-		<td>{{x.car_brand}} - {{x.car_type}}</td>
-	</tr>
-	<tr>
 		<td>Telefoonnummer</td>
 		<td>{{x.tel}}</td>
 	</tr>
@@ -60,23 +51,8 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 		<td colspan="2"><br></td>
 	</tr>
 
-<!-- 	<tr>
-		<td>
-			<div class="bandrow">Links voor</div>
-			<div class="bandrow">Rechts Voor</div>
-			<div class="bandrow">Rechts Achter</div>
-			<div class="bandrow">Links Achter</div>
-		</td>
-		<td>
-			<div class="eachTire">LV {{x.LV_brand}} {{x.LV_type}} {{x.LV_profile}} {{x.LV_tiresize}}</div>
-			<div class="eachTire">RV {{x.RV_brand}} {{x.RV_type}} {{x.RV_profile}} {{x.RV_tiresize}}</div>
-			<div class="eachTire">LA {{x.LA_brand}} {{x.LA_type}} {{x.LA_profile}} {{x.LA_tiresize}}</div>
-			<div class="eachTire">RA {{x.RA_brand}} {{x.RA_type}} {{x.RA_profile}} {{x.RA_tiresize}}</div>
-		</td>
-	</tr> -->
-
 	<tr>
-		<td><h3>Contractdetails</h3></td>
+		<td colspan="2"><h3>Contractdetails <button ng-click="editcontractinfo()" class="right button-small button-highlight button-rounded" style="display: none;">Bewerk bandgegevens</button></h3></td>
 		<td></td>
 	</tr>
 	<tr>
@@ -103,6 +79,14 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 		<td>Run Flat</td>
 		<td><div ng-bind-html="conditionTF(x.flatrun)"></div></td>
 	</tr>
+	<tr>
+		<td>Auto</td>
+		<td>{{x.car_brand}} - {{x.car_type}}</td>
+	</tr>
+	<tr>
+		<td>Kenteken</td>
+		<td class="kenteken">{{x.kenteken}}</td>
+	</tr>
 
 	<tr>
 		<th colspan="2"><h3>Positie</h3></td>
@@ -121,7 +105,9 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 	</tr>
 
 	
+</table>
 
+<table>
 	<tr>
 		<th colspan="2"><h3>Banddetails<button ng-click="editTireinfo()" class="right button-small button-highlight button-rounded">Bewerk bandgegevens</button></h3></td>
 	</tr>
@@ -137,7 +123,7 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 				</tr>
 				<tr>
 					<td>LV</td>
-					<td><span>{{LV_brand}}</span><input ng-model="LV_brand" value="{{LV_brand}}" style="display: none;"></td>
+					<td><span>{{LV_brand}}</span><input ng-model="LV_brand" style="display: none;"></td>
 					<td><span>{{LV_type}}</span><input ng-model="LV_type" value="{{LV_type}}" style="display: none;"></td>
 					<td class="{{tireProfile(LV_profile)}} tireprofile"><span>{{LV_profile}}</span><input type="text" ng-model="LV_profile" value="{{LV_profile}}" style="display: none;"></td>
 					<td><span>{{LV_tiresize}}</span><input ng-model="LV_tiresize" value="{{LV_tiresize}}" style="display: none;"></td>
@@ -151,7 +137,7 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 				</tr>
 				<tr>
 					<td>LA</td>
-					<td><span>{{x.LA_brand}}</span><input ng-model="LA_brand" value="{{LA_brand}}" style="display: none;"></td>
+					<td><span>{{LA_brand}}</span><input ng-model="LA_brand" value="{{LA_brand}}" style="display: none;"></td>
 					<td><span>{{LA_type}}</span><input ng-model="LA_type" value="LA_type" style="display: none;"></td>
 					<td class="{{tireProfile(LA_profile)}} tireprofile"><span>{{LA_profile}}</span><input type="text" ng-model="LA_profile" value="{{LA_profile}}" style="display: none;"></td>
 					<td><span>{{LA_tiresize}}</span><input ng-model="LA_tiresize" value="{{LA_tiresize}}" style="display: none;"></td>
@@ -163,15 +149,17 @@ Contract is succesvol opgeslagen. Print de labels uit en plak deze op de banden 
 					<td class="{{tireProfile(RA_profile)}} tireprofile"><span>{{RA_profile}}</span><input type="text" ng-model="RA_profile" value="{{RA_profile}}" style="display: none;"></td>
 					<td><span>{{RA_tiresize}}</span><input ng-model="RA_tiresize" value="{{RA_tiresize}}" style="display: none;"></td>
 				</tr>
-				<tr><td col="5"><button ng-click="saveTireInfo()">Opslaan</button></td></tr>
+				<div ng-show="tireEditedSuccesfully" data-alert class="alert-box success radius">
+Bandengegevens zijn succesvol opgeslagen!<a href="#" class="close">&times;</a>
+</div>
+				<tr>
+					<td colspan="5"><button ng-click="saveTireInfo()" class="right button button-primary button-rounded saveTireInfo">Opslaan</button></td></tr>
 			</table>
 
 		</td>
 	</tr>
-
 </table>
 
-<button ng-click="testfields()">TestFields</button>
 {{$rootScope.options}}
 
 <div class="addToContainer" style="display: none;">

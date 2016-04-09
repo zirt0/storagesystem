@@ -21,6 +21,25 @@ $merk = $request->merk;
 $tel = $request->tel;
 $email = $request->email;
 
+$LV_brand = $request->LV_brand;
+$LV_type = $request->LV_type;
+$LV_profile = $request->LV_profile;
+$LV_tiresize = $request->LV_tiresize;
+
+$RV_brand = $request->RV_brand;
+$RV_type = $request->RV_type;
+$RV_profile = $request->RV_profile;
+$RV_tiresize = $request->RV_tiresize;
+
+$LA_brand = $request->LA_brand;
+$LA_type = $request->LA_type;
+$LA_profile = $request->LA_profile;
+$LA_tiresize = $request->LA_tiresize;
+
+$RA_brand = $request->RA_brand;
+$RA_type = $request->RA_type;
+$RA_profile = $request->RA_profile;
+$RA_tiresize = $request->RA_tiresize;
 //print $subject
 
 if($subject == "update_invoiceno"){
@@ -77,6 +96,16 @@ if($subject == "changeContractpos"){
 if($subject == "updateCustomer"){
 
 	$sql = "UPDATE customers SET company = '" . $company . "', fname = '" . $fname . "', lname = '" . $lname . "', merk = '" . $merk . "', tel = '" . $tel . "', email = '" . $email . "' WHERE id = '" . $id . "'";
+	$result = $conn->query($sql);
+	
+
+
+	$outp = $sql;
+}
+
+if($subject == "updateTireInfo"){
+
+	$sql = "UPDATE tires SET LV_brand = '" . $LV_brand . "', LV_type = '" . $LV_type . "', LV_profile = '" . $LV_profile . "', LV_tiresize = '" . $LV_tiresize . "', RV_brand = '" . $RV_brand . "', RV_type = '" . $RV_type . "', RV_profile = '" . $RV_profile . "', RV_tiresize = '" . $RV_tiresize . "', LA_brand = '" . $LA_brand . "', LA_type = '" . $LA_type . "', LA_profile = '" . $LA_profile . "', LA_tiresize = '" . $LA_tiresize . "', RA_brand = '" . $RA_brand . "', RA_type = '" . $RA_type . "', RA_profile = '" . $RA_profile . "', RA_tiresize = '" . $RA_tiresize . "' WHERE id = '" . $id . "'";
 	$result = $conn->query($sql);
 	
 

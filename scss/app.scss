@@ -103,6 +103,7 @@ background: #f9f9f9;
     font-weight: bold;
     font-size: 15px;
     padding: 8px 20px;
+    text-transform: uppercase;
 }
 
 select  { 
@@ -623,6 +624,12 @@ h1.headerTitle small{
   background-color: #79554F;
 }
 
+.copybutton {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 200px;
+}
 
 
 /* ANIMATIONS

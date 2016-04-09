@@ -220,6 +220,15 @@
 
 		}
 
+		$scope.copyLAtoRA = function(){
+
+			$scope.bandprofiel4 = $scope.bandprofiel3;
+			$scope.bandmaat4 = $scope.bandmaat3;
+			$scope.bandenmerk4 = $scope.bandenmerk3;
+			$scope.bandtype4 = $scope.bandtype3;
+			
+		}
+
 		$scope.$watch('bandprofiel1', function(v){
 
 			if ($scope.bandprofiel){

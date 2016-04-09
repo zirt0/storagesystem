@@ -10,6 +10,8 @@ $id = $request->id;
 $data = $request->data;
 $tirebrand = $request->tirebrand;
 $containerId = $request->id;
+$segmentName = $request->segmentName;
+
 
 //print $subject;
 
@@ -41,6 +43,29 @@ if($subject == "removeUser"){
 if($subject == "remove_customer"){
 
 	$sql = "DELETE FROM customers WHERE id=" . "'".$id . "'";
+	$result = $conn->query($sql);
+	$outp = $sql;
+}
+
+if($subject == "remove_contract"){
+
+	$sql = "DELETE FROM contracts WHERE id=" . "'".$id . "'";
+	$result = $conn->query($sql);
+	$outp = $sql;
+}
+
+if($subject == "remove_tires"){
+
+	$sql = "DELETE FROM tires WHERE id=" . "'".$id . "'";
+	$result = $conn->query($sql);
+	$outp = $sql;
+}
+
+
+
+if($subject == "removeSegment"){
+
+	$sql = "DELETE FROM container_content WHERE container_id=" . "'".$id . "' AND container_department='" . $segmentName . "'";
 	$result = $conn->query($sql);
 	$outp = $sql;
 }

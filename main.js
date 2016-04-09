@@ -71,6 +71,7 @@
 			controller:'contractsDetailsCtrl'
 
 		})
+
 		.when('/users',{
 			templateUrl:'partials/users.html',
 			controller:'usersCtrl'
@@ -363,7 +364,7 @@
 		$scope.sortReverse  = true;  // set the default sort order
 		$scope.searchCustomer   = '';     // set the default search/filter term
 
-		$http.post("server/read.php",{'subject': "customers"})
+		$http.post("server/read.php",{'subject': "customer_select"})
 		
 		.success(function (response) {
 
