@@ -144,6 +144,10 @@ app.controller('newCustomerCtrl', ['$scope', '$rootScope', '$http' , '$routePara
 
 	$scope.insertCustomerDBpage = function(){
 		console.log($scope.addNewCompany);
+
+		if($scope.addNewCustomer == undefined){
+			$scope.addNewCustomer = "";
+		}
 		
 		$http.post("server/insertcontract.php",{
 		'subject': "insert_newcustomer",

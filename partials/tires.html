@@ -50,7 +50,7 @@
 		</tr>
 		<tr ng-repeat="x in banden | orderBy:sortType:sortReverse | filter:searchCustomer">
 		    <td>{{ x.id }}</td>
-		    <td>{{ x.fname }} {{ x.lname }} {{ x.company }}</td>
+		    <td><a href="#/customers/{{x.id}}">{{ x.fname }} {{ x.lname }} <span style="font-size: 6pt;" ng-if="x.company"> - {{ x.company }}</span></a></td>
 		    <td>LV<br>
 		    	RV<br>
 		    	LA<br>

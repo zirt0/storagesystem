@@ -38,9 +38,10 @@ if($subject == "customers"){
 	if($sort != ""){
 		$sql = "SELECT * FROM customers ORDER BY id DESC LIMIT " . $sort;
 	}else{
-		$sql = "SELECT customers.id, customers.fname, customers.lname, contracts.car_brand, contracts.kenteken FROM customers
-	INNER JOIN contracts
- 	WHERE contracts.customer_id = customers.id GROUP BY id";
+		$sql = "SELECT customers.id, customers.fname, customers.lname, customers.company, contracts.car_brand, contracts.kenteken 
+	FROM customers
+	LEFT JOIN contracts
+ 	ON contracts.customer_id = customers.id GROUP BY id";
 	}
 
 	$result = $conn->query($sql);
@@ -65,9 +66,10 @@ if($subject == "customers"){
 if($subject == "customer_select"){
 
 
-	$sql = "SELECT customers.id, customers.fname, customers.lname, contracts.car_brand, contracts.kenteken FROM customers
-	INNER JOIN contracts
- 	WHERE contracts.customer_id = customers.id";
+	$sql = "SELECT customers.id, customers.fname, customers.lname, contracts.car_brand, contracts.kenteken 
+	FROM customers
+	LEFT JOIN contracts
+ 	ON contracts.customer_id = customers.id";
 
 
 	$result = $conn->query($sql);
